@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://b42rsmt8rmb33"]
 
-[node name="WheelTest" type="Node2D" unique_id=706444005]
+[ext_resource type="Script" uid="uid://co8ysbawm4o60" path="res://Scripts/wheel_brain.gd" id="1_3dogw"]
+[ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="2_r5l72"]
+
+[node name="Main" type="Node2D" unique_id=706444005]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1778397420]
+
+[node name="WheelTest" type="Node2D" parent="." unique_id=699852044]
+script = ExtResource("1_3dogw")
+item = ExtResource("2_r5l72")
+wheel_size = 7
+test_colors = Array[Color]([Color(1, 0, 0, 1), Color(1, 0.026490986, 0.87668204, 1), Color(0.7040882, 0.30270457, 1, 1), Color(0.90335953, 0.49274164, 0, 1), Color(0.20175111, 0.40792882, 0, 1), Color(0, 0.6972954, 0.4688867, 1)])
