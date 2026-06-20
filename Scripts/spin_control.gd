@@ -1,8 +1,8 @@
-extends Sprite2D
+extends Node2D
 class_name Spinner
 
-@export var SpinTime:float = 1
-@export var WaitTime:float = 5
+@export var SpinTime:float = 5
+@export var WaitTime:float = 2
 @export var ResetTime:float = 5
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +21,7 @@ func random_spin():
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "rotation", rotation+6*PI+testRand*2*PI, SpinTime).set_trans(Tween.TRANS_QUART)
 	tween.chain().tween_property(self, "rotation", 0, ResetTime).set_trans(Tween.TRANS_SINE).set_delay(WaitTime)
+	tween.tween_callback(random_spin)
 	pass
 
 func _input(event):

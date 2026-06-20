@@ -8,3 +8,8 @@
 [node name="Node2D" type="Sprite2D" parent="." unique_id=1998313930]
 texture = ExtResource("1_u6vak")
 script = ExtResource("2_0qxmc")
+
+[node name="Node2D" type="Sprite2D" parent="Node2D" unique_id=1307963474]
+position = Vector2(0, -64)
+scale = Vector2(0.125, 1)
+texture = ExtResource("1_u6vak")
