@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://b42rsmt8rmb33"]
 
 [ext_resource type="Script" uid="uid://co8ysbawm4o60" path="res://Scripts/wheel_brain.gd" id="1_3dogw"]
+[ext_resource type="PackedScene" uid="uid://cgt7iy4sqmt42" path="res://Scenes/spinner_scene.tscn" id="1_hb2xm"]
 [ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="2_r5l72"]
 [ext_resource type="Script" uid="uid://b4s8obyrwa5gj" path="res://Scripts/template_slice.gd" id="3_50ct6"]
 
 [node name="Main" type="Node2D" unique_id=706444005]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1778397420]
+
+[node name="SpinnerRoot" parent="." unique_id=1682055333 instance=ExtResource("1_hb2xm")]
+
+[node name="Node2D" parent="SpinnerRoot" index="0" unique_id=1998313930]
+SpinTime = 5.0
+WaitTime = 2.0
 
 [node name="WheelTest" type="Node2D" parent="." unique_id=699852044 node_paths=PackedStringArray("slice_template")]
 script = ExtResource("1_3dogw")
@@ -26,3 +33,5 @@ collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
 
 [connection signal="mouse_entered" from="WheelTest/TemplatePolygon2D/Area2D" to="WheelTest/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="WheelTest/TemplatePolygon2D/Area2D" to="WheelTest/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+
+[editable path="SpinnerRoot"]

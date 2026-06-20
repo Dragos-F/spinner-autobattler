@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cgt7iy4sqmt42"]
+
+[ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="1_u6vak"]
+[ext_resource type="Script" uid="uid://d230cyej1mx4c" path="res://Scripts/spin_control.gd" id="2_0qxmc"]
+
+[node name="SpinnerRoot" type="Node" unique_id=1682055333]
+
+[node name="Node2D" type="Sprite2D" parent="." unique_id=1998313930]
+texture = ExtResource("1_u6vak")
+script = ExtResource("2_0qxmc")
