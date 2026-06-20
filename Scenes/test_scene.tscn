@@ -2,13 +2,27 @@
 
 [ext_resource type="Script" uid="uid://co8ysbawm4o60" path="res://Scripts/wheel_brain.gd" id="1_3dogw"]
 [ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="2_r5l72"]
+[ext_resource type="Script" uid="uid://b4s8obyrwa5gj" path="res://Scripts/template_slice.gd" id="3_50ct6"]
 
 [node name="Main" type="Node2D" unique_id=706444005]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1778397420]
 
-[node name="WheelTest" type="Node2D" parent="." unique_id=699852044]
+[node name="WheelTest" type="Node2D" parent="." unique_id=699852044 node_paths=PackedStringArray("slice_template")]
 script = ExtResource("1_3dogw")
 item = ExtResource("2_r5l72")
-wheel_size = 7
+wheel_size = 6
 test_colors = Array[Color]([Color(1, 0, 0, 1), Color(1, 0.026490986, 0.87668204, 1), Color(0.7040882, 0.30270457, 1, 1), Color(0.90335953, 0.49274164, 0, 1), Color(0.20175111, 0.40792882, 0, 1), Color(0, 0.6972954, 0.4688867, 1)])
+slice_template = NodePath("TemplatePolygon2D")
+
+[node name="TemplatePolygon2D" type="Polygon2D" parent="WheelTest" unique_id=823128919 node_paths=PackedStringArray("own_collision")]
+script = ExtResource("3_50ct6")
+own_collision = NodePath("Area2D/CollisionPolygon2D")
+collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
+
+[node name="Area2D" type="Area2D" parent="WheelTest/TemplatePolygon2D" unique_id=603244746]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WheelTest/TemplatePolygon2D/Area2D" unique_id=1879484998]
+
+[connection signal="mouse_entered" from="WheelTest/TemplatePolygon2D/Area2D" to="WheelTest/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="WheelTest/TemplatePolygon2D/Area2D" to="WheelTest/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]

@@ -4,42 +4,48 @@ class_name Wheel
 
 @export var item:WheelItem
 @export var wheel_size:int
+@export var wheel_scale = Vector2(10,10)
 @export var test_colors:Array[Color]
+@export var slice_template:PresetSlice
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var slice_parent = Node2D.new()
-	var temp_slice = Polygon2D.new()
+	var temp_slice:PresetSlice = slice_template.duplicate()
 	slice_parent.add_child(temp_slice)
-	#wheel_size = item.stats.size()	
+	wheel_size = item.stats.size()
 	var angle = 2*PI/wheel_size
-	print ("Angle:"+str(angle))
+	#print ("Angle:"+str(angle))
 	var a = Vector2(0,-10)
 	var bx:float
 	var by:float
 	
 	by = (pow(a.length(),2)*cos(angle))/a.y
-	print (by)
+	#print (by)
 	bx = sqrt(pow(a.length(),2)-(pow(by,2)))
-	print (bx)
+	#print (bx)
 	var b = Vector2(bx,by)
-	print (b.angle_to(a))
+	#print (b.angle_to(a))
 	temp_slice.polygon = [position,a,b]
-	temp_slice.scale = Vector2(10,10)
+	temp_slice.new_shape(position, a, b)
+	temp_slice.scale = wheel_scale
 	
-	for i in wheel_size:
-		print("Iterated once")
-		var new_temp_slice = slice_parent.duplicate()
-		var new_polygon = new_temp_slice.get_child(0)
-		if new_polygon is Polygon2D:
-			if i<test_colors.size():
-				new_polygon.color = test_colors[i]
-			else:
-				new_polygon.color = test_colors[wheel_size-i]
-		add_child(new_temp_slice)
-		new_temp_slice.rotate(angle*(i+1))
-	
-	
-
+	for i in wheel_size: #ITERATION WHERE YOU CAN MODIFY THE SLICE BEFORE IT'S MADEE
+		var perm_slice = slice_parent.duplicate()
+		add_child(perm_slice)
+		perm_slice.rotate(angle*(i+1))
+		var copied_slice:PresetSlice = perm_slice.get_child(0)
+		copied_slice.slice_type = item.stats[i] #bit roundabout, but seemingly the duplication would not copy the resource with it so now we're heree
+		if item.stats[i].visual !=null:
+			copied_slice.texture = item.stats[i].visual
+		else:
+			copied_slice.color = item.stats[i].colour
+		
+		#print("Iterated once")
+		#var new_temp_slice = slice_parent.duplicate()
+		#var new_polygon = new_temp_slice.get_child(0)
+		#new_polygon.color = item.stats[i].colour
+		#add_child(new_temp_slice)
+		#new_temp_slice.rotate(angle*(i+1))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
