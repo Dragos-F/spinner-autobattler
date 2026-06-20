@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BuffSlice" format=3 uid="uid://bgxmuxq8peoyk"]
+
+[ext_resource type="Script" uid="uid://d0fdgen111hjm" path="res://Scripts/buff_slice.gd" id="1_vn3xs"]
+
+[resource]
+script = ExtResource("1_vn3xs")
+modifier = 1.2
+colour = Color(0.5529412, 0.7176471, 1, 1)
+metadata/_custom_type_script = "uid://d0fdgen111hjm"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DamageSlice" format=3 uid="uid://bq224hmhyl22a"]
+
+[ext_resource type="Script" uid="uid://dcaaw5txe13ct" path="res://Scripts/damage_slice.gd" id="1_qo6pg"]
+
+[resource]
+script = ExtResource("1_qo6pg")
+value = -2
+target = 0
+metadata/_custom_type_script = "uid://dcaaw5txe13ct"

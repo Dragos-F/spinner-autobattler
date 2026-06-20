@@ -14,6 +14,15 @@ config/name="SpinnerAutobattler"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://Resources/": "purple",
+"res://Scripts/": "green",
+"res://Sound/": "yellow",
+"res://VisualAssets/": "red"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

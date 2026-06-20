@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DamageSlice" format=3 uid="uid://do72kvdg7yc2d"]
+
+[ext_resource type="Script" uid="uid://dcaaw5txe13ct" path="res://Scripts/damage_slice.gd" id="1_m805i"]
+
+[resource]
+script = ExtResource("1_m805i")
+value = 4
+Crit = true
+colour = Color(0.45882353, 0.09019608, 0.3372549, 1)
+metadata/_custom_type_script = "uid://dcaaw5txe13ct"
