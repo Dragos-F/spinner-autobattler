@@ -1,11 +1,11 @@
+@tool
 extends Node2D
 class_name Wheel
 
 
 @export var item:WheelItem
-@export var wheel_size:int
+@onready var wheel_size:int
 @export var wheel_scale = Vector2(10,10)
-@export var test_colors:Array[Color]
 @export var slice_template:PresetSlice
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

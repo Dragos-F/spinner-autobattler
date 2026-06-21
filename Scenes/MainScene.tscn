@@ -1,0 +1,269 @@
+[gd_scene format=3 uid="uid://c74nx57msej6u"]
+
+[ext_resource type="Texture2D" uid="uid://dr1j33mwfcug5" path="res://VisualAssets/Background_Blank.png" id="1_7rqgy"]
+[ext_resource type="Texture2D" uid="uid://cb0wxmew1otp4" path="res://VisualAssets/Background_VaporwaveBoss.png" id="2_qxria"]
+[ext_resource type="StyleBox" uid="uid://babd65cqgfcib" path="res://Resources/ui_box.tres" id="2_y4jh7"]
+[ext_resource type="Texture2D" uid="uid://dhw32ateyd5gf" path="res://VisualAssets/Button_return.png" id="3_q68mp"]
+[ext_resource type="Texture2D" uid="uid://bm6be32udl0hk" path="res://VisualAssets/UI_mockup_4.png" id="3_y4jh7"]
+[ext_resource type="Texture2D" uid="uid://da13mmeakbrei" path="res://VisualAssets/Button_Settings.png" id="4_f140w"]
+[ext_resource type="Texture2D" uid="uid://dnk5bsy5s0abm" path="res://VisualAssets/Background_Sidebar.png" id="4_q68mp"]
+[ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_0iob3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
+texture = ExtResource("1_7rqgy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7rkf"]
+bg_color = Color(0.5882353, 0.25882354, 0.3254902, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntio1"]
+texture = ExtResource("2_qxria")
+region_rect = Rect2(336, 0, 1248, 1080)
+
+[node name="Node2D" type="Node" unique_id=704281934]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1319989986]
+
+[node name="UIParent" type="Control" parent="." unique_id=810498634]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="UIParent" unique_id=1242032932]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hk511")
+
+[node name="PortraitBox" type="PanelContainer" parent="UIParent" unique_id=1452437250]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 270.0
+theme_override_styles/panel = ExtResource("2_y4jh7")
+
+[node name="ContestantUI" type="PanelContainer" parent="UIParent" unique_id=1852627084]
+layout_mode = 0
+offset_top = 286.0
+offset_right = 320.0
+offset_bottom = 1080.0
+theme_override_styles/panel = ExtResource("2_y4jh7")
+
+[node name="Control" type="Control" parent="UIParent/ContestantUI" unique_id=564026781]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIParent/ContestantUI/Control" unique_id=94424773]
+layout_mode = 0
+offset_left = 13.0
+offset_right = 312.0
+offset_bottom = 794.0
+
+[node name="Name" type="CenterContainer" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1934908745]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.36
+offset_transform_position = Vector2(200, 0)
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Name" unique_id=456916077]
+layout_mode = 2
+offset_transform_position = Vector2(-25, 0)
+theme_override_font_sizes/font_size = 32
+text = "Contestant Name"
+
+[node name="Items" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1099574783]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="PanelContainer" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=151462953]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 32.0
+offset_right = 89.0
+offset_bottom = 108.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" unique_id=221529355]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=701935369]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 70.0
+offset_right = 184.0
+offset_bottom = 146.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" unique_id=1081981416]
+layout_mode = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=744358349]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 32.0
+offset_right = 279.0
+offset_bottom = 108.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" unique_id=1018975756]
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer4" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=1216314014]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 127.0
+offset_right = 89.0
+offset_bottom = 203.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" unique_id=801661444]
+layout_mode = 2
+text = "Bucket"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Contestant Text" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=965184218]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Contestant Text" unique_id=654737110]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 257.0
+grow_horizontal = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas tellus mauris, sit amet molestie magna pharetra nec. Sed id aliquam est, quis luctus nulla. In sed ultricies nisi. Phasellus leo odio, lacinia eget aliquet et, suscipit nec ipsum. Nunc blandit luctus sem, eleifend imperdiet felis molestie vitae
+"
+autowrap_mode = 1
+
+[node name="Buttons" type="HBoxContainer" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1258459046]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.24
+offset_transform_enabled = true
+theme_override_constants/separation = 14
+
+[node name="Button" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1691541058]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("3_q68mp")
+
+[node name="Button2" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1209743159]
+layout_mode = 2
+icon = ExtResource("4_f140w")
+
+[node name="Button3" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1175089662]
+layout_mode = 2
+icon = ExtResource("5_0iob3")
+
+[node name="CenterPlayArea" type="Control" parent="UIParent" unique_id=882134817]
+anchors_preset = 0
+offset_left = 336.0
+offset_right = 1584.0
+offset_bottom = 1080.0
+
+[node name="PanelContainer" type="PanelContainer" parent="UIParent/CenterPlayArea" unique_id=369921564]
+layout_mode = 0
+offset_right = 1248.0
+offset_bottom = 1079.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ntio1")
+
+[node name="EnemyPortrait" type="PanelContainer" parent="UIParent" unique_id=1423755693]
+layout_mode = 0
+offset_left = 1600.0
+offset_right = 1920.0
+offset_bottom = 270.0
+theme_override_styles/panel = ExtResource("2_y4jh7")
+
+[node name="EnemyDescription" type="PanelContainer" parent="UIParent" unique_id=1748079486]
+layout_mode = 0
+offset_left = 1600.0
+offset_top = 286.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = ExtResource("2_y4jh7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIParent/EnemyDescription" unique_id=2090643602]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UIParent/EnemyDescription/VBoxContainer" unique_id=336608358]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.24
+
+[node name="Label" type="Label" parent="UIParent/EnemyDescription/VBoxContainer/Control" unique_id=1003712461]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 34.0
+offset_right = 285.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 32
+text = "Boss Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="Control2" type="Control" parent="UIParent/EnemyDescription/VBoxContainer" unique_id=878739731]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UIParent/EnemyDescription/VBoxContainer/Control2" unique_id=928729622]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.049000002
+anchor_right = 0.97200006
+anchor_bottom = 0.049000002
+offset_top = -0.26200104
+offset_right = -0.040008545
+offset_bottom = 586.738
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper ligula lorem, sed elementum turpis pharetra ut. Pellentesque a augue tristique, malesuada enim id, rutrum quam. Donec faucibus, leo ut faucibus ultricies, felis libero blandit purus, quis rutrum libero dolor id velit. Integer in posuere nibh. Donec congue ex ullamcorper efficitur varius. Duis tortor nisi, porta ut ipsum et, posuere tincidunt nunc. Sed vulputate non risus eget iaculis. Nunc eu lorem nec diam gravida ullamcorper. Sed nec congue orci. In nulla elit, blandit et aliquam sit amet, laoreet ac nunc. Fusce maximus dictum orci et pharetra. Phasellus aliquam sed mi at dictum. Aenean faucibus diam ac lacus laoreet auctor. Quisque scelerisque eleifend sapien, at lobortis erat accumsan vel. Mauris quis bibendum est."
+autowrap_mode = 2
+text_overrun_behavior = 1
+
+[node name="Mockups" type="Node2D" parent="." unique_id=1777635353]
+visible = false
+
+[node name="BackgroundVaporwaveBoss" type="Sprite2D" parent="Mockups" unique_id=1400856788]
+visible = false
+texture_filter = 1
+texture = ExtResource("2_qxria")
+
+[node name="UiMockup4" type="Sprite2D" parent="Mockups" unique_id=1869233926]
+texture_filter = 1
+texture = ExtResource("3_y4jh7")
+
+[node name="BackgroundSidebar" type="Sprite2D" parent="Mockups" unique_id=1623148561]
+visible = false
+texture_filter = 1
+texture = ExtResource("4_q68mp")

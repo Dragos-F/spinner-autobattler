@@ -1,67 +1,79 @@
 [gd_scene format=3 uid="uid://b42rsmt8rmb33"]
 
 [ext_resource type="Script" uid="uid://co8ysbawm4o60" path="res://Scripts/wheel_brain.gd" id="1_3dogw"]
-[ext_resource type="PackedScene" uid="uid://cgt7iy4sqmt42" path="res://Scenes/spinner_scene.tscn" id="1_hb2xm"]
 [ext_resource type="Script" uid="uid://d230cyej1mx4c" path="res://Scripts/spin_control.gd" id="2_ak5v8"]
-[ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="2_r5l72"]
 [ext_resource type="Script" uid="uid://b4s8obyrwa5gj" path="res://Scripts/template_slice.gd" id="3_50ct6"]
+[ext_resource type="Resource" uid="uid://bqq1y08oeudxb" path="res://Resources/Items/Magic8Ball.tres" id="5_x033f"]
+[ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_oho3u"]
+[ext_resource type="Script" uid="uid://cbgxtbomb3nex" path="res://Scripts/wheel_clicker.gd" id="8_d3awe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xqv3"]
+size = Vector2(128, 128)
 
 [node name="Main" type="Node2D" unique_id=706444005]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1778397420]
 
-[node name="SpinnerRoot" parent="." unique_id=1682055333 instance=ExtResource("1_hb2xm")]
-
-[node name="Node2D" parent="SpinnerRoot" index="0" unique_id=1998313930]
-position = Vector2(250, -7)
-WaitTime = 1.0
-ResetTime = 2.0
-
-[node name="Node2D" type="Node2D" parent="." unique_id=1982595322]
+[node name="Node2D2" type="Node2D" parent="." unique_id=188069289 node_paths=PackedStringArray("test_clicker")]
+position = Vector2(-315, 0)
 script = ExtResource("2_ak5v8")
 WaitTime = 0.5
+test_clicker = NodePath("../WheelClicker")
 
-[node name="WheelTest" type="Node2D" parent="Node2D" unique_id=699852044 node_paths=PackedStringArray("slice_template")]
+[node name="WheelTest" type="Node2D" parent="Node2D2" unique_id=2028512767 node_paths=PackedStringArray("slice_template")]
 script = ExtResource("1_3dogw")
-item = ExtResource("2_r5l72")
-wheel_size = 6
-test_colors = Array[Color]([Color(1, 0, 0, 1), Color(1, 0.026490986, 0.87668204, 1), Color(0.7040882, 0.30270457, 1, 1), Color(0.90335953, 0.49274164, 0, 1), Color(0.20175111, 0.40792882, 0, 1), Color(0, 0.6972954, 0.4688867, 1)])
+item = ExtResource("5_x033f")
 slice_template = NodePath("TemplatePolygon2D")
 
-[node name="TemplatePolygon2D" type="Polygon2D" parent="Node2D/WheelTest" unique_id=823128919 node_paths=PackedStringArray("own_collision")]
+[node name="TemplatePolygon2D" type="Polygon2D" parent="Node2D2/WheelTest" unique_id=483429789 node_paths=PackedStringArray("own_collision")]
 script = ExtResource("3_50ct6")
 own_collision = NodePath("Area2D/CollisionPolygon2D")
 collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
 
-[node name="Area2D" type="Area2D" parent="Node2D/WheelTest/TemplatePolygon2D" unique_id=603244746]
+[node name="Area2D" type="Area2D" parent="Node2D2/WheelTest/TemplatePolygon2D" unique_id=511225106]
+z_index = 1
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/WheelTest/TemplatePolygon2D/Area2D" unique_id=1879484998]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D2/WheelTest/TemplatePolygon2D/Area2D" unique_id=719812012]
 
-[node name="Node2D2" type="Node2D" parent="." unique_id=789390047]
-position = Vector2(-233, 0)
-script = ExtResource("2_ak5v8")
-WaitTime = 0.5
-ResetTime = 3.0
+[node name="WheelClicker" type="Sprite2D" parent="." unique_id=1050320968 node_paths=PackedStringArray("result")]
+position = Vector2(-233.99998, -105.00001)
+rotation = -2.4423409
+scale = Vector2(0.04000002, 1)
+texture = ExtResource("7_oho3u")
+script = ExtResource("8_d3awe")
+result = NodePath("../Label")
 
-[node name="WheelTest" type="Node2D" parent="Node2D2" unique_id=1139723349 node_paths=PackedStringArray("slice_template")]
-script = ExtResource("1_3dogw")
-item = ExtResource("2_r5l72")
-wheel_size = 6
-test_colors = Array[Color]([Color(1, 0, 0, 1), Color(1, 0.026490986, 0.87668204, 1), Color(0.7040882, 0.30270457, 1, 1), Color(0.90335953, 0.49274164, 0, 1), Color(0.20175111, 0.40792882, 0, 1), Color(0, 0.6972954, 0.4688867, 1)])
-slice_template = NodePath("TemplatePolygon2D")
+[node name="Area2D" type="Area2D" parent="WheelClicker" unique_id=1149129497]
 
-[node name="TemplatePolygon2D" type="Polygon2D" parent="Node2D2/WheelTest" unique_id=836825309 node_paths=PackedStringArray("own_collision")]
-script = ExtResource("3_50ct6")
-own_collision = NodePath("Area2D/CollisionPolygon2D")
-collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WheelClicker/Area2D" unique_id=15635898]
+shape = SubResource("RectangleShape2D_4xqv3")
 
-[node name="Area2D" type="Area2D" parent="Node2D2/WheelTest/TemplatePolygon2D" unique_id=1356627609]
+[node name="Label" type="Label" parent="." unique_id=856232082]
+offset_left = -1.0
+offset_top = -287.0
+offset_right = 430.0
+offset_bottom = -162.0
+theme_override_font_sizes/font_size = 32
+text = "Selected Slice: "
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D2/WheelTest/TemplatePolygon2D/Area2D" unique_id=1074613984]
-
-[connection signal="mouse_entered" from="Node2D/WheelTest/TemplatePolygon2D/Area2D" to="Node2D/WheelTest/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D/WheelTest/TemplatePolygon2D/Area2D" to="Node2D/WheelTest/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="Node2D2/WheelTest/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Node2D2/WheelTest/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-
-[editable path="SpinnerRoot"]
+[connection signal="mouse_entered" from="Node2D2/WheelTest/@Node2D@19822/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19822/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/WheelTest/@Node2D@19822/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19822/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/WheelTest/@Node2D@19823/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19823/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/WheelTest/@Node2D@19823/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19823/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/WheelTest/@Node2D@19824/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19824/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/WheelTest/@Node2D@19824/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19824/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/WheelTest/@Node2D@19825/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19825/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/WheelTest/@Node2D@19825/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19825/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/WheelTest/@Node2D@19826/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19826/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/WheelTest/@Node2D@19826/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19826/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/WheelTest/@Node2D@19827/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19827/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/WheelTest/@Node2D@19827/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19827/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/WheelTest/@Node2D@19828/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19828/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/WheelTest/@Node2D@19828/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19828/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/WheelTest/@Node2D@19829/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19829/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/WheelTest/@Node2D@19829/TemplatePolygon2D/Area2D" to="Node2D2/WheelTest/@Node2D@19829/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="area_entered" from="WheelClicker/Area2D" to="WheelClicker" method="_on_area_2d_area_entered"]

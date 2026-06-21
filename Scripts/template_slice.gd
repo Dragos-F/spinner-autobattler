@@ -1,3 +1,4 @@
+@tool
 extends Polygon2D
 class_name PresetSlice
 
@@ -14,8 +15,10 @@ func new_shape(o:Vector2,a:Vector2, b:Vector2):
 
 
 func _on_area_2d_mouse_entered() -> void:
-	print ("Hovering"+str(slice_type))
+	#print ("Hovering"+str(slice_type))
+	pass
 
 
 func _on_area_2d_mouse_exited() -> void:
-	print ("Left"+str(slice_type))
+	#print ("Left"+str(slice_type))
+	pass
