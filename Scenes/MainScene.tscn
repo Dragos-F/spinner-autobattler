@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://da13mmeakbrei" path="res://VisualAssets/Button_Settings.png" id="4_f140w"]
 [ext_resource type="Texture2D" uid="uid://dnk5bsy5s0abm" path="res://VisualAssets/Background_Sidebar.png" id="4_q68mp"]
 [ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_0iob3"]
+[ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="9_0iob3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
 texture = ExtResource("1_7rqgy")
@@ -22,6 +23,16 @@ corner_radius_bottom_left = 12
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntio1"]
 texture = ExtResource("2_qxria")
 region_rect = Rect2(336, 0, 1248, 1080)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0iob3"]
+shader = ExtResource("9_0iob3")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.400000019
+shader_parameter/warp_amount = 0.070000003325
+shader_parameter/vignette_amount = 0.5
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.10000000475
+shader_parameter/brightness_boost = 1.2
 
 [node name="Node2D" type="Node" unique_id=704281934]
 
@@ -54,15 +65,18 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_hk511")
 
 [node name="PortraitBox" type="PanelContainer" parent="UIParent" unique_id=1452437250]
 layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
 offset_right = 320.0
 offset_bottom = 270.0
 theme_override_styles/panel = ExtResource("2_y4jh7")
 
 [node name="ContestantUI" type="PanelContainer" parent="UIParent" unique_id=1852627084]
 layout_mode = 0
+offset_left = 7.0
 offset_top = 286.0
 offset_right = 320.0
-offset_bottom = 1080.0
+offset_bottom = 1068.0
 theme_override_styles/panel = ExtResource("2_y4jh7")
 
 [node name="Control" type="Control" parent="UIParent/ContestantUI" unique_id=564026781]
@@ -71,8 +85,8 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="UIParent/ContestantUI/Control" unique_id=94424773]
 layout_mode = 0
 offset_left = 13.0
-offset_right = 312.0
-offset_bottom = 794.0
+offset_right = 305.0
+offset_bottom = 783.0
 
 [node name="Name" type="CenterContainer" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1934908745]
 clip_contents = true
@@ -159,6 +173,7 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_right = -2.0
 offset_bottom = 257.0
 grow_horizontal = 2
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas tellus mauris, sit amet molestie magna pharetra nec. Sed id aliquam est, quis luctus nulla. In sed ultricies nisi. Phasellus leo odio, lacinia eget aliquet et, suscipit nec ipsum. Nunc blandit luctus sem, eleifend imperdiet felis molestie vitae
@@ -193,14 +208,16 @@ offset_bottom = 1080.0
 
 [node name="PanelContainer" type="PanelContainer" parent="UIParent/CenterPlayArea" unique_id=369921564]
 layout_mode = 0
+offset_top = 10.0
 offset_right = 1248.0
-offset_bottom = 1079.0
+offset_bottom = 1068.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ntio1")
 
 [node name="EnemyPortrait" type="PanelContainer" parent="UIParent" unique_id=1423755693]
 layout_mode = 0
 offset_left = 1600.0
-offset_right = 1920.0
+offset_top = 7.0
+offset_right = 1911.0
 offset_bottom = 270.0
 theme_override_styles/panel = ExtResource("2_y4jh7")
 
@@ -208,8 +225,8 @@ theme_override_styles/panel = ExtResource("2_y4jh7")
 layout_mode = 0
 offset_left = 1600.0
 offset_top = 286.0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_right = 1911.0
+offset_bottom = 1068.0
 theme_override_styles/panel = ExtResource("2_y4jh7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UIParent/EnemyDescription" unique_id=2090643602]
@@ -267,3 +284,14 @@ texture = ExtResource("3_y4jh7")
 visible = false
 texture_filter = 1
 texture = ExtResource("4_q68mp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020282609]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1127870218]
+material = SubResource("ShaderMaterial_0iob3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
