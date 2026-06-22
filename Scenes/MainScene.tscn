@@ -8,7 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://da13mmeakbrei" path="res://VisualAssets/Button_Settings.png" id="4_f140w"]
 [ext_resource type="Texture2D" uid="uid://dnk5bsy5s0abm" path="res://VisualAssets/Background_Sidebar.png" id="4_q68mp"]
 [ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_0iob3"]
+[ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_xb4mg"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="9_0iob3"]
+[ext_resource type="Script" uid="uid://beya8h2388uo2" path="res://Scripts/game_manager.gd" id="10_4b75m"]
+[ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="12_xb4mg"]
+[ext_resource type="Resource" uid="uid://bjy2m67jaj3j8" path="res://Resources/EnemyCollections/all_enemies.tres" id="13_6t1o7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
 texture = ExtResource("1_7rqgy")
@@ -213,6 +217,17 @@ offset_right = 1248.0
 offset_bottom = 1068.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ntio1")
 
+[node name="EnemyImage" type="TextureRect" parent="UIParent/CenterPlayArea" unique_id=923369979]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -222.99998
+offset_right = 1231.0
+offset_bottom = 835.0
+scale = Vector2(0.44000077, 0.44000077)
+pivot_offset = Vector2(639, 508)
+texture = ExtResource("7_xb4mg")
+stretch_mode = 5
+
 [node name="EnemyPortrait" type="PanelContainer" parent="UIParent" unique_id=1423755693]
 layout_mode = 0
 offset_left = 1600.0
@@ -295,3 +310,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay")]
+script = ExtResource("10_4b75m")
+EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
+EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("13_6t1o7")])
