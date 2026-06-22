@@ -1,5 +1,4 @@
-extends Node
-
+extends Node2D
 
 @export var maxhealth:float = 100
 @export var currenthealth:float = 100
@@ -8,9 +7,10 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	animator.play("hp_progress")
 	pass # Replace with function body.
 
-var currentstate:float = 0
+var currentstate:float = -1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if maxhealth <=0:
@@ -18,18 +18,25 @@ func _process(delta: float) -> void:
 	var healthfraction = currenthealth/maxhealth
 	if currentstate != healthfraction:
 		print("updating health blend to "+str(healthfraction))
-		animator.seek(healthfraction,true)
+		animator.speed_scale = 1
+		animator.seek(healthfraction)
+		animator.speed_scale = 0
 		currentstate = healthfraction
 	pass
 	
-
 func _input(event):
-	if event is InputEventKey and event.pressed and !event.is_echo():
+	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_A:
-			currenthealth = currenthealth -1
-			if currenthealth<0:
+			if currenthealth-1<0:
 				currenthealth = 0
+			else:
+				currenthealth = currenthealth -1
 		elif event.keycode == KEY_D:
-			currenthealth = currenthealth+1
-			if currenthealth > maxhealth:
+			if currenthealth+1 > maxhealth:
 				currenthealth = maxhealth
+			else:
+				currenthealth = currenthealth+1
+		elif event.keycode == KEY_RIGHT:
+			position += Vector2(5,0)
+		elif event.keycode == KEY_LEFT:
+			position += Vector2(-5,0)
