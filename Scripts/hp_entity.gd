@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name HealthEntity
 @export var maxhealth:float = 100
 @export var currenthealth:float = 100
 
@@ -20,7 +20,9 @@ func _process(delta: float) -> void:
 	if maxhealth <=0:
 		maxhealth = 1
 	pass
-	
+
+var isAlive:bool=true
+
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_A:
@@ -31,14 +33,7 @@ func _input(event):
 			position += Vector2(5,0)
 		elif event.keycode == KEY_LEFT:
 			position += Vector2(-5,0)
-			
-func damage(amount:float)->float:
-	var endhealth = changehealth(-amount)
-	return endhealth
-	
-func heal(amount:float)->float:
-	var endhealth = changehealth(amount)
-	return endhealth
+
 	
 func changehealth(amount:float)->float:
 	currenthealth = currenthealth+amount
@@ -60,3 +55,14 @@ func updateHealthDisplay()->void:
 	if healthtext:
 		healthtext.text = str(int(round(currenthealth)))+"/"+str(int(round(maxhealth)))
 	pass
+
+func damage(amount:float)->float:
+	var endhealth = changehealth(-amount)
+	if endhealth == 0:
+		print("entity has died")
+		isAlive = false
+	return endhealth
+
+func heal(amount:float)->float:
+	var endhealth = changehealth(amount)
+	return endhealth
