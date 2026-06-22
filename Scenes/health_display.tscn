@@ -20,7 +20,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_adnma"]
 resource_name = "hp_progress"
-length = 2.0
 step = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false

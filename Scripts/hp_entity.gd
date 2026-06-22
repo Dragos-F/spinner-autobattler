@@ -5,12 +5,13 @@ extends Node2D
 
 @export var animator:AnimationPlayer
 @export var healthtext:Label
-
+var healthAnimLength:float = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animator.play("hp_progress")
+	healthAnimLength = animator.current_animation_length-0.01
+	print("healthanimlength"+str(healthAnimLength))
 	updateHealthDisplay()
-	animator.speed_scale = 0
 	pass # Replace with function body.
 
 var currentstate:float = -1
@@ -49,13 +50,13 @@ func changehealth(amount:float)->float:
 	return currenthealth
 	
 func updateHealthDisplay()->void:
-	if healthtext:
-		healthtext.text = str(int(round(currenthealth)))+"/"+str(int(round(maxhealth)))
 	var healthfraction = currenthealth/maxhealth
 	if currentstate != healthfraction:
-		print("updating health blend to "+str(healthfraction))
+		print("updating health blend to "+str(healthfraction)+":"+str(healthfraction*healthAnimLength))
 		animator.speed_scale = 1
-		animator.seek(healthfraction)
+		animator.seek(healthfraction*healthAnimLength)
 		animator.speed_scale = 0
 		currentstate = healthfraction
+	if healthtext:
+		healthtext.text = str(int(round(currenthealth)))+"/"+str(int(round(maxhealth)))
 	pass
