@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://0sftpb7dnv7v"]
+
+[ext_resource type="FontFile" uid="uid://cwlp8jtifi1m" path="res://VisualAssets/Fonts/Casual Softcore.otf" id="1_88jvo"]
+
+[resource]
+font = ExtResource("1_88jvo")
+font_size = 24

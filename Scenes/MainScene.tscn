@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dnk5bsy5s0abm" path="res://VisualAssets/Background_Sidebar.png" id="4_q68mp"]
 [ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_0iob3"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_xb4mg"]
+[ext_resource type="LabelSettings" uid="uid://0sftpb7dnv7v" path="res://VisualAssets/Fonts/new_label_settings.tres" id="8_5qxwa"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="9_0iob3"]
 [ext_resource type="Script" uid="uid://beya8h2388uo2" path="res://Scripts/game_manager.gd" id="10_4b75m"]
 [ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="12_xb4mg"]
@@ -280,6 +281,7 @@ offset_top = -0.26200104
 offset_right = -0.040008545
 offset_bottom = 586.738
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper ligula lorem, sed elementum turpis pharetra ut. Pellentesque a augue tristique, malesuada enim id, rutrum quam. Donec faucibus, leo ut faucibus ultricies, felis libero blandit purus, quis rutrum libero dolor id velit. Integer in posuere nibh. Donec congue ex ullamcorper efficitur varius. Duis tortor nisi, porta ut ipsum et, posuere tincidunt nunc. Sed vulputate non risus eget iaculis. Nunc eu lorem nec diam gravida ullamcorper. Sed nec congue orci. In nulla elit, blandit et aliquam sit amet, laoreet ac nunc. Fusce maximus dictum orci et pharetra. Phasellus aliquam sed mi at dictum. Aenean faucibus diam ac lacus laoreet auctor. Quisque scelerisque eleifend sapien, at lobortis erat accumsan vel. Mauris quis bibendum est."
+label_settings = ExtResource("8_5qxwa")
 autowrap_mode = 2
 text_overrun_behavior = 1
 
