@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b66ky7054n4qx"]
+
+[ext_resource type="Script" uid="uid://ffjh8wls7qxv" path="res://Scripts/hp_entity.gd" id="1_adnma"]
+[ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="1_cm1il"]
+
+[sub_resource type="Animation" id="Animation_cm1il"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_adnma"]
+resource_name = "hp_progress"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_onn17"]
+_data = {
+&"RESET": SubResource("Animation_cm1il"),
+&"hp_progress": SubResource("Animation_adnma")
+}
+
+[node name="HealthTestScene" type="Node2D" unique_id=1074740505]
+
+[node name="HealthDisplay" type="Node2D" parent="." unique_id=1334605982 node_paths=PackedStringArray("animator")]
+position = Vector2(103, 8)
+script = ExtResource("1_adnma")
+animator = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HealthDisplay" unique_id=449577697]
+libraries/ = SubResource("AnimationLibrary_onn17")
+
+[node name="Sprite2D" type="Sprite2D" parent="HealthDisplay" unique_id=2121686918]
+texture = ExtResource("1_cm1il")
+centered = false
