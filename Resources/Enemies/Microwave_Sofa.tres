@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://cb18a0eqfgbf8"]
+
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="1_kso0c"]
+[ext_resource type="Texture2D" uid="uid://cx68bm1vlukjy" path="res://VisualAssets/Enemies/MicrowaveSofa.png" id="1_uqq3l"]
+
+[resource]
+script = ExtResource("1_kso0c")
+Name = "Microwave on a Sofa"
+BaseHealth = 100
+Type = 1
+Description = "TestDescription"
+Catchphrase = "TestCatchphrase"
+Graphic = ExtResource("1_uqq3l")
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"
