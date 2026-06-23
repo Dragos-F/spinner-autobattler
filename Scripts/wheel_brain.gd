@@ -63,9 +63,15 @@ func generatewheel():
 		slice_parent = Node2D.new()
 	else:
 		print("slice parent already exists, purging")
-		for n in slice_parent.get_children():
-			slice_parent.remove_child(n)
-			n.queue_free()
+		for n in get_children():
+			print(n)
+			if n == get_child(0):
+				continue
+			else:
+				remove_child(n)
+				n.queue_free()
+		slice_parent.queue_free()
+		slice_parent = Node2D.new()
 	temp_slice = slice_template.duplicate()
 	slice_parent.add_child(temp_slice)
 	wheel_size = item.stats.size()

@@ -32,3 +32,9 @@ func LoadEnemy(enemy:Enemy):
 	EnemyTitleText.text = enemy.Name
 	EnemyDescriptionText.text = enemy.Description
 	EnemyDisplay.texture = enemy.Graphic
+	
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and !event.is_echo():
+		if event.keycode == KEY_P:
+			LoadRandomEnemy()
+	
