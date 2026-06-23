@@ -11,7 +11,7 @@ class_name Spinner
 func _ready() -> void:
 	
 	var wheel:Wheel = get_child(0)
-	ResetTime = wheel.item.cooldown
+	ResetTime = wheel.item.cooldown # currently set by the equipped item
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

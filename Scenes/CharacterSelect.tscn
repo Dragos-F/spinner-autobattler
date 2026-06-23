@@ -7,16 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_jnsl2"]
 [ext_resource type="Texture2D" uid="uid://cb0wxmew1otp4" path="res://VisualAssets/Background_VaporwaveBoss.png" id="6_l51cq"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_7f0fy"]
+[ext_resource type="FontFile" uid="uid://cwlp8jtifi1m" path="res://VisualAssets/Fonts/Casual Softcore.otf" id="7_20b7b"]
 [ext_resource type="PackedScene" uid="uid://ff8rxnbt4dre" path="res://Scenes/character_triangle.tscn" id="8_a85h0"]
 [ext_resource type="LabelSettings" uid="uid://0sftpb7dnv7v" path="res://VisualAssets/Fonts/new_label_settings.tres" id="8_yhlds"]
 [ext_resource type="Texture2D" uid="uid://bm6be32udl0hk" path="res://VisualAssets/UI_mockup_4.png" id="9_7b7lq"]
+[ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="10_1vrd3"]
 [ext_resource type="Texture2D" uid="uid://dnk5bsy5s0abm" path="res://VisualAssets/Background_Sidebar.png" id="10_488j2"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="11_a1635"]
+[ext_resource type="Resource" uid="uid://cs26v12em43iy" path="res://Resources/Items/Briefcase.tres" id="12_l51cq"]
+[ext_resource type="Resource" uid="uid://dgt8cegtggtq1" path="res://Resources/Items/PowerGlove.tres" id="13_7f0fy"]
+[ext_resource type="Resource" uid="uid://buptiir3skk3d" path="res://Resources/Items/RubberChicken.tres" id="14_yhlds"]
 [ext_resource type="Script" uid="uid://d230cyej1mx4c" path="res://Scripts/spin_control.gd" id="15_ticr3"]
+[ext_resource type="Resource" uid="uid://wejnjdkegmbt" path="res://Resources/Items/TShirtCannon.tres" id="16_7b7lq"]
 [ext_resource type="Script" uid="uid://co8ysbawm4o60" path="res://Scripts/wheel_brain.gd" id="16_v54mg"]
 [ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="17_w2oxx"]
 [ext_resource type="Script" uid="uid://b4s8obyrwa5gj" path="res://Scripts/template_slice.gd" id="18_r351o"]
-[ext_resource type="Script" uid="uid://cbgxtbomb3nex" path="res://Scripts/wheel_clicker.gd" id="19_m1cwc"]
+[ext_resource type="Script" uid="uid://dyn1p6f5iuvge" path="res://Scripts/char_select_brain.gd" id="20_v5fbu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
 texture = ExtResource("1_chypt")
@@ -28,6 +34,52 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="LabelSettings" id="LabelSettings_chypt"]
+font = ExtResource("7_20b7b")
+font_size = 45
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_488j2"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(0.8156863, 0.68235296, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a1635"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(1, 0.77254903, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l51cq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_njwpm"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(1, 0, 0.95686275, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cp58y"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(1, 0, 0.0627451, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ticr3"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(0.8392157, 0, 0.05882353, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_v54mg"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(0.050980393, 0, 0.61960787, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_w2oxx"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(0.050980393, 0, 0.61960787, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sqg1o"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(0.39215687, 0.7764706, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r351o"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(0.039215688, 0.9647059, 0.83137256, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_m1cwc"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(0.039215688, 0.9647059, 0.83137256, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0iob3"]
 shader = ExtResource("11_a1635")
 shader_parameter/resolution = Vector2(320, 180)
@@ -38,10 +90,15 @@ shader_parameter/vignette_intensity = 0.3
 shader_parameter/grille_amount = 0.10000000475
 shader_parameter/brightness_boost = 1.2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1ier"]
-size = Vector2(128, 128)
-
 [node name="Node2D" type="Node" unique_id=704281934]
+
+[node name="CharSelectBrain" type="Node" parent="." unique_id=1870503090 node_paths=PackedStringArray("CharFront", "CharBack", "CharName", "CharDesc", "DemoWheel")]
+script = ExtResource("20_v5fbu")
+CharFront = NodePath("../UIParent/ContestantStatDisplay/ContestantFront")
+CharBack = NodePath("../UIParent/ContestantStatDisplay/ContestantBack")
+CharName = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
+CharDesc = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/Label")
+DemoWheel = NodePath("../Enemy/EnemyWheel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319989986]
 
@@ -230,11 +287,15 @@ texture = ExtResource("7_7f0fy")
 stretch_mode = 5
 
 [node name="EnemyPortrait" type="PanelContainer" parent="UIParent" unique_id=1423755693]
-layout_mode = 0
-offset_left = 1600.0
-offset_top = 7.0
-offset_right = 1911.0
-offset_bottom = 270.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 271.0
+grow_horizontal = 0
 theme_override_styles/panel = ExtResource("2_1vrd3")
 
 [node name="EnemyDescription" type="PanelContainer" parent="UIParent" unique_id=1748079486]
@@ -254,15 +315,17 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.24
 
 [node name="Label" type="Label" parent="UIParent/EnemyDescription/VBoxContainer/Control" unique_id=1003712461]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 0
 offset_left = 35.0
 offset_top = 34.0
 offset_right = 285.0
 offset_bottom = 130.0
-theme_override_font_sizes/font_size = 32
 text = "Boss Name"
+label_settings = SubResource("LabelSettings_chypt")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 text_overrun_behavior = 1
 
 [node name="Control2" type="Control" parent="UIParent/EnemyDescription/VBoxContainer" unique_id=878739731]
@@ -295,75 +358,102 @@ offset_bottom = 1080.0
 [node name="Control" type="Control" parent="UIParent/CharacterSelectPanel" unique_id=1439199496]
 layout_mode = 2
 
-[node name="CharacterTriangle" parent="UIParent/CharacterSelectPanel/Control" unique_id=271421380 instance=ExtResource("8_a85h0")]
+[node name="Pete The Fury" parent="UIParent/CharacterSelectPanel/Control" unique_id=271421380 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = -685.0
-offset_top = -156.5
-offset_right = -685.0
-offset_bottom = -156.5
+offset_left = -478.0
+offset_top = -27.5
+offset_right = -478.0
+offset_bottom = -27.5
+Starter = 1
+DisplayName = "Pete \"The Fury\" Faldangen - The Darts Player"
+Description = "Pete Description"
+CharFront = SubResource("CanvasTexture_488j2")
+CharBack = SubResource("CanvasTexture_a1635")
+StartingItem = ExtResource("10_1vrd3")
 
-[node name="CharacterTriangle2" parent="UIParent/CharacterSelectPanel/Control" unique_id=1043914244 instance=ExtResource("8_a85h0")]
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Pete The Fury" index="0" unique_id=2146101422]
+modulate = Color(1, 0.7722037, 0, 1)
+
+[node name="Rory Schmew" parent="UIParent/CharacterSelectPanel/Control" unique_id=1043914244 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = -532.0
-offset_top = -156.5
-offset_right = -532.0
-offset_bottom = -156.5
+offset_left = -325.0
+offset_top = -27.5
+offset_right = -325.0
+offset_bottom = -27.5
+Starter = 2
+DisplayName = "Rory Schmew"
+Description = "Rory Desc"
+CharFront = SubResource("CompressedTexture2D_l51cq")
+CharBack = SubResource("CanvasTexture_njwpm")
+StartingItem = ExtResource("12_l51cq")
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/CharacterTriangle2" index="0" unique_id=2146101422]
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Rory Schmew" index="0" unique_id=2146101422]
+modulate = Color(1, 0, 0.95679045, 1)
 flip_v = true
 
-[node name="CharacterTriangle3" parent="UIParent/CharacterSelectPanel/Control" unique_id=374369036 instance=ExtResource("8_a85h0")]
+[node name="Timmy Burnlee" parent="UIParent/CharacterSelectPanel/Control" unique_id=374369036 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = -379.0
-offset_top = -156.5
-offset_right = -379.0
-offset_bottom = -156.5
+offset_left = -172.0
+offset_top = -27.5
+offset_right = -172.0
+offset_bottom = -27.5
+Starter = 3
+DisplayName = "Timmy Burnlee"
+Description = "Timmy Desc	"
+CharFront = SubResource("CanvasTexture_cp58y")
+CharBack = SubResource("CanvasTexture_ticr3")
+StartingItem = ExtResource("13_7f0fy")
 
-[node name="CharacterTriangle4" parent="UIParent/CharacterSelectPanel/Control" unique_id=1070089930 instance=ExtResource("8_a85h0")]
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Timmy Burnlee" index="0" unique_id=2146101422]
+modulate = Color(0.9998151, 0, 0.06197165, 1)
+
+[node name="Zombolda" parent="UIParent/CharacterSelectPanel/Control" unique_id=1070089930 instance=ExtResource("8_a85h0")]
+modulate = Color(0.052620698, 0, 0.6315303, 1)
 layout_mode = 1
-offset_left = -226.0
-offset_top = -156.5
-offset_right = -226.0
-offset_bottom = -156.5
+offset_left = -19.0
+offset_top = -27.5
+offset_right = -19.0
+offset_bottom = -27.5
+Starter = 4
+DisplayName = "Zombolda Gigglesworth"
+Description = "Zombolda Desc"
+CharFront = SubResource("CanvasTexture_v54mg")
+CharBack = SubResource("CanvasTexture_w2oxx")
+StartingItem = ExtResource("14_yhlds")
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/CharacterTriangle4" index="0" unique_id=2146101422]
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Zombolda" index="0" unique_id=2146101422]
 flip_v = true
 
-[node name="CharacterTriangle5" parent="UIParent/CharacterSelectPanel/Control" unique_id=973854418 instance=ExtResource("8_a85h0")]
+[node name="Dane Blanche" parent="UIParent/CharacterSelectPanel/Control" unique_id=973854418 instance=ExtResource("8_a85h0")]
+modulate = Color(0.3922944, 0.7762136, 0, 1)
 layout_mode = 1
-offset_left = -73.0
-offset_top = -156.5
-offset_right = -73.0
-offset_bottom = -156.5
+offset_left = 134.0
+offset_top = -27.5
+offset_right = 134.0
+offset_bottom = -27.5
+Starter = 5
+DisplayName = "Dane Blanche"
+Description = "Dane Desc"
+CharFront = SubResource("CanvasTexture_sqg1o")
+CharBack = SubResource("CanvasTexture_sqg1o")
+StartingItem = ExtResource("17_w2oxx")
 
-[node name="CharacterTriangle6" parent="UIParent/CharacterSelectPanel/Control" unique_id=1397904695 instance=ExtResource("8_a85h0")]
+[node name="Hornacia" parent="UIParent/CharacterSelectPanel/Control" unique_id=1397904695 instance=ExtResource("8_a85h0")]
+modulate = Color(0.03824617, 0.96474034, 0.83315283, 1)
 layout_mode = 1
-offset_left = 80.0
-offset_top = -156.5
-offset_right = 80.0
-offset_bottom = -156.5
+offset_left = 287.0
+offset_top = -27.5
+offset_right = 287.0
+offset_bottom = -27.5
+Starter = 6
+DisplayName = "Hornacia Baidineanu"
+Description = "Hornacia Desc	"
+CharFront = SubResource("CanvasTexture_r351o")
+CharBack = SubResource("CanvasTexture_m1cwc")
+StartingItem = ExtResource("16_7b7lq")
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/CharacterTriangle6" index="0" unique_id=2146101422]
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Hornacia" index="0" unique_id=2146101422]
 flip_v = true
-
-[node name="CharacterTriangle7" parent="UIParent/CharacterSelectPanel/Control" unique_id=698042905 instance=ExtResource("8_a85h0")]
-layout_mode = 1
-offset_left = 233.0
-offset_top = -156.5
-offset_right = 233.0
-offset_bottom = -156.5
 
 [node name="Mockups" type="Node2D" parent="." unique_id=1777635353]
 visible = false
@@ -389,72 +479,52 @@ material = SubResource("ShaderMaterial_0iob3")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 605.0
-offset_top = 269.0
-offset_right = 605.0
-offset_bottom = 269.0
+offset_left = 972.0
+offset_top = 535.0
+offset_right = 972.0
+offset_bottom = 535.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Node2D2" type="Node2D" parent="." unique_id=902537917 node_paths=PackedStringArray("test_clicker")]
+[node name="Enemy" type="Node2D" parent="." unique_id=1995714591 node_paths=PackedStringArray("test_clicker")]
 position = Vector2(413, -275)
 script = ExtResource("15_ticr3")
 WaitTime = 0.5
-test_clicker = NodePath("../WheelClicker")
+test_clicker = NodePath("")
 
-[node name="EnemyWheel" type="Node2D" parent="Node2D2" unique_id=1788761542 node_paths=PackedStringArray("slice_template")]
+[node name="EnemyWheel" type="Node2D" parent="Enemy" unique_id=866764280 node_paths=PackedStringArray("slice_template")]
 script = ExtResource("16_v54mg")
 item = ExtResource("17_w2oxx")
 slice_template = NodePath("TemplatePolygon2D")
 
-[node name="TemplatePolygon2D" type="Polygon2D" parent="Node2D2/EnemyWheel" unique_id=140865641 node_paths=PackedStringArray("own_collision")]
+[node name="TemplatePolygon2D" type="Polygon2D" parent="Enemy/EnemyWheel" unique_id=1168597390 node_paths=PackedStringArray("own_collision")]
 script = ExtResource("18_r351o")
 own_collision = NodePath("Area2D/CollisionPolygon2D")
 collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
 
-[node name="Area2D" type="Area2D" parent="Node2D2/EnemyWheel/TemplatePolygon2D" unique_id=1468526469]
+[node name="Area2D" type="Area2D" parent="Enemy/EnemyWheel/TemplatePolygon2D" unique_id=457135455]
 z_index = 1
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D2/EnemyWheel/TemplatePolygon2D/Area2D" unique_id=1117899060]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" unique_id=928725613]
 
-[node name="WheelClicker" type="Sprite2D" parent="." unique_id=1744799749 node_paths=PackedStringArray("result")]
-position = Vector2(491.15253, -382.00003)
-rotation = -2.4423409
-scale = Vector2(0.04000002, 1)
-texture = ExtResource("7_7f0fy")
-script = ExtResource("19_m1cwc")
-result = NodePath("../Label")
+[connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Pete The Fury" to="CharSelectBrain" method="show_selected_starter"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@338405/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@338405/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@338405/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@338405/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@338406/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@338406/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@338406/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@338406/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@338407/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@338407/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@338407/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@338407/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@338408/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@338408/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@338408/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@338408/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@338409/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@338409/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@338409/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@338409/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
-[node name="Area2D" type="Area2D" parent="WheelClicker" unique_id=1632297489]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WheelClicker/Area2D" unique_id=2035141470]
-shape = SubResource("RectangleShape2D_c1ier")
-
-[node name="Label" type="Label" parent="." unique_id=1201779992]
-offset_left = 195.0
-offset_top = -185.0
-offset_right = 626.00006
-offset_bottom = -60.0
-theme_override_font_sizes/font_size = 32
-text = "Selected Slice: "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@365074/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365074/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@365074/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365074/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@365075/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365075/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@365075/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365075/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@365076/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365076/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@365076/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365076/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@365077/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365077/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@365077/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365077/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@365078/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365078/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@365078/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365078/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="area_entered" from="WheelClicker/Area2D" to="WheelClicker" method="_on_area_2d_area_entered"]
-
-[editable path="UIParent/CharacterSelectPanel/Control/CharacterTriangle2"]
-[editable path="UIParent/CharacterSelectPanel/Control/CharacterTriangle4"]
-[editable path="UIParent/CharacterSelectPanel/Control/CharacterTriangle6"]
+[editable path="UIParent/CharacterSelectPanel/Control/Pete The Fury"]
+[editable path="UIParent/CharacterSelectPanel/Control/Rory Schmew"]
+[editable path="UIParent/CharacterSelectPanel/Control/Timmy Burnlee"]
+[editable path="UIParent/CharacterSelectPanel/Control/Zombolda"]
+[editable path="UIParent/CharacterSelectPanel/Control/Dane Blanche"]
+[editable path="UIParent/CharacterSelectPanel/Control/Hornacia"]

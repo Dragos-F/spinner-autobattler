@@ -4,9 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cb0wxmew1otp4" path="res://VisualAssets/Background_VaporwaveBoss.png" id="2_qxria"]
 [ext_resource type="StyleBox" uid="uid://babd65cqgfcib" path="res://Resources/ui_box.tres" id="2_y4jh7"]
 [ext_resource type="Texture2D" uid="uid://dhw32ateyd5gf" path="res://VisualAssets/Button_return.png" id="3_q68mp"]
-[ext_resource type="Texture2D" uid="uid://bm6be32udl0hk" path="res://VisualAssets/UI_mockup_4.png" id="3_y4jh7"]
 [ext_resource type="Texture2D" uid="uid://da13mmeakbrei" path="res://VisualAssets/Button_Settings.png" id="4_f140w"]
-[ext_resource type="Texture2D" uid="uid://dnk5bsy5s0abm" path="res://VisualAssets/Background_Sidebar.png" id="4_q68mp"]
 [ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_0iob3"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_xb4mg"]
 [ext_resource type="LabelSettings" uid="uid://0sftpb7dnv7v" path="res://VisualAssets/Fonts/new_label_settings.tres" id="8_5qxwa"]
@@ -271,6 +269,7 @@ theme_override_font_sizes/font_size = 32
 text = "Boss Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 text_overrun_behavior = 1
 
 [node name="Control2" type="Control" parent="UIParent/EnemyDescription/VBoxContainer" unique_id=878739731]
@@ -293,23 +292,6 @@ label_settings = ExtResource("8_5qxwa")
 autowrap_mode = 2
 text_overrun_behavior = 1
 
-[node name="Mockups" type="Node2D" parent="." unique_id=1777635353]
-visible = false
-
-[node name="BackgroundVaporwaveBoss" type="Sprite2D" parent="Mockups" unique_id=1400856788]
-visible = false
-texture_filter = 1
-texture = ExtResource("2_qxria")
-
-[node name="UiMockup4" type="Sprite2D" parent="Mockups" unique_id=1869233926]
-texture_filter = 1
-texture = ExtResource("3_y4jh7")
-
-[node name="BackgroundSidebar" type="Sprite2D" parent="Mockups" unique_id=1623148561]
-visible = false
-texture_filter = 1
-texture = ExtResource("4_q68mp")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020282609]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1127870218]
@@ -317,10 +299,6 @@ material = SubResource("ShaderMaterial_0iob3")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -960.0
-offset_top = -540.0
-offset_right = -960.0
-offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -331,28 +309,28 @@ EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/Label")
 EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("13_6t1o7")])
-PrimaryEnemyWheel = NodePath("../Node2D2/EnemyWheel")
+PrimaryEnemyWheel = NodePath("../Enemy/EnemyWheel")
 
-[node name="Node2D2" type="Node2D" parent="." unique_id=902537917 node_paths=PackedStringArray("test_clicker")]
+[node name="Enemy" type="Node2D" parent="." unique_id=902537917 node_paths=PackedStringArray("test_clicker")]
 position = Vector2(413, -275)
 script = ExtResource("15_hx8n4")
 WaitTime = 0.5
 test_clicker = NodePath("../WheelClicker")
 
-[node name="EnemyWheel" type="Node2D" parent="Node2D2" unique_id=1788761542 node_paths=PackedStringArray("slice_template")]
+[node name="EnemyWheel" type="Node2D" parent="Enemy" unique_id=1788761542 node_paths=PackedStringArray("slice_template")]
 script = ExtResource("15_enc0b")
 item = ExtResource("17_c1ier")
 slice_template = NodePath("TemplatePolygon2D")
 
-[node name="TemplatePolygon2D" type="Polygon2D" parent="Node2D2/EnemyWheel" unique_id=140865641 node_paths=PackedStringArray("own_collision")]
+[node name="TemplatePolygon2D" type="Polygon2D" parent="Enemy/EnemyWheel" unique_id=140865641 node_paths=PackedStringArray("own_collision")]
 script = ExtResource("17_i0j58")
 own_collision = NodePath("Area2D/CollisionPolygon2D")
 collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
 
-[node name="Area2D" type="Area2D" parent="Node2D2/EnemyWheel/TemplatePolygon2D" unique_id=1468526469]
+[node name="Area2D" type="Area2D" parent="Enemy/EnemyWheel/TemplatePolygon2D" unique_id=1468526469]
 z_index = 1
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D2/EnemyWheel/TemplatePolygon2D/Area2D" unique_id=1117899060]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" unique_id=1117899060]
 
 [node name="WheelClicker" type="Sprite2D" parent="." unique_id=1744799749 node_paths=PackedStringArray("result")]
 position = Vector2(491.15253, -382.00003)
@@ -377,22 +355,16 @@ text = "Selected Slice: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49015/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49015/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49015/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49015/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49016/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49016/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49016/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49016/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49017/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49017/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49017/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49017/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49018/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49018/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49018/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49018/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49019/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49019/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49019/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49019/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49020/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49020/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49020/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49020/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49021/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49021/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49021/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49021/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49022/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49022/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49022/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49022/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@23171/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@23171/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@23171/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@23171/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@23172/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@23172/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@23172/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@23172/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@23173/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@23173/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@23173/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@23173/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@23174/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@23174/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@23174/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@23174/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@23175/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@23175/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@23175/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@23175/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="area_entered" from="WheelClicker/Area2D" to="WheelClicker" method="_on_area_2d_area_entered"]

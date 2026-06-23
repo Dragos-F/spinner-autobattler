@@ -12,6 +12,7 @@ var slice_parent
 var temp_slice:PresetSlice
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#slice_parent = get_parent()
 	if item == null:
 		print("no item assigned")
 	else:
@@ -94,6 +95,7 @@ func generatewheel():
 			copied_slice.texture = item.stats[i].visual
 		else:
 			copied_slice.color = item.stats[i].colour
+		print (slice_parent)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
