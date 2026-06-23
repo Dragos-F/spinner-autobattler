@@ -7,13 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_jnsl2"]
 [ext_resource type="Texture2D" uid="uid://cb0wxmew1otp4" path="res://VisualAssets/Background_VaporwaveBoss.png" id="6_l51cq"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_7f0fy"]
+[ext_resource type="PackedScene" uid="uid://ff8rxnbt4dre" path="res://Scenes/character_triangle.tscn" id="8_a85h0"]
 [ext_resource type="LabelSettings" uid="uid://0sftpb7dnv7v" path="res://VisualAssets/Fonts/new_label_settings.tres" id="8_yhlds"]
 [ext_resource type="Texture2D" uid="uid://bm6be32udl0hk" path="res://VisualAssets/UI_mockup_4.png" id="9_7b7lq"]
 [ext_resource type="Texture2D" uid="uid://dnk5bsy5s0abm" path="res://VisualAssets/Background_Sidebar.png" id="10_488j2"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="11_a1635"]
-[ext_resource type="Script" uid="uid://beya8h2388uo2" path="res://Scripts/game_manager.gd" id="12_w1b7k"]
-[ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="13_njwpm"]
-[ext_resource type="Resource" uid="uid://bjy2m67jaj3j8" path="res://Resources/EnemyCollections/all_enemies.tres" id="14_cp58y"]
 [ext_resource type="Script" uid="uid://d230cyej1mx4c" path="res://Scripts/spin_control.gd" id="15_ticr3"]
 [ext_resource type="Script" uid="uid://co8ysbawm4o60" path="res://Scripts/wheel_brain.gd" id="16_v54mg"]
 [ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="17_w2oxx"]
@@ -73,6 +71,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hk511")
 
 [node name="ContestantUI" type="PanelContainer" parent="UIParent" unique_id=1852627084]
+visible = false
 layout_mode = 0
 offset_left = 7.0
 offset_top = 286.0
@@ -201,18 +200,30 @@ icon = ExtResource("4_qweq2")
 layout_mode = 2
 icon = ExtResource("5_jnsl2")
 
-[node name="CenterPlayArea" type="Control" parent="UIParent" unique_id=882134817]
+[node name="ContestantStatDisplay" type="Control" parent="UIParent" unique_id=882134817]
 anchors_preset = 0
-offset_left = 336.0
-offset_right = 1584.0
-offset_bottom = 1080.0
+offset_left = 83.0
+offset_top = 60.0
+offset_right = 1837.0
+offset_bottom = 668.0
 
-[node name="EnemyImage" type="TextureRect" parent="UIParent/CenterPlayArea" unique_id=923369979]
+[node name="ContestantFront" type="TextureRect" parent="UIParent/ContestantStatDisplay" unique_id=923369979]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -222.99998
-offset_right = 1231.0
-offset_bottom = 835.0
+offset_left = -280.0
+offset_top = -263.99997
+offset_right = 598.03894
+offset_bottom = 480.36313
+scale = Vector2(0.44000077, 0.44000077)
+pivot_offset = Vector2(639, 508)
+texture = ExtResource("7_7f0fy")
+stretch_mode = 5
+
+[node name="ContestantBack" type="TextureRect" parent="UIParent/ContestantStatDisplay" unique_id=259895227]
+layout_mode = 0
+offset_left = 87.99997
+offset_top = -263.99997
+offset_right = 966.03894
+offset_bottom = 480.36313
 scale = Vector2(0.44000077, 0.44000077)
 pivot_offset = Vector2(639, 508)
 texture = ExtResource("7_7f0fy")
@@ -274,6 +285,86 @@ label_settings = ExtResource("8_yhlds")
 autowrap_mode = 2
 text_overrun_behavior = 1
 
+[node name="CharacterSelectPanel" type="PanelContainer" parent="UIParent" unique_id=794230079]
+propagate_maximum_size = false
+layout_mode = 0
+offset_top = 569.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Control" type="Control" parent="UIParent/CharacterSelectPanel" unique_id=1439199496]
+layout_mode = 2
+
+[node name="CharacterTriangle" parent="UIParent/CharacterSelectPanel/Control" unique_id=271421380 instance=ExtResource("8_a85h0")]
+layout_mode = 1
+offset_left = -685.0
+offset_top = -156.5
+offset_right = -685.0
+offset_bottom = -156.5
+
+[node name="CharacterTriangle2" parent="UIParent/CharacterSelectPanel/Control" unique_id=1043914244 instance=ExtResource("8_a85h0")]
+layout_mode = 1
+offset_left = -532.0
+offset_top = -156.5
+offset_right = -532.0
+offset_bottom = -156.5
+
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/CharacterTriangle2" index="0" unique_id=2146101422]
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+flip_v = true
+
+[node name="CharacterTriangle3" parent="UIParent/CharacterSelectPanel/Control" unique_id=374369036 instance=ExtResource("8_a85h0")]
+layout_mode = 1
+offset_left = -379.0
+offset_top = -156.5
+offset_right = -379.0
+offset_bottom = -156.5
+
+[node name="CharacterTriangle4" parent="UIParent/CharacterSelectPanel/Control" unique_id=1070089930 instance=ExtResource("8_a85h0")]
+layout_mode = 1
+offset_left = -226.0
+offset_top = -156.5
+offset_right = -226.0
+offset_bottom = -156.5
+
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/CharacterTriangle4" index="0" unique_id=2146101422]
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+flip_v = true
+
+[node name="CharacterTriangle5" parent="UIParent/CharacterSelectPanel/Control" unique_id=973854418 instance=ExtResource("8_a85h0")]
+layout_mode = 1
+offset_left = -73.0
+offset_top = -156.5
+offset_right = -73.0
+offset_bottom = -156.5
+
+[node name="CharacterTriangle6" parent="UIParent/CharacterSelectPanel/Control" unique_id=1397904695 instance=ExtResource("8_a85h0")]
+layout_mode = 1
+offset_left = 80.0
+offset_top = -156.5
+offset_right = 80.0
+offset_bottom = -156.5
+
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/CharacterTriangle6" index="0" unique_id=2146101422]
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+flip_v = true
+
+[node name="CharacterTriangle7" parent="UIParent/CharacterSelectPanel/Control" unique_id=698042905 instance=ExtResource("8_a85h0")]
+layout_mode = 1
+offset_left = 233.0
+offset_top = -156.5
+offset_right = 233.0
+offset_bottom = -156.5
+
 [node name="Mockups" type="Node2D" parent="." unique_id=1777635353]
 visible = false
 
@@ -305,14 +396,6 @@ offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "PrimaryEnemyWheel")]
-script = ExtResource("12_w1b7k")
-EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
-EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
-EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/Label")
-EnemyCollections = Array[ExtResource("13_njwpm")]([ExtResource("14_cp58y")])
-PrimaryEnemyWheel = NodePath("../Node2D2/EnemyWheel")
 
 [node name="Node2D2" type="Node2D" parent="." unique_id=902537917 node_paths=PackedStringArray("test_clicker")]
 position = Vector2(413, -275)
@@ -360,20 +443,18 @@ vertical_alignment = 1
 
 [connection signal="mouse_entered" from="Node2D2/EnemyWheel/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Node2D2/EnemyWheel/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49015/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49015/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49015/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49015/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49016/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49016/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49016/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49016/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49017/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49017/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49017/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49017/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49018/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49018/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49018/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49018/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49019/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49019/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49019/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49019/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49020/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49020/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49020/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49020/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49021/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49021/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49021/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49021/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@49022/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49022/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@49022/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@49022/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@365074/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365074/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@365074/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365074/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@365075/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365075/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@365075/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365075/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@365076/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365076/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@365076/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365076/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@365077/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365077/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@365077/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365077/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D2/EnemyWheel/@Node2D@365078/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365078/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D2/EnemyWheel/@Node2D@365078/TemplatePolygon2D/Area2D" to="Node2D2/EnemyWheel/@Node2D@365078/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="area_entered" from="WheelClicker/Area2D" to="WheelClicker" method="_on_area_2d_area_entered"]
+
+[editable path="UIParent/CharacterSelectPanel/Control/CharacterTriangle2"]
+[editable path="UIParent/CharacterSelectPanel/Control/CharacterTriangle4"]
+[editable path="UIParent/CharacterSelectPanel/Control/CharacterTriangle6"]
