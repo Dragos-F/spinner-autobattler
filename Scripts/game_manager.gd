@@ -24,7 +24,7 @@ func LoadRandomEnemy():
 	LoadEnemy(currentcollection.Contents.pick_random())
 
 var ActiveEnemy
-
+var ActiveEnemyHP
 func LoadEnemy(enemy:Enemy):
 	print("loadenemy")
 	ActiveEnemy = enemy
@@ -32,7 +32,8 @@ func LoadEnemy(enemy:Enemy):
 	EnemyTitleText.text = enemy.Name
 	EnemyDescriptionText.text = enemy.Description
 	EnemyDisplay.texture = enemy.Graphic
-	
+	ActiveEnemyHP = enemy.BaseHealth
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and !event.is_echo():
 		if event.keycode == KEY_P:
