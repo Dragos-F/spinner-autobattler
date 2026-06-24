@@ -7,4 +7,5 @@ script = ExtResource("1_qo6pg")
 value = -2
 target = 0
 colour = Color(1, 0.72156864, 0.4745098, 1)
+tooltip = "Backfire: Damage Yourself"
 metadata/_custom_type_script = "uid://dcaaw5txe13ct"

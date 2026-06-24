@@ -7,6 +7,7 @@ class_name PresetSlice
 @export var collision_color:PackedColorArray
 @export var tooltipObject:PackedScene
 @onready var slice_type:Slice
+var isDisabled = false
 func _ready() -> void:
 	pass
 	
@@ -43,6 +44,7 @@ func offsetPosition(rootpos,inputpos):
 	elif rootpos.y <= newpos.y:
 		newpos.y += displayoffsets.y
 	return newpos
+	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouse:
 		var camera = get_viewport().get_camera_2d()
@@ -51,6 +53,9 @@ func _input(event: InputEvent) -> void:
 			#print("Mouse at: ", pos)
 			pos = offsetPosition(global_position,pos)
 			activeTooltip.position = pos
+	
+	if event.is_action_pressed("MouseLeft"):
+		hideToolTip()
 
 func _on_area_2d_mouse_entered() -> void:
 	print ("Hovering"+str(slice_type))

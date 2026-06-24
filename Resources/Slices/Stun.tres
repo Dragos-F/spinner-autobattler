@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_r30ed")
 colour = Color(0.6509804, 0.52156866, 0.62352943, 1)
+tooltip = "Stun: Disable Enemy Spinner"
 metadata/_custom_type_script = "uid://bmhcks7cg7lv8"

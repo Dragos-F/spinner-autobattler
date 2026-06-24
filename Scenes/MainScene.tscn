@@ -98,10 +98,13 @@ EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("13_6t1o7")])
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
 combatManager = NodePath("../CombatManager")
 
-[node name="CombatManager" type="Node" parent="." unique_id=317878429 node_paths=PackedStringArray("PlayerEntity", "EnemyEntity")]
+[node name="CombatManager" type="Node" parent="." unique_id=317878429 node_paths=PackedStringArray("PlayerEntity", "PlayerSpinners", "EnemyEntity", "EnemySpinners", "InventorySys")]
 script = ExtResource("5_enc0b")
 PlayerEntity = NodePath("../PlayerWheels/PlayerHealthDisplay")
+PlayerSpinners = [NodePath("../PlayerWheels/PlayerWheel1/SpinControl"), NodePath("../PlayerWheels/PlayerWheel2/SpinControl"), NodePath("../PlayerWheels/PlayerWheel3/SpinControl")]
 EnemyEntity = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
+EnemySpinners = [NodePath("../EnemyWheelBundle/SpinControl")]
+InventorySys = NodePath("../InventoryManager")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319989986]
 
@@ -453,12 +456,6 @@ vertical_alignment = 1
 [node name="PlayerWheels" type="Node2D" parent="." unique_id=1833374083]
 position = Vector2(-152, 266)
 
-[node name="PlayerWheel1" parent="PlayerWheels" unique_id=1694628658 instance=ExtResource("15_xc4hf")]
-position = Vector2(-265, -22)
-
-[node name="Wheel" parent="PlayerWheels/PlayerWheel1/SpinControl" parent_id_path=PackedInt32Array(1694628658, 931065810) index="0" unique_id=808226493]
-item = null
-
 [node name="PlayerHealthDisplay" type="Node2D" parent="PlayerWheels" unique_id=304034929 node_paths=PackedStringArray("animator", "healthtext")]
 position = Vector2(566, 125)
 script = ExtResource("18_i0j58")
@@ -510,6 +507,12 @@ theme_override_font_sizes/font_size = 30
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlayerWheel1" parent="PlayerWheels" unique_id=1694628658 instance=ExtResource("15_xc4hf")]
+position = Vector2(-265, -22)
+
+[node name="Wheel" parent="PlayerWheels/PlayerWheel1/SpinControl" parent_id_path=PackedInt32Array(1694628658, 931065810) index="0" unique_id=808226493]
+item = null
 
 [node name="PlayerWheel2" parent="PlayerWheels" unique_id=1953585299 instance=ExtResource("15_xc4hf")]
 position = Vector2(-41, -139)

@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_kso0c")
 Name = "Microwave on a Sofa"
-BaseHealth = 100
+BaseHealth = 20
 Items = Array[ExtResource("2_pnpky")]([ExtResource("3_117km")])
 Type = 1
 Description = "TestDescription"

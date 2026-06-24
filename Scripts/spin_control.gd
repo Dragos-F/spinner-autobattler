@@ -5,6 +5,8 @@ class_name Spinner
 @export var SpinTime:float = 5
 @export var WaitTime:float = 2
 @onready var ResetTime:float = 5
+var ExtraWaitTime=0
+var SubtractedWaitTime=0
 @export var test_clicker:Clicker
 var wheel:Wheel
 signal sliceselected(slice:Slice,source:String)
@@ -41,10 +43,19 @@ func random_spin():
 func reset_spin():
 	test_clicker.reset_text()
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "rotation", 0, ResetTime).set_trans(Tween.TRANS_SINE).set_delay(WaitTime)
+	tween.tween_property(self, "rotation", 0, ResetTime).set_trans(Tween.TRANS_SINE).set_delay(WaitTime-SubtractedWaitTime+ExtraWaitTime)
 	tween.tween_callback(random_spin)
+	if ExtraWaitTime > 0:
+		ExtraWaitTime = 0
+	if SubtractedWaitTime > 0:
+		SubtractedWaitTime = 0
 var isSpinning = false
 func _input(event):
 	if event is InputEventKey and event.pressed and !event.is_echo():
 		if event.keycode == KEY_SPACE:
 			random_spin()
+			
+func AddExtraWait(extratime):
+	ExtraWaitTime+=extratime
+func SubtractWaitTime(time):
+	SubtractedWaitTime+=time
