@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dr1j33mwfcug5" path="res://VisualAssets/Background_Blank.png" id="1_chypt"]
 [ext_resource type="StyleBox" uid="uid://babd65cqgfcib" path="res://Resources/ui_box.tres" id="2_1vrd3"]
+[ext_resource type="Texture2D" uid="uid://dhw32ateyd5gf" path="res://VisualAssets/Button_return.png" id="3_v5fbu"]
+[ext_resource type="Texture2D" uid="uid://da13mmeakbrei" path="res://VisualAssets/Button_Settings.png" id="4_qweq2"]
+[ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_jnsl2"]
 [ext_resource type="Texture2D" uid="uid://cb0wxmew1otp4" path="res://VisualAssets/Background_VaporwaveBoss.png" id="6_l51cq"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_7f0fy"]
 [ext_resource type="FontFile" uid="uid://cwlp8jtifi1m" path="res://VisualAssets/Fonts/Casual Softcore.otf" id="7_20b7b"]
@@ -17,9 +20,8 @@
 [ext_resource type="Resource" uid="uid://dgt8cegtggtq1" path="res://Resources/Items/PowerGlove.tres" id="13_7f0fy"]
 [ext_resource type="Texture2D" uid="uid://ba2pfbdligcgj" path="res://VisualAssets/ContestantImages/Businessman_front.png" id="14_w2oxx"]
 [ext_resource type="Resource" uid="uid://buptiir3skk3d" path="res://Resources/Items/RubberChicken.tres" id="14_yhlds"]
-[ext_resource type="Texture2D" uid="uid://bcd0oym0d8xb2" path="res://VisualAssets/ContestantImages/Nerd_back.png" id="15_njwpm"]
 [ext_resource type="Texture2D" uid="uid://cw7avndt7j13x" path="res://VisualAssets/ContestantImages/Businessman_back.png" id="15_r351o"]
-[ext_resource type="Texture2D" uid="uid://bsm7gkopj0mk0" path="res://VisualAssets/ContestantImages/Nerd_front.png" id="15_w1b7k"]
+[ext_resource type="Script" uid="uid://d230cyej1mx4c" path="res://Scripts/spin_control.gd" id="15_ticr3"]
 [ext_resource type="Resource" uid="uid://wejnjdkegmbt" path="res://Resources/Items/TShirtCannon.tres" id="16_7b7lq"]
 [ext_resource type="Script" uid="uid://co8ysbawm4o60" path="res://Scripts/wheel_brain.gd" id="16_v54mg"]
 [ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="17_w2oxx"]
@@ -46,6 +48,14 @@ corner_radius_bottom_left = 12
 font = ExtResource("7_20b7b")
 font_size = 45
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_cp58y"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(1, 0, 0.0627451, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ticr3"]
+specular_texture = ExtResource("7_7f0fy")
+specular_color = Color(0.8392157, 0, 0.05882353, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0iob3"]
 shader = ExtResource("11_a1635")
 shader_parameter/resolution = Vector2(320, 180)
@@ -62,9 +72,9 @@ shader_parameter/brightness_boost = 1.2
 script = ExtResource("20_v5fbu")
 CharFront = NodePath("../UIParent/ContestantStatDisplay/ContestantFront")
 CharBack = NodePath("../UIParent/ContestantStatDisplay/ContestantBack")
-CharName = NodePath("../UIParent/ContestantStatDisplay/NameLabel")
+CharName = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 CharDesc = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/Label")
-DemoWheel = NodePath("../PreviewWheelRoot/PreviewWheel")
+DemoWheel = NodePath("../Enemy/EnemyWheel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319989986]
 
@@ -93,63 +103,43 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hk511")
 
-[node name="ContestantStatDisplay" type="Control" parent="UIParent" unique_id=882134817]
-anchors_preset = 0
-offset_left = 83.0
-offset_top = 60.0
-offset_right = 1845.0
-offset_bottom = 668.0
-
-[node name="ContestantUI" type="PanelContainer" parent="UIParent/ContestantStatDisplay" unique_id=1852627084]
+[node name="ContestantUI" type="PanelContainer" parent="UIParent" unique_id=1852627084]
+visible = false
 layout_mode = 0
-offset_left = 965.0
-offset_top = -18.0
-offset_right = 1762.0
-offset_bottom = 426.0
+offset_left = 7.0
+offset_top = 286.0
+offset_right = 320.0
+offset_bottom = 1068.0
 theme_override_styles/panel = ExtResource("2_1vrd3")
 
-[node name="Control" type="Control" parent="UIParent/ContestantStatDisplay/ContestantUI" unique_id=564026781]
+[node name="Control" type="Control" parent="UIParent/ContestantUI" unique_id=564026781]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control" unique_id=94424773]
+[node name="VBoxContainer" type="VBoxContainer" parent="UIParent/ContestantUI/Control" unique_id=94424773]
 layout_mode = 0
-offset_left = 26.0
-offset_right = 781.0
-offset_bottom = 429.0
+offset_left = 13.0
+offset_right = 305.0
+offset_bottom = 783.0
 
-[node name="Name" type="CenterContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer" unique_id=1934908745]
+[node name="Name" type="CenterContainer" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1934908745]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.36
 offset_transform_position = Vector2(200, 0)
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Name" unique_id=456916077]
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Name" unique_id=456916077]
 layout_mode = 2
 offset_transform_position = Vector2(-25, 0)
 theme_override_font_sizes/font_size = 32
 text = "Contestant Name"
 
-[node name="Name2" type="CenterContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer" unique_id=472839033]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-offset_transform_position = Vector2(200, 0)
-
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Name2" unique_id=1790983094]
-layout_mode = 2
-offset_transform_position = Vector2(-25, 0)
-theme_override_font_sizes/font_size = 24
-text = "Starting Loadout"
-
-[node name="Items" type="Control" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer" unique_id=1099574783]
+[node name="Items" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1099574783]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
 
-[node name="PanelContainer" type="PanelContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items" unique_id=151462953]
+[node name="PanelContainer" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=151462953]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 32.0
@@ -157,27 +147,27 @@ offset_right = 89.0
 offset_bottom = 108.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items/PanelContainer" unique_id=221529355]
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" unique_id=221529355]
 layout_mode = 2
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items" unique_id=701935369]
+[node name="PanelContainer2" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=701935369]
 layout_mode = 0
 offset_left = 108.0
-offset_top = 32.0
+offset_top = 70.0
 offset_right = 184.0
-offset_bottom = 108.0
+offset_bottom = 146.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" unique_id=1081981416]
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" unique_id=1081981416]
 layout_mode = 2
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items" unique_id=744358349]
+[node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=744358349]
 layout_mode = 0
 offset_left = 203.0
 offset_top = 32.0
@@ -185,13 +175,13 @@ offset_right = 279.0
 offset_bottom = 108.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" unique_id=1018975756]
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" unique_id=1018975756]
 layout_mode = 2
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer4" type="PanelContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items" unique_id=1216314014]
+[node name="PanelContainer4" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=1216314014]
 visible = false
 layout_mode = 0
 offset_left = 13.0
@@ -200,28 +190,55 @@ offset_right = 89.0
 offset_bottom = 203.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" unique_id=801661444]
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" unique_id=801661444]
 layout_mode = 2
 text = "Bucket"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Contestant Text" type="Control" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer" unique_id=965184218]
+[node name="Contestant Text" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=965184218]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Contestant Text" unique_id=654737110]
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Contestant Text" unique_id=654737110]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = -310.0
-offset_bottom = 200.0
+offset_right = -2.0
+offset_bottom = 257.0
 grow_horizontal = 2
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas tellus mauris, sit amet molestie magna pharetra nec. Sed id aliquam est, quis luctus nulla. In sed ultricies nisi. Phasellus leo odio, lacinia eget aliquet et, suscipit nec ipsum. Nunc blandit luctus sem, eleifend imperdiet felis molestie vitae
 "
 autowrap_mode = 1
+
+[node name="Buttons" type="HBoxContainer" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1258459046]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.24
+offset_transform_enabled = true
+theme_override_constants/separation = 14
+
+[node name="Button" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1691541058]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("3_v5fbu")
+
+[node name="Button2" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1209743159]
+layout_mode = 2
+icon = ExtResource("4_qweq2")
+
+[node name="Button3" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1175089662]
+layout_mode = 2
+icon = ExtResource("5_jnsl2")
+
+[node name="ContestantStatDisplay" type="Control" parent="UIParent" unique_id=882134817]
+anchors_preset = 0
+offset_left = 83.0
+offset_top = 60.0
+offset_right = 1837.0
+offset_bottom = 668.0
 
 [node name="ContestantFront" type="TextureRect" parent="UIParent/ContestantStatDisplay" unique_id=923369979]
 layout_mode = 0
@@ -245,16 +262,7 @@ pivot_offset = Vector2(639, 508)
 texture = ExtResource("7_7f0fy")
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="UIParent/ContestantStatDisplay" unique_id=1854665401]
-layout_mode = 0
-offset_top = 376.0
-offset_right = 610.0
-offset_bottom = 481.0
-theme_override_fonts/font = ExtResource("7_20b7b")
-theme_override_font_sizes/font_size = 100
-
 [node name="EnemyPortrait" type="PanelContainer" parent="UIParent" unique_id=1423755693]
-visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -267,7 +275,6 @@ grow_horizontal = 0
 theme_override_styles/panel = ExtResource("2_1vrd3")
 
 [node name="EnemyDescription" type="PanelContainer" parent="UIParent" unique_id=1748079486]
-visible = false
 layout_mode = 0
 offset_left = 1600.0
 offset_top = 286.0
@@ -327,30 +334,11 @@ offset_bottom = 1080.0
 [node name="Control" type="Control" parent="UIParent/CharacterSelectPanel" unique_id=1439199496]
 layout_mode = 2
 
-[node name="Blank" parent="UIParent/CharacterSelectPanel/Control" unique_id=271421380 instance=ExtResource("8_a85h0")]
+[node name="Pete The Fury" parent="UIParent/CharacterSelectPanel/Control" unique_id=271421380 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = -502.0
+offset_left = -478.0
 offset_top = -27.5
-offset_right = -502.0
-offset_bottom = -27.5
-script = null
-
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Blank" index="0" unique_id=2146101422]
-self_modulate = Color(0.15294118, 0.15294118, 0.21176471, 1)
-flip_v = true
-
-[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Control/Blank/CharacterTriangle_inner" index="0" unique_id=1677993357]
-offset_left = -22.0
-offset_top = -30.0
-offset_right = 106.0
-offset_bottom = 98.0
-texture = null
-
-[node name="Pete The Fury" parent="UIParent/CharacterSelectPanel/Control" unique_id=837047816 instance=ExtResource("8_a85h0")]
-layout_mode = 1
-offset_left = -351.0
-offset_top = -27.5
-offset_right = -351.0
+offset_right = -478.0
 offset_bottom = -27.5
 Starter = 1
 DisplayName = "Pete \"The Fury\" Faldangen - The Darts Player"
@@ -371,9 +359,9 @@ texture = ExtResource("11_ticr3")
 
 [node name="Rory Schmew" parent="UIParent/CharacterSelectPanel/Control" unique_id=1043914244 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = -198.0
+offset_left = -325.0
 offset_top = -27.5
-offset_right = -198.0
+offset_right = -325.0
 offset_bottom = -27.5
 Starter = 2
 DisplayName = "Rory Schmew"
@@ -395,32 +383,32 @@ texture = ExtResource("14_w2oxx")
 
 [node name="Timmy Burnlee" parent="UIParent/CharacterSelectPanel/Control" unique_id=374369036 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = -45.0
+offset_left = -172.0
 offset_top = -27.5
-offset_right = -45.0
+offset_right = -172.0
 offset_bottom = -27.5
 Starter = 3
 DisplayName = "Timmy Burnlee"
 Description = "Timmy Desc	"
-CharFront = ExtResource("15_w1b7k")
-CharBack = ExtResource("15_njwpm")
+CharFront = SubResource("CanvasTexture_cp58y")
+CharBack = SubResource("CanvasTexture_ticr3")
 StartingItem = ExtResource("13_7f0fy")
 
 [node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Timmy Burnlee" index="0" unique_id=2146101422]
-self_modulate = Color(0.91764706, 0.63529414, 0.3647059, 1)
+self_modulate = Color(0.5882353, 0.25882354, 0.3254902, 1)
 
 [node name="TextureRect" parent="UIParent/CharacterSelectPanel/Control/Timmy Burnlee/CharacterTriangle_inner" index="0" unique_id=1677993357]
-offset_left = -48.0
-offset_top = 20.0
-offset_right = 80.0
-offset_bottom = 148.0
-texture = ExtResource("15_w1b7k")
+offset_left = -32.0
+offset_top = 46.0
+offset_right = 96.0
+offset_bottom = 174.0
+texture = ExtResource("11_ticr3")
 
 [node name="Zombolda" parent="UIParent/CharacterSelectPanel/Control" unique_id=1070089930 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = 108.0
+offset_left = -19.0
 offset_top = -27.5
-offset_right = 108.0
+offset_right = -19.0
 offset_bottom = -27.5
 Starter = 4
 DisplayName = "Zombolda Gigglesworth"
@@ -442,9 +430,9 @@ texture = ExtResource("18_m1cwc")
 
 [node name="Dane Blanche" parent="UIParent/CharacterSelectPanel/Control" unique_id=973854418 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = 261.0
+offset_left = 134.0
 offset_top = -27.5
-offset_right = 261.0
+offset_right = 134.0
 offset_bottom = -27.5
 Starter = 5
 DisplayName = "Dane Blanche"
@@ -465,9 +453,9 @@ texture = ExtResource("21_v1eva")
 
 [node name="Hornacia" parent="UIParent/CharacterSelectPanel/Control" unique_id=1397904695 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = 414.0
+offset_left = 287.0
 offset_top = -27.5
-offset_right = 414.0
+offset_right = 287.0
 offset_bottom = -27.5
 Starter = 6
 DisplayName = "Hornacia Baidineanu"
@@ -519,23 +507,25 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PreviewWheelRoot" type="Node2D" parent="." unique_id=1995714591]
-position = Vector2(727, -264)
+[node name="Enemy" type="Node2D" parent="." unique_id=1995714591]
+position = Vector2(413, -275)
+script = ExtResource("15_ticr3")
+WaitTime = 0.5
 
-[node name="PreviewWheel" type="Node2D" parent="PreviewWheelRoot" unique_id=866764280 node_paths=PackedStringArray("slice_template")]
+[node name="EnemyWheel" type="Node2D" parent="Enemy" unique_id=866764280 node_paths=PackedStringArray("slice_template")]
 script = ExtResource("16_v54mg")
 item = ExtResource("17_w2oxx")
 slice_template = NodePath("TemplatePolygon2D")
 
-[node name="TemplatePolygon2D" type="Polygon2D" parent="PreviewWheelRoot/PreviewWheel" unique_id=1168597390 node_paths=PackedStringArray("own_collision")]
+[node name="TemplatePolygon2D" type="Polygon2D" parent="Enemy/EnemyWheel" unique_id=1168597390 node_paths=PackedStringArray("own_collision")]
 script = ExtResource("18_r351o")
 own_collision = NodePath("Area2D/CollisionPolygon2D")
 collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
 
-[node name="Area2D" type="Area2D" parent="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" unique_id=457135455]
+[node name="Area2D" type="Area2D" parent="Enemy/EnemyWheel/TemplatePolygon2D" unique_id=457135455]
 z_index = 1
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" unique_id=928725613]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" unique_id=928725613]
 
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Pete The Fury" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Rory Schmew" to="CharSelectBrain" method="show_selected_starter"]
@@ -543,21 +533,19 @@ z_index = 1
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Zombolda" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Dane Blanche" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Hornacia" to="CharSelectBrain" method="show_selected_starter"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@24779/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24779/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@24779/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24779/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@24780/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24780/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@24780/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24780/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@24781/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24781/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@24781/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24781/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@24782/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24782/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@24782/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24782/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@24783/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24783/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@24783/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24783/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@24779/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@24779/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@24779/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@24779/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@24780/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@24780/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@24780/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@24780/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@24781/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@24781/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@24781/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@24781/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@24782/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@24782/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@24782/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@24782/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@24783/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@24783/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@24783/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@24783/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
-[editable path="UIParent/CharacterSelectPanel/Control/Blank"]
-[editable path="UIParent/CharacterSelectPanel/Control/Blank/CharacterTriangle_inner"]
 [editable path="UIParent/CharacterSelectPanel/Control/Pete The Fury"]
 [editable path="UIParent/CharacterSelectPanel/Control/Pete The Fury/CharacterTriangle_inner"]
 [editable path="UIParent/CharacterSelectPanel/Control/Rory Schmew"]

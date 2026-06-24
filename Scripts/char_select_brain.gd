@@ -25,4 +25,3 @@ func show_selected_starter(starter:int, display_name:String, Description:String,
 	CharDesc.text = Description
 	DemoWheel.item = item
 	DemoWheel.UpdateWheel(item)
-	

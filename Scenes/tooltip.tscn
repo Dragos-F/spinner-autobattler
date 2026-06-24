@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c2q8wvvn4hjw8"]
+
+[node name="Tooltip" type="Control" unique_id=117734496]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="." unique_id=1781231555]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Tooltip"

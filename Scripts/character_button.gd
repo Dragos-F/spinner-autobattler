@@ -27,8 +27,9 @@ var once:bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#ONLY FOR TESTING
-	CharFront = get_child(0).get_child(0).texture
-	CharBack = get_child(0).get_child(0).texture
+	#CharFront = get_child(0).get_child(0).texture
+	#CharBack = get_child(0).get_child(0).texture
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
