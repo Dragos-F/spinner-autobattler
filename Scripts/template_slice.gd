@@ -48,7 +48,7 @@ func _input(event: InputEvent) -> void:
 		var camera = get_viewport().get_camera_2d()
 		var pos: Vector2 = camera.get_global_mouse_position()
 		if activeTooltip != null:
-			print("Mouse at: ", pos)
+			#print("Mouse at: ", pos)
 			pos = offsetPosition(global_position,pos)
 			activeTooltip.position = pos
 

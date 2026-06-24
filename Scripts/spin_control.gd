@@ -6,12 +6,14 @@ class_name Spinner
 @export var WaitTime:float = 2
 @onready var ResetTime:float = 5
 @export var test_clicker:Clicker
-
+var wheel:Wheel
 signal sliceselected(slice:Slice,source:String)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	var wheel:Wheel = get_child(0)
+	wheel = get_child(0)
+	if wheel.item == null:
+		return
 	ResetTime = wheel.item.cooldown # currently set by the equipped item
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,6 +21,10 @@ func _process(delta: float) -> void:
 	pass
 
 func random_spin():
+	if wheel.item == null:
+		print("can't spin, no item assigned")
+		return
+	isSpinning = true
 	var testRand = randf()
 	print("RANDOM SPIN!!!!")
 	print("randomspin: "+str(testRand))
@@ -37,7 +43,7 @@ func reset_spin():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "rotation", 0, ResetTime).set_trans(Tween.TRANS_SINE).set_delay(WaitTime)
 	tween.tween_callback(random_spin)
-
+var isSpinning = false
 func _input(event):
 	if event is InputEventKey and event.pressed and !event.is_echo():
 		if event.keycode == KEY_SPACE:

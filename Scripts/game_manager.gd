@@ -3,10 +3,12 @@ extends Node
 @export var EnemyDisplay:TextureRect
 @export var EnemyTitleText:Label
 @export var EnemyDescriptionText:Label
+@export var EnemyHPSystem:HealthEntity
 
 @export var EnemyCollections:Array[EnemyCollection]
 @export var ActiveEnemyCollection:int=0
 @export var PrimaryEnemyWheel:Wheel
+
 @export var combatManager:CombatManager
 var StageNumber:int=0
 
@@ -34,7 +36,9 @@ func LoadEnemy(enemy:Enemy):
 	EnemyDescriptionText.text = enemy.Description
 	EnemyDisplay.texture = enemy.Graphic
 	ActiveEnemyHP = enemy.BaseHealth
-	combatManager.EnemyEntity = enemy
+	EnemyHPSystem.currenthealth = enemy.BaseHealth
+	EnemyHPSystem.maxhealth = enemy.BaseHealth
+	combatManager.EnemyEntity = EnemyHPSystem
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and !event.is_echo():

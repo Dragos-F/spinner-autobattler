@@ -17,7 +17,8 @@
 [ext_resource type="Resource" uid="uid://bjy2m67jaj3j8" path="res://Resources/EnemyCollections/all_enemies.tres" id="13_6t1o7"]
 [ext_resource type="PackedScene" uid="uid://b3gjfmq7e55vk" path="res://Scenes/full_wheel_bundle.tscn" id="15_xc4hf"]
 [ext_resource type="PackedScene" uid="uid://dvm8eqmaaxrye" path="res://Scenes/draggable_item.tscn" id="16_6rnll"]
-[ext_resource type="PackedScene" uid="uid://bcfpmjh8og6hk" path="res://Scenes/health_display.tscn" id="18_hx8n4"]
+[ext_resource type="Script" uid="uid://ffjh8wls7qxv" path="res://Scripts/hp_entity.gd" id="18_i0j58"]
+[ext_resource type="Texture2D" uid="uid://qo0ug1w1dfv5" path="res://VisualAssets/square.png" id="19_c1ier"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
 texture = ExtResource("1_7rqgy")
@@ -43,6 +44,42 @@ shader_parameter/vignette_intensity = 0.3
 shader_parameter/grille_amount = 0.10000000475
 shader_parameter/brightness_boost = 1.2
 
+[sub_resource type="Animation" id="Animation_gyaec"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bpy1e"]
+resource_name = "vertical_health"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p5ymy"]
+_data = {
+&"RESET": SubResource("Animation_gyaec"),
+&"vertical_health": SubResource("Animation_bpy1e")
+}
+
 [node name="Node2D2" type="Node" unique_id=704281934]
 
 [node name="InventoryManager" type="Node" parent="." unique_id=141645274 node_paths=PackedStringArray("slots", "wheels")]
@@ -51,17 +88,20 @@ script = ExtResource("1_i0j58")
 slots = [NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer"), NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer2"), NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3")]
 wheels = [NodePath("../PlayerWheels/PlayerWheel1/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel2/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel3/SpinControl/Wheel")]
 
-[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "PrimaryEnemyWheel")]
+[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "PrimaryEnemyWheel", "combatManager")]
 script = ExtResource("10_4b75m")
 EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/Label")
+EnemyHPSystem = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
 EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("13_6t1o7")])
-ActiveEnemyCollection = null
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
+combatManager = NodePath("../CombatManager")
 
-[node name="CombatManager" type="Node" parent="." unique_id=317878429]
+[node name="CombatManager" type="Node" parent="." unique_id=317878429 node_paths=PackedStringArray("PlayerEntity", "EnemyEntity")]
 script = ExtResource("5_enc0b")
+PlayerEntity = NodePath("../PlayerWheels/PlayerHealthDisplay")
+EnemyEntity = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319989986]
 
@@ -358,14 +398,57 @@ anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Pane
 [node name="EnemyWheelBundle" parent="." unique_id=1603726747 instance=ExtResource("15_xc4hf")]
 position = Vector2(414, -226)
 
-[node name="HealthDisplay" parent="EnemyWheelBundle" unique_id=476784757 instance=ExtResource("18_hx8n4")]
-position = Vector2(-847, 39)
+[node name="EnemyHealthDisplay" type="Node2D" parent="EnemyWheelBundle" unique_id=1657434431 node_paths=PackedStringArray("animator", "healthtext")]
+position = Vector2(-841, 136)
+script = ExtResource("18_i0j58")
+animationname = "vertical_health"
+animator = NodePath("Node2D/AnimationPlayer")
+healthtext = NodePath("HealthText")
 
-[node name="Sprite2D" parent="EnemyWheelBundle/HealthDisplay" index="0" unique_id=2056537886]
-self_modulate = Color(0, 3.129706, 1.1689216, 1)
-position = Vector2(0, -49)
-texture = ExtResource("1_7rqgy")
-centered = true
+[node name="HealthGraphicFrame" type="Sprite2D" parent="EnemyWheelBundle/EnemyHealthDisplay" unique_id=6217658]
+self_modulate = Color(0.4117647, 0.15294118, 0.3647059, 1)
+position = Vector2(-37, 0)
+rotation = -1.5707964
+scale = Vector2(6.0166264, 1.2880388)
+texture = ExtResource("19_c1ier")
+centered = false
+
+[node name="HealthGraphicInner" type="Sprite2D" parent="EnemyWheelBundle/EnemyHealthDisplay" unique_id=194837093]
+self_modulate = Color(0.24313726, 0.13725491, 0.2784314, 1)
+position = Vector2(-32, -6.2475224)
+rotation = -1.5707964
+scale = Vector2(5.7641797, 1.0933919)
+texture = ExtResource("19_c1ier")
+centered = false
+
+[node name="Node2D" type="Node2D" parent="EnemyWheelBundle/EnemyHealthDisplay" unique_id=558756760]
+position = Vector2(0, -6)
+
+[node name="HealthGraphic" type="Sprite2D" parent="EnemyWheelBundle/EnemyHealthDisplay/Node2D" unique_id=1832671231]
+self_modulate = Color(0.24313726, 0.7921569, 0.2784314, 1)
+position = Vector2(-32, 0)
+rotation = -1.5707964
+scale = Vector2(5.785689, 1.0933919)
+texture = ExtResource("19_c1ier")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyWheelBundle/EnemyHealthDisplay/Node2D" unique_id=799205839]
+libraries/ = SubResource("AnimationLibrary_p5ymy")
+speed_scale = 0.0
+
+[node name="HealthText" type="Label" parent="EnemyWheelBundle/EnemyHealthDisplay" unique_id=1568931752]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_right = 75.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayerWheels" type="Node2D" parent="." unique_id=1833374083]
 position = Vector2(-152, 266)
@@ -373,11 +456,72 @@ position = Vector2(-152, 266)
 [node name="PlayerWheel1" parent="PlayerWheels" unique_id=1694628658 instance=ExtResource("15_xc4hf")]
 position = Vector2(-265, -22)
 
+[node name="Wheel" parent="PlayerWheels/PlayerWheel1/SpinControl" parent_id_path=PackedInt32Array(1694628658, 931065810) index="0" unique_id=808226493]
+item = null
+
+[node name="PlayerHealthDisplay" type="Node2D" parent="PlayerWheels" unique_id=304034929 node_paths=PackedStringArray("animator", "healthtext")]
+position = Vector2(566, 125)
+script = ExtResource("18_i0j58")
+animationname = "vertical_health"
+animator = NodePath("Node2D/AnimationPlayer")
+healthtext = NodePath("HealthText")
+
+[node name="HealthGraphicFrame" type="Sprite2D" parent="PlayerWheels/PlayerHealthDisplay" unique_id=1450968911]
+self_modulate = Color(0.4117647, 0.15294118, 0.3647059, 1)
+position = Vector2(-37, 0)
+rotation = -1.5707964
+scale = Vector2(6.0166264, 1.2880388)
+texture = ExtResource("19_c1ier")
+centered = false
+
+[node name="HealthGraphicInner" type="Sprite2D" parent="PlayerWheels/PlayerHealthDisplay" unique_id=250300747]
+self_modulate = Color(0.24313726, 0.13725491, 0.2784314, 1)
+position = Vector2(-32, -6.2475224)
+rotation = -1.5707964
+scale = Vector2(5.7641797, 1.0933919)
+texture = ExtResource("19_c1ier")
+centered = false
+
+[node name="Node2D" type="Node2D" parent="PlayerWheels/PlayerHealthDisplay" unique_id=729802698]
+position = Vector2(0, -6)
+
+[node name="HealthGraphic" type="Sprite2D" parent="PlayerWheels/PlayerHealthDisplay/Node2D" unique_id=2057838019]
+self_modulate = Color(0.24313726, 0.7921569, 0.2784314, 1)
+position = Vector2(-32, 0)
+rotation = -1.5707964
+scale = Vector2(5.785689, 1.0933919)
+texture = ExtResource("19_c1ier")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerWheels/PlayerHealthDisplay/Node2D" unique_id=671081108]
+libraries/ = SubResource("AnimationLibrary_p5ymy")
+speed_scale = 0.0
+
+[node name="HealthText" type="Label" parent="PlayerWheels/PlayerHealthDisplay" unique_id=526010401]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_right = 75.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PlayerWheel2" parent="PlayerWheels" unique_id=1953585299 instance=ExtResource("15_xc4hf")]
 position = Vector2(-41, -139)
 
+[node name="Wheel" parent="PlayerWheels/PlayerWheel2/SpinControl" parent_id_path=PackedInt32Array(1953585299, 931065810) index="0" unique_id=808226493]
+item = null
+
 [node name="PlayerWheel3" parent="PlayerWheels" unique_id=2039030054 instance=ExtResource("15_xc4hf")]
 position = Vector2(237, -52)
+
+[node name="Wheel" parent="PlayerWheels/PlayerWheel3/SpinControl" parent_id_path=PackedInt32Array(2039030054, 931065810) index="0" unique_id=808226493]
+item = null
 
 [connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" method="_on_mouse_exited"]
@@ -398,6 +542,7 @@ position = Vector2(237, -52)
 [connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519820/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519820/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="sliceselected" from="PlayerWheels/PlayerWheel1/SpinControl" to="CombatManager" method="listen_player_spinresult"]
 [connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519823/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519823/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
@@ -408,6 +553,7 @@ position = Vector2(237, -52)
 [connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519825/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519825/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519826/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519826/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519826/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519826/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="sliceselected" from="PlayerWheels/PlayerWheel2/SpinControl" to="CombatManager" method="listen_player_spinresult"]
 [connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519827/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519827/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519827/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519827/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519828/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519828/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
@@ -418,6 +564,7 @@ position = Vector2(237, -52)
 [connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519830/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519830/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519831/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519831/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519831/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519831/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="sliceselected" from="PlayerWheels/PlayerWheel3/SpinControl" to="CombatManager" method="listen_player_spinresult"]
 [connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519832/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519832/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519832/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519832/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519833/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519833/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
@@ -430,7 +577,6 @@ position = Vector2(237, -52)
 [connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519836/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519836/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="EnemyWheelBundle"]
-[editable path="EnemyWheelBundle/HealthDisplay"]
 [editable path="PlayerWheels/PlayerWheel1"]
 [editable path="PlayerWheels/PlayerWheel2"]
 [editable path="PlayerWheels/PlayerWheel3"]

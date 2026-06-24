@@ -2,13 +2,14 @@ extends Node2D
 class_name HealthEntity
 @export var maxhealth:float = 100
 @export var currenthealth:float = 100
+@export var animationname:String = "hp_progress"
 
 @export var animator:AnimationPlayer
 @export var healthtext:Label
 var healthAnimLength:float = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animator.play("hp_progress")
+	animator.play(animationname)
 	healthAnimLength = animator.current_animation_length-0.01
 	print("healthanimlength"+str(healthAnimLength))
 	updateHealthDisplay()
