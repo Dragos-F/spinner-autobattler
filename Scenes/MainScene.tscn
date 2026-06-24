@@ -331,6 +331,7 @@ slice_template = NodePath("TemplatePolygon2D")
 script = ExtResource("17_i0j58")
 own_collision = NodePath("Area2D/CollisionPolygon2D")
 collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
+displayoffsets = null
 
 [node name="Area2D" type="Area2D" parent="Enemy/EnemyWheel/TemplatePolygon2D" unique_id=1468526469]
 z_index = 1
@@ -362,14 +363,14 @@ vertical_alignment = 1
 
 [connection signal="mouse_entered" from="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Enemy/EnemyWheel/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@30104/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@30104/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@30104/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@30104/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@30105/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@30105/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@30105/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@30105/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@30106/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@30106/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@30106/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@30106/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@30107/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@30107/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@30107/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@30107/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@30108/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@30108/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@30108/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@30108/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@418800/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@418800/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@418800/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@418800/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@418801/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@418801/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@418801/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@418801/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@418802/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@418802/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@418802/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@418802/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@418803/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@418803/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@418803/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@418803/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Enemy/EnemyWheel/@Node2D@418804/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@418804/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Enemy/EnemyWheel/@Node2D@418804/TemplatePolygon2D/Area2D" to="Enemy/EnemyWheel/@Node2D@418804/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="area_entered" from="WheelClicker/Area2D" to="WheelClicker" method="_on_area_2d_area_entered"]
