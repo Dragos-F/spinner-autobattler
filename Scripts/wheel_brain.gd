@@ -64,7 +64,7 @@ func generatewheel():
 	else:
 		print("slice parent already exists, purging")
 		for n in get_children():
-			print(n)
+			#print(n)
 			if n == get_child(0):
 				continue
 			else:
@@ -101,7 +101,7 @@ func generatewheel():
 			copied_slice.texture = item.stats[i].visual
 		else:
 			copied_slice.color = item.stats[i].colour
-		print (slice_parent)
+		#print (slice_parent)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
