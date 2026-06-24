@@ -9,5 +9,5 @@
 [resource]
 script = ExtResource("1_rkysw")
 cooldown = 4.0
-stats = Array[ExtResource("2_6pwm2")]([ExtResource("3_yjpd5"), ExtResource("4_af0qr"), ExtResource("4_af0qr"), ExtResource("6_r34m8"), ExtResource("6_r34m8"), ExtResource("6_r34m8")])
+stats = Array[ExtResource("2_6pwm2")]([ExtResource("6_r34m8"), ExtResource("3_yjpd5"), ExtResource("6_r34m8"), ExtResource("4_af0qr"), ExtResource("6_r34m8"), ExtResource("4_af0qr")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"
