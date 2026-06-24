@@ -5,7 +5,7 @@ class_name Draggable
 @export var item:WheelItem
 @export var hovering:bool
 @export var dragging:bool
-@export var anchor_pos:Control #Transform coords for the object to return to when not holding
+@export var anchor_pos:ItemSlot #Mainly used for the ransform coords for the object to return to when not holding
 
 @export var hold_time:float
 @onready var manager:InvManager
