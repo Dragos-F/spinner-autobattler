@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c28ytewm2yxpc"]
+
+[ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="1_cgo47"]
+
+[node name="BlackOut" type="Node2D" unique_id=68516241]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=54039587]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+scale = Vector2(22.89844, 12.880374)
+texture = ExtResource("1_cgo47")
+
+[node name="Label" type="Label" parent="." unique_id=1210050582]
+offset_left = -596.5217
+offset_top = -343.0
+offset_right = 600.0
+offset_bottom = 320.0
