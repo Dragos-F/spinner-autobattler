@@ -362,7 +362,7 @@ offset_top = -27.5
 offset_right = -351.0
 offset_bottom = -27.5
 Starter = 1
-DisplayName = "Pete \"The Fury\" Faldangen - The Darts Player"
+DisplayName = "Pete \"The Fury\" Faldangen"
 Description = "Pete Description"
 CharFront = ExtResource("11_ticr3")
 CharBack = ExtResource("12_v54mg")
@@ -538,7 +538,6 @@ script = ExtResource("18_r351o")
 own_collision = NodePath("Area2D/CollisionPolygon2D")
 collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
 tooltipObject = ExtResource("32_cp58y")
-displayoffsets = null
 
 [node name="Area2D" type="Area2D" parent="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" unique_id=457135455]
 z_index = 1
@@ -553,16 +552,16 @@ z_index = 1
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Hornacia" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@418795/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@418795/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@418795/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@418795/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@418796/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@418796/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@418796/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@418796/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@418797/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@418797/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@418797/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@418797/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@418798/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@418798/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@418798/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@418798/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@418799/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@418799/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@418799/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@418799/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@273853/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@273853/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@273853/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@273853/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@273854/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@273854/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@273854/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@273854/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@273855/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@273855/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@273855/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@273855/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@273856/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@273856/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@273856/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@273856/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@273857/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@273857/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@273857/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@273857/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="UIParent/CharacterSelectPanel/Control/Blank"]
 [editable path="UIParent/CharacterSelectPanel/Control/Blank/CharacterTriangle_inner"]

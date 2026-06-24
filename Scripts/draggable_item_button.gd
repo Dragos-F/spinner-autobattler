@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position",target,0.5)
 	elif (self.global_position - anchor_pos.global_position).length() >= Vector2(1,1).length():
-		#print(anchor_pos)
+		#print(anchor_pos.position)
 		reset_location()
 
 
@@ -50,7 +50,7 @@ func _input(event: InputEvent) -> void:
 		
 func reset_location():
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "position",anchor_pos.position,0.5)
+		tween.tween_property(self, "position",anchor_pos.global_position,0.5)
 		#print (anchor_pos)
 		
 func _on_mouse_entered() -> void:

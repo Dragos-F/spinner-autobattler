@@ -9,7 +9,7 @@ class_name InvManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	update_wheels()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -20,8 +20,8 @@ func update_wheels():
 		
 		#var temp_item:WheelItem = 
 		if slots[i].equipped_item == null:
-			wheels[i].visible = false
+			wheels[i].get_parent().get_parent().visible = false
 		else:
-			wheels[i].visible = true
+			wheels[i].get_parent().get_parent().visible = true
 			wheels[i].UpdateWheel(slots[i].equipped_item.item)
 			print("Slot"+str(i)+" Item:"+str(slots[i].equipped_item))

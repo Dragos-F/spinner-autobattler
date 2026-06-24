@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dvm8eqmaaxrye"]
+
+[ext_resource type="Texture2D" uid="uid://bomxudj8ou7d7" path="res://VisualAssets/Items/Mop_png.png" id="1_typfe"]
+[ext_resource type="Script" uid="uid://c8geb3ln1mom4" path="res://Scripts/draggable_item_button.gd" id="2_dc68v"]
+[ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="3_d2hfo"]
+
+[node name="Draggable" type="Button" unique_id=1814434899]
+z_index = 1
+offset_left = 211.0
+offset_top = -191.0
+offset_right = 859.0
+offset_bottom = 457.0
+scale = Vector2(0.15, 0.15)
+icon = ExtResource("1_typfe")
+script = ExtResource("2_dc68v")
+item = ExtResource("3_d2hfo")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
