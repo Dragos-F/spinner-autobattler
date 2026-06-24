@@ -4,6 +4,7 @@ class_name Clicker
 
 @export var final_slice:PresetSlice
 @export var result:Label
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -21,13 +22,14 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	#print(temp_slice)
 	final_slice = temp_slice
 
-func select_slice():
-	if final_slice !=null:
+func select_slice() -> PresetSlice:
+	if final_slice != null:
 		var name: String = final_slice.slice_type.resource_path
 		name = name.trim_prefix("res://Resources/Slices/")
 		name = name.trim_suffix(".tres")
 		result.text = "Selected Slice: "+name
 		#print (name)
+	return final_slice
 	
 	
 func reset_text():

@@ -7,6 +7,7 @@ class_name Spinner
 @onready var ResetTime:float = 5
 @export var test_clicker:Clicker
 
+signal sliceselected(slice:Slice,source:String)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -27,7 +28,8 @@ func random_spin():
 	test_clicker.spining_text()
 	await tween.finished
 	print ("Tried to select a Slice")
-	test_clicker.select_slice()
+	var pickedslice = test_clicker.select_slice()
+	sliceselected.emit(pickedslice,name)
 	reset_spin()
 
 func reset_spin():

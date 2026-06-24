@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dhw32ateyd5gf" path="res://VisualAssets/Button_return.png" id="3_q68mp"]
 [ext_resource type="Texture2D" uid="uid://da13mmeakbrei" path="res://VisualAssets/Button_Settings.png" id="4_f140w"]
 [ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_0iob3"]
+[ext_resource type="Script" uid="uid://1qjdfkp2kes2" path="res://combat_manager.gd" id="5_enc0b"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_xb4mg"]
 [ext_resource type="LabelSettings" uid="uid://0sftpb7dnv7v" path="res://VisualAssets/Fonts/new_label_settings.tres" id="8_5qxwa"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="9_0iob3"]
@@ -16,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://bjy2m67jaj3j8" path="res://Resources/EnemyCollections/all_enemies.tres" id="13_6t1o7"]
 [ext_resource type="PackedScene" uid="uid://b3gjfmq7e55vk" path="res://Scenes/full_wheel_bundle.tscn" id="15_xc4hf"]
 [ext_resource type="PackedScene" uid="uid://dvm8eqmaaxrye" path="res://Scenes/draggable_item.tscn" id="16_6rnll"]
+[ext_resource type="PackedScene" uid="uid://bcfpmjh8og6hk" path="res://Scenes/health_display.tscn" id="18_hx8n4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
 texture = ExtResource("1_7rqgy")
@@ -55,7 +57,11 @@ EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/Label")
 EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("13_6t1o7")])
+ActiveEnemyCollection = null
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
+
+[node name="CombatManager" type="Node" parent="." unique_id=317878429]
+script = ExtResource("5_enc0b")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319989986]
 
@@ -352,6 +358,15 @@ anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Pane
 [node name="EnemyWheelBundle" parent="." unique_id=1603726747 instance=ExtResource("15_xc4hf")]
 position = Vector2(414, -226)
 
+[node name="HealthDisplay" parent="EnemyWheelBundle" unique_id=476784757 instance=ExtResource("18_hx8n4")]
+position = Vector2(-847, 39)
+
+[node name="Sprite2D" parent="EnemyWheelBundle/HealthDisplay" index="0" unique_id=2056537886]
+self_modulate = Color(0, 3.129706, 1.1689216, 1)
+position = Vector2(0, -49)
+texture = ExtResource("1_7rqgy")
+centered = true
+
 [node name="PlayerWheels" type="Node2D" parent="." unique_id=1833374083]
 position = Vector2(-152, 266)
 
@@ -372,48 +387,50 @@ position = Vector2(237, -52)
 [connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593270/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593270/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593270/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593270/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593271/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593271/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593271/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593271/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593272/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593272/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593272/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593272/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593273/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593273/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593273/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593273/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593274/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593274/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593274/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@593274/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593275/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593275/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593275/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593275/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593276/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593276/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593276/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593276/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593277/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593277/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593277/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593277/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593278/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593278/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593278/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593278/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593279/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593279/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593279/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@593279/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593280/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593280/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593280/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593280/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593281/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593281/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593281/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593281/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593282/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593282/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593282/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593282/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593283/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593283/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593283/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593283/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593284/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593284/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593284/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@593284/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593285/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593285/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593285/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593285/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593286/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593286/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593286/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593286/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593287/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593287/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593287/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593287/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593288/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593288/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593288/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593288/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593289/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593289/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593289/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@593289/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="sliceselected" from="EnemyWheelBundle/SpinControl" to="CombatManager" method="listen_enemy_spinresult"]
+[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519817/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519817/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519817/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519817/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519818/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519818/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519818/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519818/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519819/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519819/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519819/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519819/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519820/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519820/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519820/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519820/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519823/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519823/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519823/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519823/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519824/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519824/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519824/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519824/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519825/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519825/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519825/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519825/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519826/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519826/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519826/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519826/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519827/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519827/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519827/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519827/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519828/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519828/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519828/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519828/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519829/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519829/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519829/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519829/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519830/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519830/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519830/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519830/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519831/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519831/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519831/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel2/SpinControl/Wheel/@Node2D@519831/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519832/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519832/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519832/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519832/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519833/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519833/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519833/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519833/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519834/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519834/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519834/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519834/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519835/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519835/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519835/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519835/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519836/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519836/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519836/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel3/SpinControl/Wheel/@Node2D@519836/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="EnemyWheelBundle"]
+[editable path="EnemyWheelBundle/HealthDisplay"]
 [editable path="PlayerWheels/PlayerWheel1"]
 [editable path="PlayerWheels/PlayerWheel2"]
 [editable path="PlayerWheels/PlayerWheel3"]
