@@ -10,5 +10,5 @@
 [resource]
 script = ExtResource("1_xg142")
 cooldown = 3.0
-stats = Array[ExtResource("2_jbdc4")]([ExtResource("2_1i32s"), ExtResource("2_1i32s"), ExtResource("2_1i32s"), ExtResource("3_jbdc4"), ExtResource("4_qo72p"), ExtResource("5_avxx5")])
+stats = Array[ExtResource("2_jbdc4")]([ExtResource("2_1i32s"), ExtResource("3_jbdc4"), ExtResource("2_1i32s"), ExtResource("4_qo72p"), ExtResource("2_1i32s"), ExtResource("5_avxx5")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

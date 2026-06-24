@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://beepi1utacxq6"]
+
+[ext_resource type="Texture2D" uid="uid://bomxudj8ou7d7" path="res://VisualAssets/Items/Mop_png.png" id="1_ae53e"]
+[ext_resource type="Script" uid="uid://df1pnvhe64lch" path="res://Scripts/item_slot.gd" id="1_txqs6"]
+[ext_resource type="Script" uid="uid://c8geb3ln1mom4" path="res://Scripts/draggable_item_button.gd" id="2_txqs6"]
+[ext_resource type="Script" uid="uid://b4k33yenv5yb6" path="res://Scripts/inventory_manager.gd" id="3_txqs6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alkp7"]
+bg_color = Color(0.5882353, 0.25882354, 0.3254902, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Node" type="Node" unique_id=857842117]
+
+[node name="InventoryManager" type="Node" parent="." unique_id=1619398843]
+unique_name_in_owner = true
+script = ExtResource("3_txqs6")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2144932813]
+
+[node name="Control" type="Control" parent="." unique_id=2001375118]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_left = -711.0
+offset_top = -268.0
+offset_right = -586.0
+offset_bottom = -154.0
+script = ExtResource("1_txqs6")
+
+[node name="PanelContainer3" type="PanelContainer" parent="Control" unique_id=77200882]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.8
+anchor_top = 6.775
+anchor_right = 18.768
+anchor_bottom = 7.7574563
+offset_left = -2225.0
+offset_top = -772.35004
+offset_right = -2225.0
+offset_bottom = -772.35004
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_alkp7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/PanelContainer3" unique_id=1194245709]
+layout_mode = 2
+mouse_filter = 1
+text = "Slot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="." unique_id=1217352297]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_left = 540.0
+offset_top = -268.0
+offset_right = 665.0
+offset_bottom = -154.0
+script = ExtResource("1_txqs6")
+
+[node name="PanelContainer3" type="PanelContainer" parent="Control2" unique_id=590796052]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.8
+anchor_top = 6.775
+anchor_right = 18.768
+anchor_bottom = 7.7574563
+offset_left = -2225.0
+offset_top = -772.35004
+offset_right = -2225.0
+offset_bottom = -772.35004
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_alkp7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control2/PanelContainer3" unique_id=628268867]
+layout_mode = 2
+mouse_filter = 1
+text = "Slot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1655338463 node_paths=PackedStringArray("anchor_pos")]
+z_index = 1
+offset_left = 211.0
+offset_top = -191.0
+offset_right = 859.0
+offset_bottom = 457.0
+scale = Vector2(0.15, 0.15)
+icon = ExtResource("1_ae53e")
+script = ExtResource("2_txqs6")
+anchor_pos = NodePath("../Control2")
+
+[connection signal="mouse_entered" from="Control/PanelContainer3" to="Control" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/PanelContainer3" to="Control" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Control2/PanelContainer3" to="Control2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control2/PanelContainer3" to="Control2" method="_on_mouse_exited"]
+[connection signal="gui_input" from="Button" to="Button" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
