@@ -15,14 +15,25 @@
 [ext_resource type="Resource" uid="uid://cdytic8ps8i7r" path="res://Resources/EnemyCollections/stage2_boss.tres" id="7_wmecs"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_xb4mg"]
 [ext_resource type="LabelSettings" uid="uid://0sftpb7dnv7v" path="res://VisualAssets/Fonts/new_label_settings.tres" id="8_5qxwa"]
+[ext_resource type="Resource" uid="uid://ckhxg62ynqs6n" path="res://Resources/EnemyCollections/stage3_standard.tres" id="8_dtg5n"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="9_0iob3"]
+[ext_resource type="Resource" uid="uid://bqaqkv4la53on" path="res://Resources/EnemyCollections/stage3_boss.tres" id="9_d0jji"]
 [ext_resource type="Script" uid="uid://beya8h2388uo2" path="res://Scripts/game_manager.gd" id="10_4b75m"]
+[ext_resource type="Resource" uid="uid://4u0wvok7lsb3" path="res://Resources/EnemyCollections/stage4_standard.tres" id="10_cotnl"]
+[ext_resource type="Resource" uid="uid://btih2uwc4yxni" path="res://Resources/EnemyCollections/stage4_boss.tres" id="11_ypccg"]
+[ext_resource type="Resource" uid="uid://jpfekj7awrk1" path="res://Resources/EnemyCollections/stage5_standard.tres" id="12_rmfi2"]
 [ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="12_xb4mg"]
+[ext_resource type="Resource" uid="uid://xa7mls6hy47t" path="res://Resources/EnemyCollections/stage5_boss.tres" id="13_sl126"]
 [ext_resource type="PackedScene" uid="uid://b3gjfmq7e55vk" path="res://Scenes/full_wheel_bundle.tscn" id="15_xc4hf"]
 [ext_resource type="PackedScene" uid="uid://dvm8eqmaaxrye" path="res://Scenes/draggable_item.tscn" id="16_6rnll"]
-[ext_resource type="Resource" uid="uid://cs26v12em43iy" path="res://Resources/Items/Briefcase.tres" id="18_gyaec"]
 [ext_resource type="Script" uid="uid://ffjh8wls7qxv" path="res://Scripts/hp_entity.gd" id="18_i0j58"]
 [ext_resource type="Texture2D" uid="uid://qo0ug1w1dfv5" path="res://VisualAssets/square.png" id="19_c1ier"]
+[ext_resource type="Texture2D" uid="uid://cxu8gyqso2h8o" path="res://VisualAssets/Items/Briefcase png.png" id="20_r0vnq"]
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="21_c3pre"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="22_u5v48"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="23_s1acj"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="24_t8ijv"]
+[ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="25_rv6c1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
 texture = ExtResource("1_7rqgy")
@@ -85,6 +96,15 @@ shader_parameter/vignette_intensity = 0.3
 shader_parameter/grille_amount = 0.10000000475
 shader_parameter/brightness_boost = 1.2
 
+[sub_resource type="Resource" id="Resource_ergw4"]
+resource_local_to_scene = true
+script = ExtResource("21_c3pre")
+cooldown = 5.5
+icon = ExtResource("20_r0vnq")
+stats = Array[ExtResource("22_u5v48")]([ExtResource("23_s1acj"), ExtResource("23_s1acj"), ExtResource("23_s1acj"), ExtResource("24_t8ijv"), ExtResource("25_rv6c1")])
+isUpgrade = true
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
 [sub_resource type="Animation" id="Animation_gyaec"]
 length = 0.001
 tracks/0/type = "value"
@@ -135,8 +155,8 @@ EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/EnemyDescriptionText")
 EnemyHPSystem = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
-EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("4_i0j58"), ExtResource("5_p5ymy"), ExtResource("6_3va76"), ExtResource("7_wmecs")])
-EnemyCollectionBounds = Array[Vector2]([Vector2(0, 2), Vector2(3, 3), Vector2(4, 6), Vector2(7, 7)])
+EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("4_i0j58"), ExtResource("5_p5ymy"), ExtResource("6_3va76"), ExtResource("7_wmecs"), ExtResource("8_dtg5n"), ExtResource("9_d0jji"), ExtResource("10_cotnl"), ExtResource("11_ypccg"), ExtResource("12_rmfi2"), ExtResource("13_sl126")])
+EnemyCollectionBounds = Array[Vector2]([Vector2(-1, 2), Vector2(3, 3), Vector2(4, 6), Vector2(7, 7), Vector2(8, 10), Vector2(11, 11), Vector2(12, 14), Vector2(15, 15), Vector2(16, 18), Vector2(19, 19)])
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
 PrimaryEnemySpinner = NodePath("../EnemyWheelBundle/SpinControl")
 combatManager = NodePath("../CombatManager")
@@ -463,7 +483,7 @@ offset_left = 544.0
 offset_top = 64.000015
 offset_right = 1192.0
 offset_bottom = 712.0
-item = ExtResource("18_gyaec")
+item = SubResource("Resource_ergw4")
 anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3")
 
 [node name="EnemyWheelBundle" parent="." unique_id=1603726747 instance=ExtResource("15_xc4hf")]
@@ -471,6 +491,9 @@ position = Vector2(414, -226)
 
 [node name="SpinControl" parent="EnemyWheelBundle" index="0" unique_id=931065810]
 TimeCoefficient = 0.6
+
+[node name="Wheel" parent="EnemyWheelBundle/SpinControl" index="0" unique_id=808226493]
+item = null
 
 [node name="EnemyHealthDisplay" type="Node2D" parent="EnemyWheelBundle" unique_id=1657434431 node_paths=PackedStringArray("animator", "healthtext", "CharacterVisualAnimr")]
 position = Vector2(-841, 136)
@@ -588,9 +611,6 @@ position = Vector2(-265, -22)
 [node name="SpinControl" parent="PlayerWheels/PlayerWheel1" index="0" unique_id=931065810]
 TimeCoefficient = 0.6
 
-[node name="Wheel" parent="PlayerWheels/PlayerWheel1/SpinControl" index="0" unique_id=808226493]
-item = null
-
 [node name="PlayerWheel2" parent="PlayerWheels" unique_id=1953585299 instance=ExtResource("15_xc4hf")]
 position = Vector2(-41, -139)
 
@@ -618,16 +638,16 @@ item = null
 [connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" method="_on_mouse_exited"]
 [connection signal="sliceselected" from="EnemyWheelBundle/SpinControl" to="CombatManager" method="listen_enemy_spinresult"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19816/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19816/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19816/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19816/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19817/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19817/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19817/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19817/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19818/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19818/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19818/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19818/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19819/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19819/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19819/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19819/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19820/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19820/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19820/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@19820/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30012/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30012/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30012/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30012/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30013/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30013/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30013/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30013/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30014/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30014/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30014/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30014/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30015/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30015/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30015/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30015/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30016/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30016/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30016/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30016/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="event_hpchanged" from="EnemyWheelBundle/EnemyHealthDisplay" to="GameManager" method="_listener_enemydamaged"]
 [connection signal="event_hpdepleted" from="EnemyWheelBundle/EnemyHealthDisplay" to="GameManager" method="_listener_entityDied"]
 [connection signal="event_hpdepleted" from="PlayerWheels/PlayerHealthDisplay" to="GameManager" method="_listener_entityDied"]

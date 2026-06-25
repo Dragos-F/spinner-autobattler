@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="1_yf7cc"]
 [ext_resource type="Resource" uid="uid://bdltvpvrkugsy" path="res://Resources/Enemies/Regional_Spinoffs.tres" id="2_yf7cc"]
 [ext_resource type="Resource" uid="uid://csiph2p1scuk2" path="res://Resources/Enemies/Christmas_DLC.tres" id="3_yf7cc"]
-[ext_resource type="Resource" uid="uid://f1p7wvp4pfl8" path="res://Resources/Enemies/Tired_PA.tres" id="4_3tsy2"]
+[ext_resource type="Resource" uid="uid://ctp4yv1bg1bwv" path="res://Resources/Enemies/Early_Art.tres" id="4_yf7cc"]
 [ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="5_rx8ct"]
 
 [resource]
 script = ExtResource("5_rx8ct")
 CollectionName = "Stage5 Standard"
-Contents = Array[ExtResource("1_yf7cc")]([ExtResource("2_yf7cc"), ExtResource("3_yf7cc"), ExtResource("4_3tsy2")])
+Contents = Array[ExtResource("1_yf7cc")]([ExtResource("2_yf7cc"), ExtResource("3_yf7cc"), ExtResource("4_yf7cc")])
 metadata/_custom_type_script = "uid://crtclueovnj4u"

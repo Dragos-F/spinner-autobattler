@@ -8,4 +8,5 @@
 [resource]
 script = ExtResource("1_5707x")
 stats = Array[ExtResource("2_3ds7r")]([ExtResource("3_8q34f"), ExtResource("4_byyum")])
+isUpgrade = true
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"
