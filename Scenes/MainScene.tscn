@@ -15,8 +15,10 @@
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="9_0iob3"]
 [ext_resource type="Script" uid="uid://beya8h2388uo2" path="res://Scripts/game_manager.gd" id="10_4b75m"]
 [ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="12_xb4mg"]
+[ext_resource type="Resource" uid="uid://bjy2m67jaj3j8" path="res://Resources/EnemyCollections/all_enemies.tres" id="13_6t1o7"]
 [ext_resource type="PackedScene" uid="uid://b3gjfmq7e55vk" path="res://Scenes/full_wheel_bundle.tscn" id="15_xc4hf"]
 [ext_resource type="PackedScene" uid="uid://dvm8eqmaaxrye" path="res://Scenes/draggable_item.tscn" id="16_6rnll"]
+[ext_resource type="Resource" uid="uid://cs26v12em43iy" path="res://Resources/Items/Briefcase.tres" id="18_gyaec"]
 [ext_resource type="Script" uid="uid://ffjh8wls7qxv" path="res://Scripts/hp_entity.gd" id="18_i0j58"]
 [ext_resource type="Texture2D" uid="uid://qo0ug1w1dfv5" path="res://VisualAssets/square.png" id="19_c1ier"]
 
@@ -131,8 +133,8 @@ EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/EnemyDescriptionText")
 EnemyHPSystem = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
-EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("4_i0j58")])
-EnemyCollectionBounds = Array[Vector2]([Vector2(0, 10)])
+EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("4_i0j58"), ExtResource("13_6t1o7")])
+EnemyCollectionBounds = Array[Vector2]([Vector2(0, 3), Vector2(4, 100)])
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
 PrimaryEnemySpinner = NodePath("../EnemyWheelBundle/SpinControl")
 combatManager = NodePath("../CombatManager")
@@ -182,6 +184,16 @@ offset_right = 320.0
 offset_bottom = 270.0
 mouse_filter = 1
 theme_override_styles/panel = ExtResource("2_y4jh7")
+
+[node name="Label" type="Label" parent="UIParent/PortraitBox" unique_id=2061095971]
+layout_mode = 2
+offset_transform_position = Vector2(-25, 0)
+theme_override_font_sizes/font_size = 32
+text = "Space to start, once
+an enemy is dead
+press G to load the
+next stage (debug)
+~ J"
 
 [node name="ContestantUI" type="PanelContainer" parent="UIParent" unique_id=1852627084]
 layout_mode = 0
@@ -439,6 +451,14 @@ offset_top = 204.0
 offset_right = 1174.0
 offset_bottom = 852.0
 anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4")
+
+[node name="Draggable2" parent="." unique_id=1154286523 node_paths=PackedStringArray("anchor_pos") instance=ExtResource("16_6rnll")]
+offset_left = 544.0
+offset_top = 64.000015
+offset_right = 1192.0
+offset_bottom = 712.0
+item = ExtResource("18_gyaec")
+anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3")
 
 [node name="EnemyWheelBundle" parent="." unique_id=1603726747 instance=ExtResource("15_xc4hf")]
 position = Vector2(414, -226)

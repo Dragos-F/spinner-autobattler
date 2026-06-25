@@ -30,7 +30,7 @@ func ProcessResult(name,slice,sourceEntity,targetEntity,sourceWheels,targetWheel
 		"Jackpot":
 			targetEntity.damage(slice.slice_type.value)
 		"Backfire":
-			sourceEntity.damage(slice.slice_type.value)
+			sourceEntity.damage(abs(slice.slice_type.value))
 		"Fix":
 			sourceEntity.heal(slice.slice_type.value)
 		"Stumble":
@@ -66,11 +66,11 @@ func AccelerateFromSet(wheelSet:Array[Spinner],coeff:float):
 func StunWheelInSet(wheelSet:Array[Spinner],count:int):
 	var activeWheelSet = []
 	for aw in wheelSet:
-		if aw.visible and aw.canBeStarted:
-			print("wheel is invisible, skipping")
-			#activeWheelSet.append(aw)
+		if aw.get_parent().visible and aw.canBeStarted:
+			print("wheel "+ str(aw) + " is visible and startable")
+			activeWheelSet.append(aw)
 	if len(activeWheelSet) == 0:
 		print("no available wheels")
 		return
 	var randomwheel = activeWheelSet.pick_random()
-	randomwheel.wheel.DisableRandomSlices(count,20)
+	randomwheel.wheel.DisableRandomSlices(count,10)

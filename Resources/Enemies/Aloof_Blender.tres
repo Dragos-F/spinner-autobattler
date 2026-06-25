@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://bswhe771ijk12"]
+
+[ext_resource type="Texture2D" uid="uid://mm0gncunhn30" path="res://VisualAssets/Enemies/BlenderAloof.png" id="1_td5sp"]
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="2_d6p8b"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="3_wtkw2"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="4_jfull"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="4_td5sp"]
+[ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="5_t84p7"]
+[ext_resource type="Resource" uid="uid://bq224hmhyl22a" path="res://Resources/Slices/Backfire.tres" id="6_3q4cf"]
+
+[sub_resource type="Resource" id="Resource_wtkw2"]
+script = ExtResource("2_d6p8b")
+cooldown = 6.0
+stats = Array[ExtResource("3_wtkw2")]([ExtResource("4_jfull"), ExtResource("5_t84p7"), ExtResource("4_jfull"), ExtResource("5_t84p7"), ExtResource("6_3q4cf")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("4_td5sp")
+Name = "Aloof Blender"
+BaseHealth = 5
+Items = Array[ExtResource("2_d6p8b")]([SubResource("Resource_wtkw2")])
+Description = "Will it blend, ladies and gentlemen? Maybe if it feels like it."
+Catchphrase = "I'm a smoothie operator!"
+Graphic = ExtResource("1_td5sp")
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"

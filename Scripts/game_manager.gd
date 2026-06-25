@@ -41,6 +41,7 @@ func LoadEnemy(enemy:Enemy):
 	ActiveEnemyHP = enemy.BaseHealth
 	EnemyHPSystem.currenthealth = enemy.BaseHealth
 	EnemyHPSystem.maxhealth = enemy.BaseHealth
+	EnemyHPSystem.updateHealthDisplay()
 	
 	EnemyHPSystem.isAlive = true
 	combatManager.EnemyEntity = EnemyHPSystem
@@ -94,9 +95,9 @@ func GameOverProcedure():
 	pass
 
 func AddPoints(amount:int):
-	print("earned "+str(amount)+" points")
-	PlayerScore+=amount
+	print("earned "+str(abs(amount))+" points")
+	PlayerScore+=abs(amount)
 
 func _listener_enemydamaged(healthE:HealthEntity,delta):
-	AddPoints(int(ceil(delta)))
+	AddPoints(int(ceil(abs(delta))))
 	pass

@@ -20,6 +20,7 @@ func _ready() -> void:
 		
 func UpdateWheel(newitem:WheelItem):
 	item = newitem
+	print("updating wheel to "+newitem.resource_name)
 	generatewheel()
 	pass
 	
@@ -42,6 +43,7 @@ func generatewheel():
 	temp_slice = slice_template.duplicate()
 	slice_parent.add_child(temp_slice)
 	wheel_size = item.stats.size()
+	print("wheel size: "+str(wheel_size))
 	var angle = 2*PI/wheel_size
 	#print ("Angle:"+str(angle))
 	var a = Vector2(0,-10)
@@ -89,7 +91,7 @@ func DisableRandomSlice(duration):
 		slicetodisable.isDisabled = false
 	
 func DisableRandomSlices(count,duration):
-	print("disabling "+str(count)+" random slices")
+	print("disabling "+str(count)+" random slices out of "+str(len(GeneratedSlices)))
 	GeneratedSlices.shuffle()
 	for ri in range(0,count):
 		var slicetodisable = GeneratedSlices[ri]

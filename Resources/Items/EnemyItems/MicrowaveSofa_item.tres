@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_130i1"]
 [ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_nunor"]
-[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="3_huij6"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="3_130i1"]
 [ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="4_3tl0i"]
 [ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="5_4kopo"]
 
 [resource]
 script = ExtResource("1_130i1")
 cooldown = 5.0
-stats = Array[ExtResource("2_nunor")]([ExtResource("3_huij6"), ExtResource("4_3tl0i"), ExtResource("3_huij6"), ExtResource("4_3tl0i"), ExtResource("5_4kopo"), ExtResource("4_3tl0i")])
+stats = Array[ExtResource("2_nunor")]([ExtResource("3_130i1"), ExtResource("4_3tl0i"), ExtResource("3_130i1"), ExtResource("4_3tl0i"), ExtResource("5_4kopo"), ExtResource("4_3tl0i")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

@@ -11,6 +11,6 @@ Name = "Upset Toaster"
 BaseHealth = 5
 Items = Array[ExtResource("2_jpvy0")]([ExtResource("3_jpvy0")])
 Description = "Cutting edge and red hot"
-Catchphrase = "Cutting edge and red hot"
+Catchphrase = "A PLAGUE ON BOTH YOUR HOUSES!"
 Graphic = ExtResource("1_8ohul")
 metadata/_custom_type_script = "uid://d3x3oteco8a5u"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WheelItem" format=3 uid="uid://gixxtibh3836"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_mh00e"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_ju5vt"]
+[ext_resource type="Resource" uid="uid://o2fng7r301q1" path="res://Resources/Slices/Fix.tres" id="3_kt3cs"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="4_b64cn"]
+[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="5_g7fh7"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="6_yt0hb"]
+
+[resource]
+script = ExtResource("1_mh00e")
+cooldown = 6.0
+stats = Array[ExtResource("2_ju5vt")]([ExtResource("3_kt3cs"), ExtResource("4_b64cn"), ExtResource("5_g7fh7"), ExtResource("4_b64cn"), ExtResource("6_yt0hb")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://uwl5flf2a7nq"]
+
+[ext_resource type="Texture2D" uid="uid://cal5rjocyausd" path="res://VisualAssets/Enemies/MonthBurgers.png" id="1_ygm26"]
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="2_ygm26"]
+[ext_resource type="Resource" uid="uid://gixxtibh3836" path="res://Resources/Items/EnemyItems/Burgers_item.tres" id="3_2jiqd"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="7_jokcu"]
+
+[resource]
+script = ExtResource("7_jokcu")
+Name = "A Month of Free Burgers"
+BaseHealth = 6
+Items = Array[ExtResource("2_ygm26")]([ExtResource("3_2jiqd")])
+Description = "All you can eat...maybe more!"
+Catchphrase = "Better get eating!"
+Graphic = ExtResource("1_ygm26")
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"
