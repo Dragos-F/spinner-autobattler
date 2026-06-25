@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://df1pnvhe64lch" path="res://Scripts/item_slot.gd" id="3_hx8n4"]
 [ext_resource type="Texture2D" uid="uid://dhw32ateyd5gf" path="res://VisualAssets/Button_return.png" id="3_q68mp"]
 [ext_resource type="Texture2D" uid="uid://da13mmeakbrei" path="res://VisualAssets/Button_Settings.png" id="4_f140w"]
+[ext_resource type="Resource" uid="uid://deh0c11rwg0p0" path="res://Resources/EnemyCollections/stage1_standard.tres" id="4_i0j58"]
 [ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_0iob3"]
 [ext_resource type="Script" uid="uid://1qjdfkp2kes2" path="res://combat_manager.gd" id="5_enc0b"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_xb4mg"]
@@ -14,7 +15,6 @@
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="9_0iob3"]
 [ext_resource type="Script" uid="uid://beya8h2388uo2" path="res://Scripts/game_manager.gd" id="10_4b75m"]
 [ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="12_xb4mg"]
-[ext_resource type="Resource" uid="uid://bjy2m67jaj3j8" path="res://Resources/EnemyCollections/all_enemies.tres" id="13_6t1o7"]
 [ext_resource type="PackedScene" uid="uid://b3gjfmq7e55vk" path="res://Scenes/full_wheel_bundle.tscn" id="15_xc4hf"]
 [ext_resource type="PackedScene" uid="uid://dvm8eqmaaxrye" path="res://Scenes/draggable_item.tscn" id="16_6rnll"]
 [ext_resource type="Script" uid="uid://ffjh8wls7qxv" path="res://Scripts/hp_entity.gd" id="18_i0j58"]
@@ -131,7 +131,7 @@ EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/Label")
 EnemyHPSystem = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
-EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("13_6t1o7")])
+EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("4_i0j58")])
 EnemyCollectionBounds = Array[Vector2]([Vector2(0, 10)])
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
 PrimaryEnemySpinner = NodePath("../EnemyWheelBundle/SpinControl")
@@ -434,14 +434,17 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="Draggable" parent="." unique_id=1814434899 node_paths=PackedStringArray("anchor_pos") instance=ExtResource("16_6rnll")]
-offset_left = 703.0
-offset_top = -450.0
-offset_right = 1351.0
-offset_bottom = 198.0
+offset_left = 526.0
+offset_top = 204.0
+offset_right = 1174.0
+offset_bottom = 852.0
 anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4")
 
 [node name="EnemyWheelBundle" parent="." unique_id=1603726747 instance=ExtResource("15_xc4hf")]
 position = Vector2(414, -226)
+
+[node name="SpinControl" parent="EnemyWheelBundle" index="0" unique_id=931065810]
+TimeCoefficient = 0.3
 
 [node name="EnemyHealthDisplay" type="Node2D" parent="EnemyWheelBundle" unique_id=1657434431 node_paths=PackedStringArray("animator", "healthtext", "CharacterVisualAnimr")]
 position = Vector2(-841, 136)
@@ -554,19 +557,28 @@ vertical_alignment = 1
 [node name="PlayerWheel1" parent="PlayerWheels" unique_id=1694628658 instance=ExtResource("15_xc4hf")]
 position = Vector2(-265, -22)
 
-[node name="Wheel" parent="PlayerWheels/PlayerWheel1/SpinControl" parent_id_path=PackedInt32Array(1694628658, 931065810) index="0" unique_id=808226493]
+[node name="SpinControl" parent="PlayerWheels/PlayerWheel1" index="0" unique_id=931065810]
+TimeCoefficient = 0.3
+
+[node name="Wheel" parent="PlayerWheels/PlayerWheel1/SpinControl" index="0" unique_id=808226493]
 item = null
 
 [node name="PlayerWheel2" parent="PlayerWheels" unique_id=1953585299 instance=ExtResource("15_xc4hf")]
 position = Vector2(-41, -139)
 
-[node name="Wheel" parent="PlayerWheels/PlayerWheel2/SpinControl" parent_id_path=PackedInt32Array(1953585299, 931065810) index="0" unique_id=808226493]
+[node name="SpinControl" parent="PlayerWheels/PlayerWheel2" index="0" unique_id=931065810]
+TimeCoefficient = 0.3
+
+[node name="Wheel" parent="PlayerWheels/PlayerWheel2/SpinControl" index="0" unique_id=808226493]
 item = null
 
 [node name="PlayerWheel3" parent="PlayerWheels" unique_id=2039030054 instance=ExtResource("15_xc4hf")]
 position = Vector2(237, -52)
 
-[node name="Wheel" parent="PlayerWheels/PlayerWheel3/SpinControl" parent_id_path=PackedInt32Array(2039030054, 931065810) index="0" unique_id=808226493]
+[node name="SpinControl" parent="PlayerWheels/PlayerWheel3" index="0" unique_id=931065810]
+TimeCoefficient = 0.3
+
+[node name="Wheel" parent="PlayerWheels/PlayerWheel3/SpinControl" index="0" unique_id=808226493]
 item = null
 
 [connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" method="_on_mouse_entered"]

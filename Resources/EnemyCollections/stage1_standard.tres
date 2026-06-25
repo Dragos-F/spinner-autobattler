@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyCollection" format=3 uid="uid://deh0c11rwg0p0"]
+
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="1_ns81c"]
+[ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="2_gylii"]
+[ext_resource type="Resource" uid="uid://ct4wnvkfo6ggj" path="res://Resources/Enemies/Upset_Toaster.tres" id="2_vw01k"]
+
+[resource]
+script = ExtResource("2_gylii")
+CollectionName = "Stage1 Standard"
+Contents = Array[ExtResource("1_ns81c")]([ExtResource("2_vw01k")])
+metadata/_custom_type_script = "uid://crtclueovnj4u"

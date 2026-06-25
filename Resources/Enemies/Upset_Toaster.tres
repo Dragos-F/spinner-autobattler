@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://ct4wnvkfo6ggj"]
+
+[ext_resource type="Texture2D" uid="uid://boe1as4keb24w" path="res://VisualAssets/Enemies/ToasterUpset-Sheet.png" id="1_8ohul"]
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="2_jpvy0"]
+[ext_resource type="Resource" uid="uid://0jkeqedr6v7y" path="res://Resources/Items/EnemyItems/Toaster_item.tres" id="3_jpvy0"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="4_ymv3f"]
+
+[resource]
+script = ExtResource("4_ymv3f")
+Name = "Upset Toaster"
+BaseHealth = 5
+Items = Array[ExtResource("2_jpvy0")]([ExtResource("3_jpvy0")])
+Description = "TestDescription"
+Catchphrase = "Cutting edge and red hot"
+Graphic = ExtResource("1_8ohul")
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"

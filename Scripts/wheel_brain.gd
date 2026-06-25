@@ -77,7 +77,7 @@ func DisableSliceByIndex(index,duration):
 	var originalColour = slicetodisable.color
 	slicetodisable.color = Color.DIM_GRAY
 	await get_tree().create_timer(duration).timeout
-	if slicetodisable.isDisabled:
+	if slicetodisable!=null:
 		slicetodisable.isDisabled = false
 		slicetodisable.color = originalColour
 
@@ -85,7 +85,7 @@ func DisableRandomSlice(duration):
 	var slicetodisable = GeneratedSlices.pick_random()
 	slicetodisable.isDisabled = true
 	await get_tree().create_timer(duration).timeout
-	if slicetodisable.isDisabled:
+	if slicetodisable!=null:
 		slicetodisable.isDisabled = false
 	
 func DisableRandomSlices(count,duration):
@@ -102,7 +102,7 @@ func DisableSlice(slice,duration):
 	print("disabled ...")
 	print(slice)
 	await get_tree().create_timer(duration).timeout
-	if slice.isDisabled:
+	if slice!=null:
 		slice.isDisabled = false
 		slice.color = originalColour
 	

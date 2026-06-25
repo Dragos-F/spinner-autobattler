@@ -77,7 +77,7 @@ func _listener_entityDied(he:HealthEntity):
 func GameProgressProcedure():
 	print("progressing to next encounter")
 	StageNumber+=1
-	var collectionindex = 0
+	var collectionindex = 0 # Determine which set of enemies should be picked from next (Boss, new level etc.)
 	for er in EnemyCollectionBounds:
 		if StageNumber >= er.x and StageNumber <= er.y:
 			print("now using enemy collection "+ str(collectionindex))

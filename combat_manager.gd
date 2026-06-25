@@ -66,8 +66,11 @@ func AccelerateFromSet(wheelSet:Array[Spinner],coeff:float):
 func StunWheelInSet(wheelSet:Array[Spinner],count:int):
 	var activeWheelSet = []
 	for aw in wheelSet:
-		if aw.visible:
+		if aw.visible and aw.canBeStarted:
 			print("wheel is invisible, skipping")
-			activeWheelSet.append(aw)
+			#activeWheelSet.append(aw)
+	if len(activeWheelSet) == 0:
+		print("no available wheels")
+		return
 	var randomwheel = activeWheelSet.pick_random()
 	randomwheel.wheel.DisableRandomSlices(count,20)
