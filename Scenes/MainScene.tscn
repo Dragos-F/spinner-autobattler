@@ -129,7 +129,7 @@ wheels = [NodePath("../PlayerWheels/PlayerWheel1/SpinControl/Wheel"), NodePath("
 script = ExtResource("10_4b75m")
 EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
-EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/Label")
+EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/EnemyDescriptionText")
 EnemyHPSystem = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
 EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("4_i0j58")])
 EnemyCollectionBounds = Array[Vector2]([Vector2(0, 10)])
@@ -401,7 +401,7 @@ text_overrun_behavior = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="UIParent/EnemyDescription/VBoxContainer/Control2" unique_id=928729622]
+[node name="EnemyDescriptionText" type="Label" parent="UIParent/EnemyDescription/VBoxContainer/Control2" unique_id=928729622]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = -1
