@@ -88,14 +88,16 @@ script = ExtResource("1_i0j58")
 slots = [NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer"), NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer2"), NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3")]
 wheels = [NodePath("../PlayerWheels/PlayerWheel1/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel2/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel3/SpinControl/Wheel")]
 
-[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "PrimaryEnemyWheel", "combatManager")]
+[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "PrimaryEnemyWheel", "PrimaryEnemySpinner", "combatManager")]
 script = ExtResource("10_4b75m")
 EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/Label")
 EnemyHPSystem = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
 EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("13_6t1o7")])
+EnemyCollectionBounds = Array[Vector2]([Vector2(0, 10)])
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
+PrimaryEnemySpinner = NodePath("../EnemyWheelBundle/SpinControl")
 combatManager = NodePath("../CombatManager")
 
 [node name="CombatManager" type="Node" parent="." unique_id=317878429 node_paths=PackedStringArray("PlayerEntity", "PlayerSpinners", "EnemyEntity", "EnemySpinners", "InventorySys")]
@@ -545,6 +547,8 @@ item = null
 [connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519820/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519820/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@519821/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="event_hpdepleted" from="EnemyWheelBundle/EnemyHealthDisplay" to="GameManager" method="_listener_entityDied"]
+[connection signal="event_hpdepleted" from="PlayerWheels/PlayerHealthDisplay" to="GameManager" method="_listener_entityDied"]
 [connection signal="sliceselected" from="PlayerWheels/PlayerWheel1/SpinControl" to="CombatManager" method="listen_player_spinresult"]
 [connection signal="mouse_entered" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D/Area2D" to="PlayerWheels/PlayerWheel1/SpinControl/Wheel/@Node2D@519822/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]

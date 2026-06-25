@@ -21,10 +21,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
+var canBeStarted = true
 func random_spin():
 	if wheel.item == null:
 		print("can't spin, no item assigned")
+		return
+	if !canBeStarted:
 		return
 	isSpinning = true
 	var testRand = randf()
@@ -36,19 +38,21 @@ func random_spin():
 	test_clicker.spining_text()
 	await tween.finished
 	print ("Tried to select a Slice")
-	var pickedslice = test_clicker.select_slice()
-	sliceselected.emit(pickedslice,name)
+	if canBeStarted:
+		var pickedslice = test_clicker.select_slice()
+		sliceselected.emit(pickedslice,name)
 	reset_spin()
 
 func reset_spin():
 	test_clicker.reset_text()
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "rotation", 0, ResetTime).set_trans(Tween.TRANS_SINE).set_delay(WaitTime-SubtractedWaitTime+ExtraWaitTime)
+	tween.tween_property(self, "rotation", 0, ResetTime-SubtractedWaitTime+ExtraWaitTime).set_trans(Tween.TRANS_SINE).set_delay(WaitTime)
 	tween.tween_callback(random_spin)
 	if ExtraWaitTime > 0:
 		ExtraWaitTime = 0
 	if SubtractedWaitTime > 0:
 		SubtractedWaitTime = 0
+		
 var isSpinning = false
 func _input(event):
 	if event is InputEventKey and event.pressed and !event.is_echo():
