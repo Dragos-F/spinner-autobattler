@@ -63,7 +63,8 @@ var isSpinning = false
 func _input(event):
 	if event is InputEventKey and event.pressed and !event.is_echo():
 		if event.keycode == KEY_SPACE:
-			random_spin()
+			if !isSpinning:
+				random_spin()
 			
 func AddExtraWait(extratime):
 	ExtraWaitTime+=extratime
