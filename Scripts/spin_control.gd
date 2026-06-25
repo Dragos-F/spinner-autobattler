@@ -5,7 +5,7 @@ class_name Spinner
 @export var SpinTime:float = 5
 @export var WaitTime:float = 2
 @onready var ResetTime:float = 5
-@export var TimeCoefficient = 1
+@export var TimeCoefficient = 1.0
 var ExtraWaitTime=0
 var SubtractedWaitTime=0
 @export var test_clicker:Clicker

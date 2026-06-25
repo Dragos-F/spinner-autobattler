@@ -71,6 +71,7 @@ func _listener_entityDied(he:HealthEntity):
 		GameProgressProcedure()
 	elif he == combatManager.PlayerEntity:
 		print("player has been killed")
+		GameOverProcedure()
 	return
 
 func GameProgressProcedure():
@@ -86,8 +87,10 @@ func GameProgressProcedure():
 		
 	# LOOT PHASE HERE
 	
-	#LoadRandomEnemy()
 	PreparedToReset = true
+	pass
+
+func GameOverProcedure():
 	pass
 
 func AddPoints(amount:int):

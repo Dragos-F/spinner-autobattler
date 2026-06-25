@@ -34,6 +34,43 @@ corner_radius_bottom_left = 12
 texture = ExtResource("2_qxria")
 region_rect = Rect2(336, 0, 1248, 1080)
 
+[sub_resource type="Animation" id="Animation_i0j58"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-17, -222.99998)]
+}
+
+[sub_resource type="Animation" id="Animation_c1ier"]
+resource_name = "enemydamage"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.065415055, 0.15884268, 0.22566652, 0.31768537),
+"transitions": PackedFloat32Array(0.92681944, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-17, -222.99998), Vector2(-54.999996, -224.99998), Vector2(20, -218.635), Vector2(-25.99998, -226.00003), Vector2(-17, -222.99998)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gyaec"]
+_data = {
+&"RESET": SubResource("Animation_i0j58"),
+&"damage": SubResource("Animation_c1ier")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0iob3"]
 shader = ExtResource("9_0iob3")
 shader_parameter/resolution = Vector2(320, 180)
@@ -318,6 +355,9 @@ mouse_filter = 2
 texture = ExtResource("7_xb4mg")
 stretch_mode = 5
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UIParent/CenterPlayArea/EnemyImage" unique_id=2078219838]
+libraries/ = SubResource("AnimationLibrary_gyaec")
+
 [node name="EnemyPortrait" type="PanelContainer" parent="UIParent" unique_id=1423755693]
 layout_mode = 0
 offset_left = 1600.0
@@ -403,12 +443,13 @@ anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Pane
 [node name="EnemyWheelBundle" parent="." unique_id=1603726747 instance=ExtResource("15_xc4hf")]
 position = Vector2(414, -226)
 
-[node name="EnemyHealthDisplay" type="Node2D" parent="EnemyWheelBundle" unique_id=1657434431 node_paths=PackedStringArray("animator", "healthtext")]
+[node name="EnemyHealthDisplay" type="Node2D" parent="EnemyWheelBundle" unique_id=1657434431 node_paths=PackedStringArray("animator", "healthtext", "CharacterVisualAnimr")]
 position = Vector2(-841, 136)
 script = ExtResource("18_i0j58")
 animationname = "vertical_health"
 animator = NodePath("Node2D/AnimationPlayer")
 healthtext = NodePath("HealthText")
+CharacterVisualAnimr = NodePath("../../UIParent/CenterPlayArea/EnemyImage/AnimationPlayer")
 
 [node name="HealthGraphicFrame" type="Sprite2D" parent="EnemyWheelBundle/EnemyHealthDisplay" unique_id=6217658]
 self_modulate = Color(0.4117647, 0.15294118, 0.3647059, 1)

@@ -6,6 +6,7 @@ class_name HealthEntity
 
 @export var animator:AnimationPlayer
 @export var healthtext:Label
+@export var CharacterVisualAnimr:AnimationPlayer
 var healthAnimLength:float = 1
 signal event_hpdepleted(healthE:HealthEntity)
 signal event_hpchanged(healthE:HealthEntity,delta)
@@ -63,6 +64,8 @@ func updateHealthDisplay()->void:
 
 func damage(amount:float)->float:
 	var endhealth = changehealth(-amount)
+	if CharacterVisualAnimr != null:
+		CharacterVisualAnimr.play("damage")
 	if endhealth == 0:
 		print("entity has died")
 		isAlive = false

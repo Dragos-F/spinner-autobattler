@@ -23,7 +23,7 @@ func listen_enemy_spinresult(slice:PresetSlice,source:String):
 func ProcessResult(name,slice,sourceEntity,targetEntity,sourceWheels,targetWheels):
 	if slice.isDisabled:
 		print("...slice is disabled, ignoring")
-		pass
+		return
 	match name:
 		"Hit":
 			targetEntity.damage(slice.slice_type.value)
