@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="LootPool" format=3 uid="uid://bgunobude8skl"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_k7lkx"]
+[ext_resource type="Resource" uid="uid://cmbhg20s3hd60" path="res://Resources/Items/Upgrades/HitUpgrade.tres" id="2_63lyl"]
+[ext_resource type="Script" uid="uid://c54m0dewh5mfy" path="res://Scripts/loot_pool.gd" id="2_pk4kf"]
+[ext_resource type="Resource" uid="uid://bbvbi4n331pd6" path="res://Resources/Items/Upgrades/JackpotUpgrade.tres" id="3_kb8ig"]
+[ext_resource type="Resource" uid="uid://bfl8hdyxd4jb" path="res://Resources/Items/Upgrades/Jakpot+Backfire.tres" id="4_ysn2b"]
+[ext_resource type="Resource" uid="uid://byffoamnotj8x" path="res://Resources/Items/Upgrades/FixUpgrade.tres" id="5_f3uy2"]
+[ext_resource type="Resource" uid="uid://s2e3k01kmiq7" path="res://Resources/Items/Upgrades/StunUpgrade.tres" id="6_v1dvi"]
+[ext_resource type="Resource" uid="uid://dnu6e3yksyuqj" path="res://Resources/Items/Upgrades/RushUpgrade.tres" id="7_yqslr"]
+[ext_resource type="Resource" uid="uid://dt43087fni3mn" path="res://Resources/Items/Upgrades/StallUpgrade.tres" id="8_gy23i"]
+[ext_resource type="Resource" uid="uid://slf51depicyg" path="res://Resources/Items/Upgrades/Rush+Stumble.tres" id="9_h4drn"]
+[ext_resource type="Resource" uid="uid://cs26v12em43iy" path="res://Resources/Items/Briefcase.tres" id="10_tswom"]
+[ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="11_ficr7"]
+[ext_resource type="Resource" uid="uid://bqq1y08oeudxb" path="res://Resources/Items/Magic8Ball.tres" id="12_hs7qp"]
+[ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="13_ssndl"]
+[ext_resource type="Resource" uid="uid://dgt8cegtggtq1" path="res://Resources/Items/PDA.tres" id="14_63lyl"]
+[ext_resource type="Resource" uid="uid://buptiir3skk3d" path="res://Resources/Items/RubberChicken.tres" id="15_ita2q"]
+[ext_resource type="Resource" uid="uid://wejnjdkegmbt" path="res://Resources/Items/TShirtCannon.tres" id="16_m4s27"]
+
+[resource]
+script = ExtResource("2_pk4kf")
+LootTable = Dictionary[ExtResource("1_k7lkx"), float]({
+ExtResource("2_63lyl"): 1.0,
+ExtResource("3_kb8ig"): 0.0,
+ExtResource("4_ysn2b"): 1.0,
+ExtResource("5_f3uy2"): 0.0,
+ExtResource("6_v1dvi"): 0.0,
+ExtResource("7_yqslr"): 0.0,
+ExtResource("8_gy23i"): 0.0,
+ExtResource("9_h4drn"): 0.0,
+ExtResource("10_tswom"): 0.0,
+ExtResource("11_ficr7"): 0.0,
+ExtResource("12_hs7qp"): 0.0,
+ExtResource("13_ssndl"): 1.0,
+ExtResource("14_63lyl"): 1.0,
+ExtResource("15_ita2q"): 1.0,
+ExtResource("16_m4s27"): 0.0
+})
+metadata/_custom_type_script = "uid://c54m0dewh5mfy"

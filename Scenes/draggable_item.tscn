@@ -1,19 +1,24 @@
 [gd_scene format=3 uid="uid://dvm8eqmaaxrye"]
 
-[ext_resource type="Texture2D" uid="uid://bomxudj8ou7d7" path="res://VisualAssets/Items/Mop_png.png" id="1_typfe"]
 [ext_resource type="Script" uid="uid://c8geb3ln1mom4" path="res://Scripts/draggable_item_button.gd" id="2_dc68v"]
 [ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="3_d2hfo"]
 
 [node name="Draggable" type="Button" unique_id=1814434899]
+process_mode = 3
 z_index = 1
-offset_left = 211.0
-offset_top = -191.0
-offset_right = 859.0
-offset_bottom = 457.0
+custom_minimum_size = Vector2(648, 648)
+custom_maximum_size = Vector2(648, 648)
+anchors_preset = -1
+anchor_right = 0.050625004
+anchor_bottom = 0.09
+offset_right = 550.8
+offset_bottom = 550.8
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.15, 0.15)
-icon = ExtResource("1_typfe")
 script = ExtResource("2_dc68v")
 item = ExtResource("3_d2hfo")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
