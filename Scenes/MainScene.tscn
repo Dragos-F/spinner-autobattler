@@ -525,6 +525,8 @@ position = Vector2(-152, 266)
 [node name="PlayerHealthDisplay" type="Node2D" parent="PlayerWheels" unique_id=304034929 node_paths=PackedStringArray("animator", "healthtext")]
 position = Vector2(566, 125)
 script = ExtResource("18_i0j58")
+maxhealth = 50.0
+currenthealth = 50.0
 animationname = "vertical_health"
 animator = NodePath("Node2D/AnimationPlayer")
 healthtext = NodePath("HealthText")

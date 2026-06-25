@@ -5,9 +5,10 @@
 [ext_resource type="Resource" uid="uid://ct4wnvkfo6ggj" path="res://Resources/Enemies/Upset_Toaster.tres" id="2_vw01k"]
 [ext_resource type="Resource" uid="uid://bswhe771ijk12" path="res://Resources/Enemies/Aloof_Blender.tres" id="3_vw01k"]
 [ext_resource type="Resource" uid="uid://uwl5flf2a7nq" path="res://Resources/Enemies/Free_Burgers.tres" id="4_73gv5"]
+[ext_resource type="Resource" uid="uid://c4r8x77mx7qc8" path="res://Resources/Enemies/Bath_Hairdryer.tres" id="5_8u3bo"]
 
 [resource]
 script = ExtResource("2_gylii")
 CollectionName = "Stage1 Standard"
-Contents = Array[ExtResource("1_ns81c")]([ExtResource("2_vw01k"), ExtResource("3_vw01k"), ExtResource("4_73gv5")])
+Contents = Array[ExtResource("1_ns81c")]([ExtResource("2_vw01k"), ExtResource("3_vw01k"), ExtResource("4_73gv5"), ExtResource("5_8u3bo")])
 metadata/_custom_type_script = "uid://crtclueovnj4u"

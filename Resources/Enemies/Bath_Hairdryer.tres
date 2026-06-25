@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://c4r8x77mx7qc8"]
+
+[ext_resource type="Texture2D" uid="uid://dks4n5002vabp" path="res://VisualAssets/Enemies/BathHairdryer.png" id="1_jbwax"]
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="2_jbwax"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="3_tjjy8"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="4_hmrgi"]
+[ext_resource type="Resource" uid="uid://b2ie68edj5k4j" path="res://Resources/Slices/Stall.tres" id="4_tjjy8"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="5_hmrgi"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="6_jrlvu"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="7_hlllt"]
+[ext_resource type="Resource" uid="uid://o2fng7r301q1" path="res://Resources/Slices/Fix.tres" id="8_tjjy8"]
+
+[sub_resource type="Resource" id="Resource_wtkw2"]
+script = ExtResource("2_jbwax")
+cooldown = 5.0
+stats = Array[ExtResource("3_tjjy8")]([ExtResource("4_tjjy8"), ExtResource("5_hmrgi"), ExtResource("6_jrlvu"), ExtResource("4_hmrgi"), ExtResource("4_tjjy8"), ExtResource("4_hmrgi"), ExtResource("6_jrlvu"), ExtResource("8_tjjy8")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("7_hlllt")
+Name = "Combination Bath and Hairdryer"
+BaseHealth = 15
+Items = Array[ExtResource("2_jbwax")]([SubResource("Resource_wtkw2")])
+Type = 1
+Description = "They call this the last appliance you'll ever need! Who wants to be an early adopter?"
+Catchphrase = "Be an early adopter!"
+Graphic = ExtResource("1_jbwax")
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"
