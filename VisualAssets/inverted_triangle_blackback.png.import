@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ct4yuv4j43t2l"
+path="res://.godot/imported/inverted_triangle_blackback.png-ba2a96c5a1abad4b1aacf45201643dfe.res"
+
+[deps]
+
+source_file="res://VisualAssets/inverted_triangle_blackback.png"
+dest_files=["res://.godot/imported/inverted_triangle_blackback.png-ba2a96c5a1abad4b1aacf45201643dfe.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

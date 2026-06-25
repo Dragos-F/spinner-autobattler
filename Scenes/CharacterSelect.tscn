@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://be5xkaakqxk2r"]
 
-[ext_resource type="Texture2D" uid="uid://dr1j33mwfcug5" path="res://VisualAssets/Background_Blank.png" id="1_chypt"]
 [ext_resource type="StyleBox" uid="uid://babd65cqgfcib" path="res://Resources/ui_box.tres" id="2_1vrd3"]
+[ext_resource type="Texture2D" uid="uid://bsqg8fpj5100w" path="res://VisualAssets/MrBlobby2.png" id="3_v54mg"]
+[ext_resource type="FontFile" uid="uid://pjw6d5hyiwtb" path="res://VisualAssets/Fonts/Super Tasty.ttf" id="5_v54mg"]
 [ext_resource type="Texture2D" uid="uid://cb0wxmew1otp4" path="res://VisualAssets/Background_VaporwaveBoss.png" id="6_l51cq"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_7f0fy"]
 [ext_resource type="FontFile" uid="uid://cwlp8jtifi1m" path="res://VisualAssets/Fonts/Casual Softcore.otf" id="7_20b7b"]
 [ext_resource type="PackedScene" uid="uid://ff8rxnbt4dre" path="res://Scenes/character_triangle.tscn" id="8_a85h0"]
 [ext_resource type="LabelSettings" uid="uid://0sftpb7dnv7v" path="res://VisualAssets/Fonts/new_label_settings.tres" id="8_yhlds"]
 [ext_resource type="Texture2D" uid="uid://bm6be32udl0hk" path="res://VisualAssets/UI_mockup_4.png" id="9_7b7lq"]
+[ext_resource type="BitMap" uid="uid://ct4yuv4j43t2l" path="res://VisualAssets/inverted_triangle_blackback.png" id="9_r351o"]
 [ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="10_1vrd3"]
 [ext_resource type="Texture2D" uid="uid://dnk5bsy5s0abm" path="res://VisualAssets/Background_Sidebar.png" id="10_488j2"]
+[ext_resource type="Texture2D" uid="uid://bhudmdcndp62p" path="res://VisualAssets/QuestionMark2.png" id="10_m1cwc"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="11_a1635"]
 [ext_resource type="Texture2D" uid="uid://bmihmwcadbej7" path="res://VisualAssets/ContestantImages/Darts player png.png" id="11_ticr3"]
 [ext_resource type="Resource" uid="uid://cs26v12em43iy" path="res://Resources/Items/Briefcase.tres" id="12_l51cq"]
@@ -32,10 +35,14 @@
 [ext_resource type="Texture2D" uid="uid://duw4ge81omw25" path="res://VisualAssets/ContestantImages/EagleMascot_front.png" id="24_d3t4u"]
 [ext_resource type="Texture2D" uid="uid://chra0c2ihnd5p" path="res://VisualAssets/ContestantImages/EagleMascot_back.png" id="25_4qs42"]
 [ext_resource type="Texture2D" uid="uid://bh8g1xuv81mfl" path="res://VisualAssets/GO_button_png.png" id="26_ticr3"]
+[ext_resource type="Script" uid="uid://dquuvug3b1rd5" path="res://Scripts/go_triangle_button.gd" id="29_m1cwc"]
 [ext_resource type="PackedScene" uid="uid://c2q8wvvn4hjw8" path="res://Scenes/tooltip.tscn" id="32_cp58y"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
-texture = ExtResource("1_chypt")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2oxx"]
+bg_color = Color(0.29411766, 0.35686275, 0.67058825, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2oxx"]
+texture = ExtResource("3_v54mg")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7rkf"]
 bg_color = Color(0.5882353, 0.25882354, 0.3254902, 1)
@@ -81,6 +88,7 @@ CharDesc = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/Label")
 DemoWheel = NodePath("../PreviewWheelRoot/PreviewWheel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319989986]
+position = Vector2(2, 3)
 
 [node name="UIParent" type="Control" parent="." unique_id=810498634]
 layout_mode = 3
@@ -107,7 +115,7 @@ offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_hk511")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w2oxx")
 
 [node name="ContestantStatDisplay" type="Control" parent="UIParent" unique_id=882134817]
 anchors_preset = 0
@@ -117,40 +125,42 @@ offset_right = 1845.0
 offset_bottom = 668.0
 mouse_filter = 2
 
-[node name="ContestantUI" type="PanelContainer" parent="UIParent/ContestantStatDisplay" unique_id=1852627084]
+[node name="Background" type="Panel" parent="UIParent/ContestantStatDisplay" unique_id=1915495520]
 layout_mode = 0
-offset_left = 965.0
-offset_top = -18.0
-offset_right = 1762.0
-offset_bottom = 426.0
+offset_left = 992.0
+offset_top = -25.0
+offset_right = 1810.957
+offset_bottom = 474.78244
+theme_override_styles/panel = SubResource("StyleBoxTexture_w2oxx")
+
+[node name="ContestantUI" type="PanelContainer" parent="UIParent/ContestantStatDisplay/Background" unique_id=1852627084]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 28.0
+offset_right = 778.0
+offset_bottom = 472.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("2_1vrd3")
 
-[node name="Control" type="Control" parent="UIParent/ContestantStatDisplay/ContestantUI" unique_id=564026781]
+[node name="Control" type="Control" parent="UIParent/ContestantStatDisplay/Background/ContestantUI" unique_id=564026781]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control" unique_id=94424773]
+[node name="VBoxContainer" type="VBoxContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control" unique_id=94424773]
 layout_mode = 0
 offset_left = 26.0
 offset_right = 781.0
 offset_bottom = 429.0
 mouse_filter = 2
 
-[node name="Name" type="CenterContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer" unique_id=1934908745]
+[node name="Name" type="CenterContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer" unique_id=1934908745]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.36
 offset_transform_position = Vector2(200, 0)
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Name" unique_id=456916077]
-layout_mode = 2
-offset_transform_position = Vector2(-25, 0)
-theme_override_font_sizes/font_size = 32
-text = "Contestant Name"
-
-[node name="Name2" type="CenterContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer" unique_id=472839033]
+[node name="Name2" type="CenterContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer" unique_id=472839033]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -158,19 +168,20 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 offset_transform_position = Vector2(200, 0)
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Name2" unique_id=1790983094]
+[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Name2" unique_id=1790983094]
 layout_mode = 2
 offset_transform_position = Vector2(-25, 0)
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("5_v54mg")
+theme_override_font_sizes/font_size = 32
 text = "Starting Loadout"
 
-[node name="Items" type="Control" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer" unique_id=1099574783]
+[node name="Items" type="Control" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer" unique_id=1099574783]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items" unique_id=151462953]
+[node name="PanelContainer" type="PanelContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items" unique_id=151462953]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 32.0
@@ -178,13 +189,13 @@ offset_right = 89.0
 offset_bottom = 108.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items/PanelContainer" unique_id=221529355]
+[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items/PanelContainer" unique_id=221529355]
 layout_mode = 2
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items" unique_id=701935369]
+[node name="PanelContainer2" type="PanelContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items" unique_id=701935369]
 layout_mode = 0
 offset_left = 108.0
 offset_top = 32.0
@@ -192,13 +203,13 @@ offset_right = 184.0
 offset_bottom = 108.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" unique_id=1081981416]
+[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" unique_id=1081981416]
 layout_mode = 2
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items" unique_id=744358349]
+[node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items" unique_id=744358349]
 layout_mode = 0
 offset_left = 203.0
 offset_top = 32.0
@@ -206,13 +217,13 @@ offset_right = 279.0
 offset_bottom = 108.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" unique_id=1018975756]
+[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" unique_id=1018975756]
 layout_mode = 2
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer4" type="PanelContainer" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items" unique_id=1216314014]
+[node name="PanelContainer4" type="PanelContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items" unique_id=1216314014]
 visible = false
 layout_mode = 0
 offset_left = 13.0
@@ -221,36 +232,37 @@ offset_right = 89.0
 offset_bottom = 203.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" unique_id=801661444]
+[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" unique_id=801661444]
 layout_mode = 2
 text = "Bucket"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Contestant Text" type="Control" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer" unique_id=965184218]
+[node name="Contestant Text" type="Control" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer" unique_id=965184218]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/ContestantUI/Control/VBoxContainer/Contestant Text" unique_id=654737110]
+[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Contestant Text" unique_id=654737110]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = -310.0
+anchors_preset = -1
+anchor_right = 0.58900005
+offset_right = 0.30496216
 offset_bottom = 200.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_v54mg")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas tellus mauris, sit amet molestie magna pharetra nec. Sed id aliquam est, quis luctus nulla. In sed ultricies nisi. Phasellus leo odio, lacinia eget aliquet et, suscipit nec ipsum. Nunc blandit luctus sem, eleifend imperdiet felis molestie vitae
 "
 autowrap_mode = 1
 
 [node name="ContestantFront" type="TextureRect" parent="UIParent/ContestantStatDisplay" unique_id=923369979]
 layout_mode = 0
-offset_left = -280.0
-offset_top = -263.99997
-offset_right = 598.03894
-offset_bottom = 480.36313
+offset_left = -357.83948
+offset_top = -258.4796
+offset_right = 520.19946
+offset_bottom = 485.88348
 scale = Vector2(0.44000077, 0.44000077)
 pivot_offset = Vector2(639, 508)
 texture = ExtResource("7_7f0fy")
@@ -258,10 +270,10 @@ stretch_mode = 5
 
 [node name="ContestantBack" type="TextureRect" parent="UIParent/ContestantStatDisplay" unique_id=259895227]
 layout_mode = 0
-offset_left = 87.99997
-offset_top = -263.99997
-offset_right = 966.03894
-offset_bottom = 480.36313
+offset_left = 10.1605
+offset_top = -258.4796
+offset_right = 888.19946
+offset_bottom = 485.88348
 scale = Vector2(0.44000077, 0.44000077)
 pivot_offset = Vector2(639, 508)
 texture = ExtResource("7_7f0fy")
@@ -269,11 +281,15 @@ stretch_mode = 5
 
 [node name="NameLabel" type="Label" parent="UIParent/ContestantStatDisplay" unique_id=1854665401]
 layout_mode = 0
-offset_top = 376.0
-offset_right = 610.0
-offset_bottom = 481.0
-theme_override_fonts/font = ExtResource("7_20b7b")
-theme_override_font_sizes/font_size = 100
+offset_left = -5.0
+offset_top = 399.0
+offset_right = 605.0
+offset_bottom = 504.0
+theme_override_colors/font_color = Color(1, 0.70980394, 0.70980394, 1)
+theme_override_fonts/font = ExtResource("5_v54mg")
+theme_override_font_sizes/font_size = 54
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EnemyPortrait" type="PanelContainer" parent="UIParent" unique_id=1423755693]
 visible = false
@@ -348,34 +364,54 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ticr3")
 
-[node name="Control" type="Control" parent="UIParent/CharacterSelectPanel" unique_id=1439199496]
+[node name="Panel" type="Control" parent="UIParent/CharacterSelectPanel" unique_id=1955339955]
 layout_mode = 2
 
-[node name="Blank" parent="UIParent/CharacterSelectPanel/Control" unique_id=271421380 instance=ExtResource("8_a85h0")]
+[node name="Control" type="Panel" parent="UIParent/CharacterSelectPanel/Panel" unique_id=1682233993]
+layout_mode = 0
+offset_top = 46.0
+offset_right = 1920.0
+offset_bottom = 408.0
+
+[node name="Blank" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=271421380 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = -502.0
-offset_top = -27.5
-offset_right = -502.0
-offset_bottom = -27.5
+offset_left = -571.0
+offset_top = 11.0
+offset_right = -571.0
+offset_bottom = 11.0
 script = null
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Blank" index="0" unique_id=2146101422]
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Blank" index="0" unique_id=2146101422]
 self_modulate = Color(0.15294118, 0.15294118, 0.21176471, 1)
+texture_click_mask = ExtResource("9_r351o")
 flip_v = true
 
-[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Control/Blank/CharacterTriangle_inner" index="0" unique_id=1677993357]
-offset_left = -22.0
-offset_top = -30.0
-offset_right = 106.0
-offset_bottom = 98.0
-texture = null
-
-[node name="Pete The Fury" parent="UIParent/CharacterSelectPanel/Control" unique_id=837047816 instance=ExtResource("8_a85h0")]
+[node name="TextureRect2" type="TextureRect" parent="UIParent/CharacterSelectPanel/Panel/Control/Blank/CharacterTriangle_inner" index="0" unique_id=531531043]
 layout_mode = 1
-offset_left = -351.0
-offset_top = -27.5
-offset_right = -351.0
-offset_bottom = -27.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -656.0
+offset_top = -334.0
+offset_right = 752.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_v54mg")
+
+[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Panel/Control/Blank/CharacterTriangle_inner" index="1" unique_id=1677993357]
+offset_left = -54.0
+offset_top = -90.0
+offset_right = 74.0
+offset_bottom = 38.0
+texture = ExtResource("10_m1cwc")
+
+[node name="Pete The Fury" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=837047816 instance=ExtResource("8_a85h0")]
+layout_mode = 1
+offset_left = -420.0
+offset_top = 11.0
+offset_right = -420.0
+offset_bottom = 11.0
 Starter = 1
 DisplayName = "Pete \"The Fury\" Faldangen"
 Description = "Pete Description"
@@ -383,46 +419,47 @@ CharFront = ExtResource("11_ticr3")
 CharBack = ExtResource("12_v54mg")
 StartingItem = ExtResource("10_1vrd3")
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Pete The Fury" index="0" unique_id=2146101422]
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Pete The Fury" index="0" unique_id=2146101422]
 self_modulate = Color(0.54901963, 0.24705882, 0.3647059, 1)
 
-[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Control/Pete The Fury/CharacterTriangle_inner" index="0" unique_id=1677993357]
+[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Panel/Control/Pete The Fury/CharacterTriangle_inner" index="0" unique_id=1677993357]
 offset_left = -40.0
 offset_top = 44.0
 offset_right = 88.0
 offset_bottom = 172.0
 texture = ExtResource("11_ticr3")
 
-[node name="Rory Schmew" parent="UIParent/CharacterSelectPanel/Control" unique_id=1043914244 instance=ExtResource("8_a85h0")]
+[node name="Rory Schmew" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=1043914244 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = -198.0
-offset_top = -27.5
-offset_right = -198.0
-offset_bottom = -27.5
+offset_left = -267.0
+offset_top = 11.0
+offset_right = -267.0
+offset_bottom = 11.0
 Starter = 2
 DisplayName = "Rory Schmew"
 Description = "Rory Desc"
 CharFront = ExtResource("14_w2oxx")
 CharBack = ExtResource("15_r351o")
 StartingItem = ExtResource("12_l51cq")
+bitmapImage = ExtResource("9_r351o")
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Rory Schmew" index="0" unique_id=2146101422]
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Rory Schmew" index="0" unique_id=2146101422]
 self_modulate = Color(0.3882353, 0.5882353, 0.81960785, 1)
 flip_v = true
 
-[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Control/Rory Schmew/CharacterTriangle_inner" index="0" unique_id=1677993357]
+[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Panel/Control/Rory Schmew/CharacterTriangle_inner" index="0" unique_id=1677993357]
 offset_left = -22.0
 offset_top = -30.0
 offset_right = 106.0
 offset_bottom = 98.0
 texture = ExtResource("14_w2oxx")
 
-[node name="Timmy Burnlee" parent="UIParent/CharacterSelectPanel/Control" unique_id=374369036 instance=ExtResource("8_a85h0")]
+[node name="Timmy Burnlee" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=374369036 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = -45.0
-offset_top = -27.5
-offset_right = -45.0
-offset_bottom = -27.5
+offset_left = -114.0
+offset_top = 11.0
+offset_right = -114.0
+offset_bottom = 11.0
 Starter = 3
 DisplayName = "Timmy Burnlee"
 Description = "Timmy Desc	"
@@ -430,46 +467,47 @@ CharFront = ExtResource("15_w1b7k")
 CharBack = ExtResource("15_njwpm")
 StartingItem = ExtResource("13_7f0fy")
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Timmy Burnlee" index="0" unique_id=2146101422]
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Timmy Burnlee" index="0" unique_id=2146101422]
 self_modulate = Color(0.91764706, 0.63529414, 0.3647059, 1)
 
-[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Control/Timmy Burnlee/CharacterTriangle_inner" index="0" unique_id=1677993357]
+[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Panel/Control/Timmy Burnlee/CharacterTriangle_inner" index="0" unique_id=1677993357]
 offset_left = -48.0
 offset_top = 20.0
 offset_right = 80.0
 offset_bottom = 148.0
 texture = ExtResource("15_w1b7k")
 
-[node name="Zombolda" parent="UIParent/CharacterSelectPanel/Control" unique_id=1070089930 instance=ExtResource("8_a85h0")]
+[node name="Zombolda" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=1070089930 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = 108.0
-offset_top = -27.5
-offset_right = 108.0
-offset_bottom = -27.5
+offset_left = 39.0
+offset_top = 11.0
+offset_right = 39.0
+offset_bottom = 11.0
 Starter = 4
 DisplayName = "Zombolda Gigglesworth"
 Description = "Zombolda Desc"
 CharFront = ExtResource("18_m1cwc")
 CharBack = ExtResource("19_vx826")
 StartingItem = ExtResource("14_yhlds")
+bitmapImage = ExtResource("9_r351o")
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Zombolda" index="0" unique_id=2146101422]
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Zombolda" index="0" unique_id=2146101422]
 self_modulate = Color(0.8901961, 0.4117647, 0.3372549, 1)
 flip_v = true
 
-[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Control/Zombolda/CharacterTriangle_inner" index="0" unique_id=1677993357]
+[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Panel/Control/Zombolda/CharacterTriangle_inner" index="0" unique_id=1677993357]
 offset_left = -54.0
 offset_top = -130.0
 offset_right = 74.0
 offset_bottom = -2.0
 texture = ExtResource("18_m1cwc")
 
-[node name="Dane Blanche" parent="UIParent/CharacterSelectPanel/Control" unique_id=973854418 instance=ExtResource("8_a85h0")]
+[node name="Dane Blanche" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=973854418 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = 261.0
-offset_top = -27.5
-offset_right = 261.0
-offset_bottom = -27.5
+offset_left = 192.0
+offset_top = 11.0
+offset_right = 192.0
+offset_bottom = 11.0
 Starter = 5
 DisplayName = "Dane Blanche"
 Description = "Dane Desc"
@@ -477,52 +515,53 @@ CharFront = ExtResource("21_v1eva")
 CharBack = ExtResource("22_t7sqb")
 StartingItem = ExtResource("17_w2oxx")
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Dane Blanche" index="0" unique_id=2146101422]
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Dane Blanche" index="0" unique_id=2146101422]
 self_modulate = Color(1, 0.89411765, 0.47058824, 1)
 
-[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Control/Dane Blanche/CharacterTriangle_inner" index="0" unique_id=1677993357]
+[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Panel/Control/Dane Blanche/CharacterTriangle_inner" index="0" unique_id=1677993357]
 offset_left = -88.0
 offset_top = -46.0
 offset_right = 106.0
 offset_bottom = 148.0
 texture = ExtResource("21_v1eva")
 
-[node name="Hornacia" parent="UIParent/CharacterSelectPanel/Control" unique_id=1397904695 instance=ExtResource("8_a85h0")]
+[node name="Hornacia" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=1397904695 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = 414.0
-offset_top = -27.5
-offset_right = 414.0
-offset_bottom = -27.5
+offset_left = 345.0
+offset_top = 11.0
+offset_right = 345.0
+offset_bottom = 11.0
 Starter = 6
 DisplayName = "Hornacia Baidineanu"
 Description = "Hornacia Desc	"
 CharFront = ExtResource("24_d3t4u")
 CharBack = ExtResource("25_4qs42")
 StartingItem = ExtResource("16_7b7lq")
+bitmapImage = ExtResource("9_r351o")
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Hornacia" index="0" unique_id=2146101422]
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Hornacia" index="0" unique_id=2146101422]
 self_modulate = Color(0.38431373, 0.57254905, 0.6901961, 1)
 flip_v = true
 
-[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Control/Hornacia/CharacterTriangle_inner" index="0" unique_id=1677993357]
+[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Panel/Control/Hornacia/CharacterTriangle_inner" index="0" unique_id=1677993357]
 offset_left = -50.0
 offset_top = -102.0
 offset_right = 78.0
 offset_bottom = 26.0
 texture = ExtResource("24_d3t4u")
 
-[node name="Blank2" parent="UIParent/CharacterSelectPanel/Control" unique_id=1120198394 instance=ExtResource("8_a85h0")]
+[node name="Blank2" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=1120198394 instance=ExtResource("8_a85h0")]
 layout_mode = 1
-offset_left = 569.0
-offset_top = -27.5
-offset_right = 569.0
-offset_bottom = -27.5
-script = null
+offset_left = 500.0
+offset_top = 11.0
+offset_right = 500.0
+offset_bottom = 11.0
+script = ExtResource("29_m1cwc")
 
-[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Control/Blank2" index="0" unique_id=2146101422]
+[node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Blank2" index="0" unique_id=2146101422]
 self_modulate = Color(0.15294118, 0.15294118, 0.21176471, 1)
 
-[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Control/Blank2/CharacterTriangle_inner" index="0" unique_id=1677993357]
+[node name="TextureRect" parent="UIParent/CharacterSelectPanel/Panel/Control/Blank2/CharacterTriangle_inner" index="0" unique_id=1677993357]
 offset_left = -178.0
 offset_top = -108.0
 offset_right = 158.0
@@ -553,17 +592,13 @@ material = SubResource("ShaderMaterial_0iob3")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1003.0
-offset_top = 376.0
-offset_right = 1003.0
-offset_bottom = 376.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="PreviewWheelRoot" type="Node2D" parent="." unique_id=1995714591]
 z_index = 1
-position = Vector2(747, -250)
+position = Vector2(749, -250)
 
 [node name="PreviewWheel" type="Node2D" parent="PreviewWheelRoot" unique_id=866764280 node_paths=PackedStringArray("slice_template")]
 script = ExtResource("16_v54mg")
@@ -581,38 +616,39 @@ z_index = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" unique_id=928725613]
 
-[connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Pete The Fury" to="CharSelectBrain" method="show_selected_starter"]
-[connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Rory Schmew" to="CharSelectBrain" method="show_selected_starter"]
-[connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Timmy Burnlee" to="CharSelectBrain" method="show_selected_starter"]
-[connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Zombolda" to="CharSelectBrain" method="show_selected_starter"]
-[connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Dane Blanche" to="CharSelectBrain" method="show_selected_starter"]
-[connection signal="selected" from="UIParent/CharacterSelectPanel/Control/Hornacia" to="CharSelectBrain" method="show_selected_starter"]
+[connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Pete The Fury" to="CharSelectBrain" method="show_selected_starter"]
+[connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Rory Schmew" to="CharSelectBrain" method="show_selected_starter"]
+[connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Timmy Burnlee" to="CharSelectBrain" method="show_selected_starter"]
+[connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Zombolda" to="CharSelectBrain" method="show_selected_starter"]
+[connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Dane Blanche" to="CharSelectBrain" method="show_selected_starter"]
+[connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Hornacia" to="CharSelectBrain" method="show_selected_starter"]
+[connection signal="pressed" from="UIParent/CharacterSelectPanel/Panel/Control/Blank2/CharacterTriangle_inner" to="CharSelectBrain" method="_on_GO_pressed"]
 [connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@24482/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24482/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@24482/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24482/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@24483/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24483/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@24483/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24483/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@24484/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24484/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@24484/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24484/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@24485/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24485/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@24485/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24485/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@24486/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24486/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@24486/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@24486/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@153226/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@153226/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@153226/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@153226/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@153227/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@153227/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@153227/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@153227/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@153228/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@153228/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@153228/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@153228/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@153229/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@153229/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@153229/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@153229/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@153230/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@153230/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@153230/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@153230/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
-[editable path="UIParent/CharacterSelectPanel/Control/Blank"]
-[editable path="UIParent/CharacterSelectPanel/Control/Blank/CharacterTriangle_inner"]
-[editable path="UIParent/CharacterSelectPanel/Control/Pete The Fury"]
-[editable path="UIParent/CharacterSelectPanel/Control/Pete The Fury/CharacterTriangle_inner"]
-[editable path="UIParent/CharacterSelectPanel/Control/Rory Schmew"]
-[editable path="UIParent/CharacterSelectPanel/Control/Rory Schmew/CharacterTriangle_inner"]
-[editable path="UIParent/CharacterSelectPanel/Control/Timmy Burnlee"]
-[editable path="UIParent/CharacterSelectPanel/Control/Timmy Burnlee/CharacterTriangle_inner"]
-[editable path="UIParent/CharacterSelectPanel/Control/Zombolda"]
-[editable path="UIParent/CharacterSelectPanel/Control/Zombolda/CharacterTriangle_inner"]
-[editable path="UIParent/CharacterSelectPanel/Control/Dane Blanche"]
-[editable path="UIParent/CharacterSelectPanel/Control/Dane Blanche/CharacterTriangle_inner"]
-[editable path="UIParent/CharacterSelectPanel/Control/Hornacia"]
-[editable path="UIParent/CharacterSelectPanel/Control/Hornacia/CharacterTriangle_inner"]
-[editable path="UIParent/CharacterSelectPanel/Control/Blank2"]
-[editable path="UIParent/CharacterSelectPanel/Control/Blank2/CharacterTriangle_inner"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Blank"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Blank/CharacterTriangle_inner"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Pete The Fury"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Pete The Fury/CharacterTriangle_inner"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Rory Schmew"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Rory Schmew/CharacterTriangle_inner"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Timmy Burnlee"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Timmy Burnlee/CharacterTriangle_inner"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Zombolda"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Zombolda/CharacterTriangle_inner"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Dane Blanche"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Dane Blanche/CharacterTriangle_inner"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Hornacia"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Hornacia/CharacterTriangle_inner"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Blank2"]
+[editable path="UIParent/CharacterSelectPanel/Panel/Control/Blank2/CharacterTriangle_inner"]

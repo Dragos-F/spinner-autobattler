@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ca1lbwagaw3dl"
+path="res://.godot/imported/triangleIMAGE.png-4cfe415959ade1769224c123152a98ce.res"
+
+[deps]
+
+source_file="res://VisualAssets/triangleIMAGE.png"
+dest_files=["res://.godot/imported/triangleIMAGE.png-4cfe415959ade1769224c123152a98ce.res"]
+
+[params]
+
+create_from=0
+threshold=0.1

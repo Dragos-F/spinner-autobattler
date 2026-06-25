@@ -20,7 +20,7 @@ func _ready() -> void:
 		
 func UpdateWheel(newitem:WheelItem):
 	item = newitem
-	print("updating wheel to "+newitem.resource_name)
+	print("updating wheel to "+newitem.resource_path)
 	generatewheel()
 	pass
 	

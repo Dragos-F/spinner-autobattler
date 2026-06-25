@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cew4nsm4uepqg" path="res://VisualAssets/triangle.png" id="1_nbba7"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="2_2ylu4"]
+[ext_resource type="BitMap" uid="uid://dhkfk2jl3nfbp" path="res://VisualAssets/triangle_blackback.png" id="2_d02t4"]
 
-[node name="CharacterTriangle_inner" type="TextureRect" unique_id=2146101422]
+[node name="CharacterTriangle_inner" type="TextureButton" unique_id=885311010]
 clip_children = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +16,12 @@ offset_bottom = -696.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_nbba7")
+texture_normal = ExtResource("1_nbba7")
+texture_pressed = ExtResource("1_nbba7")
+texture_hover = ExtResource("1_nbba7")
+texture_disabled = ExtResource("1_nbba7")
+texture_focused = ExtResource("1_nbba7")
+texture_click_mask = ExtResource("2_d02t4")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1677993357]
 layout_mode = 1
@@ -24,4 +30,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_2ylu4")

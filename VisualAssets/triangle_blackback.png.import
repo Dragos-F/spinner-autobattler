@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dhkfk2jl3nfbp"
+path="res://.godot/imported/triangle_blackback.png-d7013fde09d77e117a5e9a662e7c986d.res"
+
+[deps]
+
+source_file="res://VisualAssets/triangle_blackback.png"
+dest_files=["res://.godot/imported/triangle_blackback.png-d7013fde09d77e117a5e9a662e7c986d.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

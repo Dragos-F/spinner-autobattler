@@ -25,3 +25,12 @@ func update_wheels():
 			wheels[i].get_parent().get_parent().visible = true
 			wheels[i].UpdateWheel(slots[i].equipped_item.item)
 			print("Slot"+str(i)+" Item:"+str(slots[i].equipped_item))
+			
+func add_upgrade(targetSlot:ItemSlot,upgrade:WheelItem):
+	if slots.find(targetSlot) != -1:
+		var target_index = slots.find(targetSlot)
+		print (target_index)
+		print ("EQUIPPED "+str(slots[target_index].equipped_item))
+		slots[target_index].equipped_item.item.stats.append_array(upgrade.stats)
+		#wheels[target_index].UpdateWheel(slots[target_index].equipped_item.item)
+		

@@ -25,3 +25,10 @@ func show_selected_starter(starter:int, display_name:String, Description:String,
 	CharDesc.text = Description
 	DemoWheel.item = item
 	DemoWheel.UpdateWheel(item)
+
+
+func _on_GO_pressed() -> void:
+	Fader.FadeUp("")
+	await Fader.fade_finished
+	get_tree().change_scene_to_file("res://Scenes/MainScene.tscn")
+	Fader.FadeDown("")

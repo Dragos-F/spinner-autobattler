@@ -23,34 +23,38 @@ CharBack:Texture2D,
 item:WheelItem,)
 
 var once:bool = true
+@export var own_button:TextureButton
+@export var bitmapImage:BitMap
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#ONLY FOR TESTING
 	#CharFront = get_child(0).get_child(0).texture
 	#CharBack = get_child(0).get_child(0).texture
-	pass
+	own_button.set_click_mask(bitmapImage)
+	
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if moused_over:
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && once:
-			selected.emit(Starter,DisplayName,Description,CharFront,CharBack,StartingItem)
-			once = false
+	pass
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("MouseLeft"):
-		once = true
+	pass
 
 
-func _on_character_triangle_inner_mouse_entered() -> void:
+func _on_mouse_entered() -> void:
 	moused_over = true
 	print ("Moused Over")
 	scale = Vector2(1.1,1.1)
 
 
-func _on_character_triangle_inner_mouse_exited() -> void:
+func _on_mouse_exited() -> void:
 	moused_over = false
 	print ("Mouse Left")
 	scale = Vector2.ONE
+
+
+func _on_pressed() -> void:
+	selected.emit(Starter,DisplayName,Description,CharFront,CharBack,StartingItem)
