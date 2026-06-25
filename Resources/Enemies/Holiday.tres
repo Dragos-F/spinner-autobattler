@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://b10dnyx8xqf88"]
+
+[ext_resource type="Texture2D" uid="uid://xtgg086lgmhi" path="res://VisualAssets/Enemies/OffSeasonHoliday.png" id="1_wdhkk"]
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="2_y4cb6"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="3_32gh3"]
+[ext_resource type="Resource" uid="uid://o2fng7r301q1" path="res://Resources/Slices/Fix.tres" id="4_4jk8f"]
+[ext_resource type="Resource" uid="uid://b2ie68edj5k4j" path="res://Resources/Slices/Stall.tres" id="5_wdhkk"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="7_c1n68"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="8_m4j1m"]
+
+[sub_resource type="Resource" id="Resource_h2rbw"]
+script = ExtResource("2_y4cb6")
+cooldown = 8.0
+stats = Array[ExtResource("3_32gh3")]([ExtResource("4_4jk8f"), ExtResource("5_wdhkk"), ExtResource("7_c1n68"), ExtResource("5_wdhkk"), ExtResource("7_c1n68"), ExtResource("4_4jk8f"), ExtResource("7_c1n68")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("8_m4j1m")
+Name = "Off-Season Trip to Ibiza"
+BaseHealth = 18
+Items = Array[ExtResource("2_y4cb6")]([SubResource("Resource_h2rbw")])
+Description = "Bye bye, pedestrians!"
+Catchphrase = "Four wheels better!"
+Graphic = ExtResource("1_wdhkk")
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"

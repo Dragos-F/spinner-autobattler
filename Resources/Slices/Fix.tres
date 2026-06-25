@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_1s8t5")
-value = 5
+value = 3
 target = 0
 colour = Color(0.41960785, 0.7882353, 0.42352942, 1)
 tooltip = "Fix: Restore HP"

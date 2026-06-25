@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://yn8uemnabg4x"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_i5nnj"]
+[ext_resource type="Texture2D" uid="uid://bg1xkvk4vjfaq" path="res://VisualAssets/Enemies/GameboyPlato.png" id="1_o25ua"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="2_cohau"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_h5wos"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="3_lccme"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="4_o25ua"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="5_5t1lo"]
+[ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="6_3syt0"]
+[ext_resource type="Resource" uid="uid://o2fng7r301q1" path="res://Resources/Slices/Fix.tres" id="7_lccme"]
+
+[sub_resource type="Resource" id="Resource_cvcdv"]
+script = ExtResource("1_i5nnj")
+cooldown = 8.0
+stats = Array[ExtResource("2_h5wos")]([ExtResource("3_lccme"), ExtResource("4_o25ua"), ExtResource("5_5t1lo"), ExtResource("6_3syt0"), ExtResource("3_lccme"), ExtResource("7_lccme"), ExtResource("4_o25ua")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("2_cohau")
+Name = "Gamebox Plato's Cave Edition"
+BaseHealth = 16
+Items = Array[ExtResource("1_i5nnj")]([SubResource("Resource_cvcdv")])
+Graphic = ExtResource("1_o25ua")
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://du6p6atctqhl6"]
+
+[ext_resource type="Texture2D" uid="uid://c5g6lwdbbvimv" path="res://VisualAssets/Enemies/GolfCartDisguised.png" id="1_k7c0l"]
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="2_h2rbw"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="3_5te0u"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="4_h1n7b"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="4_wt4a2"]
+[ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="5_g2jcp"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="6_es13r"]
+[ext_resource type="Resource" uid="uid://b2ie68edj5k4j" path="res://Resources/Slices/Stall.tres" id="7_lhfdm"]
+
+[sub_resource type="Resource" id="Resource_h2rbw"]
+script = ExtResource("2_h2rbw")
+cooldown = 7.0
+stats = Array[ExtResource("3_5te0u")]([ExtResource("4_h1n7b"), ExtResource("5_g2jcp"), ExtResource("6_es13r"), ExtResource("5_g2jcp"), ExtResource("4_h1n7b"), ExtResource("7_lhfdm"), ExtResource("7_lhfdm")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("4_wt4a2")
+Name = "Golfcart in Disguise"
+BaseHealth = 14
+Items = Array[ExtResource("2_h2rbw")]([SubResource("Resource_h2rbw")])
+Description = "All you can eat...maybe more!"
+Catchphrase = "Better get eating!"
+Graphic = ExtResource("1_k7c0l")
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"

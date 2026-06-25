@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://csiph2p1scuk2"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_076hb"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_lkwp8"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="3_nvpl3"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="3_urjpv"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="4_cinwc"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="5_cklmb"]
+
+[sub_resource type="Resource" id="Resource_u60kv"]
+script = ExtResource("1_076hb")
+cooldown = 8.0
+stats = Array[ExtResource("2_lkwp8")]([ExtResource("3_nvpl3"), ExtResource("4_cinwc"), ExtResource("4_cinwc"), ExtResource("3_nvpl3"), ExtResource("4_cinwc"), ExtResource("5_cklmb"), ExtResource("3_nvpl3"), ExtResource("4_cinwc"), ExtResource("5_cklmb"), ExtResource("3_nvpl3")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("3_urjpv")
+Name = "Cancelled Christmas DLC"
+BaseHealth = 50
+Items = Array[ExtResource("1_076hb")]([SubResource("Resource_u60kv")])
+Description = "If only we were given one more year..."
+Catchphrase = "..."
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"

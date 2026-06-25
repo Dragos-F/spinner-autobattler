@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://cbvn062x8c4if"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_owvhp"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_qnc0k"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="4_c76co"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="5_h3m4r"]
+[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="5_owvhp"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="7_weo14"]
+
+[sub_resource type="Resource" id="Resource_u60kv"]
+script = ExtResource("1_owvhp")
+cooldown = 8.0
+stats = Array[ExtResource("2_qnc0k")]([ExtResource("5_h3m4r"), ExtResource("4_c76co"), ExtResource("5_owvhp"), ExtResource("5_h3m4r"), ExtResource("4_c76co"), ExtResource("5_owvhp"), ExtResource("5_h3m4r"), ExtResource("4_c76co"), ExtResource("5_owvhp")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("7_weo14")
+Name = "Unalive Studio Audience"
+BaseHealth = 50
+Items = Array[ExtResource("1_owvhp")]([SubResource("Resource_u60kv")])
+Type = 1
+Description = "Baked into the system. Spectators from all directions. You are a viewing experience."
+Catchphrase = "..."
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"

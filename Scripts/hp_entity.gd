@@ -55,7 +55,7 @@ func updateHealthDisplay()->void:
 	if currentstate != healthfraction:
 		print("updating health blend to "+str(healthfraction)+":"+str(healthfraction*healthAnimLength))
 		animator.speed_scale = 1
-		animator.seek(healthfraction*healthAnimLength)
+		animator.seek(healthfraction*healthAnimLength,true)
 		animator.speed_scale = 0
 		currentstate = healthfraction
 	if healthtext:
@@ -63,6 +63,9 @@ func updateHealthDisplay()->void:
 	pass
 
 func damage(amount:float)->float:
+	if !isAlive:
+		print("no damage, already dead")
+		return 0
 	var endhealth = changehealth(-amount)
 	if CharacterVisualAnimr != null:
 		CharacterVisualAnimr.play("damage")
@@ -74,3 +77,7 @@ func damage(amount:float)->float:
 func heal(amount:float)->float:
 	var endhealth = changehealth(amount)
 	return endhealth
+
+func sethealth(amount:float):
+	currenthealth = amount
+	updateHealthDisplay()

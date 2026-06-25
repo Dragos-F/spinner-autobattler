@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://c2q8wvvn4hjw8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlrvl"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
 [node name="Tooltip" type="Control" unique_id=117734496]
 layout_mode = 3
 anchors_preset = 4
@@ -18,7 +25,9 @@ offset_left = -41.0
 offset_top = -19.0
 offset_right = 43.0
 offset_bottom = 16.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_jlrvl")
 text = "Tooltip"
 horizontal_alignment = 1
 vertical_alignment = 1

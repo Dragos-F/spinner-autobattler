@@ -21,6 +21,7 @@ func showToolTip():
 		var instance = tooltipObject.instantiate()
 		get_tree().root.add_child(instance)
 		instance.get_child(0).text = slice_type.tooltip
+		instance.get_child(0).add_theme_color_override("font_color", slice_type.colour)
 		var camera = get_viewport().get_camera_2d()
 		var pos: Vector2 = camera.get_global_mouse_position()
 		pos = offsetPosition(global_position,pos)

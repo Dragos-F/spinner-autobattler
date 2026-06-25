@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://bbhxwd8v3tdch"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_76qtq"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_0aqda"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="3_h74ew"]
+[ext_resource type="Resource" uid="uid://o2fng7r301q1" path="res://Resources/Slices/Fix.tres" id="4_dbn28"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="5_au80c"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="5_dbn28"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="9_nwmtf"]
+
+[sub_resource type="Resource" id="Resource_u60kv"]
+script = ExtResource("1_76qtq")
+cooldown = 7.0
+stats = Array[ExtResource("2_0aqda")]([ExtResource("3_h74ew"), ExtResource("4_dbn28"), ExtResource("5_dbn28"), ExtResource("3_h74ew"), ExtResource("5_au80c"), ExtResource("5_au80c"), ExtResource("3_h74ew"), ExtResource("5_dbn28")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("9_nwmtf")
+Name = "Enthralled Host"
+BaseHealth = 36
+Items = Array[ExtResource("1_76qtq")]([SubResource("Resource_u60kv")])
+Type = 1
+Description = "This show needs me, but it doesn't need you! Why don't you get outta my game?"
+Catchphrase = "Get out!"
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"

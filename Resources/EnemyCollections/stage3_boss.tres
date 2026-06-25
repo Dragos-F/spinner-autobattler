@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyCollection" format=3 uid="uid://bqaqkv4la53on"]
+
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="1_tr02q"]
+[ext_resource type="Resource" uid="uid://bbhxwd8v3tdch" path="res://Resources/Enemies/Host.tres" id="2_8j773"]
+[ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="5_gy2m5"]
+
+[resource]
+script = ExtResource("5_gy2m5")
+CollectionName = "Stage3 Boss"
+Contents = Array[ExtResource("1_tr02q")]([ExtResource("2_8j773")])
+metadata/_custom_type_script = "uid://crtclueovnj4u"

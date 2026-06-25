@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://0w3gns22rsuw"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="2_q1ro4"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="3_eswcf"]
+[ext_resource type="Resource" uid="uid://bq224hmhyl22a" path="res://Resources/Slices/Backfire.tres" id="4_0pak1"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="4_qaxj6"]
+[ext_resource type="Resource" uid="uid://b2ie68edj5k4j" path="res://Resources/Slices/Stall.tres" id="5_e2vra"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="6_6ewme"]
+[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="7_ycsp8"]
+[ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="8_40qa2"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="9_208dg"]
+
+[sub_resource type="Resource" id="Resource_u60kv"]
+script = ExtResource("2_q1ro4")
+cooldown = 6.0
+stats = Array[ExtResource("3_eswcf")]([ExtResource("4_0pak1"), ExtResource("5_e2vra"), ExtResource("6_6ewme"), ExtResource("7_ycsp8"), ExtResource("8_40qa2"), ExtResource("9_208dg"), ExtResource("6_6ewme"), ExtResource("5_e2vra")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("4_qaxj6")
+Name = "Worse Than Useless Teammate"
+BaseHealth = 23
+Items = Array[ExtResource("2_q1ro4")]([SubResource("Resource_u60kv")])
+Description = "I don't know who got"
+Catchphrase = "You don't agree? Well it's my final answer!"
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"

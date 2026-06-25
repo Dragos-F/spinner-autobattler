@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://vu4v3x4wvkp"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_ubjsl"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_fav0u"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="3_i2d44"]
+[ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="4_fy56m"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="5_61i0h"]
+[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="6_v6073"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="7_bgc84"]
+
+[sub_resource type="Resource" id="Resource_u60kv"]
+script = ExtResource("1_ubjsl")
+cooldown = 5.0
+stats = Array[ExtResource("2_fav0u")]([ExtResource("3_i2d44"), ExtResource("4_fy56m"), ExtResource("3_i2d44"), ExtResource("5_61i0h"), ExtResource("6_v6073"), ExtResource("5_61i0h"), ExtResource("6_v6073"), ExtResource("5_61i0h")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("7_bgc84")
+Name = "Precarious Lighting Rig"
+BaseHealth = 38
+Items = Array[ExtResource("1_ubjsl")]([SubResource("Resource_u60kv")])
+Description = "Just the lights. They're not as secure as you thought."
+Catchphrase = "..."
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"

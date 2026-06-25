@@ -57,7 +57,8 @@ func reset_spin():
 		ExtraWaitTime = 0
 	if SubtractedWaitTime > 0:
 		SubtractedWaitTime = 0
-	tween.tween_property(self, "modulate", Color.WHITE, colourtweentime)
+	if canBeStarted:
+		tween.tween_property(self, "modulate", Color.WHITE, colourtweentime)
 		
 var isSpinning = false
 func _input(event):

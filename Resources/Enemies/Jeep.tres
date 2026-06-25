@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://tiab3o37ql75"]
+
+[ext_resource type="Texture2D" uid="uid://dedbvhf3paurp" path="res://VisualAssets/Enemies/Jeep.png" id="1_s1dla"]
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="2_l2c2l"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="3_n3lp1"]
+[ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="5_ybusi"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="6_0se0s"]
+[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="6_s1dla"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="7_l2c2l"]
+[ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="8_8y85e"]
+
+[sub_resource type="Resource" id="Resource_h2rbw"]
+script = ExtResource("2_l2c2l")
+cooldown = 8.0
+stats = Array[ExtResource("3_n3lp1")]([ExtResource("6_0se0s"), ExtResource("5_ybusi"), ExtResource("6_0se0s"), ExtResource("6_s1dla"), ExtResource("5_ybusi"), ExtResource("7_l2c2l"), ExtResource("5_ybusi")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[resource]
+script = ExtResource("8_8y85e")
+Name = "Jeep with Bloodsoaked Past"
+BaseHealth = 30
+Items = Array[ExtResource("2_l2c2l")]([SubResource("Resource_h2rbw")])
+Type = 1
+Description = "Bye bye, pedestrians!"
+Catchphrase = "Four wheels better!"
+Graphic = ExtResource("1_s1dla")
+metadata/_custom_type_script = "uid://d3x3oteco8a5u"
