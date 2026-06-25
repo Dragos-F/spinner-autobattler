@@ -8,6 +8,7 @@ class_name HealthEntity
 @export var healthtext:Label
 var healthAnimLength:float = 1
 signal event_hpdepleted(healthE:HealthEntity)
+signal event_hpchanged(healthE:HealthEntity,delta)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animator.play(animationname)
@@ -44,6 +45,7 @@ func changehealth(amount:float)->float:
 		currenthealth = 0
 		isAlive=false
 		event_hpdepleted.emit(self)
+	event_hpchanged.emit(self,amount)
 	updateHealthDisplay()
 	return currenthealth
 	

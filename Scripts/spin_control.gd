@@ -5,6 +5,7 @@ class_name Spinner
 @export var SpinTime:float = 5
 @export var WaitTime:float = 2
 @onready var ResetTime:float = 5
+@export var TimeCoefficient = 1
 var ExtraWaitTime=0
 var SubtractedWaitTime=0
 @export var test_clicker:Clicker
@@ -34,7 +35,7 @@ func random_spin():
 	print("randomspin: "+str(testRand))
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "rotation", rotation+6*PI+testRand*2*PI, SpinTime).set_trans(Tween.TRANS_QUART).set_delay(0.3)
+	tween.tween_property(self, "rotation", rotation+6*PI+testRand*2*PI, SpinTime*TimeCoefficient).set_trans(Tween.TRANS_QUART).set_delay(0.3*TimeCoefficient)
 	test_clicker.spining_text()
 	await tween.finished
 	print ("Tried to select a Slice")
@@ -44,14 +45,19 @@ func random_spin():
 	reset_spin()
 
 func reset_spin():
+	if canBeStarted == false:
+		return
 	test_clicker.reset_text()
+	var colourtweentime = 0.1*TimeCoefficient
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "rotation", 0, ResetTime-SubtractedWaitTime+ExtraWaitTime).set_trans(Tween.TRANS_SINE).set_delay(WaitTime)
+	tween.tween_property(self, "modulate", Color.from_hsv(0,0,0.3), colourtweentime).set_delay(WaitTime*TimeCoefficient-colourtweentime*2)
+	tween.tween_property(self, "rotation", 0, (ResetTime-SubtractedWaitTime+ExtraWaitTime)*TimeCoefficient).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(random_spin)
 	if ExtraWaitTime > 0:
 		ExtraWaitTime = 0
 	if SubtractedWaitTime > 0:
 		SubtractedWaitTime = 0
+	tween.tween_property(self, "modulate", Color.WHITE, colourtweentime)
 		
 var isSpinning = false
 func _input(event):

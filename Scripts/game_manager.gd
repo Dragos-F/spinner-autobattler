@@ -13,6 +13,7 @@ extends Node
 
 @export var combatManager:CombatManager
 var StageNumber:int=0
+var PlayerScore:int=0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,6 +41,7 @@ func LoadEnemy(enemy:Enemy):
 	ActiveEnemyHP = enemy.BaseHealth
 	EnemyHPSystem.currenthealth = enemy.BaseHealth
 	EnemyHPSystem.maxhealth = enemy.BaseHealth
+	
 	EnemyHPSystem.isAlive = true
 	combatManager.EnemyEntity = EnemyHPSystem
 	PrimaryEnemySpinner.modulate = Color.from_hsv(0,0,1)
@@ -51,16 +53,18 @@ func _input(event: InputEvent) -> void:
 			LoadRandomEnemy()
 		elif event.keycode == KEY_G:
 			if PreparedToReset:
-				PrimaryEnemySpinner.canBeStarted = true
+				PrimaryEnemySpinner.canBeStarted = true				
 				LoadRandomEnemy()
+				PrimaryEnemySpinner.random_spin()
 				PreparedToReset = false
 
-var PreparedToReset
+var PreparedToReset=false
 
 func _listener_entityDied(he:HealthEntity):
 	print("entitydied")
 	if he == EnemyHPSystem:
 		print("active enemy has been killed")
+		AddPoints(100)
 		PrimaryEnemySpinner.modulate = Color.from_hsv(0,0,0.2)
 		PrimaryEnemySpinner.canBeStarted = false
 		EnemyDisplay.modulate = Color.from_hsv(0,0,0.2)
@@ -84,4 +88,12 @@ func GameProgressProcedure():
 	
 	#LoadRandomEnemy()
 	PreparedToReset = true
+	pass
+
+func AddPoints(amount:int):
+	print("earned "+str(amount)+" points")
+	PlayerScore+=amount
+
+func _listener_enemydamaged(healthE:HealthEntity,delta):
+	AddPoints(int(ceil(delta)))
 	pass

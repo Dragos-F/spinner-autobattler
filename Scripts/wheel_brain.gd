@@ -77,14 +77,16 @@ func DisableSliceByIndex(index,duration):
 	var originalColour = slicetodisable.color
 	slicetodisable.color = Color.DIM_GRAY
 	await get_tree().create_timer(duration).timeout
-	slicetodisable.isDisabled = false
-	slicetodisable.color = originalColour
+	if slicetodisable.isDisabled:
+		slicetodisable.isDisabled = false
+		slicetodisable.color = originalColour
 
 func DisableRandomSlice(duration):
 	var slicetodisable = GeneratedSlices.pick_random()
 	slicetodisable.isDisabled = true
 	await get_tree().create_timer(duration).timeout
-	slicetodisable.isDisabled = false
+	if slicetodisable.isDisabled:
+		slicetodisable.isDisabled = false
 	
 func DisableRandomSlices(count,duration):
 	print("disabling "+str(count)+" random slices")
@@ -92,7 +94,7 @@ func DisableRandomSlices(count,duration):
 	for ri in range(0,count):
 		var slicetodisable = GeneratedSlices[ri]
 		DisableSlice(slicetodisable,duration)
-		
+
 func DisableSlice(slice,duration):
 	var originalColour = slice.color
 	slice.isDisabled = true
@@ -100,8 +102,9 @@ func DisableSlice(slice,duration):
 	print("disabled ...")
 	print(slice)
 	await get_tree().create_timer(duration).timeout
-	slice.isDisabled = false
-	slice.color = originalColour
+	if slice.isDisabled:
+		slice.isDisabled = false
+		slice.color = originalColour
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
