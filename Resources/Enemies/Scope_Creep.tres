@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://bgs2adg3fgf6"]
 
 [ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_576tk"]
+[ext_resource type="Texture2D" uid="uid://bvlmlc0plwam5" path="res://VisualAssets/Enemies/ScopeCreep.png" id="1_bsrve"]
 [ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_k3ik5"]
 [ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="3_hfsid"]
 [ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="4_bsrve"]
@@ -23,4 +24,5 @@ Items = Array[ExtResource("1_576tk")]([SubResource("Resource_u60kv")])
 Type = 1
 Description = "ALLOW US THIS, PLEASE! JUST ONE MORE TRY! ONE LAST CHANCE! ONE MORE SPIN!"
 Catchphrase = "..."
+Graphic = ExtResource("1_bsrve")
 metadata/_custom_type_script = "uid://d3x3oteco8a5u"

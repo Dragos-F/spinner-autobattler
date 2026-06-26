@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://bdltvpvrkugsy"]
 
+[ext_resource type="Texture2D" uid="uid://c5qh15qf57yyc" path="res://VisualAssets/Enemies/LogoRomanian.png" id="1_ipudr"]
 [ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_owvhp"]
 [ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_qnc0k"]
 [ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="7_weo14"]
@@ -17,4 +18,5 @@ BaseHealth = 50
 Items = Array[ExtResource("1_owvhp")]([SubResource("Resource_u60kv")])
 Description = "There are so many more eyes to seize."
 Catchphrase = "..."
+Graphic = ExtResource("1_ipudr")
 metadata/_custom_type_script = "uid://d3x3oteco8a5u"
