@@ -12,7 +12,6 @@
 [ext_resource type="Resource" uid="uid://c1uy66okaf72m" path="res://Resources/EnemyCollections/stage1_boss.tres" id="5_p5ymy"]
 [ext_resource type="Resource" uid="uid://b5p7j5orme3r3" path="res://Resources/EnemyCollections/stage3_standard.tres" id="6_3va76"]
 [ext_resource type="Resource" uid="uid://cdytic8ps8i7r" path="res://Resources/EnemyCollections/stage2_boss.tres" id="7_wmecs"]
-[ext_resource type="LabelSettings" uid="uid://0sftpb7dnv7v" path="res://VisualAssets/Fonts/new_label_settings.tres" id="8_5qxwa"]
 [ext_resource type="Resource" uid="uid://ckhxg62ynqs6n" path="res://Resources/EnemyCollections/stage2_standard.tres" id="8_dtg5n"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="9_0iob3"]
 [ext_resource type="Resource" uid="uid://bqaqkv4la53on" path="res://Resources/EnemyCollections/stage3_boss.tres" id="9_d0jji"]
@@ -30,11 +29,17 @@
 [ext_resource type="Texture2D" uid="uid://qo0ug1w1dfv5" path="res://VisualAssets/square.png" id="19_c1ier"]
 [ext_resource type="Texture2D" uid="uid://vh2wgiocoigr" path="res://VisualAssets/ItemFrame.png" id="19_t8ijv"]
 [ext_resource type="FontFile" uid="uid://bygmfxwejtu7l" path="res://VisualAssets/Fonts/Wowsers.ttf" id="20_rv6c1"]
+[ext_resource type="Texture2D" uid="uid://ry5b7e5kstg4" path="res://VisualAssets/Enemies/Host.png" id="26_75tun"]
 [ext_resource type="PackedScene" uid="uid://w2ypqxyaota3" path="res://Scenes/item_tooltip.tscn" id="26_goiu7"]
+[ext_resource type="Texture2D" uid="uid://dtxv002k80twa" path="res://VisualAssets/Spin_button_new1.png" id="26_rmfi2"]
+[ext_resource type="FontFile" uid="uid://cwlp8jtifi1m" path="res://VisualAssets/Fonts/Casual Softcore.otf" id="26_sl126"]
+[ext_resource type="Texture2D" uid="uid://kv40xxitbau5" path="res://VisualAssets/Spin_button_new2.png" id="27_ergw4"]
+[ext_resource type="Texture2D" uid="uid://dwcqt0n0hf1mp" path="res://VisualAssets/Spin_button_back1.png" id="27_sl126"]
 [ext_resource type="Script" uid="uid://dqo5ua8abe05n" path="res://Scripts/loot_system.gd" id="28_hkvke"]
 [ext_resource type="Resource" uid="uid://bgunobude8skl" path="res://Resources/TemplateLootPool.tres" id="28_s1acj"]
 [ext_resource type="FontFile" uid="uid://pjw6d5hyiwtb" path="res://VisualAssets/Fonts/Super Tasty.ttf" id="32_cotnl"]
 [ext_resource type="Texture2D" uid="uid://bx2hyns0hwxwi" path="res://VisualAssets/SkipButtonNew1.png" id="32_d0jji"]
+[ext_resource type="Texture2D" uid="uid://jcikvgda7xdo" path="res://VisualAssets/StartMenu/SkipAndHealButtonNew1.png" id="37_ergw4"]
 [ext_resource type="Texture2D" uid="uid://h0087mrh2snf" path="res://VisualAssets/ContestantImages/Businessman back.png" id="50_20cv7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
@@ -93,6 +98,19 @@ _data = {
 &"RESET": SubResource("Animation_i0j58"),
 &"damage": SubResource("Animation_c1ier")
 }
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nrvwe"]
+texture = ExtResource("26_rmfi2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ergw4"]
+texture = ExtResource("27_ergw4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oo3wg"]
+texture = ExtResource("26_rmfi2")
+modulate_color = Color(1.8626325, 1.8626325, 1.8626325, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_75tun"]
+texture = ExtResource("27_ergw4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0iob3"]
 shader = ExtResource("9_0iob3")
@@ -163,7 +181,7 @@ slots = [NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Control1
 wheels = [NodePath("../PlayerWheels/PlayerWheel1/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel2/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel3/SpinControl/Wheel")]
 loot_sys = NodePath("../LootSystem")
 
-[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "BackgroundImage", "PrimaryEnemyWheel", "PrimaryEnemySpinner", "combatManager", "inventoryManager", "progressButton", "CharFront", "CharBack", "CharName", "StartingItem")]
+[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "BackgroundImage", "PrimaryEnemyWheel", "PrimaryEnemySpinner", "combatManager", "inventoryManager", "progressButton", "CharFront", "CharBack", "CharName", "StartingItem", "ScoreLabel")]
 script = ExtResource("10_4b75m")
 EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
@@ -181,6 +199,7 @@ CharFront = NodePath("../UIParent/PortraitBox/Control/CharFront")
 CharBack = NodePath("../CharBack")
 CharName = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Name/ContestantName")
 StartingItem = NodePath("../StartingItem")
+ScoreLabel = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Contestant Text/ScoreLabel")
 
 [node name="CombatManager" type="Node" parent="." unique_id=317878429 node_paths=PackedStringArray("PlayerEntity", "PlayerSpinners", "EnemyEntity", "EnemySpinners", "InventorySys")]
 script = ExtResource("5_enc0b")
@@ -285,14 +304,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -136.0
-offset_top = -9.5
+offset_top = -28.5
 offset_right = 136.0
-offset_bottom = 35.5
+offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_position = Vector2(-25, 0)
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("32_cotnl")
+theme_override_font_sizes/font_size = 28
 text = "Contestant Name"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Items" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1099574783]
@@ -475,16 +496,19 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.64
 
-[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Contestant Text" unique_id=654737110]
+[node name="ScoreLabel" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Contestant Text" unique_id=654737110]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_right = -2.0
-offset_bottom = 257.0
+offset_bottom = 222.0
 grow_horizontal = 2
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas tellus mauris, sit amet molestie magna pharetra nec. Sed id aliquam est, quis luctus nulla. In sed ultricies nisi. Phasellus leo odio, lacinia eget aliquet et, suscipit nec ipsum. Nunc blandit luctus sem, eleifend imperdiet felis molestie vitae
-"
+theme_override_fonts/font = ExtResource("32_cotnl")
+theme_override_font_sizes/font_size = 60
+text = "Points: 20000"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 1
 
 [node name="Buttons" type="HBoxContainer" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1258459046]
@@ -549,6 +573,7 @@ stretch_mode = 5
 libraries/ = SubResource("AnimationLibrary_gyaec")
 
 [node name="EnemyPortrait" type="PanelContainer" parent="UIParent" unique_id=1423755693]
+clip_contents = true
 layout_mode = 0
 offset_left = 1600.0
 offset_top = 7.0
@@ -556,6 +581,18 @@ offset_right = 1911.0
 offset_bottom = 257.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("2_y4jh7")
+
+[node name="Control" type="Control" parent="UIParent/EnemyPortrait" unique_id=833728901]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UIParent/EnemyPortrait/Control" unique_id=10328509]
+layout_mode = 0
+offset_left = -156.0
+offset_top = -42.0
+offset_right = 490.6501
+offset_bottom = 437.0
+texture = ExtResource("26_75tun")
+expand_mode = 1
 
 [node name="EnemyDescription" type="PanelContainer" parent="UIParent" unique_id=1748079486]
 clip_contents = true
@@ -573,16 +610,16 @@ layout_mode = 2
 [node name="Control" type="Control" parent="UIParent/EnemyDescription/VBoxContainer" unique_id=336608358]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.24
+size_flags_stretch_ratio = 0.48
 
 [node name="Label" type="Label" parent="UIParent/EnemyDescription/VBoxContainer/Control" unique_id=1003712461]
-custom_maximum_size = Vector2(259, 66)
 layout_mode = 0
-offset_left = 15.0
-offset_top = 9.0
-offset_right = 274.0
-offset_bottom = 75.0
-theme_override_font_sizes/font_size = 32
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 307.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("32_cotnl")
+theme_override_font_sizes/font_size = 28
 text = "Boss Name"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -603,23 +640,39 @@ anchor_right = 0.97200006
 anchor_bottom = 0.049000002
 offset_left = -0.5499878
 offset_top = 0.015007019
-offset_right = -0.58999634
-offset_bottom = 208.292
+offset_right = 2.7079773
+offset_bottom = 173.347
+theme_override_fonts/font = ExtResource("26_sl126")
+theme_override_font_sizes/font_size = 38
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper ligula lorem, sed elementum turpis pharetra ut. Pellentesque a augue tristique, malesuada enim id, rutrum quam. Donec faucibus, leo ut faucibus ultricies, felis libero blandit purus, quis rutrum libero dolor id velit. Integer in posuere nibh. Donec congue ex ullamcorper efficitur varius. Duis tortor nisi, porta ut ipsum et, posuere tincidunt nunc. Sed vulputate non risus eget iaculis. Nunc eu lorem nec diam gravida ullamcorper. Sed nec congue orci. In nulla elit, blandit et aliquam sit amet, laoreet ac nunc. Fusce maximus dictum orci et pharetra. Phasellus aliquam sed mi at dictum. Aenean faucibus diam ac lacus laoreet auctor. Quisque scelerisque eleifend sapien, at lobortis erat accumsan vel. Mauris quis bibendum est."
-label_settings = ExtResource("8_5qxwa")
 autowrap_mode = 2
 text_overrun_behavior = 1
 
 [node name="ProgressButton" type="Button" parent="UIParent" unique_id=2115008151]
 z_index = 10
 layout_mode = 0
-offset_left = 435.0
-offset_top = 420.0
-offset_right = 1489.0
-offset_bottom = 665.0
+offset_left = 804.0
+offset_top = 491.00006
+offset_right = 1040.0
+offset_bottom = 628.00006
+scale = Vector2(1.8, 1.8)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 100
-text = "Spin!"
+theme_override_styles/normal = SubResource("StyleBoxTexture_nrvwe")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ergw4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oo3wg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_75tun")
+
+[node name="TextureRect" type="TextureRect" parent="UIParent/ProgressButton" unique_id=1648197593]
+z_index = -1
+layout_mode = 0
+offset_left = -61.999992
+offset_top = -119.70003
+offset_right = 303.59998
+offset_bottom = 245.89995
+mouse_filter = 2
+texture = ExtResource("27_sl126")
+expand_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020282609]
 visible = false
@@ -1033,19 +1086,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -75.0
-offset_right = 60.0
-offset_bottom = 75.0
+offset_left = -59.5
+offset_top = -73.5
+offset_right = 60.5
+offset_bottom = 76.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 38
-text = "Heal
-&Skip"
+icon = ExtResource("37_ergw4")
+expand_icon = true
 
 [node name="GenerateLoot" type="Button" parent="." unique_id=499497220]
+visible = false
 offset_left = -198.0
 offset_top = -497.0
 offset_right = 161.0
@@ -1108,16 +1162,16 @@ z_as_relative = true
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="CombatManager" method="_on_heal_skip_pressed"]
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="LootSystem" method="_on_skip_loot_pressed"]
 [connection signal="pressed" from="GenerateLoot" to="LootSystem" method="spawn_options"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@279954/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279954/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@279954/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279954/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@279955/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279955/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@279955/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279955/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@279956/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279956/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@279956/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279956/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@279957/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279957/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@279957/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279957/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@279958/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279958/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@279958/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279958/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@553789/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@553789/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@553789/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@553789/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@553790/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@553790/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@553790/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@553790/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@553791/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@553791/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@553791/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@553791/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@553792/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@553792/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@553792/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@553792/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@553793/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@553793/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@553793/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@553793/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="EnemyWheelBundle"]
 [editable path="PlayerWheels/PlayerWheel1"]

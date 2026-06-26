@@ -28,6 +28,8 @@ var StageNumber:int=-1
 var PlayerScore:int=0
 var PreparedToStart = true
 
+@export var ScoreLabel:Label
+
 signal combat_ended()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,7 +45,7 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	ScoreLabel.text = ("Points: "+str(PlayerScore))
 
 var currentEnemyIndex = -1
 func LoadNextEnemy():
@@ -187,5 +189,5 @@ func AddPoints(amount:int):
 	PlayerScore+=abs(amount)
 
 func _listener_enemydamaged(healthE:HealthEntity,delta):
-	AddPoints(int(ceil(abs(delta))))
+	AddPoints(int(ceil(abs(delta)))*10)
 	pass
