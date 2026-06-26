@@ -173,6 +173,44 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="Animation" id="Animation_cotnl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-262, 418)]
+}
+
+[sub_resource type="Animation" id="Animation_ypccg"]
+resource_name = "player_shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.36666667, 0.5666667, 0.68999994),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-262, 418), Vector2(-211.00002, 425), Vector2(-311, 423), Vector2(-256, 418.00003), Vector2(-262, 418)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rmfi2"]
+_data = {
+&"RESET": SubResource("Animation_cotnl"),
+&"damage": SubResource("Animation_ypccg")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_75tun"]
+
 [node name="Node2D2" type="Node" unique_id=704281934]
 
 [node name="InventoryManager" type="Node" parent="." unique_id=141645274 node_paths=PackedStringArray("slots", "wheels", "loot_sys")]
@@ -621,7 +659,7 @@ offset_right = 307.0
 offset_bottom = 101.0
 theme_override_fonts/font = ExtResource("32_cotnl")
 theme_override_font_sizes/font_size = 28
-text = "Boss Name"
+text = "..."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -644,8 +682,8 @@ offset_top = 0.015007019
 offset_right = 2.7079773
 offset_bottom = 173.347
 theme_override_fonts/font = ExtResource("26_sl126")
-theme_override_font_sizes/font_size = 38
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper ligula lorem, sed elementum turpis pharetra ut. Pellentesque a augue tristique, malesuada enim id, rutrum quam. Donec faucibus, leo ut faucibus ultricies, felis libero blandit purus, quis rutrum libero dolor id velit. Integer in posuere nibh. Donec congue ex ullamcorper efficitur varius. Duis tortor nisi, porta ut ipsum et, posuere tincidunt nunc. Sed vulputate non risus eget iaculis. Nunc eu lorem nec diam gravida ullamcorper. Sed nec congue orci. In nulla elit, blandit et aliquam sit amet, laoreet ac nunc. Fusce maximus dictum orci et pharetra. Phasellus aliquam sed mi at dictum. Aenean faucibus diam ac lacus laoreet auctor. Quisque scelerisque eleifend sapien, at lobortis erat accumsan vel. Mauris quis bibendum est."
+theme_override_font_sizes/font_size = 28
+text = "And what's behind door number one!?"
 autowrap_mode = 2
 text_overrun_behavior = 1
 
@@ -713,6 +751,9 @@ TimeCoefficient = 0.6
 [node name="Wheel" parent="EnemyWheelBundle/SpinControl" index="0" unique_id=808226493]
 item = null
 
+[node name="Label" parent="EnemyWheelBundle" index="2" unique_id=337932751]
+visible = false
+
 [node name="EnemyHealthDisplay" type="Node2D" parent="EnemyWheelBundle" unique_id=1657434431 node_paths=PackedStringArray("animator", "healthtext", "CharacterVisualAnimr")]
 position = Vector2(-841, 136)
 script = ExtResource("18_i0j58")
@@ -761,6 +802,7 @@ offset_right = 75.0
 offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("26_sl126")
 theme_override_font_sizes/font_size = 30
 text = "100/100"
 horizontal_alignment = 1
@@ -769,7 +811,7 @@ vertical_alignment = 1
 [node name="PlayerWheels" type="Node2D" parent="." unique_id=1833374083]
 position = Vector2(-220, 227)
 
-[node name="PlayerHealthDisplay" type="Node2D" parent="PlayerWheels" unique_id=304034929 node_paths=PackedStringArray("animator", "healthtext")]
+[node name="PlayerHealthDisplay" type="Node2D" parent="PlayerWheels" unique_id=304034929 node_paths=PackedStringArray("animator", "healthtext", "CharacterVisualAnimr")]
 position = Vector2(566, 125)
 script = ExtResource("18_i0j58")
 maxhealth = 50.0
@@ -777,6 +819,7 @@ currenthealth = 50.0
 animationname = "vertical_health"
 animator = NodePath("Node2D/AnimationPlayer")
 healthtext = NodePath("HealthText")
+CharacterVisualAnimr = NodePath("../../CharBack/AnimationPlayer")
 
 [node name="HealthGraphicFrame" type="Sprite2D" parent="PlayerWheels/PlayerHealthDisplay" unique_id=1450968911]
 self_modulate = Color(0.4117647, 0.15294118, 0.3647059, 1)
@@ -818,6 +861,7 @@ offset_right = 75.0
 offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("26_sl126")
 theme_override_font_sizes/font_size = 30
 text = "100/100"
 horizontal_alignment = 1
@@ -832,6 +876,9 @@ TimeCoefficient = 0.6
 [node name="Wheel" parent="PlayerWheels/PlayerWheel1/SpinControl" index="0" unique_id=808226493]
 item = null
 
+[node name="Label" parent="PlayerWheels/PlayerWheel1" index="2" unique_id=337932751]
+visible = false
+
 [node name="PlayerWheel2" parent="PlayerWheels" unique_id=1953585299 instance=ExtResource("15_xc4hf")]
 visible = false
 position = Vector2(-41, -139)
@@ -842,6 +889,9 @@ TimeCoefficient = 0.6
 [node name="Wheel" parent="PlayerWheels/PlayerWheel2/SpinControl" index="0" unique_id=808226493]
 item = null
 
+[node name="Label" parent="PlayerWheels/PlayerWheel2" index="2" unique_id=337932751]
+visible = false
+
 [node name="PlayerWheel3" parent="PlayerWheels" unique_id=2039030054 instance=ExtResource("15_xc4hf")]
 visible = false
 position = Vector2(237, -52)
@@ -851,6 +901,9 @@ TimeCoefficient = 0.6
 
 [node name="Wheel" parent="PlayerWheels/PlayerWheel3/SpinControl" index="0" unique_id=808226493]
 item = null
+
+[node name="Label" parent="PlayerWheels/PlayerWheel3" index="2" unique_id=337932751]
+visible = false
 
 [node name="LootSystem" type="PanelContainer" parent="." unique_id=1101095401 node_paths=PackedStringArray("option_slots", "manager", "heal_button", "item_tooltip")]
 unique_name_in_owner = true
@@ -1130,6 +1183,11 @@ position = Vector2(-262, 418)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("50_20cv7")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharBack" unique_id=148629884]
+libraries/ = SubResource("AnimationLibrary_rmfi2")
+libraries/player = SubResource("AnimationLibrary_75tun")
+speed_scale = 2.0
+
 [node name="StartingItem" parent="." unique_id=1814434899 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("16_6rnll")]
 offset_left = -940.0
 offset_top = -84.0
@@ -1181,16 +1239,16 @@ z_as_relative = true
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="CombatManager" method="_on_heal_skip_pressed"]
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="LootSystem" method="_on_skip_loot_pressed"]
 [connection signal="pressed" from="GenerateLoot" to="LootSystem" method="spawn_options"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@600696/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600696/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@600696/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600696/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@600697/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600697/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@600697/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600697/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@600698/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600698/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@600698/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600698/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@600699/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600699/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@600699/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600699/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@600700/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600700/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@600700/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600700/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@60009/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60009/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@60009/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60009/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@60010/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60010/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@60010/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60010/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@60011/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60011/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@60011/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60011/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@60012/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60012/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@60012/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60012/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@60013/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60013/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@60013/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60013/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="EnemyWheelBundle"]
 [editable path="PlayerWheels/PlayerWheel1"]

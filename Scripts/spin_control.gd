@@ -45,6 +45,8 @@ func random_spin():
 	print("RANDOM SPIN!!!!")
 	#print("randomspin: "+str(testRand))
 	spintween = get_tree().create_tween()
+	if modulate != Color.WHITE:
+		spintween.tween_property(self, "modulate", Color.WHITE, 1*TimeCoefficient)
 	spintween.set_ease(Tween.EASE_OUT)
 	spintween.tween_property(self, "rotation", rotation+6*PI+testRand*2*PI, SpinTime*TimeCoefficient).set_trans(Tween.TRANS_QUART).set_delay(0.3*TimeCoefficient)
 	test_clicker.spining_text()

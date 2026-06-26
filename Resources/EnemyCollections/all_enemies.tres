@@ -1,12 +1,31 @@
 [gd_resource type="Resource" script_class="EnemyCollection" format=3 uid="uid://bjy2m67jaj3j8"]
 
 [ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="1_vyqp4"]
+[ext_resource type="Resource" uid="uid://bswhe771ijk12" path="res://Resources/Enemies/Aloof_Blender.tres" id="2_nb2n7"]
 [ext_resource type="Resource" uid="uid://cb18a0eqfgbf8" path="res://Resources/Enemies/Microwave_Sofa.tres" id="2_sqg1o"]
 [ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="2_w5pqv"]
 [ext_resource type="Resource" uid="uid://c4r8x77mx7qc8" path="res://Resources/Enemies/Bath_Hairdryer.tres" id="3_sqg1o"]
+[ext_resource type="Resource" uid="uid://csiph2p1scuk2" path="res://Resources/Enemies/Christmas_DLC.tres" id="4_fpdtf"]
+[ext_resource type="Resource" uid="uid://bgeqirjdahrr3" path="res://Resources/Enemies/Competitive_Contestant.tres" id="5_8xfri"]
+[ext_resource type="Resource" uid="uid://cylejgl0jxxsu" path="res://Resources/Enemies/Confused_Contestant.tres" id="6_nixmg"]
+[ext_resource type="Resource" uid="uid://ctp4yv1bg1bwv" path="res://Resources/Enemies/Early_Art.tres" id="7_trv7f"]
+[ext_resource type="Resource" uid="uid://uwl5flf2a7nq" path="res://Resources/Enemies/Free_Burgers.tres" id="8_10nrg"]
+[ext_resource type="Resource" uid="uid://yn8uemnabg4x" path="res://Resources/Enemies/Gameboy.tres" id="9_pu2v8"]
+[ext_resource type="Resource" uid="uid://du6p6atctqhl6" path="res://Resources/Enemies/Golfcart.tres" id="10_sr6wx"]
+[ext_resource type="Resource" uid="uid://b10dnyx8xqf88" path="res://Resources/Enemies/Holiday.tres" id="11_i7e04"]
+[ext_resource type="Resource" uid="uid://bbhxwd8v3tdch" path="res://Resources/Enemies/Host.tres" id="12_1y4s0"]
+[ext_resource type="Resource" uid="uid://tiab3o37ql75" path="res://Resources/Enemies/Jeep.tres" id="13_sxh8e"]
+[ext_resource type="Resource" uid="uid://vu4v3x4wvkp" path="res://Resources/Enemies/Light_Rig.tres" id="14_rivs5"]
+[ext_resource type="Resource" uid="uid://bdltvpvrkugsy" path="res://Resources/Enemies/Regional_Spinoffs.tres" id="16_xa0vi"]
+[ext_resource type="Resource" uid="uid://bgs2adg3fgf6" path="res://Resources/Enemies/Scope_Creep.tres" id="17_nn4ik"]
+[ext_resource type="Resource" uid="uid://f1p7wvp4pfl8" path="res://Resources/Enemies/Tired_PA.tres" id="18_7hgyq"]
+[ext_resource type="Resource" uid="uid://cbvn062x8c4if" path="res://Resources/Enemies/Unalive_Audience.tres" id="19_yopy2"]
+[ext_resource type="Resource" uid="uid://ct4wnvkfo6ggj" path="res://Resources/Enemies/Upset_Toaster.tres" id="20_2sdbm"]
+[ext_resource type="Resource" uid="uid://0w3gns22rsuw" path="res://Resources/Enemies/Useless_Teammate.tres" id="21_k2lrg"]
+[ext_resource type="Resource" uid="uid://bj6y1pjglbwlr" path="res://Resources/Enemies/Wandering_Headphones.tres" id="22_kiknk"]
 
 [resource]
 script = ExtResource("2_w5pqv")
 CollectionName = "all enemies"
-Contents = Array[ExtResource("1_vyqp4")]([ExtResource("2_sqg1o"), ExtResource("3_sqg1o")])
+Contents = Array[ExtResource("1_vyqp4")]([ExtResource("2_nb2n7"), ExtResource("3_sqg1o"), ExtResource("4_fpdtf"), ExtResource("5_8xfri"), ExtResource("6_nixmg"), ExtResource("7_trv7f"), ExtResource("8_10nrg"), ExtResource("9_pu2v8"), ExtResource("10_sr6wx"), ExtResource("11_i7e04"), ExtResource("12_1y4s0"), ExtResource("13_sxh8e"), ExtResource("14_rivs5"), ExtResource("2_sqg1o"), ExtResource("16_xa0vi"), ExtResource("17_nn4ik"), ExtResource("18_7hgyq"), ExtResource("19_yopy2"), ExtResource("20_2sdbm"), ExtResource("21_k2lrg"), ExtResource("22_kiknk")])
 metadata/_custom_type_script = "uid://crtclueovnj4u"

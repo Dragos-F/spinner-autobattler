@@ -20,7 +20,7 @@ script = ExtResource("4_wt4a2")
 Name = "Golfcart in Disguise"
 BaseHealth = 14
 Items = Array[ExtResource("2_h2rbw")]([SubResource("Resource_h2rbw")])
-Description = "All you can eat...maybe more!"
+Description = "A golf cart?  A golf cart in a hat?Caddy the Golf Cart?!"
 Catchphrase = "Better get eating!"
 Graphic = ExtResource("1_k7c0l")
 metadata/_custom_type_script = "uid://d3x3oteco8a5u"

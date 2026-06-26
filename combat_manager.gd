@@ -60,7 +60,7 @@ func spawn_effect_label(text,sliceobj,atag="float_up",colour:Color = Color.TRANS
 			instance.modulate = sliceobj.slice_type.colour
 		else:
 			instance.modulate = colour
-		instance.position = sliceobj.own_collision.position
+		instance.global_position = sliceobj.global_position*0.5
 		var animr:AnimationPlayer = instance.get_child(0).get_child(0)
 		animr.play(atag)
 		await animr.animation_finished

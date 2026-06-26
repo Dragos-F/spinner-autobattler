@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://fxm7rg3rxl4r"]
 
+[ext_resource type="FontFile" uid="uid://bt5vs1oux5lcq" path="res://VisualAssets/Fonts/Angelic Child.otf" id="1_7jkfo"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bljyu"]
 
 [sub_resource type="Animation" id="Animation_w357c"]
@@ -109,10 +111,11 @@ z_index = 2
 layout_mode = 0
 offset_left = -83.0
 offset_top = -39.0
-offset_right = 85.0
-offset_bottom = 36.000046
+offset_right = 275.0
+offset_bottom = 97.999954
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 31
+theme_override_fonts/font = ExtResource("1_7jkfo")
+theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bljyu")
 text = "STUMBLE!"
 horizontal_alignment = 1

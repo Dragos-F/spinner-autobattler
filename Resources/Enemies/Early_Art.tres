@@ -22,7 +22,7 @@ script = ExtResource("3_ymoen")
 Name = "Early Concept Art"
 BaseHealth = 50
 Items = Array[ExtResource("1_gf1ki")]([SubResource("Resource_u60kv")])
-Description = "There are so many more eyes to seize."
+Description = "It came from beneath.  Even if it took us all it wouldn't be enough."
 Catchphrase = "..."
 Graphic = ExtResource("1_rirlv")
 metadata/_custom_type_script = "uid://d3x3oteco8a5u"

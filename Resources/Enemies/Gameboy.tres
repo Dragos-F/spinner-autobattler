@@ -21,5 +21,6 @@ script = ExtResource("2_cohau")
 Name = "Gamebox Plato's Cave Edition"
 BaseHealth = 16
 Items = Array[ExtResource("1_i5nnj")]([SubResource("Resource_cvcdv")])
+Description = "With handheld entertainment, you'll never need to leave your cave again!"
 Graphic = ExtResource("1_o25ua")
 metadata/_custom_type_script = "uid://d3x3oteco8a5u"

@@ -20,7 +20,7 @@ Name = "Unalive Studio Audience"
 BaseHealth = 50
 Items = Array[ExtResource("1_owvhp")]([SubResource("Resource_u60kv")])
 Type = 1
-Description = "Baked into the system. Spectators from all directions. You are a viewing experience."
+Description = "They were never real. Wake up."
 Catchphrase = "..."
 Graphic = ExtResource("1_qnc0k")
 metadata/_custom_type_script = "uid://d3x3oteco8a5u"

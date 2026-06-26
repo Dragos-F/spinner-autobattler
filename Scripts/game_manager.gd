@@ -190,6 +190,10 @@ func GameStartProcedure():
 	BeginCombat()
 
 func GameOverProcedure():
+	Fader.FadeUp("")
+	await Fader.fade_finished
+	get_tree().change_scene_to_file("res://Scenes/start_menu.tscn") 
+	Fader.FadeDown("")
 	pass
 
 func AddPoints(amount:int):
