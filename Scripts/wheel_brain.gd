@@ -98,6 +98,9 @@ func DisableRandomSlices(count,duration):
 		DisableSlice(slicetodisable,duration)
 
 func DisableSlice(slice,duration):
+	if slice.isDisabled:
+		print("slice already disabled, bad luck")
+		return
 	var originalColour = slice.color
 	slice.isDisabled = true
 	slice.color = Color.BLACK

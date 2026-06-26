@@ -209,7 +209,7 @@ slots = [NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Control1
 wheels = [NodePath("../PlayerWheels/PlayerWheel1/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel2/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel3/SpinControl/Wheel")]
 loot_sys = NodePath("../LootSystem")
 
-[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "PrimaryEnemyWheel", "PrimaryEnemySpinner", "combatManager", "inventoryManager", "CharFront", "CharBack", "CharName", "StartingItem")]
+[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "PrimaryEnemyWheel", "PrimaryEnemySpinner", "combatManager", "inventoryManager", "progressButton", "CharFront", "CharBack", "CharName", "StartingItem")]
 script = ExtResource("10_4b75m")
 EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
@@ -221,6 +221,7 @@ PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
 PrimaryEnemySpinner = NodePath("../EnemyWheelBundle/SpinControl")
 combatManager = NodePath("../CombatManager")
 inventoryManager = NodePath("../InventoryManager")
+progressButton = NodePath("../UIParent/ProgressButton")
 CharFront = NodePath("../UIParent/PortraitBox/Control/CharFront")
 CharBack = NodePath("../CharBack")
 CharName = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Name/ContestantName")
@@ -643,6 +644,17 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper 
 label_settings = ExtResource("8_5qxwa")
 autowrap_mode = 2
 text_overrun_behavior = 1
+
+[node name="ProgressButton" type="Button" parent="UIParent" unique_id=2115008151]
+z_index = 10
+layout_mode = 0
+offset_left = 435.0
+offset_top = 420.0
+offset_right = 1489.0
+offset_bottom = 665.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 100
+text = "Spin!"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020282609]
 visible = false
@@ -1089,6 +1101,9 @@ offset_bottom = 466.8
 pivot_offset = Vector2(12, 12)
 anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Control1")
 
+[connection signal="combat_ended" from="GameManager" to="PlayerWheels/PlayerWheel1/SpinControl" method="InterruptSpin"]
+[connection signal="combat_ended" from="GameManager" to="PlayerWheels/PlayerWheel2/SpinControl" method="InterruptSpin"]
+[connection signal="combat_ended" from="GameManager" to="PlayerWheels/PlayerWheel3/SpinControl" method="InterruptSpin"]
 [connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control2/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control2" method="_on_mouse_entered"]
@@ -1097,6 +1112,7 @@ anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Cont
 [connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control3/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control3" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4" method="_on_mouse_exited"]
+[connection signal="pressed" from="UIParent/ProgressButton" to="GameManager" method="BeginCombat"]
 [connection signal="sliceselected" from="EnemyWheelBundle/SpinControl" to="CombatManager" method="listen_enemy_spinresult"]
 [connection signal="event_hpchanged" from="EnemyWheelBundle/EnemyHealthDisplay" to="GameManager" method="_listener_enemydamaged"]
 [connection signal="event_hpdepleted" from="EnemyWheelBundle/EnemyHealthDisplay" to="GameManager" method="_listener_entityDied"]
