@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WheelItem" format=3 uid="uid://cocyuwsotial0"]
+
+[ext_resource type="Texture2D" uid="uid://kmdqdl3hj45m" path="res://VisualAssets/Items/JuryDuty.png" id="1_2os21"]
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_v2d8n"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_brxo0"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="4_ysp0f"]
+[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="5_muodw"]
+[ext_resource type="Resource" uid="uid://b2ie68edj5k4j" path="res://Resources/Slices/Stall.tres" id="6_d2ajk"]
+
+[resource]
+script = ExtResource("1_v2d8n")
+cooldown = 8.0
+icon = ExtResource("1_2os21")
+name = "Legal Call for Jury Duty"
+Desc = "Tragically you plan on being very ill in the near future..."
+stats = Array[ExtResource("2_brxo0")]([ExtResource("4_ysp0f"), ExtResource("5_muodw"), ExtResource("4_ysp0f"), ExtResource("6_d2ajk"), ExtResource("4_ysp0f"), ExtResource("6_d2ajk"), ExtResource("5_muodw"), ExtResource("6_d2ajk")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"

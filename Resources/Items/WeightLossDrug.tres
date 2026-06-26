@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WheelItem" format=3 uid="uid://babhyisutaukc"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_mlhn5"]
+[ext_resource type="Texture2D" uid="uid://bex14h3vg8otm" path="res://VisualAssets/Items/WeightLossJab.png" id="1_tai43"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_kqm85"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="4_xv1yc"]
+[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="5_0ax4a"]
+[ext_resource type="Resource" uid="uid://bq224hmhyl22a" path="res://Resources/Slices/Backfire.tres" id="6_k2w1y"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="7_d8sga"]
+
+[resource]
+script = ExtResource("1_mlhn5")
+cooldown = 7.0
+icon = ExtResource("1_tai43")
+name = "Experimental Weight Loss Drug"
+Desc = "R&D always moves faster than regulations"
+stats = Array[ExtResource("2_kqm85")]([ExtResource("4_xv1yc"), ExtResource("5_0ax4a"), ExtResource("4_xv1yc"), ExtResource("5_0ax4a"), ExtResource("4_xv1yc"), ExtResource("6_k2w1y"), ExtResource("5_0ax4a"), ExtResource("6_k2w1y"), ExtResource("7_d8sga")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"

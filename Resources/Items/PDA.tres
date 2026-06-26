@@ -11,5 +11,7 @@
 script = ExtResource("1_0qy7n")
 cooldown = 5.0
 icon = ExtResource("1_cd3c5")
+name = "P.D.A."
+Desc = "The future called, they want their phone back."
 stats = Array[ExtResource("2_0mbwj")]([ExtResource("3_wsdo3"), ExtResource("4_cd3c5"), ExtResource("3_wsdo3"), ExtResource("4_cd3c5"), ExtResource("5_1npjk")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"
