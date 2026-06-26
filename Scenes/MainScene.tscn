@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dwcqt0n0hf1mp" path="res://VisualAssets/Spin_button_back1.png" id="27_sl126"]
 [ext_resource type="Script" uid="uid://dqo5ua8abe05n" path="res://Scripts/loot_system.gd" id="28_hkvke"]
 [ext_resource type="Resource" uid="uid://bgunobude8skl" path="res://Resources/TemplateLootPool.tres" id="28_s1acj"]
+[ext_resource type="Script" uid="uid://g4pi0c41fl6t" path="res://Scripts/start_button.gd" id="30_oo3wg"]
 [ext_resource type="FontFile" uid="uid://pjw6d5hyiwtb" path="res://VisualAssets/Fonts/Super Tasty.ttf" id="32_cotnl"]
 [ext_resource type="Texture2D" uid="uid://bx2hyns0hwxwi" path="res://VisualAssets/SkipButtonNew1.png" id="32_d0jji"]
 [ext_resource type="Texture2D" uid="uid://jcikvgda7xdo" path="res://VisualAssets/StartMenu/SkipAndHealButtonNew1.png" id="37_ergw4"]
@@ -648,8 +649,8 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper 
 autowrap_mode = 2
 text_overrun_behavior = 1
 
-[node name="ProgressButton" type="Button" parent="UIParent" unique_id=2115008151]
-z_index = 10
+[node name="ProgressButton" type="Button" parent="UIParent" unique_id=2115008151 node_paths=PackedStringArray("starter_blind")]
+z_index = 5
 layout_mode = 0
 offset_left = 804.0
 offset_top = 491.00006
@@ -662,6 +663,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_nrvwe")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ergw4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_oo3wg")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_75tun")
+script = ExtResource("30_oo3wg")
+starter_blind = NodePath("StarterBlind")
 
 [node name="TextureRect" type="TextureRect" parent="UIParent/ProgressButton" unique_id=1648197593]
 z_index = -1
@@ -672,6 +675,17 @@ offset_right = 303.59998
 offset_bottom = 245.89995
 mouse_filter = 2
 texture = ExtResource("27_sl126")
+expand_mode = 1
+
+[node name="StarterBlind" type="TextureRect" parent="UIParent/ProgressButton" unique_id=2055359932]
+z_index = -2
+layout_mode = 0
+offset_left = -207.55556
+offset_top = -242.33337
+offset_right = 490.2223
+offset_bottom = 357.66663
+mouse_filter = 2
+texture = ExtResource("1_7rqgy")
 expand_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020282609]
@@ -940,6 +954,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tx3ay")
 [node name="Label" type="Label" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot1/Loot/PanelContainer3" unique_id=628268867]
 layout_mode = 2
 mouse_filter = 1
+theme_override_fonts/font = ExtResource("20_rv6c1")
 text = "Loot"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -988,6 +1003,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tx3ay")
 [node name="Label" type="Label" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" unique_id=104039490]
 layout_mode = 2
 mouse_filter = 1
+theme_override_fonts/font = ExtResource("20_rv6c1")
 text = "Loot"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1036,6 +1052,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tx3ay")
 [node name="Label" type="Label" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" unique_id=42050992]
 layout_mode = 2
 mouse_filter = 1
+theme_override_fonts/font = ExtResource("20_rv6c1")
 text = "Loot"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1125,6 +1142,7 @@ tooltipObject = NodePath("../ItemTooltip")
 [node name="ItemTooltip" parent="." unique_id=1911907552 instance=ExtResource("26_goiu7")]
 unique_name_in_owner = true
 visible = false
+z_index = 6
 offset_left = -960.0
 offset_top = -480.0
 offset_right = -960.0
@@ -1145,6 +1163,7 @@ z_as_relative = true
 [connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4" method="_on_mouse_exited"]
 [connection signal="pressed" from="UIParent/ProgressButton" to="GameManager" method="BeginCombat"]
+[connection signal="pressed" from="UIParent/ProgressButton" to="UIParent/ProgressButton" method="_on_pressed"]
 [connection signal="sliceselected" from="EnemyWheelBundle/SpinControl" to="CombatManager" method="listen_enemy_spinresult"]
 [connection signal="event_hpchanged" from="EnemyWheelBundle/EnemyHealthDisplay" to="GameManager" method="_listener_enemydamaged"]
 [connection signal="event_hpdepleted" from="EnemyWheelBundle/EnemyHealthDisplay" to="GameManager" method="_listener_entityDied"]
@@ -1162,16 +1181,16 @@ z_as_relative = true
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="CombatManager" method="_on_heal_skip_pressed"]
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="LootSystem" method="_on_skip_loot_pressed"]
 [connection signal="pressed" from="GenerateLoot" to="LootSystem" method="spawn_options"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@197444/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@197444/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@197444/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@197444/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@197445/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@197445/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@197445/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@197445/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@197446/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@197446/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@197446/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@197446/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@197447/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@197447/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@197447/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@197447/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@197448/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@197448/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@197448/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@197448/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@600696/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600696/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@600696/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600696/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@600697/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600697/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@600697/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600697/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@600698/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600698/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@600698/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600698/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@600699/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600699/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@600699/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600699/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@600700/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600700/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@600700/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@600700/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="EnemyWheelBundle"]
 [editable path="PlayerWheels/PlayerWheel1"]
