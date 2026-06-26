@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://b4s8obyrwa5gj" path="res://Scripts/template_slice.gd" id="4_2xwbh"]
 [ext_resource type="PackedScene" uid="uid://c2q8wvvn4hjw8" path="res://Scenes/tooltip.tscn" id="5_ls4bm"]
 [ext_resource type="Script" uid="uid://cbgxtbomb3nex" path="res://Scripts/wheel_clicker.gd" id="6_dn5a7"]
-[ext_resource type="Texture2D" uid="uid://qo0ug1w1dfv5" path="res://VisualAssets/square.png" id="6_ls4bm"]
+[ext_resource type="Texture2D" uid="uid://dyvhqvu8ao8mp" path="res://VisualAssets/Wheel_Arrow1.png" id="6_ls4bm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1ier"]
-size = Vector2(128, 128)
+size = Vector2(5.685096, 65.875694)
 
 [node name="FullWheelBundle" type="Node2D" unique_id=1603726747]
 
@@ -35,16 +35,19 @@ z_index = 1
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpinControl/Wheel/TemplatePolygon2D/Area2D" unique_id=1716261157]
 
 [node name="WheelClicker" type="Sprite2D" parent="." unique_id=1753438597 node_paths=PackedStringArray("result")]
-position = Vector2(3.8146973e-06, -124)
+position = Vector2(-2.3841858e-07, -122.000015)
 rotation = -3.1415927
-scale = Vector2(0.04000002, 1)
+scale = Vector2(1.0553916, 1.0662653)
 texture = ExtResource("6_ls4bm")
+flip_v = true
 script = ExtResource("6_dn5a7")
 result = NodePath("../Label")
 
 [node name="Area2D" type="Area2D" parent="WheelClicker" unique_id=198306300]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WheelClicker/Area2D" unique_id=376905351]
+position = Vector2(1.2651159e-06, -16.881365)
+scale = Vector2(0.9999999, 0.99999946)
 shape = SubResource("RectangleShape2D_c1ier")
 
 [node name="Label" type="Label" parent="." unique_id=337932751]
@@ -59,14 +62,14 @@ vertical_alignment = 1
 
 [connection signal="mouse_entered" from="SpinControl/Wheel/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SpinControl/Wheel/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="SpinControl/Wheel/@Node2D@867850/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@867850/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="SpinControl/Wheel/@Node2D@867850/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@867850/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="SpinControl/Wheel/@Node2D@867851/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@867851/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="SpinControl/Wheel/@Node2D@867851/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@867851/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="SpinControl/Wheel/@Node2D@867852/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@867852/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="SpinControl/Wheel/@Node2D@867852/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@867852/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="SpinControl/Wheel/@Node2D@867853/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@867853/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="SpinControl/Wheel/@Node2D@867853/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@867853/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="SpinControl/Wheel/@Node2D@867854/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@867854/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="SpinControl/Wheel/@Node2D@867854/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@867854/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="SpinControl/Wheel/@Node2D@274902/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@274902/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="SpinControl/Wheel/@Node2D@274902/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@274902/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="SpinControl/Wheel/@Node2D@274903/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@274903/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="SpinControl/Wheel/@Node2D@274903/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@274903/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="SpinControl/Wheel/@Node2D@274904/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@274904/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="SpinControl/Wheel/@Node2D@274904/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@274904/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="SpinControl/Wheel/@Node2D@274905/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@274905/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="SpinControl/Wheel/@Node2D@274905/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@274905/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="SpinControl/Wheel/@Node2D@274906/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@274906/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="SpinControl/Wheel/@Node2D@274906/TemplatePolygon2D/Area2D" to="SpinControl/Wheel/@Node2D@274906/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="area_entered" from="WheelClicker/Area2D" to="WheelClicker" method="_on_area_2d_area_entered"]
