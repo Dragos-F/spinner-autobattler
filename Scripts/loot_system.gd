@@ -6,6 +6,8 @@ class_name LootSystem
 @export var options: Array[Draggable] 
 @export var pool:LootPool
 @export var manager:InvManager
+@export var heal_button:Button
+@export var heal_percent:float
 signal loot_ended()
 
 
@@ -29,6 +31,10 @@ func generate_random_loot() -> WheelItem:
 func spawn_options():
 	options.clear()
 	options.resize(option_slots.size())
+	if randf_range(0,100) < heal_percent:
+		heal_button.visible = true
+	else:
+		heal_button.visible = false
 	visible = true
 	for i in option_slots.size():
 		var scene = load("res://Scenes/draggable_item.tscn")

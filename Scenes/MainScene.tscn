@@ -62,6 +62,13 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywy86"]
+bg_color = Color(0.05937701, 0, 0.3772384, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntio1"]
 texture = ExtResource("2_qxria")
 region_rect = Rect2(336, 0, 1248, 1080)
@@ -150,7 +157,7 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk511"]
-bg_color = Color(0, 0, 0, 0.52156866)
+bg_color = Color(0.29411766, 0.35686275, 0.67058825, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -501,7 +508,7 @@ offset_bottom = -772.35004
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_alkp7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywy86")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" unique_id=870238316]
@@ -580,16 +587,17 @@ layout_mode = 0
 offset_left = 1600.0
 offset_top = 7.0
 offset_right = 1911.0
-offset_bottom = 270.0
+offset_bottom = 257.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("2_y4jh7")
 
 [node name="EnemyDescription" type="PanelContainer" parent="UIParent" unique_id=1748079486]
+clip_contents = true
 layout_mode = 0
 offset_left = 1600.0
-offset_top = 286.0
+offset_top = 270.0
 offset_right = 1911.0
-offset_bottom = 1068.0
+offset_bottom = 565.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("2_y4jh7")
 
@@ -602,11 +610,12 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.24
 
 [node name="Label" type="Label" parent="UIParent/EnemyDescription/VBoxContainer/Control" unique_id=1003712461]
+custom_maximum_size = Vector2(259, 66)
 layout_mode = 0
-offset_left = 20.0
-offset_top = 10.0
-offset_right = 300.0
-offset_bottom = 154.0
+offset_left = 15.0
+offset_top = 9.0
+offset_right = 274.0
+offset_bottom = 75.0
 theme_override_font_sizes/font_size = 32
 text = "Boss Name"
 horizontal_alignment = 1
@@ -626,9 +635,10 @@ anchor_left = 0.05
 anchor_top = 0.049000002
 anchor_right = 0.97200006
 anchor_bottom = 0.049000002
-offset_top = -0.26200104
-offset_right = -0.040008545
-offset_bottom = 586.738
+offset_left = -0.5499878
+offset_top = 0.015007019
+offset_right = -0.58999634
+offset_bottom = 208.292
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper ligula lorem, sed elementum turpis pharetra ut. Pellentesque a augue tristique, malesuada enim id, rutrum quam. Donec faucibus, leo ut faucibus ultricies, felis libero blandit purus, quis rutrum libero dolor id velit. Integer in posuere nibh. Donec congue ex ullamcorper efficitur varius. Duis tortor nisi, porta ut ipsum et, posuere tincidunt nunc. Sed vulputate non risus eget iaculis. Nunc eu lorem nec diam gravida ullamcorper. Sed nec congue orci. In nulla elit, blandit et aliquam sit amet, laoreet ac nunc. Fusce maximus dictum orci et pharetra. Phasellus aliquam sed mi at dictum. Aenean faucibus diam ac lacus laoreet auctor. Quisque scelerisque eleifend sapien, at lobortis erat accumsan vel. Mauris quis bibendum est."
 label_settings = ExtResource("8_5qxwa")
 autowrap_mode = 2
@@ -798,50 +808,85 @@ TimeCoefficient = 0.6
 [node name="Wheel" parent="PlayerWheels/PlayerWheel3/SpinControl" index="0" unique_id=808226493]
 item = null
 
-[node name="LootSystem" type="PanelContainer" parent="." unique_id=1101095401 node_paths=PackedStringArray("option_slots", "manager")]
+[node name="LootSystem" type="PanelContainer" parent="." unique_id=1101095401 node_paths=PackedStringArray("option_slots", "manager", "heal_button")]
 unique_name_in_owner = true
-visible = false
 anchors_preset = -1
 anchor_left = 0.33489582
-anchor_top = 0.050925925
-anchor_right = 0.49739584
-anchor_bottom = 0.45833334
-offset_left = 12.0
-offset_top = 19.0
-offset_right = -15.0
-offset_bottom = 19.0
+anchor_top = 0.033333335
+anchor_right = 0.4953125
+anchor_bottom = 0.48703703
 theme_override_styles/panel = SubResource("StyleBoxFlat_hk511")
 script = ExtResource("28_hkvke")
-option_slots = [NodePath("VBoxContainer/HBoxContainer/Loot1/Loot"), NodePath("VBoxContainer/HBoxContainer/Loot2/Loot"), NodePath("VBoxContainer/HBoxContainer/Loot3/Loot")]
+option_slots = [NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Loot1/Loot"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot")]
 pool = SubResource("Resource_1ixrr")
 manager = NodePath("../InventoryManager")
+heal_button = NodePath("HBoxContainer/VBoxContainer/V Box Container/Control2/Button")
+heal_percent = 100.0
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="HBoxContainer" parent="LootSystem" unique_id=513959497]
+[node name="HBoxContainer" type="VBoxContainer" parent="LootSystem" unique_id=2152402]
 layout_mode = 2
 
-[node name="HBoxContainer" type="VBoxContainer" parent="LootSystem/VBoxContainer" unique_id=1728738903]
+[node name="CenterContainer" type="CenterContainer" parent="LootSystem/HBoxContainer" unique_id=1331842329]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="Control" type="Control" parent="LootSystem/HBoxContainer/CenterContainer" unique_id=478494612]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.24
+
+[node name="Label" type="Label" parent="LootSystem/HBoxContainer/CenterContainer/Control" unique_id=1079211853]
+custom_maximum_size = Vector2(259, 66)
+layout_mode = 0
+offset_left = -128.0
+offset_top = -22.0
+offset_right = 131.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 32
+text = "Prizes!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="LootSystem/HBoxContainer" unique_id=513959497]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="VBoxContainer" parent="LootSystem/HBoxContainer/VBoxContainer" unique_id=1728738903]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.6
 
-[node name="Loot1" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer" unique_id=1100497677]
+[node name="Loot1" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1100497677]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Loot" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer/Loot1" unique_id=1217352297]
+[node name="Loot" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot1" unique_id=1217352297]
 z_index = 5
 custom_minimum_size = Vector2(134, 165)
 custom_maximum_size = Vector2(134, 165)
 layout_mode = 1
-anchors_preset = 0
-offset_right = 134.0
-offset_bottom = 165.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -82.5
+offset_right = 67.0
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(104, 83)
 size_flags_horizontal = 3
 script = ExtResource("3_hx8n4")
 
-[node name="PanelContainer3" type="PanelContainer" parent="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot" unique_id=590796052]
+[node name="PanelContainer3" type="PanelContainer" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot1/Loot" unique_id=590796052]
 z_index = -5
 custom_minimum_size = Vector2(110, 110)
 custom_maximum_size = Vector2(110, 110)
@@ -860,27 +905,36 @@ grow_vertical = 2
 pivot_offset = Vector2(55.5, 55.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_tx3ay")
 
-[node name="Label" type="Label" parent="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot/PanelContainer3" unique_id=628268867]
+[node name="Label" type="Label" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot1/Loot/PanelContainer3" unique_id=628268867]
 layout_mode = 2
 mouse_filter = 1
 text = "Loot"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Loot2" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer" unique_id=157355811]
+[node name="Loot2" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=157355811]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Loot" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer/Loot2" unique_id=1174410563]
+[node name="Loot" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot2" unique_id=1174410563]
 z_index = 5
-anchors_preset = 0
-offset_right = 134.0
-offset_bottom = 165.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -82.5
+offset_right = 67.0
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(104, 83)
 size_flags_horizontal = 3
 script = ExtResource("3_hx8n4")
 
-[node name="PanelContainer3" type="PanelContainer" parent="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot" unique_id=266934213]
+[node name="PanelContainer3" type="PanelContainer" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot" unique_id=266934213]
 z_index = -5
 custom_minimum_size = Vector2(110, 110)
 custom_maximum_size = Vector2(110, 110)
@@ -899,27 +953,36 @@ grow_vertical = 2
 pivot_offset = Vector2(55.5, 55.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_tx3ay")
 
-[node name="Label" type="Label" parent="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" unique_id=104039490]
+[node name="Label" type="Label" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" unique_id=104039490]
 layout_mode = 2
 mouse_filter = 1
 text = "Loot"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Loot3" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer" unique_id=1817914950]
+[node name="Loot3" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1817914950]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Loot" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer/Loot3" unique_id=1521783438]
+[node name="Loot" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3" unique_id=1521783438]
 z_index = 5
-anchors_preset = 0
-offset_right = 134.0
-offset_bottom = 165.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -82.5
+offset_right = 67.0
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(104, 83)
 size_flags_horizontal = 3
 script = ExtResource("3_hx8n4")
 
-[node name="PanelContainer3" type="PanelContainer" parent="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot" unique_id=1556445155]
+[node name="PanelContainer3" type="PanelContainer" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot" unique_id=1556445155]
 z_index = -5
 custom_minimum_size = Vector2(110, 110)
 custom_maximum_size = Vector2(110, 110)
@@ -938,24 +1001,70 @@ grow_vertical = 2
 pivot_offset = Vector2(55.5, 55.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_tx3ay")
 
-[node name="Label" type="Label" parent="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" unique_id=42050992]
+[node name="Label" type="Label" parent="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" unique_id=42050992]
 layout_mode = 2
 mouse_filter = 1
 text = "Loot"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="LootSystem/VBoxContainer" unique_id=2017333086]
+[node name="V Box Container" type="VBoxContainer" parent="LootSystem/HBoxContainer/VBoxContainer" unique_id=262222487]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
+theme_override_constants/separation = -54
 
-[node name="Button" type="Button" parent="LootSystem/VBoxContainer/CenterContainer" unique_id=2095076613]
+[node name="Control" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container" unique_id=1201860661]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Control" unique_id=2095076613]
+custom_minimum_size = Vector2(120, 150)
+custom_maximum_size = Vector2(120, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -75.0
+offset_right = 60.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
 theme_override_font_sizes/font_size = 38
 text = "Skip
 Loot"
+
+[node name="Control2" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container" unique_id=76995524]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Control2" unique_id=1692333382]
+visible = false
+custom_minimum_size = Vector2(120, 150)
+custom_maximum_size = Vector2(120, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -75.0
+offset_right = 60.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 38
+text = "Heal
+&Skip"
 
 [node name="GenerateLoot" type="Button" parent="." unique_id=499497220]
 offset_left = -198.0
@@ -994,13 +1103,14 @@ anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Cont
 [connection signal="sliceselected" from="PlayerWheels/PlayerWheel1/SpinControl" to="CombatManager" method="listen_player_spinresult"]
 [connection signal="sliceselected" from="PlayerWheels/PlayerWheel2/SpinControl" to="CombatManager" method="listen_player_spinresult"]
 [connection signal="sliceselected" from="PlayerWheels/PlayerWheel3/SpinControl" to="CombatManager" method="listen_player_spinresult"]
-[connection signal="mouse_entered" from="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot" method="_on_mouse_exited"]
-[connection signal="pressed" from="LootSystem/VBoxContainer/CenterContainer/Button" to="LootSystem" method="_on_skip_loot_pressed"]
+[connection signal="mouse_entered" from="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot1/Loot/PanelContainer3" to="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot1/Loot" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot1/Loot/PanelContainer3" to="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot1/Loot" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" to="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" to="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" to="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" to="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot" method="_on_mouse_exited"]
+[connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Control/Button" to="LootSystem" method="_on_skip_loot_pressed"]
+[connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Control2/Button" to="LootSystem" method="_on_skip_loot_pressed"]
 [connection signal="pressed" from="GenerateLoot" to="LootSystem" method="spawn_options"]
 
 [editable path="EnemyWheelBundle"]
