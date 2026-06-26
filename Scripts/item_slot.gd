@@ -5,6 +5,7 @@ class_name ItemSlot
 enum Type {Loot,Inv,Bin}
 @export_category("Item Interactions")
 @onready var manager:InvManager
+@onready var game_manager: Node = %GameManager
 @export var old_anchor:Control
 @export var equipped_item:Draggable
 @export var hovering:bool = false
@@ -29,6 +30,11 @@ func _process(delta: float) -> void:
 		hovering = true
 	elif !local_rect.has_point(get_global_mouse_position()):
 		hovering = false
+	if equipped_item!=null:
+		if game_manager.CombatActive == true:
+			equipped_item.demo_item = true
+		else:
+			equipped_item.demo_item = false
 
 
 func _on_mouse_entered() -> void:

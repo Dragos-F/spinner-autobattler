@@ -1,7 +1,6 @@
 extends Node
 class_name InvManager
 
-
 @export var holding:bool
 @export var held_object:Draggable
 @export var slots:Array[ItemSlot]
