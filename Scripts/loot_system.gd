@@ -55,6 +55,7 @@ func _on_skip_loot_pressed() -> void:
 func check_loot_taken():
 	var item_taken:bool = false
 	for i in option_slots.size():
+		print ("CHECKED LOOT OPTIONS"+str(option_slots[i].equipped_item))
 		if option_slots[i].equipped_item == null:
 			item_taken = true
 	if item_taken:

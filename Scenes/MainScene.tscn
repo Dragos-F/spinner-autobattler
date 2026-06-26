@@ -362,8 +362,6 @@ offset_right = -603.0
 offset_bottom = -175.0
 offset_transform_enabled = true
 script = ExtResource("3_hx8n4")
-hovering = null
-once = null
 type = 1
 slot_number = 1
 metadata/_edit_use_anchors_ = true
@@ -404,8 +402,6 @@ offset_top = -137.0
 offset_right = -603.0
 offset_bottom = -23.0
 script = ExtResource("3_hx8n4")
-hovering = null
-once = null
 type = 1
 slot_number = 2
 metadata/_edit_use_anchors_ = true
@@ -446,8 +442,6 @@ offset_top = 9.0
 offset_right = -603.0
 offset_bottom = 123.0
 script = ExtResource("3_hx8n4")
-hovering = null
-once = null
 type = 1
 slot_number = 3
 metadata/_edit_use_anchors_ = true
@@ -489,10 +483,7 @@ offset_top = 9.0
 offset_right = -603.0
 offset_bottom = 123.0
 script = ExtResource("3_hx8n4")
-hovering = null
-once = null
 type = 2
-slot_number = null
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4" unique_id=542378085]
@@ -849,10 +840,6 @@ offset_bottom = 165.0
 pivot_offset = Vector2(104, 83)
 size_flags_horizontal = 3
 script = ExtResource("3_hx8n4")
-hovering = null
-once = null
-type = null
-slot_number = null
 
 [node name="PanelContainer3" type="PanelContainer" parent="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot" unique_id=590796052]
 z_index = -5
@@ -892,10 +879,6 @@ offset_bottom = 165.0
 pivot_offset = Vector2(104, 83)
 size_flags_horizontal = 3
 script = ExtResource("3_hx8n4")
-hovering = null
-once = null
-type = null
-slot_number = null
 
 [node name="PanelContainer3" type="PanelContainer" parent="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot" unique_id=266934213]
 z_index = -5
@@ -935,10 +918,6 @@ offset_bottom = 165.0
 pivot_offset = Vector2(104, 83)
 size_flags_horizontal = 3
 script = ExtResource("3_hx8n4")
-hovering = null
-once = null
-type = null
-slot_number = null
 
 [node name="PanelContainer3" type="PanelContainer" parent="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot" unique_id=1556445155]
 z_index = -5

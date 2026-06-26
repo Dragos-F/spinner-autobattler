@@ -45,6 +45,8 @@ func _input(event: InputEvent) -> void:
 					manager.add_upgrade(self,manager.held_object.item)
 					#print("DELETING")
 					manager.held_object.queue_free()
+					manager.held_object.anchor_pos.equipped_item = null
+					manager.loot_sys.check_loot_taken()
 				if type == Type.Bin && hovering:
 					#manager.holding = false
 					print(hovering)
