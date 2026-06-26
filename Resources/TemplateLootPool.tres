@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://wejnjdkegmbt" path="res://Resources/Items/TShirtCannon.tres" id="16_m4s27"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2_pk4kf")
 LootTable = Dictionary[ExtResource("1_k7lkx"), float]({
 ExtResource("2_63lyl"): 1.0,

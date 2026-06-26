@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dhw32ateyd5gf" path="res://VisualAssets/Button_return.png" id="3_q68mp"]
 [ext_resource type="Texture2D" uid="uid://da13mmeakbrei" path="res://VisualAssets/Button_Settings.png" id="4_f140w"]
 [ext_resource type="Resource" uid="uid://deh0c11rwg0p0" path="res://Resources/EnemyCollections/stage1_standard.tres" id="4_i0j58"]
-[ext_resource type="Texture2D" uid="uid://bnqac3dw0lqua" path="res://VisualAssets/Button_Spinners.png" id="5_0iob3"]
 [ext_resource type="Script" uid="uid://1qjdfkp2kes2" path="res://combat_manager.gd" id="5_enc0b"]
 [ext_resource type="Resource" uid="uid://c1uy66okaf72m" path="res://Resources/EnemyCollections/stage1_boss.tres" id="5_p5ymy"]
 [ext_resource type="Resource" uid="uid://b5p7j5orme3r3" path="res://Resources/EnemyCollections/stage2_standard.tres" id="6_3va76"]
@@ -26,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://xa7mls6hy47t" path="res://Resources/EnemyCollections/stage5_boss.tres" id="13_sl126"]
 [ext_resource type="PackedScene" uid="uid://b3gjfmq7e55vk" path="res://Scenes/full_wheel_bundle.tscn" id="15_xc4hf"]
 [ext_resource type="PackedScene" uid="uid://dvm8eqmaaxrye" path="res://Scenes/draggable_item.tscn" id="16_6rnll"]
+[ext_resource type="Texture2D" uid="uid://2fn7tcw13kmc" path="res://VisualAssets/ContestantImages/Businessman front.png" id="17_hkvke"]
 [ext_resource type="Script" uid="uid://ffjh8wls7qxv" path="res://Scripts/hp_entity.gd" id="18_i0j58"]
 [ext_resource type="Texture2D" uid="uid://qo0ug1w1dfv5" path="res://VisualAssets/square.png" id="19_c1ier"]
 [ext_resource type="Texture2D" uid="uid://cxu8gyqso2h8o" path="res://VisualAssets/Items/Briefcase png.png" id="20_r0vnq"]
@@ -34,11 +34,28 @@
 [ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="23_s1acj"]
 [ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="24_t8ijv"]
 [ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="25_rv6c1"]
+[ext_resource type="Script" uid="uid://dqo5ua8abe05n" path="res://Scripts/loot_system.gd" id="28_hkvke"]
+[ext_resource type="Resource" uid="uid://cmbhg20s3hd60" path="res://Resources/Items/Upgrades/HitUpgrade.tres" id="30_20cv7"]
+[ext_resource type="Resource" uid="uid://bbvbi4n331pd6" path="res://Resources/Items/Upgrades/JackpotUpgrade.tres" id="31_ywy86"]
+[ext_resource type="Resource" uid="uid://bfl8hdyxd4jb" path="res://Resources/Items/Upgrades/Jakpot+Backfire.tres" id="32_goiu7"]
+[ext_resource type="Resource" uid="uid://byffoamnotj8x" path="res://Resources/Items/Upgrades/FixUpgrade.tres" id="33_fqfjr"]
+[ext_resource type="Resource" uid="uid://s2e3k01kmiq7" path="res://Resources/Items/Upgrades/StunUpgrade.tres" id="34_oqotn"]
+[ext_resource type="Resource" uid="uid://dnu6e3yksyuqj" path="res://Resources/Items/Upgrades/RushUpgrade.tres" id="35_eebff"]
+[ext_resource type="Resource" uid="uid://dt43087fni3mn" path="res://Resources/Items/Upgrades/StallUpgrade.tres" id="36_qtnps"]
+[ext_resource type="Resource" uid="uid://slf51depicyg" path="res://Resources/Items/Upgrades/Rush+Stumble.tres" id="37_b420t"]
+[ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="43_obop7"]
+[ext_resource type="Resource" uid="uid://bqq1y08oeudxb" path="res://Resources/Items/Magic8Ball.tres" id="44_0gkln"]
+[ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="45_e2ql2"]
+[ext_resource type="Resource" uid="uid://dgt8cegtggtq1" path="res://Resources/Items/PDA.tres" id="46_dn1w2"]
+[ext_resource type="Resource" uid="uid://buptiir3skk3d" path="res://Resources/Items/RubberChicken.tres" id="47_pa4y5"]
+[ext_resource type="Resource" uid="uid://wejnjdkegmbt" path="res://Resources/Items/TShirtCannon.tres" id="48_jnakw"]
+[ext_resource type="Script" uid="uid://c54m0dewh5mfy" path="res://Scripts/loot_pool.gd" id="49_a7b38"]
+[ext_resource type="Texture2D" uid="uid://h0087mrh2snf" path="res://VisualAssets/ContestantImages/Businessman back.png" id="50_20cv7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
 texture = ExtResource("1_7rqgy")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7rkf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alkp7"]
 bg_color = Color(0.5882353, 0.25882354, 0.3254902, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
@@ -96,15 +113,6 @@ shader_parameter/vignette_intensity = 0.3
 shader_parameter/grille_amount = 0.10000000475
 shader_parameter/brightness_boost = 1.2
 
-[sub_resource type="Resource" id="Resource_ergw4"]
-resource_local_to_scene = true
-script = ExtResource("21_c3pre")
-cooldown = 5.5
-icon = ExtResource("20_r0vnq")
-stats = Array[ExtResource("22_u5v48")]([ExtResource("23_s1acj"), ExtResource("23_s1acj"), ExtResource("23_s1acj"), ExtResource("24_t8ijv"), ExtResource("25_rv6c1")])
-isUpgrade = true
-metadata/_custom_type_script = "uid://bgfl1jrent3ce"
-
 [sub_resource type="Animation" id="Animation_gyaec"]
 length = 0.001
 tracks/0/type = "value"
@@ -141,15 +149,60 @@ _data = {
 &"vertical_health": SubResource("Animation_bpy1e")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk511"]
+bg_color = Color(0, 0, 0, 0.52156866)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Resource" id="Resource_w0aut"]
+resource_local_to_scene = true
+script = ExtResource("21_c3pre")
+cooldown = 5.5
+icon = ExtResource("20_r0vnq")
+stats = Array[ExtResource("22_u5v48")]([ExtResource("23_s1acj"), ExtResource("23_s1acj"), ExtResource("23_s1acj"), ExtResource("24_t8ijv"), ExtResource("25_rv6c1")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[sub_resource type="Resource" id="Resource_1ixrr"]
+resource_local_to_scene = true
+script = ExtResource("49_a7b38")
+LootTable = Dictionary[ExtResource("21_c3pre"), float]({
+ExtResource("30_20cv7"): 1.0,
+ExtResource("31_ywy86"): 0.0,
+ExtResource("32_goiu7"): 1.0,
+ExtResource("33_fqfjr"): 0.0,
+ExtResource("34_oqotn"): 0.0,
+ExtResource("35_eebff"): 0.0,
+ExtResource("36_qtnps"): 0.0,
+ExtResource("37_b420t"): 0.0,
+SubResource("Resource_w0aut"): 0.0,
+ExtResource("43_obop7"): 0.0,
+ExtResource("44_0gkln"): 0.0,
+ExtResource("45_e2ql2"): 1.0,
+ExtResource("46_dn1w2"): 1.0,
+ExtResource("47_pa4y5"): 1.0,
+ExtResource("48_jnakw"): 0.0
+})
+metadata/_custom_type_script = "uid://c54m0dewh5mfy"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tx3ay"]
+bg_color = Color(0.11814, 0.49561566, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [node name="Node2D2" type="Node" unique_id=704281934]
 
-[node name="InventoryManager" type="Node" parent="." unique_id=141645274 node_paths=PackedStringArray("slots", "wheels")]
+[node name="InventoryManager" type="Node" parent="." unique_id=141645274 node_paths=PackedStringArray("slots", "wheels", "loot_sys")]
 unique_name_in_owner = true
 script = ExtResource("1_i0j58")
-slots = [NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer"), NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer2"), NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3")]
+slots = [NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Control1"), NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Control2"), NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Control3")]
 wheels = [NodePath("../PlayerWheels/PlayerWheel1/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel2/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel3/SpinControl/Wheel")]
+loot_sys = NodePath("../LootSystem")
 
-[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "PrimaryEnemyWheel", "PrimaryEnemySpinner", "combatManager")]
+[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "PrimaryEnemyWheel", "PrimaryEnemySpinner", "combatManager", "inventoryManager", "CharFront", "CharBack", "CharName", "StartingItem")]
 script = ExtResource("10_4b75m")
 EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
@@ -160,6 +213,11 @@ EnemyCollectionBounds = Array[Vector2]([Vector2(-1, 2), Vector2(3, 3), Vector2(4
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
 PrimaryEnemySpinner = NodePath("../EnemyWheelBundle/SpinControl")
 combatManager = NodePath("../CombatManager")
+inventoryManager = NodePath("../InventoryManager")
+CharFront = NodePath("../UIParent/PortraitBox/Control/CharFront")
+CharBack = NodePath("../CharBack")
+CharName = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Name/ContestantName")
+StartingItem = NodePath("../StartingItem")
 
 [node name="CombatManager" type="Node" parent="." unique_id=317878429 node_paths=PackedStringArray("PlayerEntity", "PlayerSpinners", "EnemyEntity", "EnemySpinners", "InventorySys")]
 script = ExtResource("5_enc0b")
@@ -217,6 +275,26 @@ press G to load the
 next stage (debug)
 ~ J"
 
+[node name="Control" type="Control" parent="UIParent/PortraitBox" unique_id=798666459]
+clip_contents = true
+layout_mode = 2
+
+[node name="CharFront" type="TextureRect" parent="UIParent/PortraitBox/Control" unique_id=157306408]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.5
+offset_top = -138.5
+offset_right = 145.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_hkvke")
+expand_mode = 1
+
 [node name="ContestantUI" type="PanelContainer" parent="UIParent" unique_id=1852627084]
 layout_mode = 0
 offset_left = 7.0
@@ -236,96 +314,209 @@ offset_left = 13.0
 offset_right = 305.0
 offset_bottom = 783.0
 
-[node name="Name" type="CenterContainer" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1934908745]
+[node name="Name" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1835056421]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.36
 offset_transform_position = Vector2(200, 0)
 
-[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Name" unique_id=456916077]
-layout_mode = 2
+[node name="ContestantName" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Name" unique_id=456916077]
+custom_minimum_size = Vector2(272, 45)
+custom_maximum_size = Vector2(272, 129)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -9.5
+offset_right = 136.0
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
 offset_transform_position = Vector2(-25, 0)
 theme_override_font_sizes/font_size = 32
 text = "Contestant Name"
+autowrap_mode = 2
 
 [node name="Items" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1099574783]
 z_index = 1
 z_as_relative = false
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.75
+size_flags_stretch_ratio = 0.87
 mouse_filter = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=151462953]
-z_index = 1
-z_as_relative = false
-layout_mode = 0
-offset_left = 12.0
-offset_top = 2.0
-offset_right = 114.0
-offset_bottom = 105.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+[node name="Control1" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=685842525]
+z_index = 5
+layout_mode = 1
+anchor_left = 2.4965754
+anchor_top = 1.018868
+anchor_right = 2.4965754
+anchor_bottom = 1.018868
+offset_left = -728.0
+offset_top = -289.0
+offset_right = -603.0
+offset_bottom = -175.0
+offset_transform_enabled = true
 script = ExtResource("3_hx8n4")
+hovering = null
+once = null
+type = 1
+slot_number = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" unique_id=221529355]
+[node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1" unique_id=253428445]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.8
+anchor_top = 6.775
+anchor_right = 18.768
+anchor_bottom = 7.7574563
+offset_left = -2225.0
+offset_top = -772.35004
+offset_right = -2225.0
+offset_bottom = -772.35004
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_alkp7")
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1/PanelContainer3" unique_id=262872461]
 layout_mode = 2
-text = "1"
+mouse_filter = 1
+text = "Slot1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=1424999109]
-z_index = 1
-z_as_relative = false
-layout_mode = 0
-offset_left = 159.0
-offset_top = 2.0
-offset_right = 261.0
-offset_bottom = 105.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+[node name="Control2" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=639773221]
+z_index = 5
+layout_mode = 1
+anchor_left = 3.0034246
+anchor_top = 0.5406504
+anchor_right = 3.0034246
+anchor_bottom = 0.5406504
+offset_left = -728.0
+offset_top = -137.0
+offset_right = -603.0
+offset_bottom = -23.0
 script = ExtResource("3_hx8n4")
+hovering = null
+once = null
+type = 1
+slot_number = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" unique_id=1000400608]
+[node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control2" unique_id=463457897]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.8
+anchor_top = 6.775
+anchor_right = 18.768
+anchor_bottom = 7.7574563
+offset_left = -2225.0
+offset_top = -772.35004
+offset_right = -2225.0
+offset_bottom = -772.35004
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_alkp7")
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control2/PanelContainer3" unique_id=1750176849]
 layout_mode = 2
-text = "2"
+mouse_filter = 1
+text = "Slot2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=1942029130]
-z_index = 1
-z_as_relative = false
-layout_mode = 0
-offset_left = 12.0
-offset_top = 133.0
-offset_right = 114.0
-offset_bottom = 236.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+[node name="Control3" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=858407804]
+z_index = 5
+layout_mode = 1
+anchor_left = 3.0034246
+anchor_top = 0.53505534
+anchor_right = 3.0034246
+anchor_bottom = 0.53505534
+offset_left = -728.0
+offset_top = 9.0
+offset_right = -603.0
+offset_bottom = 123.0
 script = ExtResource("3_hx8n4")
+hovering = null
+once = null
+type = 1
+slot_number = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" unique_id=1951204434]
+[node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control3" unique_id=936423632]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.8
+anchor_top = 6.775
+anchor_right = 18.768
+anchor_bottom = 7.7574563
+offset_left = -2225.0
+offset_top = -772.35004
+offset_right = -2225.0
+offset_bottom = -772.35004
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_alkp7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control3/PanelContainer3" unique_id=1629889219]
 layout_mode = 2
-text = "3"
+mouse_filter = 1
+text = "Slot3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer4" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=1046861835]
-z_index = 1
-z_as_relative = false
-layout_mode = 0
-offset_left = 159.0
-offset_top = 133.0
-offset_right = 261.0
-offset_bottom = 236.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+[node name="Control4" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer/Items" unique_id=1128537475]
+z_index = 5
+layout_mode = 1
+anchor_left = 2.4931507
+anchor_top = 0.5345912
+anchor_right = 2.4931507
+anchor_bottom = 0.5345912
+offset_left = -728.0
+offset_top = 9.0
+offset_right = -603.0
+offset_bottom = 123.0
 script = ExtResource("3_hx8n4")
+hovering = null
+once = null
+type = 2
+slot_number = null
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" unique_id=1762582488]
+[node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4" unique_id=542378085]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.8
+anchor_top = 6.775
+anchor_right = 18.768
+anchor_bottom = 7.7574563
+offset_left = -2225.0
+offset_top = -772.35004
+offset_right = -2225.0
+offset_bottom = -772.35004
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_alkp7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" unique_id=870238316]
 layout_mode = 2
-text = "4"
+mouse_filter = 1
+text = "BIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -333,6 +524,7 @@ vertical_alignment = 1
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.64
 
 [node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Contestant Text" unique_id=654737110]
 custom_minimum_size = Vector2(10, 10)
@@ -361,10 +553,6 @@ theme_override_icons/icon = ExtResource("3_q68mp")
 [node name="Button2" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1209743159]
 layout_mode = 2
 icon = ExtResource("4_f140w")
-
-[node name="Button3" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1175089662]
-layout_mode = 2
-icon = ExtResource("5_0iob3")
 
 [node name="CenterPlayArea" type="Control" parent="UIParent" unique_id=882134817]
 anchors_preset = 0
@@ -471,21 +659,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Draggable" parent="." unique_id=1814434899 node_paths=PackedStringArray("anchor_pos") instance=ExtResource("16_6rnll")]
-offset_left = 526.0
-offset_top = 204.0
-offset_right = 1174.0
-offset_bottom = 852.0
-anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4")
-
-[node name="Draggable2" parent="." unique_id=1154286523 node_paths=PackedStringArray("anchor_pos") instance=ExtResource("16_6rnll")]
-offset_left = 544.0
-offset_top = 64.000015
-offset_right = 1192.0
-offset_bottom = 712.0
-item = SubResource("Resource_ergw4")
-anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3")
-
 [node name="EnemyWheelBundle" parent="." unique_id=1603726747 instance=ExtResource("15_xc4hf")]
 position = Vector2(414, -226)
 
@@ -549,7 +722,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayerWheels" type="Node2D" parent="." unique_id=1833374083]
-position = Vector2(-152, 266)
+position = Vector2(-220, 227)
 
 [node name="PlayerHealthDisplay" type="Node2D" parent="PlayerWheels" unique_id=304034929 node_paths=PackedStringArray("animator", "healthtext")]
 position = Vector2(566, 125)
@@ -611,7 +784,11 @@ position = Vector2(-265, -22)
 [node name="SpinControl" parent="PlayerWheels/PlayerWheel1" index="0" unique_id=931065810]
 TimeCoefficient = 0.6
 
+[node name="Wheel" parent="PlayerWheels/PlayerWheel1/SpinControl" index="0" unique_id=808226493]
+item = null
+
 [node name="PlayerWheel2" parent="PlayerWheels" unique_id=1953585299 instance=ExtResource("15_xc4hf")]
+visible = false
 position = Vector2(-41, -139)
 
 [node name="SpinControl" parent="PlayerWheels/PlayerWheel2" index="0" unique_id=931065810]
@@ -621,6 +798,7 @@ TimeCoefficient = 0.6
 item = null
 
 [node name="PlayerWheel3" parent="PlayerWheels" unique_id=2039030054 instance=ExtResource("15_xc4hf")]
+visible = false
 position = Vector2(237, -52)
 
 [node name="SpinControl" parent="PlayerWheels/PlayerWheel3" index="0" unique_id=931065810]
@@ -629,31 +807,222 @@ TimeCoefficient = 0.6
 [node name="Wheel" parent="PlayerWheels/PlayerWheel3/SpinControl" index="0" unique_id=808226493]
 item = null
 
-[connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" to="UIParent/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" method="_on_mouse_exited"]
+[node name="LootSystem" type="PanelContainer" parent="." unique_id=1101095401 node_paths=PackedStringArray("option_slots", "manager")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.33489582
+anchor_top = 0.050925925
+anchor_right = 0.49739584
+anchor_bottom = 0.45833334
+offset_left = 12.0
+offset_top = 19.0
+offset_right = -15.0
+offset_bottom = 19.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hk511")
+script = ExtResource("28_hkvke")
+option_slots = [NodePath("VBoxContainer/HBoxContainer/Loot1/Loot"), NodePath("VBoxContainer/HBoxContainer/Loot2/Loot"), NodePath("VBoxContainer/HBoxContainer/Loot3/Loot")]
+pool = SubResource("Resource_1ixrr")
+manager = NodePath("../InventoryManager")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="LootSystem" unique_id=513959497]
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="LootSystem/VBoxContainer" unique_id=1728738903]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="Loot1" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer" unique_id=1100497677]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Loot" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer/Loot1" unique_id=1217352297]
+z_index = 5
+custom_minimum_size = Vector2(134, 165)
+custom_maximum_size = Vector2(134, 165)
+layout_mode = 1
+anchors_preset = 0
+offset_right = 134.0
+offset_bottom = 165.0
+pivot_offset = Vector2(104, 83)
+size_flags_horizontal = 3
+script = ExtResource("3_hx8n4")
+hovering = null
+once = null
+type = null
+slot_number = null
+
+[node name="PanelContainer3" type="PanelContainer" parent="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot" unique_id=590796052]
+z_index = -5
+custom_minimum_size = Vector2(110, 110)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(55.5, 55.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_tx3ay")
+
+[node name="Label" type="Label" parent="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot/PanelContainer3" unique_id=628268867]
+layout_mode = 2
+mouse_filter = 1
+text = "Loot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loot2" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer" unique_id=157355811]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Loot" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer/Loot2" unique_id=1174410563]
+z_index = 5
+anchors_preset = 0
+offset_right = 134.0
+offset_bottom = 165.0
+pivot_offset = Vector2(104, 83)
+size_flags_horizontal = 3
+script = ExtResource("3_hx8n4")
+hovering = null
+once = null
+type = null
+slot_number = null
+
+[node name="PanelContainer3" type="PanelContainer" parent="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot" unique_id=266934213]
+z_index = -5
+custom_minimum_size = Vector2(110, 110)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(55.5, 55.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_tx3ay")
+
+[node name="Label" type="Label" parent="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" unique_id=104039490]
+layout_mode = 2
+mouse_filter = 1
+text = "Loot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loot3" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer" unique_id=1817914950]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Loot" type="Control" parent="LootSystem/VBoxContainer/HBoxContainer/Loot3" unique_id=1521783438]
+z_index = 5
+anchors_preset = 0
+offset_right = 134.0
+offset_bottom = 165.0
+pivot_offset = Vector2(104, 83)
+size_flags_horizontal = 3
+script = ExtResource("3_hx8n4")
+hovering = null
+once = null
+type = null
+slot_number = null
+
+[node name="PanelContainer3" type="PanelContainer" parent="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot" unique_id=1556445155]
+z_index = -5
+custom_minimum_size = Vector2(110, 110)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(55.5, 55.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_tx3ay")
+
+[node name="Label" type="Label" parent="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" unique_id=42050992]
+layout_mode = 2
+mouse_filter = 1
+text = "Loot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="LootSystem/VBoxContainer" unique_id=2017333086]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Button" type="Button" parent="LootSystem/VBoxContainer/CenterContainer" unique_id=2095076613]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Skip
+Loot"
+
+[node name="GenerateLoot" type="Button" parent="." unique_id=499497220]
+offset_left = -198.0
+offset_top = -497.0
+offset_right = 161.0
+offset_bottom = -428.0
+theme_override_font_sizes/font_size = 44
+text = "GENERATE LOOT"
+metadata/_edit_use_anchors_ = true
+
+[node name="CharBack" type="Sprite2D" parent="." unique_id=1721030196]
+position = Vector2(-262, 418)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("50_20cv7")
+
+[node name="StartingItem" parent="." unique_id=1814434899 node_paths=PackedStringArray("anchor_pos") instance=ExtResource("16_6rnll")]
+offset_left = -940.0
+offset_top = -84.0
+offset_right = -389.2
+offset_bottom = 466.8
+pivot_offset = Vector2(12, 12)
+anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Control1")
+
+[connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control2/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control2/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control3/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control3/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control3" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" to="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4" method="_on_mouse_exited"]
 [connection signal="sliceselected" from="EnemyWheelBundle/SpinControl" to="CombatManager" method="listen_enemy_spinresult"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30012/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30012/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30012/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30012/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30013/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30013/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30013/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30013/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30014/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30014/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30014/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30014/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30015/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30015/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30015/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30015/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30016/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30016/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30016/TemplatePolygon2D/Area2D" to="EnemyWheelBundle/SpinControl/Wheel/@Node2D@30016/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="event_hpchanged" from="EnemyWheelBundle/EnemyHealthDisplay" to="GameManager" method="_listener_enemydamaged"]
 [connection signal="event_hpdepleted" from="EnemyWheelBundle/EnemyHealthDisplay" to="GameManager" method="_listener_entityDied"]
 [connection signal="event_hpdepleted" from="PlayerWheels/PlayerHealthDisplay" to="GameManager" method="_listener_entityDied"]
 [connection signal="sliceselected" from="PlayerWheels/PlayerWheel1/SpinControl" to="CombatManager" method="listen_player_spinresult"]
 [connection signal="sliceselected" from="PlayerWheels/PlayerWheel2/SpinControl" to="CombatManager" method="listen_player_spinresult"]
 [connection signal="sliceselected" from="PlayerWheels/PlayerWheel3/SpinControl" to="CombatManager" method="listen_player_spinresult"]
+[connection signal="mouse_entered" from="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot1/Loot" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot2/Loot" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" to="LootSystem/VBoxContainer/HBoxContainer/Loot3/Loot" method="_on_mouse_exited"]
+[connection signal="pressed" from="LootSystem/VBoxContainer/CenterContainer/Button" to="LootSystem" method="_on_skip_loot_pressed"]
+[connection signal="pressed" from="GenerateLoot" to="LootSystem" method="spawn_options"]
 
 [editable path="EnemyWheelBundle"]
 [editable path="PlayerWheels/PlayerWheel1"]

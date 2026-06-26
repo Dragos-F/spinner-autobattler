@@ -28,6 +28,10 @@ func show_selected_starter(starter:int, display_name:String, Description:String,
 
 
 func _on_GO_pressed() -> void:
+	GlobalChar.char_front=CharFront.texture
+	GlobalChar.char_back=CharBack.texture
+	GlobalChar.char_name = CharName.text
+	GlobalChar.starting_item = DemoWheel.item
 	Fader.FadeUp("")
 	await Fader.fade_finished
 	get_tree().change_scene_to_file("res://Scenes/MainScene.tscn")

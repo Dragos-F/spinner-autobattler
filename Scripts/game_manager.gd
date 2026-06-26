@@ -12,6 +12,14 @@ extends Node
 @export var PrimaryEnemySpinner:Spinner
 
 @export var combatManager:CombatManager
+@export var inventoryManager:InvManager
+
+@export_category("Character LoadIns")
+@export var CharFront:TextureRect
+@export var CharBack:Sprite2D
+@export var CharName:Label
+@export var StartingItem:Draggable
+
 var StageNumber:int=-1
 var PlayerScore:int=0
 
@@ -19,8 +27,16 @@ var PreparedToStart = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#LoadRandomEnemy()
-	pass # Replace with function body.
-
+	CharFront.texture = GlobalChar.char_front
+	CharBack.texture = GlobalChar.char_back
+	CharName.text = GlobalChar.char_name
+	if GlobalChar.starting_item != null:
+		StartingItem.item = GlobalChar.starting_item
+	StartingItem.manager = inventoryManager
+	inventoryManager.wheels[0].UpdateWheel(StartingItem.item)
+	inventoryManager.slots[0].equipped_item = StartingItem
+	print 
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

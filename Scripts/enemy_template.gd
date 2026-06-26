@@ -12,3 +12,4 @@ enum EnemyType{
 @export var Description:String
 @export var Catchphrase:String
 @export var Graphic:Texture2D
+@export var pool:LootPool

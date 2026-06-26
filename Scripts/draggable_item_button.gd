@@ -51,6 +51,8 @@ func _gui_input(event: InputEvent) -> void:
 		once = true
 		manager.holding = false
 		manager.held_object = null
+		print("DELETING")
+		print (manager.held_object)
 		#self.mouse_filter = Control.MOUSE_FILTER_STOP
 	
 		
