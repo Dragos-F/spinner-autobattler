@@ -34,6 +34,7 @@
 [ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="23_s1acj"]
 [ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="24_t8ijv"]
 [ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="25_rv6c1"]
+[ext_resource type="PackedScene" uid="uid://w2ypqxyaota3" path="res://Scenes/item_tooltip.tscn" id="26_goiu7"]
 [ext_resource type="Script" uid="uid://dqo5ua8abe05n" path="res://Scripts/loot_system.gd" id="28_hkvke"]
 [ext_resource type="Resource" uid="uid://cmbhg20s3hd60" path="res://Resources/Items/Upgrades/HitUpgrade.tres" id="30_20cv7"]
 [ext_resource type="Resource" uid="uid://bbvbi4n331pd6" path="res://Resources/Items/Upgrades/JackpotUpgrade.tres" id="31_ywy86"]
@@ -820,7 +821,7 @@ TimeCoefficient = 0.6
 [node name="Wheel" parent="PlayerWheels/PlayerWheel3/SpinControl" index="0" unique_id=808226493]
 item = null
 
-[node name="LootSystem" type="PanelContainer" parent="." unique_id=1101095401 node_paths=PackedStringArray("option_slots", "manager", "heal_button")]
+[node name="LootSystem" type="PanelContainer" parent="." unique_id=1101095401 node_paths=PackedStringArray("option_slots", "manager", "heal_button", "item_tooltip")]
 unique_name_in_owner = true
 visible = false
 anchors_preset = -1
@@ -835,6 +836,7 @@ pool = SubResource("Resource_1ixrr")
 manager = NodePath("../InventoryManager")
 heal_button = NodePath("HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button")
 heal_percent = 100.0
+item_tooltip = NodePath("../ItemTooltip")
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="VBoxContainer" parent="LootSystem" unique_id=2152402]
@@ -1093,13 +1095,22 @@ position = Vector2(-262, 418)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("50_20cv7")
 
-[node name="StartingItem" parent="." unique_id=1814434899 node_paths=PackedStringArray("anchor_pos") instance=ExtResource("16_6rnll")]
+[node name="StartingItem" parent="." unique_id=1814434899 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("16_6rnll")]
 offset_left = -940.0
 offset_top = -84.0
 offset_right = -389.2
 offset_bottom = 466.8
 pivot_offset = Vector2(12, 12)
 anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Control1")
+tooltipObject = NodePath("../ItemTooltip")
+
+[node name="ItemTooltip" parent="." unique_id=1911907552 instance=ExtResource("26_goiu7")]
+unique_name_in_owner = true
+visible = false
+offset_left = -960.0
+offset_top = -480.0
+offset_right = -960.0
+offset_bottom = -480.0
 
 [connection signal="combat_ended" from="GameManager" to="PlayerWheels/PlayerWheel1/SpinControl" method="InterruptSpin"]
 [connection signal="combat_ended" from="GameManager" to="PlayerWheels/PlayerWheel2/SpinControl" method="InterruptSpin"]

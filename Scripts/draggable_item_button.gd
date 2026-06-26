@@ -13,8 +13,7 @@ class_name Draggable
 @onready var reset:bool = true
 
 
-@onready var activeTooltip
-@export var tooltipObject:PackedScene
+@export var tooltipObject:ItemTooltip
 @export var displayoffsets:Vector2 = Vector2(50,50)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +22,7 @@ func _ready() -> void:
 	else:
 		self.icon = preload("uid://5j4kojdswfcv")
 	expand_icon = true
-	tooltipObject = preload("res://Scenes/item_tooltip.tscn")
+	print (tooltipObject)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -52,10 +51,11 @@ func _gui_input(event: InputEvent) -> void:
 	if hovering:		
 		if event.is_action_pressed("MouseLeft") && !event.is_echo():
 			dragging = true
-			if activeTooltip == null:
+			if tooltipObject.visible == false:
 				print("tooltip Shown")
 				showToolTip()
 			else:
+				print ("hiding tooltip")
 				hideToolTip()
 	if event.is_action_released("MouseLeft"):
 		dragging = false
@@ -89,25 +89,25 @@ func _on_pressed() -> void:
 
 
 func showToolTip():
-	if activeTooltip == null:
+	if tooltipObject.visible == false:
 		print("creating tooltip")
-		var instance:ItemTooltip = tooltipObject.instantiate()
-		get_tree().root.add_child(instance)
-		instance.item_icon.texture = item.icon
-		instance.item_name.text = item.name
-		instance.item_desc.text = item.Desc
-		instance.item_stats.item = item
+	
+		tooltipObject.item_icon.texture = item.icon
+		tooltipObject.item_name.text = item.name
+		tooltipObject.item_desc.text = item.Desc
+		tooltipObject.item_stats.item = item
 		var camera = get_viewport().get_camera_2d()
 		var pos: Vector2 = camera.global_position
 		#pos = offsetPosition(global_position,pos)
-		activeTooltip = instance
-		activeTooltip.position = pos
+		tooltipObject.position = pos
+		tooltipObject.visible = true
 	pass
 	
 func hideToolTip():
-	if activeTooltip != null:
+	if tooltipObject.visible == true:
 		print("hiding/destroying tooltip")
-		activeTooltip.queue_free()
+		tooltipObject.visible = false
+		
 	pass
 #func offsetPosition(rootpos,inputpos):
 	#var newpos = inputpos

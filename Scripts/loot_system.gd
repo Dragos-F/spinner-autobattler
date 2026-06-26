@@ -8,6 +8,8 @@ class_name LootSystem
 @export var manager:InvManager
 @export var heal_button:Button
 @export var heal_percent:float
+@export var item_tooltip: ItemTooltip
+
 signal loot_ended()
 
 
@@ -43,6 +45,7 @@ func spawn_options():
 		options[i].anchor_pos = option_slots[i]
 		option_slots[i].equipped_item = options[i]
 		options[i].manager = manager
+		options[i].tooltipObject = item_tooltip
 		options[i].item = generate_random_loot()
 		options[i].set_pivot_offset(Vector2(22,40))
 		#print (options[i].item)
