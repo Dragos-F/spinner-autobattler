@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://dgxby0hrao5sd"]
+
+[ext_resource type="Texture2D" uid="uid://d0t75uke65ebe" path="res://VisualAssets/StartMenu/TVStarryBackground.png" id="1_m6uer"]
+[ext_resource type="Script" uid="uid://cylr4e4v61n5i" path="res://Scripts/start_menu.gd" id="1_slhe1"]
+[ext_resource type="Texture2D" uid="uid://bnrqow4uwle8x" path="res://VisualAssets/StartMenu/TVBackground.png" id="2_a43kq"]
+[ext_resource type="Texture2D" uid="uid://bbqhd6y0xedvd" path="res://VisualAssets/StartMenu/TvBorder.png" id="3_626he"]
+[ext_resource type="Texture2D" uid="uid://ciu6ywqxuwau8" path="res://VisualAssets/StartMenu/TVCRTEffect.png" id="3_i2i62"]
+[ext_resource type="Texture2D" uid="uid://bl83b0r74vm5b" path="res://VisualAssets/StartMenu/LogoEnglish1.png" id="5_lfskg"]
+[ext_resource type="Texture2D" uid="uid://clpdbpaewwqmc" path="res://VisualAssets/StartMenu/LogoEnglish2.png" id="6_ru7em"]
+[ext_resource type="Texture2D" uid="uid://b3ogyw2y0m25m" path="res://VisualAssets/StartMenu/LogoEnglish3.png" id="7_77ila"]
+[ext_resource type="Texture2D" uid="uid://c2r1alhc14k37" path="res://VisualAssets/StartMenu/StartButtonPlay1.png" id="8_lfskg"]
+[ext_resource type="Texture2D" uid="uid://fwegdqi8jigp" path="res://VisualAssets/StartMenu/StartButtonPlay2.png" id="9_ru7em"]
+[ext_resource type="Texture2D" uid="uid://dayreoxvdboir" path="res://VisualAssets/StartMenu/StartButtonOptions1.png" id="10_00l4x"]
+[ext_resource type="Texture2D" uid="uid://51kvf5b4ddy3" path="res://VisualAssets/StartMenu/StartButtonOptions2.png" id="11_7vuks"]
+[ext_resource type="Texture2D" uid="uid://c4pnicg13dkie" path="res://VisualAssets/StartMenu/StartButtonBonusFeatures1.png" id="12_7vuks"]
+[ext_resource type="Texture2D" uid="uid://c548d723cpq1r" path="res://VisualAssets/StartMenu/StartButtonBonusFeatures2.png" id="13_rpttd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hk511"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lfskg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ru7em")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_77ila")
+}],
+"loop": 1,
+"name": &"IdleMenu",
+"speed": 6.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tam81"]
+texture = ExtResource("8_lfskg")
+region_rect = Rect2(110.04651, 188.31396, 421.6317, 252.7428)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ru7em"]
+texture = ExtResource("8_lfskg")
+region_rect = Rect2(110.04651, 188.31396, 421.6317, 252.7428)
+modulate_color = Color(0.65345204, 0.65345204, 0.65345204, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kpf2q"]
+texture = ExtResource("9_ru7em")
+region_rect = Rect2(110.04651, 188.31396, 421.6317, 252.7428)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77ila"]
+texture = ExtResource("8_lfskg")
+region_rect = Rect2(110.04651, 188.31396, 421.6317, 252.7428)
+modulate_color = Color(0.65345204, 0.65345204, 0.65345204, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rpttd"]
+texture = ExtResource("10_00l4x")
+region_rect = Rect2(184.48016, 240.00267, 270.2334, 167.52098)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_slhe1"]
+texture = ExtResource("10_00l4x")
+region_rect = Rect2(184.48016, 240.00267, 270.2334, 167.52098)
+modulate_color = Color(0.5482278, 0.5482278, 0.5482278, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vuks"]
+texture = ExtResource("11_7vuks")
+region_rect = Rect2(184.48016, 240.00267, 270.2334, 167.52098)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qnxl2"]
+texture = ExtResource("10_00l4x")
+region_rect = Rect2(184.48016, 240.00267, 270.2334, 167.52098)
+modulate_color = Color(0.5482278, 0.5482278, 0.5482278, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l146v"]
+texture = ExtResource("12_7vuks")
+region_rect = Rect2(130.43347, 206.49846, 368.6468, 206.67186)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1u5ka"]
+texture = ExtResource("12_7vuks")
+region_rect = Rect2(130.43347, 206.49846, 368.6468, 206.67186)
+modulate_color = Color(0.42985052, 0.42985052, 0.42985052, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jfkjl"]
+texture = ExtResource("13_rpttd")
+region_rect = Rect2(130.43347, 206.49846, 368.6468, 206.67186)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rl2bw"]
+texture = ExtResource("12_7vuks")
+region_rect = Rect2(130.43347, 206.49846, 368.6468, 206.67186)
+modulate_color = Color(0.42985052, 0.42985052, 0.42985052, 1)
+
+[node name="StartMenu" type="Node" unique_id=830357134 node_paths=PackedStringArray("crt_bars")]
+script = ExtResource("1_slhe1")
+crt_bars = NodePath("TvcrtEffect")
+
+[node name="TvStarryBackground" type="Sprite2D" parent="." unique_id=185274393]
+texture = ExtResource("1_m6uer")
+
+[node name="TvBackground" type="Sprite2D" parent="." unique_id=1367431886]
+position = Vector2(-6.9374466, -94.72342)
+rotation = -0.044956744
+scale = Vector2(0.65210253, 0.677959)
+texture = ExtResource("2_a43kq")
+
+[node name="TvcrtEffect" type="Sprite2D" parent="." unique_id=887127825]
+visible = false
+z_index = 1
+texture = ExtResource("3_i2i62")
+
+[node name="TvBorder" type="Sprite2D" parent="." unique_id=713362069]
+texture = ExtResource("3_626he")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=37968698]
+position = Vector2(-296, -81)
+sprite_frames = SubResource("SpriteFrames_hk511")
+animation = &"IdleMenu"
+autoplay = "IdleMenu"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1437649157]
+
+[node name="Play" type="Button" parent="." unique_id=1234578024]
+offset_left = 97.0
+offset_top = 51.0
+offset_right = 464.0
+offset_bottom = 238.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_tam81")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ru7em")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kpf2q")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_77ila")
+
+[node name="Options" type="Button" parent="." unique_id=866342062]
+offset_left = 97.0
+offset_top = -142.0
+offset_right = 464.0
+offset_bottom = 45.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_rpttd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_slhe1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7vuks")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_qnxl2")
+
+[node name="BonusFeature" type="Button" parent="." unique_id=597749659]
+offset_left = 97.0
+offset_top = -342.0
+offset_right = 464.0
+offset_bottom = -155.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_l146v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1u5ka")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jfkjl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_rl2bw")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
