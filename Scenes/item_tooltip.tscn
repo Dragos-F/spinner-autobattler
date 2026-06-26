@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://w2ypqxyaota3"]
+
+[ext_resource type="Script" uid="uid://btiq6slfj2f3u" path="res://Scripts/item_tooltip.gd" id="1_fvn7n"]
+[ext_resource type="Texture2D" uid="uid://brqxyclrmgs66" path="res://VisualAssets/Items/RubberChicken png.png" id="2_ewtdn"]
+[ext_resource type="Script" uid="uid://co8ysbawm4o60" path="res://Scripts/wheel_brain.gd" id="3_1g7yp"]
+[ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="4_0cmfm"]
+[ext_resource type="Script" uid="uid://b4s8obyrwa5gj" path="res://Scripts/template_slice.gd" id="5_q112k"]
+[ext_resource type="PackedScene" uid="uid://c2q8wvvn4hjw8" path="res://Scenes/tooltip.tscn" id="6_rvlls"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvlls"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="ItemTooltip" type="Control" unique_id=1911907552 node_paths=PackedStringArray("item_icon", "item_name", "item_desc", "item_stats")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("1_fvn7n")
+item_icon = NodePath("PanelContainer/HBoxContainer/TextureRect")
+item_name = NodePath("PanelContainer/HBoxContainer/Control/CenterContainer/Control/Item Name")
+item_desc = NodePath("PanelContainer/HBoxContainer/Control/CenterContainer2/Control/Description")
+item_stats = NodePath("StatWheel/Wheel")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1664424955]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -483.0
+offset_top = -320.0
+offset_right = 483.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rvlls")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=957658986]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer" unique_id=1324814584]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_ewtdn")
+stretch_mode = 4
+
+[node name="Control" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1057059945]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/HBoxContainer/Control" unique_id=386185724]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.52
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/Control/CenterContainer" unique_id=606062883]
+layout_mode = 2
+
+[node name="Item Name" type="Label" parent="PanelContainer/HBoxContainer/Control/CenterContainer/Control" unique_id=1691644568]
+custom_maximum_size = Vector2(280, 124)
+layout_mode = 0
+offset_left = -161.0
+offset_top = -57.0
+offset_right = 119.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 42
+text = "Item Name"
+autowrap_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="PanelContainer/HBoxContainer/Control" unique_id=1487279377]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.71
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/Control/CenterContainer2" unique_id=853178655]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="PanelContainer/HBoxContainer/Control/CenterContainer2/Control" unique_id=1075353288]
+custom_maximum_size = Vector2(273.34, 166)
+layout_mode = 0
+offset_left = -161.0
+offset_top = -65.0
+offset_right = 112.34
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 24
+text = "Item Description"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/Control" unique_id=1631568899]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Statistics" type="Label" parent="PanelContainer/HBoxContainer/Control/Control" unique_id=1399322071]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -161.0
+offset_top = 20.0
+offset_right = -87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+text = "Statistics:"
+
+[node name="StatWheel" type="Node2D" parent="." unique_id=2047788086]
+z_index = 2
+position = Vector2(284, 183)
+
+[node name="Wheel" type="Node2D" parent="StatWheel" unique_id=808226493 node_paths=PackedStringArray("slice_template")]
+script = ExtResource("3_1g7yp")
+item = ExtResource("4_0cmfm")
+slice_template = NodePath("TemplatePolygon2D")
+
+[node name="TemplatePolygon2D" type="Polygon2D" parent="StatWheel/Wheel" unique_id=621566602 node_paths=PackedStringArray("own_collision")]
+script = ExtResource("5_q112k")
+own_collision = NodePath("Area2D/CollisionPolygon2D")
+collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
+tooltipObject = ExtResource("6_rvlls")
+
+[node name="Area2D" type="Area2D" parent="StatWheel/Wheel/TemplatePolygon2D" unique_id=554612154]
+z_index = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StatWheel/Wheel/TemplatePolygon2D/Area2D" unique_id=1716261157]
+
+[connection signal="mouse_entered" from="StatWheel/Wheel/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@619994/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@619994/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@619994/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@619994/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@619995/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@619995/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@619995/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@619995/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@619996/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@619996/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@619996/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@619996/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@619997/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@619997/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@619997/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@619997/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@619998/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@619998/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@619998/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@619998/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]

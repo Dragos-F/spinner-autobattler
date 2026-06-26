@@ -1,0 +1,17 @@
+extends Control
+
+class_name ItemTooltip
+
+@export var item_icon:TextureRect
+@export var item_name:Label
+@export var item_desc:Label
+@export var item_stats:Wheel
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass

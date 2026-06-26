@@ -12,7 +12,8 @@ var slice_parent
 var temp_slice:PresetSlice
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#slice_parent = get_parent()
+	if slice_template == null:
+		slice_template = get_child(0)
 	if item == null:
 		print("no item assigned")
 	else:

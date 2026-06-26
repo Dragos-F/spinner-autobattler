@@ -34,6 +34,7 @@
 [ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="23_s1acj"]
 [ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="24_t8ijv"]
 [ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="25_rv6c1"]
+[ext_resource type="PackedScene" uid="uid://w2ypqxyaota3" path="res://Scenes/item_tooltip.tscn" id="26_goiu7"]
 [ext_resource type="Script" uid="uid://dqo5ua8abe05n" path="res://Scripts/loot_system.gd" id="28_hkvke"]
 [ext_resource type="Resource" uid="uid://cmbhg20s3hd60" path="res://Resources/Items/Upgrades/HitUpgrade.tres" id="30_20cv7"]
 [ext_resource type="Resource" uid="uid://bbvbi4n331pd6" path="res://Resources/Items/Upgrades/JackpotUpgrade.tres" id="31_ywy86"]
@@ -669,6 +670,9 @@ TimeCoefficient = 0.6
 [node name="Wheel" parent="EnemyWheelBundle/SpinControl" index="0" unique_id=808226493]
 item = null
 
+[node name="TemplatePolygon2D" parent="EnemyWheelBundle/SpinControl/Wheel" index="0" unique_id=621566602]
+tooltipObject = ExtResource("26_goiu7")
+
 [node name="EnemyHealthDisplay" type="Node2D" parent="EnemyWheelBundle" unique_id=1657434431 node_paths=PackedStringArray("animator", "healthtext", "CharacterVisualAnimr")]
 position = Vector2(-841, 136)
 script = ExtResource("18_i0j58")
@@ -798,6 +802,9 @@ TimeCoefficient = 0.6
 [node name="Wheel" parent="PlayerWheels/PlayerWheel2/SpinControl" index="0" unique_id=808226493]
 item = null
 
+[node name="TemplatePolygon2D" parent="PlayerWheels/PlayerWheel2/SpinControl/Wheel" index="0" unique_id=621566602]
+tooltipObject = ExtResource("26_goiu7")
+
 [node name="PlayerWheel3" parent="PlayerWheels" unique_id=2039030054 instance=ExtResource("15_xc4hf")]
 visible = false
 position = Vector2(237, -52)
@@ -807,6 +814,9 @@ TimeCoefficient = 0.6
 
 [node name="Wheel" parent="PlayerWheels/PlayerWheel3/SpinControl" index="0" unique_id=808226493]
 item = null
+
+[node name="TemplatePolygon2D" parent="PlayerWheels/PlayerWheel3/SpinControl/Wheel" index="0" unique_id=621566602]
+tooltipObject = ExtResource("26_goiu7")
 
 [node name="LootSystem" type="PanelContainer" parent="." unique_id=1101095401 node_paths=PackedStringArray("option_slots", "manager", "heal_button")]
 unique_name_in_owner = true
