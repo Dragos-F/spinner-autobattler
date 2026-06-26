@@ -12,4 +12,17 @@ func _process(delta: float) -> void:
 
 
 func _on_character_triangle_inner_pressed() -> void:
-	pass # Replace with function body.
+	tutorial.visible = true
+
+
+func _on_button_pressed() -> void:
+	tutorial.visible = false
+	
+func _on_mouse_entered() -> void:
+	print ("Moused Over")
+	scale = Vector2(1.1,1.1)
+
+
+func _on_mouse_exited() -> void:
+	print ("Mouse Left")
+	scale = Vector2.ONE

@@ -33,7 +33,8 @@
 [ext_resource type="PackedScene" uid="uid://w2ypqxyaota3" path="res://Scenes/item_tooltip.tscn" id="26_goiu7"]
 [ext_resource type="Script" uid="uid://dqo5ua8abe05n" path="res://Scripts/loot_system.gd" id="28_hkvke"]
 [ext_resource type="Resource" uid="uid://bgunobude8skl" path="res://Resources/TemplateLootPool.tres" id="28_s1acj"]
-[ext_resource type="Texture2D" uid="uid://ovtvre3ci43m" path="res://VisualAssets/SkipButton.png" id="31_dtg5n"]
+[ext_resource type="FontFile" uid="uid://pjw6d5hyiwtb" path="res://VisualAssets/Fonts/Super Tasty.ttf" id="32_cotnl"]
+[ext_resource type="Texture2D" uid="uid://bx2hyns0hwxwi" path="res://VisualAssets/SkipButtonNew1.png" id="32_d0jji"]
 [ext_resource type="Texture2D" uid="uid://h0087mrh2snf" path="res://VisualAssets/ContestantImages/Businessman back.png" id="50_20cv7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
@@ -821,6 +822,7 @@ offset_left = -128.0
 offset_top = -22.0
 offset_right = 131.0
 offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("32_cotnl")
 theme_override_font_sizes/font_size = 32
 text = "Prizes!"
 horizontal_alignment = 1
@@ -1014,7 +1016,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 38
-icon = ExtResource("31_dtg5n")
+icon = ExtResource("32_d0jji")
 expand_icon = true
 
 [node name="Heal&Skip" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container" unique_id=76995524]
@@ -1106,16 +1108,16 @@ z_as_relative = true
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="CombatManager" method="_on_heal_skip_pressed"]
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="LootSystem" method="_on_skip_loot_pressed"]
 [connection signal="pressed" from="GenerateLoot" to="LootSystem" method="spawn_options"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@195970/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@195970/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@195970/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@195970/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@195971/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@195971/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@195971/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@195971/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@195972/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@195972/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@195972/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@195972/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@195973/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@195973/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@195973/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@195973/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@195974/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@195974/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@195974/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@195974/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@279954/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279954/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@279954/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279954/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@279955/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279955/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@279955/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279955/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@279956/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279956/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@279956/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279956/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@279957/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279957/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@279957/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279957/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@279958/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279958/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@279958/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@279958/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="EnemyWheelBundle"]
 [editable path="PlayerWheels/PlayerWheel1"]
