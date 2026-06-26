@@ -631,10 +631,9 @@ mouse_filter = 2
 
 [node name="BackgroundImage" type="TextureRect" parent="UIParent/CenterPlayArea/Control" unique_id=1953118297]
 layout_mode = 0
-offset_left = -337.0
-offset_top = 35.0
-offset_right = 1583.0
-offset_bottom = 1115.0
+offset_left = -336.0
+offset_right = 1584.0
+offset_bottom = 1080.0
 mouse_filter = 2
 texture = ExtResource("2_qxria")
 
