@@ -95,7 +95,7 @@ func showToolTip():
 		tooltipObject.item_icon.texture = item.icon
 		tooltipObject.item_name.text = item.name
 		tooltipObject.item_desc.text = item.Desc
-		tooltipObject.item_stats.item = item
+		tooltipObject.item_stats.UpdateWheel(item)
 		var camera = get_viewport().get_camera_2d()
 		var pos: Vector2 = camera.global_position
 		#pos = offsetPosition(global_position,pos)
