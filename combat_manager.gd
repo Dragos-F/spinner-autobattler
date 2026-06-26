@@ -36,7 +36,7 @@ func ProcessResult(name,slice,sourceEntity,targetEntity,sourceWheels,targetWheel
 			spawn_effect_label("BACKFIRE!",slice,"float_down")
 		"Fix":
 			sourceEntity.heal(slice.slice_type.value)
-			spawn_effect_label("HEAL!",slice,"float_down")
+			spawn_effect_label("FIX!",slice,"float_down")
 		"Stumble":
 			DelayFromSet(sourceWheels,slice.slice_type.modifier)
 			spawn_effect_label("STUMBLE!",slice,"float_down")

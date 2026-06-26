@@ -114,17 +114,21 @@ func BeginCombat():
 		return
 	print("begin combat")
 	PreparedToContinue = false
-	if PrimaryEnemySpinner.isSpinning:
+	if PrimaryEnemySpinner.isResetting:
 		print("enemy spinner is mid-reset")
 		await PrimaryEnemySpinner.spinInterruptComplete
 		print("...enemy spinner interrupt is complete")
-	PrimaryEnemySpinner.canBeStarted = true
-	PrimaryEnemySpinner.random_spin()
 	for spinnr in combatManager.PlayerSpinners:
 		if spinnr.isResetting:
+			print("COMBAT: spinnr is resetting, waiting")
 			await spinnr.spinInterruptComplete
+			print("COMBAT: spinnr reset, proceeding")
+			
 		spinnr.canBeStarted = true
 		spinnr.random_spin()
+		
+	PrimaryEnemySpinner.canBeStarted = true
+	PrimaryEnemySpinner.random_spin()
 
 func _listener_entityDied(he:HealthEntity):
 	print("entitydied")
