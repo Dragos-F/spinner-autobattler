@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var temp_slice = area.get_parent()
 	#print(temp_slice)
+	AudioBrain.clacks.play()
 	final_slice = temp_slice
 
 func select_slice() -> PresetSlice:
