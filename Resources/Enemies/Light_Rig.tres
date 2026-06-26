@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://vu4v3x4wvkp"]
 
+[ext_resource type="Texture2D" uid="uid://be7bgbgp6klca" path="res://VisualAssets/Enemies/LightingRig.png" id="1_fav0u"]
 [ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_ubjsl"]
 [ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_fav0u"]
 [ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="3_i2d44"]
@@ -21,4 +22,5 @@ BaseHealth = 38
 Items = Array[ExtResource("1_ubjsl")]([SubResource("Resource_u60kv")])
 Description = "Just the lights. They're not as secure as you thought."
 Catchphrase = "..."
+Graphic = ExtResource("1_fav0u")
 metadata/_custom_type_script = "uid://d3x3oteco8a5u"

@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://cbvn062x8c4if"]
 
 [ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_owvhp"]
+[ext_resource type="Texture2D" uid="uid://cj7agl7vbm76h" path="res://VisualAssets/Enemies/UnaliveAudience.png" id="1_qnc0k"]
 [ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_qnc0k"]
 [ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="4_c76co"]
 [ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="5_h3m4r"]
@@ -21,4 +22,5 @@ Items = Array[ExtResource("1_owvhp")]([SubResource("Resource_u60kv")])
 Type = 1
 Description = "Baked into the system. Spectators from all directions. You are a viewing experience."
 Catchphrase = "..."
+Graphic = ExtResource("1_qnc0k")
 metadata/_custom_type_script = "uid://d3x3oteco8a5u"
