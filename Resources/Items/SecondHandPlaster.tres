@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WheelItem" format=3 uid="uid://di66g7qdis80l"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_7vbjk"]
+[ext_resource type="Texture2D" uid="uid://d2i5wv0666bbo" path="res://VisualAssets/Items/SecondhandPlaster.png" id="1_tokg0"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_d603u"]
+[ext_resource type="Resource" uid="uid://o2fng7r301q1" path="res://Resources/Slices/Fix.tres" id="4_j8nfo"]
+[ext_resource type="Resource" uid="uid://bq224hmhyl22a" path="res://Resources/Slices/Backfire.tres" id="5_3bmld"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="6_h0xe8"]
+[ext_resource type="Resource" uid="uid://b2ie68edj5k4j" path="res://Resources/Slices/Stall.tres" id="7_o3ef3"]
+
+[resource]
+script = ExtResource("1_7vbjk")
+icon = ExtResource("1_tokg0")
+name = "Second Hand plaster"
+Desc = "Comes pre-scabbed."
+stats = Array[ExtResource("2_d603u")]([ExtResource("4_j8nfo"), ExtResource("5_3bmld"), ExtResource("4_j8nfo"), ExtResource("6_h0xe8"), ExtResource("4_j8nfo"), ExtResource("7_o3ef3"), ExtResource("4_j8nfo"), ExtResource("7_o3ef3"), ExtResource("4_j8nfo")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"

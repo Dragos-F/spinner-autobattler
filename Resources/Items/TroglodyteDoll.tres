@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WheelItem" format=3 uid="uid://d3a8hkq4k62k7"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_kexjs"]
+[ext_resource type="Texture2D" uid="uid://cstdfomg2nbfs" path="res://VisualAssets/Items/TroglodyteDoll.png" id="1_nt707"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_tfnuw"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="4_cvoej"]
+[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="5_1aqto"]
+[ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="6_xsq3c"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="7_f37mx"]
+
+[resource]
+script = ExtResource("1_kexjs")
+icon = ExtResource("1_nt707")
+name = "Unlicensed Troglodyte Doll"
+Desc = "Proudly made in the people's republic of Birmingham"
+stats = Array[ExtResource("2_tfnuw")]([ExtResource("4_cvoej"), ExtResource("5_1aqto"), ExtResource("4_cvoej"), ExtResource("5_1aqto"), ExtResource("4_cvoej"), ExtResource("6_xsq3c"), ExtResource("7_f37mx")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"

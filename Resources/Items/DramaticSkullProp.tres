@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WheelItem" format=3 uid="uid://gaqbe0l841ds"]
+
+[ext_resource type="Texture2D" uid="uid://df232tfjion3e" path="res://VisualAssets/Items/Skull.png" id="1_3m7qh"]
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_huadm"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_jog3y"]
+[ext_resource type="Resource" uid="uid://do72kvdg7yc2d" path="res://Resources/Slices/Jackpot.tres" id="4_7im34"]
+[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="5_24513"]
+[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="6_5ekc3"]
+[ext_resource type="Resource" uid="uid://bq224hmhyl22a" path="res://Resources/Slices/Backfire.tres" id="7_iptkx"]
+[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="8_k0f7e"]
+
+[resource]
+script = ExtResource("1_huadm")
+icon = ExtResource("1_3m7qh")
+name = "Dramatic Skull Prop"
+Desc = "Poor Yorick, I knew him wheel"
+stats = Array[ExtResource("2_jog3y")]([ExtResource("4_7im34"), ExtResource("5_24513"), ExtResource("6_5ekc3"), ExtResource("7_iptkx"), ExtResource("5_24513"), ExtResource("7_iptkx"), ExtResource("8_k0f7e")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"

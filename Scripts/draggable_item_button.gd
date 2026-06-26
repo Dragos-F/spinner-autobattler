@@ -19,6 +19,8 @@ class_name Draggable
 func _ready() -> void:
 	if item.icon !=null:
 		self.icon = item.icon
+		if item.isUpgrade:
+			self.modulate = item.overlay
 	else:
 		self.icon = preload("uid://5j4kojdswfcv")
 	expand_icon = true
@@ -93,6 +95,7 @@ func showToolTip():
 		print("creating tooltip")
 	
 		tooltipObject.item_icon.texture = item.icon
+		tooltipObject.item_icon.modulate = item.overlay
 		tooltipObject.item_name.text = item.name
 		tooltipObject.item_desc.text = item.Desc
 		tooltipObject.item_stats.UpdateWheel(item)
@@ -101,7 +104,7 @@ func showToolTip():
 		#pos = offsetPosition(global_position,pos)
 		tooltipObject.position = pos
 		tooltipObject.visible = true
-	pass
+
 	
 func hideToolTip():
 	if tooltipObject.visible == true:

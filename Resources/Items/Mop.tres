@@ -12,7 +12,7 @@
 script = ExtResource("1_crte3")
 cooldown = 3.7
 icon = ExtResource("1_227n0")
-name = "Mop"
-Desc = "A cleaner's mop"
+name = "Janitor's Mop"
+Desc = "Sturdy, reliable, and still covered in spilt milk."
 stats = Array[ExtResource("2_tg1v3")]([ExtResource("3_f8g5e"), ExtResource("4_227n0"), ExtResource("5_i5jae"), ExtResource("3_f8g5e"), ExtResource("6_plaia")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

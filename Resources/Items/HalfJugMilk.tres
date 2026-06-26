@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WheelItem" format=3 uid="uid://brtnqwbw88g5i"]
+
+[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_1xoly"]
+[ext_resource type="Texture2D" uid="uid://ijyb4y2mshlg" path="res://VisualAssets/Items/MilkJug.png" id="1_l3vy1"]
+[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_4njgj"]
+[ext_resource type="Resource" uid="uid://o2fng7r301q1" path="res://Resources/Slices/Fix.tres" id="4_33cjc"]
+[ext_resource type="Resource" uid="uid://b2ie68edj5k4j" path="res://Resources/Slices/Stall.tres" id="5_cq3m8"]
+[ext_resource type="Resource" uid="uid://duwcyo1w1emwl" path="res://Resources/Slices/Stumble.tres" id="6_yrnk8"]
+
+[resource]
+script = ExtResource("1_1xoly")
+icon = ExtResource("1_l3vy1")
+name = "Half a jug of Milk"
+Desc = "Don't cry"
+stats = Array[ExtResource("2_4njgj")]([ExtResource("4_33cjc"), ExtResource("6_yrnk8"), ExtResource("4_33cjc"), ExtResource("6_yrnk8"), ExtResource("4_33cjc"), ExtResource("5_cq3m8"), ExtResource("4_33cjc"), ExtResource("5_cq3m8")])
+metadata/_custom_type_script = "uid://bgfl1jrent3ce"

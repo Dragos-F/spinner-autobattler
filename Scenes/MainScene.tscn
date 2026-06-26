@@ -27,29 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://2fn7tcw13kmc" path="res://VisualAssets/ContestantImages/Businessman front.png" id="17_hkvke"]
 [ext_resource type="Script" uid="uid://ffjh8wls7qxv" path="res://Scripts/hp_entity.gd" id="18_i0j58"]
 [ext_resource type="Texture2D" uid="uid://qo0ug1w1dfv5" path="res://VisualAssets/square.png" id="19_c1ier"]
-[ext_resource type="Texture2D" uid="uid://cxu8gyqso2h8o" path="res://VisualAssets/Items/Briefcase png.png" id="20_r0vnq"]
-[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="21_c3pre"]
-[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="22_u5v48"]
-[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="23_s1acj"]
-[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="24_t8ijv"]
-[ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="25_rv6c1"]
 [ext_resource type="PackedScene" uid="uid://w2ypqxyaota3" path="res://Scenes/item_tooltip.tscn" id="26_goiu7"]
 [ext_resource type="Script" uid="uid://dqo5ua8abe05n" path="res://Scripts/loot_system.gd" id="28_hkvke"]
-[ext_resource type="Resource" uid="uid://cmbhg20s3hd60" path="res://Resources/Items/Upgrades/HitUpgrade.tres" id="30_20cv7"]
-[ext_resource type="Resource" uid="uid://bbvbi4n331pd6" path="res://Resources/Items/Upgrades/JackpotUpgrade.tres" id="31_ywy86"]
-[ext_resource type="Resource" uid="uid://bfl8hdyxd4jb" path="res://Resources/Items/Upgrades/Jakpot+Backfire.tres" id="32_goiu7"]
-[ext_resource type="Resource" uid="uid://byffoamnotj8x" path="res://Resources/Items/Upgrades/FixUpgrade.tres" id="33_fqfjr"]
-[ext_resource type="Resource" uid="uid://s2e3k01kmiq7" path="res://Resources/Items/Upgrades/StunUpgrade.tres" id="34_oqotn"]
-[ext_resource type="Resource" uid="uid://dnu6e3yksyuqj" path="res://Resources/Items/Upgrades/RushUpgrade.tres" id="35_eebff"]
-[ext_resource type="Resource" uid="uid://dt43087fni3mn" path="res://Resources/Items/Upgrades/StallUpgrade.tres" id="36_qtnps"]
-[ext_resource type="Resource" uid="uid://slf51depicyg" path="res://Resources/Items/Upgrades/Rush+Stumble.tres" id="37_b420t"]
-[ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="43_obop7"]
-[ext_resource type="Resource" uid="uid://bqq1y08oeudxb" path="res://Resources/Items/Magic8Ball.tres" id="44_0gkln"]
-[ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="45_e2ql2"]
-[ext_resource type="Resource" uid="uid://dgt8cegtggtq1" path="res://Resources/Items/PDA.tres" id="46_dn1w2"]
-[ext_resource type="Resource" uid="uid://buptiir3skk3d" path="res://Resources/Items/RubberChicken.tres" id="47_pa4y5"]
-[ext_resource type="Resource" uid="uid://wejnjdkegmbt" path="res://Resources/Items/TShirtCannon.tres" id="48_jnakw"]
-[ext_resource type="Script" uid="uid://c54m0dewh5mfy" path="res://Scripts/loot_pool.gd" id="49_a7b38"]
+[ext_resource type="Resource" uid="uid://bgunobude8skl" path="res://Resources/TemplateLootPool.tres" id="28_s1acj"]
 [ext_resource type="Texture2D" uid="uid://h0087mrh2snf" path="res://VisualAssets/ContestantImages/Businessman back.png" id="50_20cv7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
@@ -162,36 +142,6 @@ corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
-
-[sub_resource type="Resource" id="Resource_w0aut"]
-resource_local_to_scene = true
-script = ExtResource("21_c3pre")
-cooldown = 5.5
-icon = ExtResource("20_r0vnq")
-stats = Array[ExtResource("22_u5v48")]([ExtResource("23_s1acj"), ExtResource("23_s1acj"), ExtResource("23_s1acj"), ExtResource("24_t8ijv"), ExtResource("25_rv6c1")])
-metadata/_custom_type_script = "uid://bgfl1jrent3ce"
-
-[sub_resource type="Resource" id="Resource_1ixrr"]
-resource_local_to_scene = true
-script = ExtResource("49_a7b38")
-LootTable = Dictionary[ExtResource("21_c3pre"), float]({
-ExtResource("30_20cv7"): 1.0,
-ExtResource("31_ywy86"): 0.0,
-ExtResource("32_goiu7"): 1.0,
-ExtResource("33_fqfjr"): 0.0,
-ExtResource("34_oqotn"): 0.0,
-ExtResource("35_eebff"): 0.0,
-ExtResource("36_qtnps"): 0.0,
-ExtResource("37_b420t"): 0.0,
-SubResource("Resource_w0aut"): 0.0,
-ExtResource("43_obop7"): 0.0,
-ExtResource("44_0gkln"): 0.0,
-ExtResource("45_e2ql2"): 1.0,
-ExtResource("46_dn1w2"): 1.0,
-ExtResource("47_pa4y5"): 1.0,
-ExtResource("48_jnakw"): 0.0
-})
-metadata/_custom_type_script = "uid://c54m0dewh5mfy"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tx3ay"]
 bg_color = Color(0.11814, 0.49561566, 0, 1)
@@ -830,10 +780,10 @@ anchor_bottom = 0.48703703
 theme_override_styles/panel = SubResource("StyleBoxFlat_hk511")
 script = ExtResource("28_hkvke")
 option_slots = [NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Loot1/Loot"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot")]
-pool = SubResource("Resource_1ixrr")
+pool = ExtResource("28_s1acj")
 manager = NodePath("../InventoryManager")
 heal_button = NodePath("HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button")
-heal_percent = 100.0
+heal_percent = 10.0
 item_tooltip = NodePath("../ItemTooltip")
 metadata/_edit_use_anchors_ = true
 

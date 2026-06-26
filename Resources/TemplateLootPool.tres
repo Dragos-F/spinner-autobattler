@@ -3,39 +3,64 @@
 [ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_k7lkx"]
 [ext_resource type="Resource" uid="uid://cmbhg20s3hd60" path="res://Resources/Items/Upgrades/HitUpgrade.tres" id="2_63lyl"]
 [ext_resource type="Script" uid="uid://c54m0dewh5mfy" path="res://Scripts/loot_pool.gd" id="2_pk4kf"]
+[ext_resource type="Resource" uid="uid://cexw5rnfgnfa1" path="res://Resources/Items/ColaClassic.tres" id="3_avnie"]
 [ext_resource type="Resource" uid="uid://bbvbi4n331pd6" path="res://Resources/Items/Upgrades/JackpotUpgrade.tres" id="3_kb8ig"]
 [ext_resource type="Resource" uid="uid://bfl8hdyxd4jb" path="res://Resources/Items/Upgrades/Jakpot+Backfire.tres" id="4_ysn2b"]
+[ext_resource type="Resource" uid="uid://gaqbe0l841ds" path="res://Resources/Items/DramaticSkullProp.tres" id="5_4ojbd"]
 [ext_resource type="Resource" uid="uid://byffoamnotj8x" path="res://Resources/Items/Upgrades/FixUpgrade.tres" id="5_f3uy2"]
+[ext_resource type="Resource" uid="uid://be6qda6dloxb7" path="res://Resources/Items/Furby.tres" id="6_n3c0q"]
 [ext_resource type="Resource" uid="uid://s2e3k01kmiq7" path="res://Resources/Items/Upgrades/StunUpgrade.tres" id="6_v1dvi"]
+[ext_resource type="Resource" uid="uid://brtnqwbw88g5i" path="res://Resources/Items/HalfJugMilk.tres" id="7_3vxkf"]
 [ext_resource type="Resource" uid="uid://dnu6e3yksyuqj" path="res://Resources/Items/Upgrades/RushUpgrade.tres" id="7_yqslr"]
+[ext_resource type="Resource" uid="uid://btd2vlds2v2ul" path="res://Resources/Items/JanitorialGradeSoap.tres" id="8_63lyl"]
 [ext_resource type="Resource" uid="uid://dt43087fni3mn" path="res://Resources/Items/Upgrades/StallUpgrade.tres" id="8_gy23i"]
 [ext_resource type="Resource" uid="uid://slf51depicyg" path="res://Resources/Items/Upgrades/Rush+Stumble.tres" id="9_h4drn"]
+[ext_resource type="Resource" uid="uid://cocyuwsotial0" path="res://Resources/Items/JuryDutyCall.tres" id="9_kb8ig"]
 [ext_resource type="Resource" uid="uid://cs26v12em43iy" path="res://Resources/Items/Briefcase.tres" id="10_tswom"]
 [ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="11_ficr7"]
 [ext_resource type="Resource" uid="uid://bqq1y08oeudxb" path="res://Resources/Items/Magic8Ball.tres" id="12_hs7qp"]
+[ext_resource type="Resource" uid="uid://d0kc0itl01jye" path="res://Resources/Items/OldRotaryPhone.tres" id="12_ysn2b"]
 [ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="13_ssndl"]
 [ext_resource type="Resource" uid="uid://dgt8cegtggtq1" path="res://Resources/Items/PDA.tres" id="14_63lyl"]
 [ext_resource type="Resource" uid="uid://buptiir3skk3d" path="res://Resources/Items/RubberChicken.tres" id="15_ita2q"]
+[ext_resource type="Resource" uid="uid://di66g7qdis80l" path="res://Resources/Items/SecondHandPlaster.tres" id="15_m4s27"]
+[ext_resource type="Resource" uid="uid://dpvybxhkaftti" path="res://Resources/Items/ShinyCard.tres" id="16_25e1f"]
 [ext_resource type="Resource" uid="uid://wejnjdkegmbt" path="res://Resources/Items/TShirtCannon.tres" id="16_m4s27"]
+[ext_resource type="Resource" uid="uid://dgoojvdmkm4kl" path="res://Resources/Items/TornPage.tres" id="17_l2q85"]
+[ext_resource type="Resource" uid="uid://d3a8hkq4k62k7" path="res://Resources/Items/TroglodyteDoll.tres" id="18_pgqh4"]
+[ext_resource type="Resource" uid="uid://rsk8stf7d6lf" path="res://Resources/Items/TwoHeadedCoin.tres" id="20_bm6bq"]
+[ext_resource type="Resource" uid="uid://babhyisutaukc" path="res://Resources/Items/WeightLossDrug.tres" id="21_ujsc6"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("2_pk4kf")
 LootTable = Dictionary[ExtResource("1_k7lkx"), float]({
-ExtResource("2_63lyl"): 1.0,
-ExtResource("3_kb8ig"): 0.0,
-ExtResource("4_ysn2b"): 1.0,
-ExtResource("5_f3uy2"): 0.0,
-ExtResource("6_v1dvi"): 0.0,
-ExtResource("7_yqslr"): 0.0,
-ExtResource("8_gy23i"): 0.0,
-ExtResource("9_h4drn"): 0.0,
-ExtResource("10_tswom"): 0.0,
-ExtResource("11_ficr7"): 0.0,
-ExtResource("12_hs7qp"): 0.0,
-ExtResource("13_ssndl"): 1.0,
-ExtResource("14_63lyl"): 1.0,
-ExtResource("15_ita2q"): 1.0,
-ExtResource("16_m4s27"): 0.0
+ExtResource("6_v1dvi"): 5.0,
+ExtResource("8_gy23i"): 5.0,
+ExtResource("9_h4drn"): 5.0,
+ExtResource("7_yqslr"): 5.0,
+ExtResource("4_ysn2b"): 5.0,
+ExtResource("3_kb8ig"): 5.0,
+ExtResource("2_63lyl"): 5.0,
+ExtResource("5_f3uy2"): 5.0,
+ExtResource("21_ujsc6"): 2.5,
+ExtResource("20_bm6bq"): 2.5,
+ExtResource("16_m4s27"): 7.5,
+ExtResource("18_pgqh4"): 2.5,
+ExtResource("17_l2q85"): 2.5,
+ExtResource("16_25e1f"): 2.5,
+ExtResource("15_m4s27"): 2.5,
+ExtResource("15_ita2q"): 7.5,
+ExtResource("14_63lyl"): 7.5,
+ExtResource("12_ysn2b"): 2.5,
+ExtResource("13_ssndl"): 7.5,
+ExtResource("12_hs7qp"): 2.5,
+ExtResource("9_kb8ig"): 2.5,
+ExtResource("8_63lyl"): 2.5,
+ExtResource("7_3vxkf"): 2.5,
+ExtResource("6_n3c0q"): 2.5,
+ExtResource("5_4ojbd"): 2.5,
+ExtResource("11_ficr7"): 7.5,
+ExtResource("3_avnie"): 2.5,
+ExtResource("10_tswom"): 7.5
 })
 metadata/_custom_type_script = "uid://c54m0dewh5mfy"
