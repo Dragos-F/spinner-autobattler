@@ -12,6 +12,5 @@ icon = ExtResource("1_3ds7r")
 name = "Rush & Stumble"
 Desc = "Adds one RUSH and one STUMBLE Slice to your chosen wheel!"
 stats = Array[ExtResource("2_3ds7r")]([ExtResource("3_8q34f"), ExtResource("4_byyum")])
-overlay = Color(1, 1, 1, 1)
 isUpgrade = true
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

@@ -30,6 +30,7 @@ var PreparedToStart = true
 
 @export var ScoreLabel:Label
 
+signal combat_started()
 signal combat_ended()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -107,8 +108,10 @@ var PreparedToContinue=false
 func EnterLootPhase():
 	print("Loot phase")
 	lootSystem.spawn_options()
-
+var CombatActive = false
 func BeginCombat():
+	CombatActive = true
+	combat_started.emit()
 	progressButton.visible = false
 	if PreparedToStart:
 		PreparedToStart = false
@@ -116,17 +119,21 @@ func BeginCombat():
 		return
 	print("begin combat")
 	PreparedToContinue = false
-	if PrimaryEnemySpinner.isSpinning:
+	if PrimaryEnemySpinner.isResetting:
 		print("enemy spinner is mid-reset")
 		await PrimaryEnemySpinner.spinInterruptComplete
 		print("...enemy spinner interrupt is complete")
-	PrimaryEnemySpinner.canBeStarted = true
-	PrimaryEnemySpinner.random_spin()
 	for spinnr in combatManager.PlayerSpinners:
 		if spinnr.isResetting:
+			print("COMBAT: spinnr is resetting, waiting")
 			await spinnr.spinInterruptComplete
+			print("COMBAT: spinnr reset, proceeding")
+			
 		spinnr.canBeStarted = true
 		spinnr.random_spin()
+		
+	PrimaryEnemySpinner.canBeStarted = true
+	PrimaryEnemySpinner.random_spin()
 
 func _listener_entityDied(he:HealthEntity):
 	print("entitydied")
@@ -138,6 +145,7 @@ func _listener_entityDied(he:HealthEntity):
 		PrimaryEnemySpinner.InterruptSpin()
 		EnemyDisplay.modulate = Color.from_hsv(0,0,0.2)
 		combat_ended.emit()
+		CombatActive = false
 		GameProgressProcedure()
 	elif he == combatManager.PlayerEntity:
 		print("player has been killed")

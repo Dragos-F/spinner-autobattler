@@ -43,7 +43,7 @@ func random_spin():
 	isSpinning = true
 	var testRand = randf()
 	print("RANDOM SPIN!!!!")
-	print("randomspin: "+str(testRand))
+	#print("randomspin: "+str(testRand))
 	spintween = get_tree().create_tween()
 	spintween.set_ease(Tween.EASE_OUT)
 	spintween.tween_property(self, "rotation", rotation+6*PI+testRand*2*PI, SpinTime*TimeCoefficient).set_trans(Tween.TRANS_QUART).set_delay(0.3*TimeCoefficient)
@@ -53,8 +53,10 @@ func random_spin():
 	if canBeStarted:
 		var pickedslice = test_clicker.select_slice()
 		sliceselected.emit(pickedslice,name)
+	print("resetting after random spin")
 	reset_spin()
 
+	
 var isResetting = false
 func reset_spin():
 	if canBeStarted == false:
@@ -77,7 +79,7 @@ func reset_spin():
 		resettween.tween_property(self, "modulate", Color.WHITE, colourtweentime)
 		resettween.tween_callback(random_spin)
 	isResetting = false
-		
+	
 var isSpinning = false
 func _input(event):
 	if event is InputEventKey and event.pressed and !event.is_echo():
@@ -98,8 +100,14 @@ func InterruptSpin(): # Kill any spin that is underway, and maybe leave it alone
 	elif isSpinning:
 		print("spinning, but not resetting")
 		spintween.kill()
-		reset_spin()
-		await resettween.finished
+		isResetting = true
+		var manualresettween = get_tree().create_tween()
+		#reset_spin()
+		var colourtweentime = 0.1*TimeCoefficient
+		manualresettween.tween_property(self, "rotation", 0, (ResetTime)*TimeCoefficient).set_trans(Tween.TRANS_SINE)
+		manualresettween.tween_property(self, "modulate", Color.from_hsv(0,0,0.3), colourtweentime)
+		await manualresettween.finished
+		print("manual reset finished")
 		isResetting = false
 		spinInterruptComplete.emit()
 		
