@@ -810,6 +810,7 @@ item = null
 
 [node name="LootSystem" type="PanelContainer" parent="." unique_id=1101095401 node_paths=PackedStringArray("option_slots", "manager", "heal_button")]
 unique_name_in_owner = true
+visible = false
 anchors_preset = -1
 anchor_left = 0.33489582
 anchor_top = 0.033333335
@@ -820,7 +821,7 @@ script = ExtResource("28_hkvke")
 option_slots = [NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Loot1/Loot"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot")]
 pool = SubResource("Resource_1ixrr")
 manager = NodePath("../InventoryManager")
-heal_button = NodePath("HBoxContainer/VBoxContainer/V Box Container/Control2/Button")
+heal_button = NodePath("HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button")
 heal_percent = 100.0
 metadata/_edit_use_anchors_ = true
 
@@ -1015,11 +1016,11 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 theme_override_constants/separation = -54
 
-[node name="Control" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container" unique_id=1201860661]
+[node name="Skip" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container" unique_id=1201860661]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Control" unique_id=2095076613]
+[node name="Button" type="Button" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Skip" unique_id=2095076613]
 custom_minimum_size = Vector2(120, 150)
 custom_maximum_size = Vector2(120, 150)
 layout_mode = 1
@@ -1040,11 +1041,11 @@ theme_override_font_sizes/font_size = 38
 text = "Skip
 Loot"
 
-[node name="Control2" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container" unique_id=76995524]
+[node name="Heal&Skip" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container" unique_id=76995524]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Control2" unique_id=1692333382]
+[node name="Button" type="Button" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip" unique_id=1692333382]
 visible = false
 custom_minimum_size = Vector2(120, 150)
 custom_maximum_size = Vector2(120, 150)
@@ -1109,8 +1110,9 @@ anchor_pos = NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Cont
 [connection signal="mouse_exited" from="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot/PanelContainer3" to="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot2/Loot" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" to="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot/PanelContainer3" to="LootSystem/HBoxContainer/VBoxContainer/HBoxContainer/Loot3/Loot" method="_on_mouse_exited"]
-[connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Control/Button" to="LootSystem" method="_on_skip_loot_pressed"]
-[connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Control2/Button" to="LootSystem" method="_on_skip_loot_pressed"]
+[connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Skip/Button" to="LootSystem" method="_on_skip_loot_pressed"]
+[connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="CombatManager" method="_on_heal_skip_pressed"]
+[connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="LootSystem" method="_on_skip_loot_pressed"]
 [connection signal="pressed" from="GenerateLoot" to="LootSystem" method="spawn_options"]
 
 [editable path="EnemyWheelBundle"]

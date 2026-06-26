@@ -74,3 +74,7 @@ func StunWheelInSet(wheelSet:Array[Spinner],count:int):
 		return
 	var randomwheel = activeWheelSet.pick_random()
 	randomwheel.wheel.DisableRandomSlices(count,10)
+
+
+func _on_heal_skip_pressed() -> void:
+	PlayerEntity.changehealth(100)

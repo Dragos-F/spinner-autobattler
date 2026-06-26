@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="WheelItem" format=3 uid="uid://dt43087fni3mn"]
 
+[ext_resource type="Texture2D" uid="uid://bvljxc7ggutm1" path="res://VisualAssets/UpgradeDiamondNoStar.png" id="1_cio8d"]
 [ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="1_qfre1"]
 [ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="2_aphpo"]
 [ext_resource type="Resource" uid="uid://b2ie68edj5k4j" path="res://Resources/Slices/Stall.tres" id="3_aphpo"]
 
 [resource]
 script = ExtResource("1_qfre1")
+icon = ExtResource("1_cio8d")
 stats = Array[ExtResource("2_aphpo")]([ExtResource("3_aphpo")])
 isUpgrade = true
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"
