@@ -7,10 +7,13 @@ extends Node
 @export var DemoWheel:Wheel
 @export var item_drag:Draggable
 @export var inv:InvManager
+@export var pagemusic:AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	item_drag.manager = inv
+	AudioBrain.music.stream = pagemusic
+	AudioBrain.music.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

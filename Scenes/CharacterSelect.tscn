@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://be5xkaakqxk2r"]
 
 [ext_resource type="StyleBox" uid="uid://babd65cqgfcib" path="res://Resources/ui_box.tres" id="2_1vrd3"]
+[ext_resource type="AudioStream" uid="uid://bt6t7g6r0sklh" path="res://Sound/music/music_quiz_show_tension_bed_build_to_end_long_by_zapsplat.mp3" id="2_7k1nr"]
 [ext_resource type="Script" uid="uid://b4k33yenv5yb6" path="res://Scripts/inventory_manager.gd" id="2_ecks3"]
 [ext_resource type="Texture2D" uid="uid://bsqg8fpj5100w" path="res://VisualAssets/MrBlobby2.png" id="3_v54mg"]
 [ext_resource type="Texture2D" uid="uid://vh2wgiocoigr" path="res://VisualAssets/ItemFrame.png" id="5_q71hc"]
@@ -80,7 +81,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_ecks3"]
+[sub_resource type="Resource" id="Resource_nrvwe"]
 resource_local_to_scene = true
 script = ExtResource("17_ryx1e")
 cooldown = 5.5
@@ -118,6 +119,7 @@ CharName = NodePath("../UIParent/ContestantStatDisplay/NameLabel")
 CharDesc = NodePath("../UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Contestant Text/Control/Label")
 item_drag = NodePath("../Draggable")
 inv = NodePath("../InventoryManager")
+pagemusic = ExtResource("2_7k1nr")
 
 [node name="InventoryManager" type="Node" parent="." unique_id=1415567330 node_paths=PackedStringArray("slots", "wheels")]
 unique_name_in_owner = true
@@ -482,7 +484,7 @@ DisplayName = "Rory Schmew"
 Description = "Mattress retailer association - Salesman of the Year. Rory carries his briefcase everywhere, ready to close a deal at any time."
 CharFront = ExtResource("14_w2oxx")
 CharBack = ExtResource("15_r351o")
-StartingItem = SubResource("Resource_ecks3")
+StartingItem = SubResource("Resource_nrvwe")
 preview = NodePath("../../../../../Draggable")
 bitmapImage = ExtResource("9_r351o")
 
@@ -930,16 +932,16 @@ texture = ExtResource("53_nrvwe")
 [connection signal="pressed" from="UIParent/CharacterSelectPanel/Panel/Control/Blank2/CharacterTriangle_inner" to="CharSelectBrain" method="_on_GO_pressed"]
 [connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@26193/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26193/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@26193/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26193/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@26194/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26194/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@26194/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26194/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@26195/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26195/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@26195/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26195/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@26196/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26196/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@26196/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26196/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@26197/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26197/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@26197/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26197/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@54732/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@54732/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@54732/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@54732/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@54733/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@54733/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@54733/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@54733/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@54734/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@54734/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@54734/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@54734/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@54735/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@54735/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@54735/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@54735/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@54736/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@54736/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@54736/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@54736/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="pressed" from="TutorialWindow/Control/Button" to="UIParent/CharacterSelectPanel/Panel/Control/Tutorial" method="_on_button_pressed"]
 
 [editable path="UIParent/CharacterSelectPanel/Panel/Control/Tutorial"]
