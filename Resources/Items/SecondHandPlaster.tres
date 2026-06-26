@@ -10,6 +10,7 @@
 
 [resource]
 script = ExtResource("1_7vbjk")
+cooldown = 5.2
 icon = ExtResource("1_tokg0")
 name = "Second Hand plaster"
 Desc = "Comes pre-scabbed."

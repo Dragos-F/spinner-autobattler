@@ -10,6 +10,7 @@
 
 [resource]
 script = ExtResource("1_kexjs")
+cooldown = 5.6
 icon = ExtResource("1_nt707")
 name = "Unlicensed Troglodyte Doll"
 Desc = "Proudly made in the people's republic of Birmingham"

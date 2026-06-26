@@ -9,6 +9,7 @@
 
 [resource]
 script = ExtResource("1_mj764")
+cooldown = 4.0
 icon = ExtResource("1_ylrhk")
 name = "Furh-Bo"
 Desc = "HE is descended among the people."

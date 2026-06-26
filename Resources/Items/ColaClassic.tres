@@ -8,6 +8,7 @@
 
 [resource]
 script = ExtResource("1_x1xmq")
+cooldown = 6.0
 icon = ExtResource("1_yrxn4")
 name = "Cola Classic"
 Desc = "Surprisingly strong kick. What do they put in this thing?"

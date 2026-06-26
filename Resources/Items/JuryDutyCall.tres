@@ -9,6 +9,7 @@
 
 [resource]
 script = ExtResource("1_v2d8n")
+cooldown = 8.0
 icon = ExtResource("1_2os21")
 name = "Legal Call for Jury Duty"
 Desc = "Tragically you plan on being very ill in the near future..."

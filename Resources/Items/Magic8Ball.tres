@@ -14,7 +14,7 @@
 
 [resource]
 script = ExtResource("1_2mle5")
-cooldown = 4.0
+cooldown = 5.0
 icon = ExtResource("1_fcba5")
 name = "Magic 8Ball"
 Desc = "Shake to recieve fortune... Results may vary."

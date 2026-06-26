@@ -27,27 +27,29 @@
 [ext_resource type="Texture2D" uid="uid://2fn7tcw13kmc" path="res://VisualAssets/ContestantImages/Businessman front.png" id="17_hkvke"]
 [ext_resource type="Script" uid="uid://ffjh8wls7qxv" path="res://Scripts/hp_entity.gd" id="18_i0j58"]
 [ext_resource type="Texture2D" uid="uid://qo0ug1w1dfv5" path="res://VisualAssets/square.png" id="19_c1ier"]
+[ext_resource type="Texture2D" uid="uid://vh2wgiocoigr" path="res://VisualAssets/ItemFrame.png" id="19_t8ijv"]
+[ext_resource type="FontFile" uid="uid://bygmfxwejtu7l" path="res://VisualAssets/Fonts/Wowsers.ttf" id="20_rv6c1"]
 [ext_resource type="PackedScene" uid="uid://w2ypqxyaota3" path="res://Scenes/item_tooltip.tscn" id="26_goiu7"]
 [ext_resource type="Script" uid="uid://dqo5ua8abe05n" path="res://Scripts/loot_system.gd" id="28_hkvke"]
 [ext_resource type="Resource" uid="uid://bgunobude8skl" path="res://Resources/TemplateLootPool.tres" id="28_s1acj"]
+[ext_resource type="Texture2D" uid="uid://ovtvre3ci43m" path="res://VisualAssets/SkipButton.png" id="31_dtg5n"]
 [ext_resource type="Texture2D" uid="uid://h0087mrh2snf" path="res://VisualAssets/ContestantImages/Businessman back.png" id="50_20cv7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk511"]
 texture = ExtResource("1_7rqgy")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alkp7"]
-bg_color = Color(0.5882353, 0.25882354, 0.3254902, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mw652"]
+texture = ExtResource("19_t8ijv")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywy86"]
-bg_color = Color(0.05937701, 0, 0.3772384, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7e516"]
+texture = ExtResource("19_t8ijv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4yyyl"]
+texture = ExtResource("19_t8ijv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rv6c1"]
+texture = ExtResource("19_t8ijv")
+modulate_color = Color(0.29411766, 0.35686275, 0.67058825, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntio1"]
 texture = ExtResource("2_qxria")
@@ -332,19 +334,20 @@ anchor_left = 17.8
 anchor_top = 6.775
 anchor_right = 18.768
 anchor_bottom = 7.7574563
-offset_left = -2225.0
+offset_left = -2231.0
 offset_top = -772.35004
 offset_right = -2225.0
-offset_bottom = -772.35004
+offset_bottom = -767.35004
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_alkp7")
+theme_override_styles/panel = SubResource("StyleBoxTexture_mw652")
 
 [node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control1/PanelContainer3" unique_id=262872461]
 layout_mode = 2
 mouse_filter = 1
-text = "Slot1"
+theme_override_fonts/font = ExtResource("20_rv6c1")
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -374,17 +377,18 @@ anchor_right = 18.768
 anchor_bottom = 7.7574563
 offset_left = -2225.0
 offset_top = -772.35004
-offset_right = -2225.0
-offset_bottom = -772.35004
+offset_right = -2219.0
+offset_bottom = -767.35004
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_alkp7")
+theme_override_styles/panel = SubResource("StyleBoxTexture_7e516")
 
 [node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control2/PanelContainer3" unique_id=1750176849]
 layout_mode = 2
 mouse_filter = 1
-text = "Slot2"
+theme_override_fonts/font = ExtResource("20_rv6c1")
+text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -409,23 +413,24 @@ z_index = -5
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 17.8
-anchor_top = 6.775
+anchor_top = 6.7737064
 anchor_right = 18.768
-anchor_bottom = 7.7574563
+anchor_bottom = 7.756163
 offset_left = -2225.0
 offset_top = -772.35004
-offset_right = -2225.0
-offset_bottom = -772.35004
+offset_right = -2219.0
+offset_bottom = -767.35004
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_alkp7")
+theme_override_styles/panel = SubResource("StyleBoxTexture_4yyyl")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control3/PanelContainer3" unique_id=1629889219]
 layout_mode = 2
 mouse_filter = 1
-text = "Slot3"
+theme_override_fonts/font = ExtResource("20_rv6c1")
+text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -454,17 +459,18 @@ anchor_right = 18.768
 anchor_bottom = 7.7574563
 offset_left = -2225.0
 offset_top = -772.35004
-offset_right = -2225.0
-offset_bottom = -772.35004
+offset_right = -2219.0
+offset_bottom = -767.35004
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_ywy86")
+theme_override_styles/panel = SubResource("StyleBoxTexture_rv6c1")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" unique_id=870238316]
 layout_mode = 2
 mouse_filter = 1
+theme_override_fonts/font = ExtResource("20_rv6c1")
 text = "BIN"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -771,7 +777,6 @@ item = null
 
 [node name="LootSystem" type="PanelContainer" parent="." unique_id=1101095401 node_paths=PackedStringArray("option_slots", "manager", "heal_button", "item_tooltip")]
 unique_name_in_owner = true
-visible = false
 anchors_preset = -1
 anchor_left = 0.33489582
 anchor_top = 0.033333335
@@ -1000,8 +1005,8 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 38
-text = "Skip
-Loot"
+icon = ExtResource("31_dtg5n")
+expand_icon = true
 
 [node name="Heal&Skip" type="Control" parent="LootSystem/HBoxContainer/VBoxContainer/V Box Container" unique_id=76995524]
 layout_mode = 2

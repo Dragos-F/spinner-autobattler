@@ -10,6 +10,7 @@
 
 [resource]
 script = ExtResource("1_a0qtv")
+cooldown = 6.6
 icon = ExtResource("1_7bi1r")
 name = "Old Rotary Phone Landline"
 Desc = "The Switchboard Operator has determined your call to be hostile."

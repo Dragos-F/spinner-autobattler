@@ -11,6 +11,7 @@
 
 [resource]
 script = ExtResource("1_huadm")
+cooldown = 5.5
 icon = ExtResource("1_3m7qh")
 name = "Dramatic Skull Prop"
 Desc = "Poor Yorick, I knew him wheel"

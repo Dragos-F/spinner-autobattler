@@ -9,6 +9,7 @@
 
 [resource]
 script = ExtResource("1_1xoly")
+cooldown = 6.5
 icon = ExtResource("1_l3vy1")
 name = "Half a jug of Milk"
 Desc = "Don't cry"

@@ -8,6 +8,7 @@
 
 [resource]
 script = ExtResource("1_pt0st")
+cooldown = 6.0
 icon = ExtResource("1_bqetg")
 name = "Collectors Edition Shiny Card"
 Desc = "The only investment less stable than crypto"

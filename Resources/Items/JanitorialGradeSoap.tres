@@ -9,6 +9,7 @@
 
 [resource]
 script = ExtResource("1_g3d8v")
+cooldown = 5.5
 icon = ExtResource("1_vk6xy")
 name = "Janitorial grade soap"
 Desc = "Clean the skin right off of your hands! (Wear gloves)"

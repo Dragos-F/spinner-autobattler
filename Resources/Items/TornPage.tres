@@ -10,6 +10,7 @@
 
 [resource]
 script = ExtResource("1_ra8ja")
+cooldown = 4.5
 icon = ExtResource("1_8wlsc")
 name = "Torn Page"
 Desc = "Great, now you only need the other 93 pages! 1/93 found, good work! "
