@@ -21,6 +21,7 @@ Description:String,
 CharFront:Texture2D,
 CharBack:Texture2D,
 item:WheelItem,)
+@export var preview:Draggable
 
 var once:bool = true
 @export var own_button:TextureButton
@@ -57,4 +58,5 @@ func _on_mouse_exited() -> void:
 
 
 func _on_pressed() -> void:
+	preview.hideToolTip()
 	selected.emit(Starter,DisplayName,Description,CharFront,CharBack,StartingItem)

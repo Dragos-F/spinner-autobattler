@@ -11,6 +11,7 @@ class_name Draggable
 @onready var manager:InvManager
 @onready var once:bool = true
 @onready var reset:bool = true
+@export var demo_item:bool = false
 
 
 @export var tooltipObject:ItemTooltip
@@ -28,7 +29,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if dragging:
+	if dragging && !demo_item:
 		hold_time_delta+=delta
 	if hold_time_delta>0.2:
 		if once:
@@ -102,7 +103,8 @@ func showToolTip():
 		var camera = get_viewport().get_camera_2d()
 		var pos: Vector2 = camera.global_position
 		#pos = offsetPosition(global_position,pos)
-		tooltipObject.position = pos
+		if !demo_item:
+			tooltipObject.position = pos
 		tooltipObject.visible = true
 
 	

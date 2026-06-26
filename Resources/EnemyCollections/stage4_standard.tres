@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyCollection" format=3 uid="uid://4u0wvok7lsb3"]
 
 [ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="1_6usyv"]
+[ext_resource type="Texture2D" uid="uid://cvvlmutlvck8b" path="res://VisualAssets/Backgrounds/ChannelBack8.png" id="1_ij1oh"]
 [ext_resource type="Resource" uid="uid://vu4v3x4wvkp" path="res://Resources/Enemies/Light_Rig.tres" id="2_6usyv"]
 [ext_resource type="Resource" uid="uid://bj6y1pjglbwlr" path="res://Resources/Enemies/Wandering_Headphones.tres" id="3_6usyv"]
 [ext_resource type="Resource" uid="uid://f1p7wvp4pfl8" path="res://Resources/Enemies/Tired_PA.tres" id="4_6usyv"]
@@ -10,4 +11,5 @@
 script = ExtResource("5_f6653")
 CollectionName = "Stage5 Standard"
 Contents = Array[ExtResource("1_6usyv")]([ExtResource("2_6usyv"), ExtResource("3_6usyv"), ExtResource("4_6usyv")])
+Background = ExtResource("1_ij1oh")
 metadata/_custom_type_script = "uid://crtclueovnj4u"

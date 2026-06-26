@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyCollection" format=3 uid="uid://ckhxg62ynqs6n"]
 
+[ext_resource type="Texture2D" uid="uid://c6tuy1r5nf1xd" path="res://VisualAssets/Backgrounds/ChannelBack 3.png" id="1_6cb3s"]
 [ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="1_tybg3"]
 [ext_resource type="Resource" uid="uid://du6p6atctqhl6" path="res://Resources/Enemies/Golfcart.tres" id="2_s0731"]
 [ext_resource type="Resource" uid="uid://b10dnyx8xqf88" path="res://Resources/Enemies/Holiday.tres" id="3_tocam"]
@@ -10,4 +11,5 @@
 script = ExtResource("5_kqnlw")
 CollectionName = "Stage2 Standard"
 Contents = Array[ExtResource("1_tybg3")]([ExtResource("2_s0731"), ExtResource("3_tocam"), ExtResource("4_bw0xo")])
+Background = ExtResource("1_6cb3s")
 metadata/_custom_type_script = "uid://crtclueovnj4u"

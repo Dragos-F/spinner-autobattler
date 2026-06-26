@@ -5,12 +5,12 @@ extends Node
 @export var CharName:Label
 @export var CharDesc:Label
 @export var DemoWheel:Wheel
-
-
+@export var item_drag:Draggable
+@export var inv:InvManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	item_drag.manager = inv
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,15 +23,17 @@ func show_selected_starter(starter:int, display_name:String, Description:String,
 	CharBack.texture = char_back
 	CharName.text = display_name
 	CharDesc.text = Description
-	DemoWheel.item = item
-	DemoWheel.UpdateWheel(item)
+	#DemoWheel.item = item
+	item_drag.item = item
+	item_drag.icon = item.icon
+	#DemoWheel.UpdateWheel(item)
 
 
 func _on_GO_pressed() -> void:
 	GlobalChar.char_front=CharFront.texture
 	GlobalChar.char_back=CharBack.texture
 	GlobalChar.char_name = CharName.text
-	GlobalChar.starting_item = DemoWheel.item
+	GlobalChar.starting_item = item_drag.item
 	Fader.FadeUp("")
 	await Fader.fade_finished
 	get_tree().change_scene_to_file("res://Scenes/MainScene.tscn")

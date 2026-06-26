@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyCollection" format=3 uid="uid://c1uy66okaf72m"]
 
+[ext_resource type="Texture2D" uid="uid://csb3w0a25vcn" path="res://VisualAssets/Backgrounds/ChannelBack 2.png" id="1_g5wws"]
 [ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="1_udbkm"]
 [ext_resource type="Resource" uid="uid://cb18a0eqfgbf8" path="res://Resources/Enemies/Microwave_Sofa.tres" id="2_q88fq"]
 [ext_resource type="Resource" uid="uid://c4r8x77mx7qc8" path="res://Resources/Enemies/Bath_Hairdryer.tres" id="5_78dh1"]
@@ -9,4 +10,5 @@
 script = ExtResource("6_bxkit")
 CollectionName = "Stage1 Standard"
 Contents = Array[ExtResource("1_udbkm")]([ExtResource("2_q88fq"), ExtResource("5_78dh1")])
+Background = ExtResource("1_g5wws")
 metadata/_custom_type_script = "uid://crtclueovnj4u"

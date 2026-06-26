@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyCollection" format=3 uid="uid://jpfekj7awrk1"]
 
+[ext_resource type="Texture2D" uid="uid://b8ehqdain7ba7" path="res://VisualAssets/Backgrounds/ChannelBack9.png" id="1_enxtp"]
 [ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="1_yf7cc"]
 [ext_resource type="Resource" uid="uid://bdltvpvrkugsy" path="res://Resources/Enemies/Regional_Spinoffs.tres" id="2_yf7cc"]
 [ext_resource type="Resource" uid="uid://csiph2p1scuk2" path="res://Resources/Enemies/Christmas_DLC.tres" id="3_yf7cc"]
@@ -10,4 +11,5 @@
 script = ExtResource("5_rx8ct")
 CollectionName = "Stage5 Standard"
 Contents = Array[ExtResource("1_yf7cc")]([ExtResource("2_yf7cc"), ExtResource("3_yf7cc"), ExtResource("4_yf7cc")])
+Background = ExtResource("1_enxtp")
 metadata/_custom_type_script = "uid://crtclueovnj4u"

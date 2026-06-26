@@ -168,7 +168,7 @@ EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/EnemyDescriptionText")
 EnemyHPSystem = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
-BackgroundImage = NodePath("../UIParent/CenterPlayArea/BackgroundImage")
+BackgroundImage = NodePath("../UIParent/CenterPlayArea/Control/BackgroundImage")
 EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("4_i0j58"), ExtResource("5_p5ymy"), ExtResource("8_dtg5n"), ExtResource("7_wmecs"), ExtResource("6_3va76"), ExtResource("9_d0jji"), ExtResource("10_cotnl"), ExtResource("11_ypccg"), ExtResource("12_rmfi2"), ExtResource("13_sl126")])
 EnemyCollectionBounds = Array[Vector2]([Vector2(0, 2), Vector2(3, 3), Vector2(4, 6), Vector2(7, 7), Vector2(8, 10), Vector2(11, 11), Vector2(12, 14), Vector2(15, 15), Vector2(16, 18), Vector2(19, 19)])
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
@@ -227,16 +227,6 @@ offset_right = 320.0
 offset_bottom = 270.0
 mouse_filter = 1
 theme_override_styles/panel = ExtResource("2_y4jh7")
-
-[node name="Label" type="Label" parent="UIParent/PortraitBox" unique_id=2061095971]
-layout_mode = 2
-offset_transform_position = Vector2(-25, 0)
-theme_override_font_sizes/font_size = 32
-text = "Space to start, once
-an enemy is dead
-press G to load the
-next stage (debug)
-~ J"
 
 [node name="Control" type="Control" parent="UIParent/PortraitBox" unique_id=798666459]
 clip_contents = true
@@ -528,11 +518,19 @@ offset_bottom = 1068.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ntio1")
 
-[node name="BackgroundImage" type="TextureRect" parent="UIParent/CenterPlayArea" unique_id=1953118297]
+[node name="Control" type="Control" parent="UIParent/CenterPlayArea" unique_id=179852154]
+clip_contents = true
+anchors_preset = 0
+offset_right = 1256.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="BackgroundImage" type="TextureRect" parent="UIParent/CenterPlayArea/Control" unique_id=1953118297]
 layout_mode = 0
 offset_left = -336.0
 offset_right = 1584.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("2_qxria")
 
 [node name="EnemyImage" type="TextureRect" parent="UIParent/CenterPlayArea" unique_id=923369979]
@@ -1076,6 +1074,9 @@ offset_top = -480.0
 offset_right = -960.0
 offset_bottom = -480.0
 
+[node name="StatWheel" parent="ItemTooltip" index="1" unique_id=2047788086]
+z_as_relative = true
+
 [connection signal="combat_ended" from="GameManager" to="PlayerWheels/PlayerWheel1/SpinControl" method="InterruptSpin"]
 [connection signal="combat_ended" from="GameManager" to="PlayerWheels/PlayerWheel2/SpinControl" method="InterruptSpin"]
 [connection signal="combat_ended" from="GameManager" to="PlayerWheels/PlayerWheel3/SpinControl" method="InterruptSpin"]
@@ -1105,8 +1106,19 @@ offset_bottom = -480.0
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="CombatManager" method="_on_heal_skip_pressed"]
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="LootSystem" method="_on_skip_loot_pressed"]
 [connection signal="pressed" from="GenerateLoot" to="LootSystem" method="spawn_options"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@1661165/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1661165/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@1661165/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1661165/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@1661166/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1661166/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@1661166/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1661166/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@1661167/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1661167/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@1661167/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1661167/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@1661168/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1661168/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@1661168/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1661168/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@1661169/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1661169/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@1661169/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1661169/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="EnemyWheelBundle"]
 [editable path="PlayerWheels/PlayerWheel1"]
 [editable path="PlayerWheels/PlayerWheel2"]
 [editable path="PlayerWheels/PlayerWheel3"]
+[editable path="ItemTooltip"]

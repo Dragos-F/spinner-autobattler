@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://1oacnpf81nq3"]
+
+[ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="1_8uh7m"]
+[ext_resource type="Texture2D" uid="uid://gc2g2ordq3hy" path="res://VisualAssets/CoverImage2.png" id="2_6uqi0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8uh7m"]
+shader = ExtResource("1_8uh7m")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.400000019
+shader_parameter/warp_amount = 0.070000003325
+shader_parameter/vignette_amount = 0.5
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.10000000475
+shader_parameter/brightness_boost = 1.2
+
+[node name="Node" type="Node" unique_id=330746657]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1017537232]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1058464363]
+material = SubResource("ShaderMaterial_8uh7m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CoverImage2" type="Sprite2D" parent="." unique_id=1668577245]
+position = Vector2(945, 542)
+scale = Vector2(2.2875001, 2.2875001)
+texture = ExtResource("2_6uqi0")

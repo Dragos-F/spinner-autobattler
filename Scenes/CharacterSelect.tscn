@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://be5xkaakqxk2r"]
 
 [ext_resource type="StyleBox" uid="uid://babd65cqgfcib" path="res://Resources/ui_box.tres" id="2_1vrd3"]
+[ext_resource type="Script" uid="uid://b4k33yenv5yb6" path="res://Scripts/inventory_manager.gd" id="2_ecks3"]
 [ext_resource type="Texture2D" uid="uid://bsqg8fpj5100w" path="res://VisualAssets/MrBlobby2.png" id="3_v54mg"]
+[ext_resource type="Texture2D" uid="uid://vh2wgiocoigr" path="res://VisualAssets/ItemFrame.png" id="5_q71hc"]
 [ext_resource type="FontFile" uid="uid://pjw6d5hyiwtb" path="res://VisualAssets/Fonts/Super Tasty.ttf" id="5_v54mg"]
+[ext_resource type="Script" uid="uid://df1pnvhe64lch" path="res://Scripts/item_slot.gd" id="6_ecks3"]
 [ext_resource type="Texture2D" uid="uid://cb0wxmew1otp4" path="res://VisualAssets/Background_VaporwaveBoss.png" id="6_l51cq"]
 [ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_7f0fy"]
 [ext_resource type="FontFile" uid="uid://cwlp8jtifi1m" path="res://VisualAssets/Fonts/Casual Softcore.otf" id="7_20b7b"]
+[ext_resource type="PackedScene" uid="uid://dvm8eqmaaxrye" path="res://Scenes/draggable_item.tscn" id="7_qsv4i"]
 [ext_resource type="PackedScene" uid="uid://ff8rxnbt4dre" path="res://Scenes/character_triangle.tscn" id="8_a85h0"]
 [ext_resource type="LabelSettings" uid="uid://0sftpb7dnv7v" path="res://VisualAssets/Fonts/new_label_settings.tres" id="8_yhlds"]
 [ext_resource type="Texture2D" uid="uid://bm6be32udl0hk" path="res://VisualAssets/UI_mockup_4.png" id="9_7b7lq"]
@@ -15,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bhudmdcndp62p" path="res://VisualAssets/QuestionMark2.png" id="10_m1cwc"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="11_a1635"]
 [ext_resource type="Texture2D" uid="uid://bmihmwcadbej7" path="res://VisualAssets/ContestantImages/Darts player png.png" id="11_ticr3"]
+[ext_resource type="Script" uid="uid://d121dyuv6yb26" path="res://Scripts/tutorial_brain.gd" id="12_qsv4i"]
 [ext_resource type="Texture2D" uid="uid://ce3hocxh3jrko" path="res://VisualAssets/ContestantImages/Darts player back.png" id="12_v54mg"]
 [ext_resource type="Resource" uid="uid://dgt8cegtggtq1" path="res://Resources/Items/PDA.tres" id="13_7f0fy"]
 [ext_resource type="Texture2D" uid="uid://ba2pfbdligcgj" path="res://VisualAssets/ContestantImages/Businessman_front.png" id="14_w2oxx"]
@@ -42,6 +47,10 @@
 [ext_resource type="Texture2D" uid="uid://bh8g1xuv81mfl" path="res://VisualAssets/GO_button_png.png" id="26_ticr3"]
 [ext_resource type="Script" uid="uid://dquuvug3b1rd5" path="res://Scripts/go_triangle_button.gd" id="29_m1cwc"]
 [ext_resource type="PackedScene" uid="uid://c2q8wvvn4hjw8" path="res://Scenes/tooltip.tscn" id="32_cp58y"]
+[ext_resource type="Script" uid="uid://btiq6slfj2f3u" path="res://Scripts/item_tooltip.gd" id="43_03pvy"]
+[ext_resource type="Texture2D" uid="uid://ydsh37r3x6l8" path="res://VisualAssets/ItemOverlay.png" id="44_wpjqi"]
+[ext_resource type="Texture2D" uid="uid://brqxyclrmgs66" path="res://VisualAssets/Items/RubberChicken png.png" id="45_nrvwe"]
+[ext_resource type="FontFile" uid="uid://bygmfxwejtu7l" path="res://VisualAssets/Fonts/Wowsers.ttf" id="46_7k1nr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2oxx"]
 bg_color = Color(0.29411766, 0.35686275, 0.67058825, 1)
@@ -49,12 +58,8 @@ bg_color = Color(0.29411766, 0.35686275, 0.67058825, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2oxx"]
 texture = ExtResource("3_v54mg")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7rkf"]
-bg_color = Color(0.5882353, 0.25882354, 0.3254902, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cotnl"]
+texture = ExtResource("5_q71hc")
 
 [sub_resource type="LabelSettings" id="LabelSettings_chypt"]
 font = ExtResource("7_20b7b")
@@ -72,13 +77,16 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_7nm4y"]
+[sub_resource type="Resource" id="Resource_ecks3"]
 resource_local_to_scene = true
 script = ExtResource("17_ryx1e")
 cooldown = 5.5
 icon = ExtResource("16_4qs42")
 stats = Array[ExtResource("18_2nxch")]([ExtResource("19_xx6s5"), ExtResource("19_xx6s5"), ExtResource("19_xx6s5"), ExtResource("20_t50vj"), ExtResource("21_oxb2a")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1g7yp"]
+texture = ExtResource("44_wpjqi")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0iob3"]
 shader = ExtResource("11_a1635")
@@ -90,18 +98,31 @@ shader_parameter/vignette_intensity = 0.3
 shader_parameter/grille_amount = 0.10000000475
 shader_parameter/brightness_boost = 1.2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk511"]
+bg_color = Color(0, 0, 0, 0.8352941)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [node name="Node2D" type="Node" unique_id=704281934]
 
-[node name="CharSelectBrain" type="Node" parent="." unique_id=1870503090 node_paths=PackedStringArray("CharFront", "CharBack", "CharName", "CharDesc", "DemoWheel")]
+[node name="CharSelectBrain" type="Node" parent="." unique_id=1870503090 node_paths=PackedStringArray("CharFront", "CharBack", "CharName", "CharDesc", "item_drag", "inv")]
 script = ExtResource("20_v5fbu")
 CharFront = NodePath("../UIParent/ContestantStatDisplay/ContestantFront")
 CharBack = NodePath("../UIParent/ContestantStatDisplay/ContestantBack")
 CharName = NodePath("../UIParent/ContestantStatDisplay/NameLabel")
-CharDesc = NodePath("../UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Contestant Text/Label")
-DemoWheel = NodePath("../PreviewWheelRoot/PreviewWheel")
+CharDesc = NodePath("../UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Contestant Text/Control/Label")
+item_drag = NodePath("../Draggable")
+inv = NodePath("../InventoryManager")
+
+[node name="InventoryManager" type="Node" parent="." unique_id=1415567330 node_paths=PackedStringArray("slots", "wheels")]
+unique_name_in_owner = true
+script = ExtResource("2_ecks3")
+slots = [null, null, null]
+wheels = [null, null, null]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319989986]
-position = Vector2(2, 3)
 
 [node name="UIParent" type="Control" parent="." unique_id=810498634]
 layout_mode = 3
@@ -144,6 +165,7 @@ offset_left = 992.0
 offset_top = -25.0
 offset_right = 1810.957
 offset_bottom = 474.78244
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_w2oxx")
 
 [node name="ContestantUI" type="PanelContainer" parent="UIParent/ContestantStatDisplay/Background" unique_id=1852627084]
@@ -173,19 +195,20 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.36
 offset_transform_position = Vector2(200, 0)
 
-[node name="Name2" type="CenterContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer" unique_id=472839033]
-clip_contents = true
+[node name="Name2" type="Control" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer" unique_id=1448597210]
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
+size_flags_stretch_ratio = 0.24
 offset_transform_position = Vector2(200, 0)
 
 [node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Name2" unique_id=1790983094]
-layout_mode = 2
+layout_mode = 0
+offset_top = -22.0
+offset_right = 347.0
+offset_bottom = 10.0
 offset_transform_position = Vector2(-25, 0)
 theme_override_fonts/font = ExtResource("5_v54mg")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Starting Loadout"
 
 [node name="Items" type="Control" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer" unique_id=1099574783]
@@ -196,11 +219,13 @@ mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items" unique_id=151462953]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 32.0
-offset_right = 89.0
-offset_bottom = 108.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+offset_left = -7.0
+offset_top = 6.0
+offset_right = 69.0
+offset_bottom = 82.0
+scale = Vector2(1.6484739, 1.6484739)
+theme_override_styles/panel = SubResource("StyleBoxTexture_cotnl")
+script = ExtResource("6_ecks3")
 
 [node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items/PanelContainer" unique_id=221529355]
 layout_mode = 2
@@ -210,11 +235,12 @@ vertical_alignment = 1
 
 [node name="PanelContainer2" type="PanelContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items" unique_id=701935369]
 layout_mode = 0
-offset_left = 108.0
-offset_top = 32.0
-offset_right = 184.0
-offset_bottom = 108.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+offset_left = 137.0
+offset_top = 6.0
+offset_right = 213.0
+offset_bottom = 82.0
+scale = Vector2(1.6484739, 1.6484739)
+theme_override_styles/panel = SubResource("StyleBoxTexture_cotnl")
 
 [node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items/PanelContainer2" unique_id=1081981416]
 layout_mode = 2
@@ -224,30 +250,16 @@ vertical_alignment = 1
 
 [node name="PanelContainer3" type="PanelContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items" unique_id=744358349]
 layout_mode = 0
-offset_left = 203.0
-offset_top = 32.0
-offset_right = 279.0
-offset_bottom = 108.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
+offset_left = 290.0
+offset_top = 6.0
+offset_right = 366.0
+offset_bottom = 82.0
+scale = Vector2(1.6484739, 1.6484739)
+theme_override_styles/panel = SubResource("StyleBoxTexture_cotnl")
 
 [node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items/PanelContainer3" unique_id=1018975756]
 layout_mode = 2
 text = "3"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PanelContainer4" type="PanelContainer" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items" unique_id=1216314014]
-visible = false
-layout_mode = 0
-offset_left = 303.0
-offset_top = 32.0
-offset_right = 379.0
-offset_bottom = 108.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_p7rkf")
-
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items/PanelContainer4" unique_id=801661444]
-layout_mode = 2
-text = "Bucket"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -257,18 +269,27 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Contestant Text" unique_id=654737110]
+[node name="Control" type="Control" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Contestant Text" unique_id=229773438]
+anchors_preset = 0
+offset_right = 432.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Contestant Text/Control" unique_id=654737110]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.58900005
-offset_right = 0.30496216
-offset_bottom = 200.0
+anchor_top = 0.725
+anchor_right = 1.0
+anchor_bottom = 0.725
+offset_left = 6.0
+offset_top = -19.0
+offset_right = 264.0
+offset_bottom = 152.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("5_v54mg")
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas tellus mauris, sit amet molestie magna pharetra nec. Sed id aliquam est, quis luctus nulla. In sed ultricies nisi. Phasellus leo odio, lacinia eget aliquet et, suscipit nec ipsum. Nunc blandit luctus sem, eleifend imperdiet felis molestie vitae
-"
-autowrap_mode = 1
+theme_override_fonts/font = ExtResource("7_20b7b")
+theme_override_font_sizes/font_size = 48
+text = "Renowned Olympic upside down Darts champion. Pete joins this competition already armed with his trusted darts."
+autowrap_mode = 2
 
 [node name="ContestantFront" type="TextureRect" parent="UIParent/ContestantStatDisplay" unique_id=923369979]
 layout_mode = 0
@@ -375,10 +396,12 @@ layout_mode = 0
 offset_top = 569.0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ticr3")
 
 [node name="Panel" type="Control" parent="UIParent/CharacterSelectPanel" unique_id=1955339955]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Control" type="Panel" parent="UIParent/CharacterSelectPanel/Panel" unique_id=1682233993]
 layout_mode = 0
@@ -392,7 +415,7 @@ offset_left = -571.0
 offset_top = 11.0
 offset_right = -571.0
 offset_bottom = 11.0
-script = null
+script = ExtResource("12_qsv4i")
 
 [node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Blank" index="0" unique_id=2146101422]
 self_modulate = Color(0.15294118, 0.15294118, 0.21176471, 1)
@@ -410,6 +433,7 @@ offset_right = 752.0
 offset_bottom = 234.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_v54mg")
 
 [node name="TextureRect" parent="UIParent/CharacterSelectPanel/Panel/Control/Blank/CharacterTriangle_inner" index="1" unique_id=1677993357]
@@ -419,7 +443,7 @@ offset_right = 74.0
 offset_bottom = 38.0
 texture = ExtResource("10_m1cwc")
 
-[node name="Pete The Fury" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=837047816 instance=ExtResource("8_a85h0")]
+[node name="Pete The Fury" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=837047816 node_paths=PackedStringArray("preview") instance=ExtResource("8_a85h0")]
 layout_mode = 1
 offset_left = -420.0
 offset_top = 11.0
@@ -427,10 +451,11 @@ offset_right = -420.0
 offset_bottom = 11.0
 Starter = 1
 DisplayName = "Pete \"The Fury\" Faldangen"
-Description = "Pete Description"
+Description = "Renowned Olympic upside down Darts champion. Pete joins this competition already armed with his trusted darts."
 CharFront = ExtResource("11_ticr3")
 CharBack = ExtResource("12_v54mg")
 StartingItem = ExtResource("10_1vrd3")
+preview = NodePath("../../../../../Draggable")
 
 [node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Pete The Fury" index="0" unique_id=2146101422]
 self_modulate = Color(0.54901963, 0.24705882, 0.3647059, 1)
@@ -442,7 +467,7 @@ offset_right = 88.0
 offset_bottom = 172.0
 texture = ExtResource("11_ticr3")
 
-[node name="Rory Schmew" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=1043914244 instance=ExtResource("8_a85h0")]
+[node name="Rory Schmew" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=1043914244 node_paths=PackedStringArray("preview") instance=ExtResource("8_a85h0")]
 layout_mode = 1
 offset_left = -267.0
 offset_top = 11.0
@@ -450,10 +475,11 @@ offset_right = -267.0
 offset_bottom = 11.0
 Starter = 2
 DisplayName = "Rory Schmew"
-Description = "Rory Desc"
+Description = "Mattress retailer association - Salesman of the Year. Rory carries his briefcase everywhere, ready to close a deal at any time."
 CharFront = ExtResource("14_w2oxx")
 CharBack = ExtResource("15_r351o")
-StartingItem = SubResource("Resource_7nm4y")
+StartingItem = SubResource("Resource_ecks3")
+preview = NodePath("../../../../../Draggable")
 bitmapImage = ExtResource("9_r351o")
 
 [node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Rory Schmew" index="0" unique_id=2146101422]
@@ -467,7 +493,7 @@ offset_right = 106.0
 offset_bottom = 98.0
 texture = ExtResource("14_w2oxx")
 
-[node name="Timmy Burnlee" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=374369036 instance=ExtResource("8_a85h0")]
+[node name="Timmy Burnlee" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=374369036 node_paths=PackedStringArray("preview") instance=ExtResource("8_a85h0")]
 layout_mode = 1
 offset_left = -114.0
 offset_top = 11.0
@@ -475,10 +501,11 @@ offset_right = -114.0
 offset_bottom = 11.0
 Starter = 3
 DisplayName = "Timmy Burnlee"
-Description = "Timmy Desc	"
+Description = "Y2K Specialist, preparing the big companies for the disaster of the millennium. New clients can attempt to contact him via his PDA."
 CharFront = ExtResource("15_w1b7k")
 CharBack = ExtResource("15_njwpm")
 StartingItem = ExtResource("13_7f0fy")
+preview = NodePath("../../../../../Draggable")
 
 [node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Timmy Burnlee" index="0" unique_id=2146101422]
 self_modulate = Color(0.91764706, 0.63529414, 0.3647059, 1)
@@ -490,7 +517,7 @@ offset_right = 80.0
 offset_bottom = 148.0
 texture = ExtResource("15_w1b7k")
 
-[node name="Zombolda" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=1070089930 instance=ExtResource("8_a85h0")]
+[node name="Zombolda" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=1070089930 node_paths=PackedStringArray("preview") instance=ExtResource("8_a85h0")]
 layout_mode = 1
 offset_left = 39.0
 offset_top = 11.0
@@ -498,10 +525,11 @@ offset_right = 39.0
 offset_bottom = 11.0
 Starter = 4
 DisplayName = "Zombolda Gigglesworth"
-Description = "Zombolda Desc"
+Description = "Zombolda had to flee France during the revolution, with nothing but her rubber chicken and the hat on her head."
 CharFront = ExtResource("18_m1cwc")
 CharBack = ExtResource("19_vx826")
 StartingItem = ExtResource("14_yhlds")
+preview = NodePath("../../../../../Draggable")
 bitmapImage = ExtResource("9_r351o")
 
 [node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Zombolda" index="0" unique_id=2146101422]
@@ -515,7 +543,7 @@ offset_right = 74.0
 offset_bottom = -2.0
 texture = ExtResource("18_m1cwc")
 
-[node name="Dane Blanche" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=973854418 instance=ExtResource("8_a85h0")]
+[node name="Dane Blanche" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=973854418 node_paths=PackedStringArray("preview") instance=ExtResource("8_a85h0")]
 layout_mode = 1
 offset_left = 192.0
 offset_top = 11.0
@@ -523,10 +551,11 @@ offset_right = 192.0
 offset_bottom = 11.0
 Starter = 5
 DisplayName = "Dane Blanche"
-Description = "Dane Desc"
+Description = "Tired, tired, tired. Those are the three words Dane used to describe himself when filling in this form."
 CharFront = ExtResource("21_v1eva")
 CharBack = ExtResource("22_t7sqb")
 StartingItem = ExtResource("17_w2oxx")
+preview = NodePath("../../../../../Draggable")
 
 [node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Dane Blanche" index="0" unique_id=2146101422]
 self_modulate = Color(1, 0.89411765, 0.47058824, 1)
@@ -538,7 +567,7 @@ offset_right = 106.0
 offset_bottom = 148.0
 texture = ExtResource("21_v1eva")
 
-[node name="Hornacia" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=1397904695 instance=ExtResource("8_a85h0")]
+[node name="Hornacia" parent="UIParent/CharacterSelectPanel/Panel/Control" unique_id=1397904695 node_paths=PackedStringArray("preview") instance=ExtResource("8_a85h0")]
 layout_mode = 1
 offset_left = 345.0
 offset_top = 11.0
@@ -546,10 +575,11 @@ offset_right = 345.0
 offset_bottom = 11.0
 Starter = 6
 DisplayName = "Hornacia Baidineanu"
-Description = "Hornacia Desc	"
+Description = "Hornacia is a volunteer at a local retirement home. Putting on the costume has increased applicants by 30%!"
 CharFront = ExtResource("24_d3t4u")
 CharBack = ExtResource("25_4qs42")
 StartingItem = ExtResource("16_7b7lq")
+preview = NodePath("../../../../../Draggable")
 bitmapImage = ExtResource("9_r351o")
 
 [node name="CharacterTriangle_inner" parent="UIParent/CharacterSelectPanel/Panel/Control/Hornacia" index="0" unique_id=2146101422]
@@ -598,6 +628,167 @@ visible = false
 texture_filter = 1
 texture = ExtResource("10_488j2")
 
+[node name="ItemTooltip" type="Control" parent="." unique_id=1911907552 node_paths=PackedStringArray("item_icon", "item_name", "item_desc", "item_stats")]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1430.0
+offset_top = -766.0
+offset_right = -1430.0
+offset_bottom = -766.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("43_03pvy")
+item_icon = NodePath("PanelContainer/HBoxContainer/Control2/TextureRect")
+item_name = NodePath("PanelContainer/HBoxContainer/Control/CenterContainer/Control/Item Name")
+item_desc = NodePath("PanelContainer/HBoxContainer/Control/CenterContainer2/Control/Description")
+item_stats = NodePath("StatWheel/Wheel")
+
+[node name="PanelContainer" type="PanelContainer" parent="ItemTooltip" unique_id=1664424955]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -483.0
+offset_top = -320.0
+offset_right = 597.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1g7yp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ItemTooltip/PanelContainer" unique_id=957658986]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control2" type="Control" parent="ItemTooltip/PanelContainer/HBoxContainer" unique_id=454962721]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="ItemTooltip/PanelContainer/HBoxContainer/Control2" unique_id=1324814584]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 76.0
+offset_right = 597.0
+offset_bottom = 796.0
+size_flags_horizontal = 3
+texture = ExtResource("45_nrvwe")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Control" type="VBoxContainer" parent="ItemTooltip/PanelContainer/HBoxContainer" unique_id=1057059945]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Control2" type="Control" parent="ItemTooltip/PanelContainer/HBoxContainer/Control" unique_id=1470996326]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.52
+
+[node name="CenterContainer" type="CenterContainer" parent="ItemTooltip/PanelContainer/HBoxContainer/Control" unique_id=386185724]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.64
+
+[node name="Control" type="Control" parent="ItemTooltip/PanelContainer/HBoxContainer/Control/CenterContainer" unique_id=606062883]
+layout_mode = 2
+
+[node name="Item Name" type="Label" parent="ItemTooltip/PanelContainer/HBoxContainer/Control/CenterContainer/Control" unique_id=1691644568]
+modulate = Color(0.8117647, 1, 0.4392157, 1)
+custom_maximum_size = Vector2(419, 124)
+layout_mode = 0
+offset_left = -241.0
+offset_top = -41.0
+offset_right = 41.0
+offset_bottom = 2.0
+theme_override_fonts/font = ExtResource("5_v54mg")
+theme_override_font_sizes/font_size = 42
+text = "Item Name "
+autowrap_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="ItemTooltip/PanelContainer/HBoxContainer/Control" unique_id=1487279377]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.54
+
+[node name="Control" type="Control" parent="ItemTooltip/PanelContainer/HBoxContainer/Control/CenterContainer2" unique_id=853178655]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="ItemTooltip/PanelContainer/HBoxContainer/Control/CenterContainer2/Control" unique_id=1075353288]
+custom_maximum_size = Vector2(428, 146)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -78.0
+offset_right = 187.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("46_7k1nr")
+theme_override_font_sizes/font_size = 18
+text = "Item Description"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="ItemTooltip/PanelContainer/HBoxContainer/Control" unique_id=1631568899]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.88
+mouse_filter = 2
+
+[node name="Statistics" type="Label" parent="ItemTooltip/PanelContainer/HBoxContainer/Control/Control" unique_id=1399322071]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -241.0
+offset_top = -4.0
+offset_right = -79.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("46_7k1nr")
+theme_override_font_sizes/font_size = 18
+text = "Wheel:"
+
+[node name="StatWheel" type="Node2D" parent="ItemTooltip" unique_id=2047788086]
+z_index = 2
+position = Vector2(315, 228)
+
+[node name="Wheel" type="Node2D" parent="ItemTooltip/StatWheel" unique_id=808226493 node_paths=PackedStringArray("slice_template")]
+script = ExtResource("16_v54mg")
+item = ExtResource("17_w2oxx")
+slice_template = NodePath("TemplatePolygon2D")
+
+[node name="TemplatePolygon2D" type="Polygon2D" parent="ItemTooltip/StatWheel/Wheel" unique_id=621566602 node_paths=PackedStringArray("own_collision")]
+script = ExtResource("18_r351o")
+own_collision = NodePath("Area2D/CollisionPolygon2D")
+collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
+tooltipObject = ExtResource("32_cp58y")
+
+[node name="Area2D" type="Area2D" parent="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D" unique_id=554612154]
+z_index = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D/Area2D" unique_id=1716261157]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020282609]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1127870218]
@@ -609,26 +800,59 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PreviewWheelRoot" type="Node2D" parent="." unique_id=1995714591]
-z_index = 1
-position = Vector2(749, -250)
+[node name="Draggable" parent="." unique_id=1814434899 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("7_qsv4i")]
+anchor_left = -0.14887418
+anchor_top = -1.3605839
+anchor_right = -0.09824922
+anchor_bottom = -1.270584
+offset_left = 476.8384
+offset_top = 1127.4307
+offset_right = 1027.6385
+offset_bottom = 1678.2307
+grow_horizontal = 1
+grow_vertical = 1
+pivot_offset = Vector2(18, 14)
+anchor_pos = NodePath("../UIParent/ContestantStatDisplay/Background/ContestantUI/Control/VBoxContainer/Items/PanelContainer")
+demo_item = true
+tooltipObject = NodePath("../ItemTooltip")
 
-[node name="PreviewWheel" type="Node2D" parent="PreviewWheelRoot" unique_id=866764280 node_paths=PackedStringArray("slice_template")]
-script = ExtResource("16_v54mg")
-item = ExtResource("17_w2oxx")
-slice_template = NodePath("TemplatePolygon2D")
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2000309466]
+offset_left = -710.0
+offset_top = -467.0
+offset_right = 667.0
+offset_bottom = 466.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hk511")
 
-[node name="TemplatePolygon2D" type="Polygon2D" parent="PreviewWheelRoot/PreviewWheel" unique_id=1168597390 node_paths=PackedStringArray("own_collision")]
-script = ExtResource("18_r351o")
-own_collision = NodePath("Area2D/CollisionPolygon2D")
-collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
-tooltipObject = ExtResource("32_cp58y")
+[node name="Control" type="Control" parent="PanelContainer" unique_id=581826840]
+layout_mode = 2
 
-[node name="Area2D" type="Area2D" parent="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" unique_id=457135455]
-z_index = 1
+[node name="Button" type="Button" parent="PanelContainer/Control" unique_id=1302443407]
+layout_mode = 0
+offset_left = 1284.0
+offset_top = -37.0
+offset_right = 1407.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 37
+text = "Close"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" unique_id=928725613]
+[node name="How2Play" type="Label" parent="PanelContainer/Control" unique_id=744893232]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 67.0
+offset_right = 720.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("5_v54mg")
+theme_override_font_sizes/font_size = 82
+text = "How to Play:"
 
+[node name="Label" type="Label" parent="PanelContainer/Control" unique_id=1287260077]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 193.0
+offset_right = 636.0
+offset_bottom = 820.0
+
+[connection signal="pressed" from="UIParent/CharacterSelectPanel/Panel/Control/Blank/CharacterTriangle_inner" to="UIParent/CharacterSelectPanel/Panel/Control/Blank" method="_on_character_triangle_inner_pressed"]
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Pete The Fury" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Rory Schmew" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Timmy Burnlee" to="CharSelectBrain" method="show_selected_starter"]
@@ -636,18 +860,18 @@ z_index = 1
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Dane Blanche" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Hornacia" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="pressed" from="UIParent/CharacterSelectPanel/Panel/Control/Blank2/CharacterTriangle_inner" to="CharSelectBrain" method="_on_GO_pressed"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@910476/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@910476/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@910476/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@910476/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@910477/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@910477/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@910477/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@910477/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@910478/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@910478/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@910478/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@910478/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@910479/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@910479/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@910479/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@910479/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PreviewWheelRoot/PreviewWheel/@Node2D@910480/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@910480/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PreviewWheelRoot/PreviewWheel/@Node2D@910480/TemplatePolygon2D/Area2D" to="PreviewWheelRoot/PreviewWheel/@Node2D@910480/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@26193/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26193/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@26193/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26193/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@26194/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26194/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@26194/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26194/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@26195/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26195/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@26195/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26195/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@26196/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26196/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@26196/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26196/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@26197/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26197/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@26197/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@26197/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="UIParent/CharacterSelectPanel/Panel/Control/Blank"]
 [editable path="UIParent/CharacterSelectPanel/Panel/Control/Blank/CharacterTriangle_inner"]

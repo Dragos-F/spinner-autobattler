@@ -54,6 +54,7 @@ func random_spin():
 		var pickedslice = test_clicker.select_slice()
 		sliceselected.emit(pickedslice,name)
 	reset_spin()
+
 var isResetting = false
 func reset_spin():
 	if canBeStarted == false:
@@ -83,7 +84,9 @@ func _input(event):
 		if event.keycode == KEY_SPACE:
 			if !isSpinning:
 				random_spin()
+				
 signal resetspinComplete
+
 func InterruptSpin(): # Kill any spin that is underway, and maybe leave it alone if it is already resetting
 	print("interruptspin")
 	canBeStarted = false

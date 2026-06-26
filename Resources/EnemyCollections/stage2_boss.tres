@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyCollection" format=3 uid="uid://cdytic8ps8i7r"]
 
+[ext_resource type="Texture2D" uid="uid://c6tuy1r5nf1xd" path="res://VisualAssets/Backgrounds/ChannelBack 3.png" id="1_f7i15"]
 [ext_resource type="Script" uid="uid://d3x3oteco8a5u" path="res://Scripts/enemy_template.gd" id="1_yf2rc"]
 [ext_resource type="Resource" uid="uid://tiab3o37ql75" path="res://Resources/Enemies/Jeep.tres" id="2_efcet"]
 [ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="4_hcnw6"]
@@ -8,4 +9,5 @@
 script = ExtResource("4_hcnw6")
 CollectionName = "Stage2 Boss"
 Contents = Array[ExtResource("1_yf2rc")]([ExtResource("2_efcet")])
+Background = ExtResource("1_f7i15")
 metadata/_custom_type_script = "uid://crtclueovnj4u"

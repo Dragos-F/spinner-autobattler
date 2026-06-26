@@ -103,6 +103,7 @@ clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.54
+mouse_filter = 2
 
 [node name="Control" type="Control" parent="PanelContainer/HBoxContainer/Control/CenterContainer2" unique_id=853178655]
 layout_mode = 2
@@ -148,7 +149,8 @@ theme_override_font_sizes/font_size = 18
 text = "Wheel:"
 
 [node name="StatWheel" type="Node2D" parent="." unique_id=2047788086]
-z_index = 2
+z_index = 5
+z_as_relative = false
 position = Vector2(315, 228)
 
 [node name="Wheel" type="Node2D" parent="StatWheel" unique_id=808226493 node_paths=PackedStringArray("slice_template")]
@@ -166,6 +168,8 @@ tooltipObject = ExtResource("6_rvlls")
 z_index = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StatWheel/Wheel/TemplatePolygon2D/Area2D" unique_id=1716261157]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1474121632]
 
 [connection signal="mouse_entered" from="StatWheel/Wheel/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="StatWheel/Wheel/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
