@@ -40,7 +40,8 @@ func ProcessResult(name,slice,sourceEntity,targetEntity,sourceWheels,targetWheel
 		"Rush":
 			AccelerateFromSet(sourceWheels,slice.slice_type.modifier)
 		"Stun":
-			StunWheelInSet(targetWheels,slice.slice_type.power)
+			StunAllWheelsInSet(targetWheels,slice.slice_type.power)
+			#StunWheelInSet(targetWheels,slice.slice_type.power)
 	pass
 
 func listen_player_spinresult(slice:PresetSlice,source:String):
@@ -74,6 +75,12 @@ func StunWheelInSet(wheelSet:Array[Spinner],count:int):
 		return
 	var randomwheel = activeWheelSet.pick_random()
 	randomwheel.wheel.DisableRandomSlices(count,10)
+
+func StunAllWheelsInSet(wheelSet:Array[Spinner],count:int):
+	for aw in wheelSet:
+		if aw.get_parent().visible and aw.canBeStarted:
+			print("wheel "+ str(aw) + " is visible and startable")
+			aw.wheel.DisableRandomSlices(count,10)
 
 
 func _on_heal_skip_pressed() -> void:

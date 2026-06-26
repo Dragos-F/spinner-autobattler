@@ -1,0 +1,43 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://nd04i4ivyfm0"]
+
+[ext_resource type="Texture2D" uid="uid://boe1as4keb24w" path="res://VisualAssets/Enemies/ToasterUpset-Sheet.png" id="1_f6j8h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h47u"]
+atlas = ExtResource("1_f6j8h")
+region = Rect2(0, 0, 540, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijyk8"]
+atlas = ExtResource("1_f6j8h")
+region = Rect2(540, 0, 540, 400)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h47u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h47u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijyk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijyk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijyk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijyk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijyk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijyk8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

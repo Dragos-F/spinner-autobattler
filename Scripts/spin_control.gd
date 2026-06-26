@@ -34,6 +34,9 @@ func random_spin():
 		return
 	if !canBeStarted:
 		return
+	if isResetting:
+		print("called while resetting, so wait.")
+		return
 	#if !isSpinning:
 	#var colourtween = get_tree().create_tween()
 	#colourtween.tween_property(self, "modulate", Color.WHITE, .5)
@@ -84,16 +87,18 @@ signal resetspinComplete
 func InterruptSpin(): # Kill any spin that is underway, and maybe leave it alone if it is already resetting
 	print("interruptspin")
 	canBeStarted = false
-	isSpinning = false
 	if isResetting:
 		print("interrupting during reset")
 		await resetspinComplete
 		spinInterruptComplete.emit()
 	elif isSpinning:
+		print("spinning, but not resetting")
 		spintween.kill()
 		reset_spin()
 		await resettween.finished
 		spinInterruptComplete.emit()
+		
+	isSpinning = false
 
 func AddExtraWait(extratime):
 	ExtraWaitTime+=extratime

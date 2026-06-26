@@ -4,6 +4,7 @@ extends Node
 @export var EnemyTitleText:Label
 @export var EnemyDescriptionText:Label
 @export var EnemyHPSystem:HealthEntity
+@export var AnimatedEnemyDisplay:AnimatedSprite2D
 
 @export var EnemyCollections:Array[EnemyCollection]
 @export var EnemyCollectionBounds:Array[Vector2]
@@ -46,16 +47,17 @@ func _process(delta: float) -> void:
 
 var currentEnemyIndex = -1
 func LoadNextEnemy():
-	print("trying LoadNextEnemy")
-	if currentEnemyIndex == -2:
-		LoadRandomEnemy()
-		return
+	print("trying LoadNextEnemy "+str(currentEnemyIndex+1))
 	currentEnemyIndex+=1
 	var currentcollection = EnemyCollections[ActiveEnemyCollection]
-	if len(currentcollection.Contents) <= currentEnemyIndex: # if there are not as many items as the desired index
-		LoadRandomEnemy()
+	if CountMatchesRange:
+		if len(currentcollection.Contents) <= currentEnemyIndex:
+			print("too few items in this collection, defaulting to random pick")
+			LoadRandomEnemy()
+		else:
+			LoadEnemy(currentcollection.Contents[currentEnemyIndex])
 	else:
-		LoadEnemy(currentcollection.Contents[currentEnemyIndex])
+		LoadRandomEnemy()
 	
 func LoadRandomEnemy():
 	print("loadrandomenemy")
@@ -100,16 +102,17 @@ func EnterLootPhase():
 	print("Loot phase")
 	lootSystem.spawn_options()
 
-func DisplayReadyButton():
-	LoadNextEnemy()
-
 func BeginCombat():
 	progressButton.visible = false
 	if PreparedToStart:
 		PreparedToStart = false
 		GameStartProcedure()
+		return
 	print("begin combat")
 	PreparedToContinue = false
+	if PrimaryEnemySpinner.isSpinning:
+		print("enemy spinner is mid-reset")
+		await PrimaryEnemySpinner.spinInterruptComplete
 	PrimaryEnemySpinner.canBeStarted = true
 	PrimaryEnemySpinner.random_spin()
 	for spinnr in combatManager.PlayerSpinners:
@@ -133,6 +136,7 @@ func _listener_entityDied(he:HealthEntity):
 		print("player has been killed")
 		GameOverProcedure()
 	return
+var CountMatchesRange = false
 func UpdateCurrentEnemyCollection():
 	var collectionindex = 0 # Determine which set of enemies should be picked from next (Boss, new level etc.)
 	for er in EnemyCollectionBounds:
@@ -142,10 +146,10 @@ func UpdateCurrentEnemyCollection():
 				currentEnemyIndex = -1
 				var stagerange = er.y-er.x+1
 				print("comparing range of "+str(stagerange)+" to collection size "+str(len(EnemyCollections[ActiveEnemyCollection].Contents)))
-				var CountMatchesRange = len(EnemyCollections[ActiveEnemyCollection].Contents) == stagerange
+				CountMatchesRange = len(EnemyCollections[ActiveEnemyCollection].Contents) == stagerange
 				if CountMatchesRange: # If there is one enemy provided for each stage
 					print("Count matches Range "+str(stagerange))
-					currentEnemyIndex = -2
+					#currentEnemyIndex = -1
 			ActiveEnemyCollection = collectionindex
 			break
 		collectionindex+=1
@@ -158,13 +162,14 @@ func GameProgressProcedure():
 	EnterLootPhase()
 	await lootSystem.loot_ended
 	
-	DisplayReadyButton()
+	#DisplayReadyButton()
 	PreparedToContinue = true
 	progressButton.visible = true
 	LoadNextEnemy()
 
 func GameStartProcedure():
 	print("Game Start!")
+	StageNumber = 0
 	UpdateCurrentEnemyCollection()
 	LoadNextEnemy()
 	BeginCombat()

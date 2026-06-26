@@ -11,8 +11,8 @@
 
 [sub_resource type="Resource" id="Resource_h2rbw"]
 script = ExtResource("2_l2c2l")
-cooldown = 8.0
-stats = Array[ExtResource("3_n3lp1")]([ExtResource("6_0se0s"), ExtResource("5_ybusi"), ExtResource("6_0se0s"), ExtResource("6_s1dla"), ExtResource("5_ybusi"), ExtResource("7_l2c2l"), ExtResource("5_ybusi")])
+cooldown = 6.0
+stats = Array[ExtResource("3_n3lp1")]([ExtResource("6_0se0s"), ExtResource("5_ybusi"), ExtResource("6_0se0s"), ExtResource("7_l2c2l"), ExtResource("5_ybusi"), ExtResource("6_s1dla"), ExtResource("7_l2c2l")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"
 
 [resource]

@@ -10,11 +10,10 @@
 [ext_resource type="Resource" uid="uid://deh0c11rwg0p0" path="res://Resources/EnemyCollections/stage1_standard.tres" id="4_i0j58"]
 [ext_resource type="Script" uid="uid://1qjdfkp2kes2" path="res://combat_manager.gd" id="5_enc0b"]
 [ext_resource type="Resource" uid="uid://c1uy66okaf72m" path="res://Resources/EnemyCollections/stage1_boss.tres" id="5_p5ymy"]
-[ext_resource type="Resource" uid="uid://b5p7j5orme3r3" path="res://Resources/EnemyCollections/stage2_standard.tres" id="6_3va76"]
+[ext_resource type="Resource" uid="uid://b5p7j5orme3r3" path="res://Resources/EnemyCollections/stage3_standard.tres" id="6_3va76"]
 [ext_resource type="Resource" uid="uid://cdytic8ps8i7r" path="res://Resources/EnemyCollections/stage2_boss.tres" id="7_wmecs"]
-[ext_resource type="Texture2D" uid="uid://5j4kojdswfcv" path="res://icon.svg" id="7_xb4mg"]
 [ext_resource type="LabelSettings" uid="uid://0sftpb7dnv7v" path="res://VisualAssets/Fonts/new_label_settings.tres" id="8_5qxwa"]
-[ext_resource type="Resource" uid="uid://ckhxg62ynqs6n" path="res://Resources/EnemyCollections/stage3_standard.tres" id="8_dtg5n"]
+[ext_resource type="Resource" uid="uid://ckhxg62ynqs6n" path="res://Resources/EnemyCollections/stage2_standard.tres" id="8_dtg5n"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="9_0iob3"]
 [ext_resource type="Resource" uid="uid://bqaqkv4la53on" path="res://Resources/EnemyCollections/stage3_boss.tres" id="9_d0jji"]
 [ext_resource type="Script" uid="uid://beya8h2388uo2" path="res://Scripts/game_manager.gd" id="10_4b75m"]
@@ -216,8 +215,8 @@ EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/EnemyDescriptionText")
 EnemyHPSystem = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
-EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("4_i0j58"), ExtResource("5_p5ymy"), ExtResource("6_3va76"), ExtResource("7_wmecs"), ExtResource("8_dtg5n"), ExtResource("9_d0jji"), ExtResource("10_cotnl"), ExtResource("11_ypccg"), ExtResource("12_rmfi2"), ExtResource("13_sl126")])
-EnemyCollectionBounds = Array[Vector2]([Vector2(-1, 2), Vector2(3, 3), Vector2(4, 6), Vector2(7, 7), Vector2(8, 10), Vector2(11, 11), Vector2(12, 14), Vector2(15, 15), Vector2(16, 18), Vector2(19, 19)])
+EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("4_i0j58"), ExtResource("5_p5ymy"), ExtResource("8_dtg5n"), ExtResource("7_wmecs"), ExtResource("6_3va76"), ExtResource("9_d0jji"), ExtResource("10_cotnl"), ExtResource("11_ypccg"), ExtResource("12_rmfi2"), ExtResource("13_sl126")])
+EnemyCollectionBounds = Array[Vector2]([Vector2(0, 2), Vector2(3, 3), Vector2(4, 6), Vector2(7, 7), Vector2(8, 10), Vector2(11, 11), Vector2(12, 14), Vector2(15, 15), Vector2(16, 18), Vector2(19, 19)])
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
 PrimaryEnemySpinner = NodePath("../EnemyWheelBundle/SpinControl")
 combatManager = NodePath("../CombatManager")
@@ -578,7 +577,6 @@ offset_bottom = 835.0
 scale = Vector2(0.44000077, 0.44000077)
 pivot_offset = Vector2(639, 508)
 mouse_filter = 2
-texture = ExtResource("7_xb4mg")
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UIParent/CenterPlayArea/EnemyImage" unique_id=2078219838]
