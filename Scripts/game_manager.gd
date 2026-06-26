@@ -13,6 +13,9 @@ extends Node
 
 @export var combatManager:CombatManager
 @export var inventoryManager:InvManager
+@onready var lootSystem:LootSystem = %LootSystem
+
+@export var progressButton:Button
 
 @export_category("Character LoadIns")
 @export var CharFront:TextureRect
@@ -22,8 +25,9 @@ extends Node
 
 var StageNumber:int=-1
 var PlayerScore:int=0
-
 var PreparedToStart = true
+
+signal combat_ended()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#LoadRandomEnemy()
@@ -34,8 +38,7 @@ func _ready() -> void:
 		StartingItem.item = GlobalChar.starting_item
 	StartingItem.manager = inventoryManager
 	inventoryManager.wheels[0].UpdateWheel(StartingItem.item)
-	inventoryManager.slots[0].equipped_item = StartingItem
-	print 
+	inventoryManager.slots[0].equipped_item = StartingItem 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -78,19 +81,42 @@ func LoadEnemy(enemy:Enemy):
 	PrimaryEnemySpinner.modulate = Color.from_hsv(0,0,1)
 	EnemyDisplay.modulate = Color.from_hsv(0,0,1)
 	
-
+var allowDebug = true
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and !event.is_echo():
-		if event.keycode == KEY_G:
-			if PreparedToReset:
-				PrimaryEnemySpinner.canBeStarted = true
-				LoadNextEnemy()
-				PrimaryEnemySpinner.random_spin()
-				PreparedToReset = false
-		elif event.keycode == KEY_P:
-			GameProgressProcedure()
+	if allowDebug:
+		if event is InputEventKey and event.pressed and !event.is_echo():
+			if event.keycode == KEY_G:
+				if PreparedToContinue:
+					PrimaryEnemySpinner.canBeStarted = true
+					LoadNextEnemy()
+					BeginCombat()
+					PreparedToContinue = false
+			elif event.keycode == KEY_P:
+				GameProgressProcedure()
 
-var PreparedToReset=false
+var PreparedToContinue=false
+
+func EnterLootPhase():
+	print("Loot phase")
+	lootSystem.spawn_options()
+
+func DisplayReadyButton():
+	LoadNextEnemy()
+
+func BeginCombat():
+	progressButton.visible = false
+	if PreparedToStart:
+		PreparedToStart = false
+		GameStartProcedure()
+	print("begin combat")
+	PreparedToContinue = false
+	PrimaryEnemySpinner.canBeStarted = true
+	PrimaryEnemySpinner.random_spin()
+	for spinnr in combatManager.PlayerSpinners:
+		if spinnr.isResetting:
+			await spinnr.spinInterruptComplete
+		spinnr.canBeStarted = true
+		spinnr.random_spin()
 
 func _listener_entityDied(he:HealthEntity):
 	print("entitydied")
@@ -99,16 +125,15 @@ func _listener_entityDied(he:HealthEntity):
 		AddPoints(100)
 		PrimaryEnemySpinner.modulate = Color.from_hsv(0,0,0.2)
 		PrimaryEnemySpinner.canBeStarted = false
+		PrimaryEnemySpinner.InterruptSpin()
 		EnemyDisplay.modulate = Color.from_hsv(0,0,0.2)
+		combat_ended.emit()
 		GameProgressProcedure()
 	elif he == combatManager.PlayerEntity:
 		print("player has been killed")
 		GameOverProcedure()
 	return
-
-func GameProgressProcedure():
-	print("progressing to next encounter")
-	StageNumber+=1
+func UpdateCurrentEnemyCollection():
 	var collectionindex = 0 # Determine which set of enemies should be picked from next (Boss, new level etc.)
 	for er in EnemyCollectionBounds:
 		if StageNumber >= er.x and StageNumber <= er.y:
@@ -124,11 +149,25 @@ func GameProgressProcedure():
 			ActiveEnemyCollection = collectionindex
 			break
 		collectionindex+=1
-		
-	# LOOT PHASE HERE
 	
-	PreparedToReset = true
-	pass
+func GameProgressProcedure():
+	print("loading next encounter")
+	StageNumber+=1
+	UpdateCurrentEnemyCollection()
+	# LOOT PHASE HERE
+	EnterLootPhase()
+	await lootSystem.loot_ended
+	
+	DisplayReadyButton()
+	PreparedToContinue = true
+	progressButton.visible = true
+	LoadNextEnemy()
+
+func GameStartProcedure():
+	print("Game Start!")
+	UpdateCurrentEnemyCollection()
+	LoadNextEnemy()
+	BeginCombat()
 
 func GameOverProcedure():
 	pass
