@@ -9,10 +9,11 @@ random_volume_offset_db = 0.5
 streams_count = 1
 stream_0/stream = ExtResource("2_vo8dr")
 
-[node name="AudioPlayer" type="Node2D" unique_id=594160768 node_paths=PackedStringArray("music", "clacks")]
+[node name="AudioPlayer" type="Node2D" unique_id=594160768 node_paths=PackedStringArray("music", "clacks", "fx")]
 script = ExtResource("1_ugx2v")
 music = NodePath("Music")
 clacks = NodePath("Clacks")
+fx = NodePath("FX")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=74993765]
 
