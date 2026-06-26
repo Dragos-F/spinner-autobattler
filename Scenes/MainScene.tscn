@@ -5,8 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cb0wxmew1otp4" path="res://VisualAssets/Background_VaporwaveBoss.png" id="2_qxria"]
 [ext_resource type="StyleBox" uid="uid://babd65cqgfcib" path="res://Resources/ui_box.tres" id="2_y4jh7"]
 [ext_resource type="Script" uid="uid://df1pnvhe64lch" path="res://Scripts/item_slot.gd" id="3_hx8n4"]
-[ext_resource type="Texture2D" uid="uid://dhw32ateyd5gf" path="res://VisualAssets/Button_return.png" id="3_q68mp"]
-[ext_resource type="Texture2D" uid="uid://da13mmeakbrei" path="res://VisualAssets/Button_Settings.png" id="4_f140w"]
 [ext_resource type="Resource" uid="uid://deh0c11rwg0p0" path="res://Resources/EnemyCollections/stage1_standard.tres" id="4_i0j58"]
 [ext_resource type="Script" uid="uid://1qjdfkp2kes2" path="res://combat_manager.gd" id="5_enc0b"]
 [ext_resource type="Resource" uid="uid://c1uy66okaf72m" path="res://Resources/EnemyCollections/stage1_boss.tres" id="5_p5ymy"]
@@ -29,12 +27,18 @@
 [ext_resource type="Texture2D" uid="uid://qo0ug1w1dfv5" path="res://VisualAssets/square.png" id="19_c1ier"]
 [ext_resource type="Texture2D" uid="uid://vh2wgiocoigr" path="res://VisualAssets/ItemFrame.png" id="19_t8ijv"]
 [ext_resource type="FontFile" uid="uid://bygmfxwejtu7l" path="res://VisualAssets/Fonts/Wowsers.ttf" id="20_rv6c1"]
+[ext_resource type="Texture2D" uid="uid://bmwlhaevh43xf" path="res://VisualAssets/ReturnButton1.png" id="23_jkhus"]
+[ext_resource type="Texture2D" uid="uid://tygf6wjfygox" path="res://VisualAssets/StartMenu/ItemBinNew.png" id="23_usjqs"]
+[ext_resource type="Texture2D" uid="uid://i8mg0hn4u744" path="res://VisualAssets/ReturnButton2.png" id="24_nd2ry"]
+[ext_resource type="Texture2D" uid="uid://doaelyqufhkyx" path="res://VisualAssets/StartMenu/SoundUnmuted1.png" id="25_xot12"]
 [ext_resource type="Texture2D" uid="uid://ry5b7e5kstg4" path="res://VisualAssets/Enemies/Host.png" id="26_75tun"]
 [ext_resource type="PackedScene" uid="uid://w2ypqxyaota3" path="res://Scenes/item_tooltip.tscn" id="26_goiu7"]
 [ext_resource type="Texture2D" uid="uid://dtxv002k80twa" path="res://VisualAssets/Spin_button_new1.png" id="26_rmfi2"]
 [ext_resource type="FontFile" uid="uid://cwlp8jtifi1m" path="res://VisualAssets/Fonts/Casual Softcore.otf" id="26_sl126"]
+[ext_resource type="Texture2D" uid="uid://unlf345pjrws" path="res://VisualAssets/StartMenu/SoundMuted1.png" id="26_usjqs"]
 [ext_resource type="Texture2D" uid="uid://kv40xxitbau5" path="res://VisualAssets/Spin_button_new2.png" id="27_ergw4"]
 [ext_resource type="Texture2D" uid="uid://dwcqt0n0hf1mp" path="res://VisualAssets/Spin_button_back1.png" id="27_sl126"]
+[ext_resource type="Texture2D" uid="uid://msl8yh3ivofy" path="res://VisualAssets/StartMenu/SoundMuted2.png" id="27_uuu6x"]
 [ext_resource type="Script" uid="uid://dqo5ua8abe05n" path="res://Scripts/loot_system.gd" id="28_hkvke"]
 [ext_resource type="Resource" uid="uid://bgunobude8skl" path="res://Resources/TemplateLootPool.tres" id="28_s1acj"]
 [ext_resource type="Script" uid="uid://g4pi0c41fl6t" path="res://Scripts/start_button.gd" id="30_oo3wg"]
@@ -55,9 +59,31 @@ texture = ExtResource("19_t8ijv")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4yyyl"]
 texture = ExtResource("19_t8ijv")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rv6c1"]
-texture = ExtResource("19_t8ijv")
-modulate_color = Color(0.29411766, 0.35686275, 0.67058825, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uuu6x"]
+texture = ExtResource("23_usjqs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jkhus"]
+texture = ExtResource("23_jkhus")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nd2ry"]
+texture = ExtResource("23_jkhus")
+modulate_color = Color(1.4151802, 1.4151802, 1.4151802, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xot12"]
+texture = ExtResource("24_nd2ry")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_usjqs"]
+texture = ExtResource("25_xot12")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8um71"]
+texture = ExtResource("26_usjqs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20cv7"]
+texture = ExtResource("25_xot12")
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hkvke"]
+texture = ExtResource("27_uuu6x")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntio1"]
 texture = ExtResource("2_qxria")
@@ -518,11 +544,18 @@ offset_bottom = -767.35004
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxTexture_rv6c1")
+theme_override_styles/panel = SubResource("StyleBoxTexture_uuu6x")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" unique_id=870238316]
+[node name="Control" type="Control" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3" unique_id=407079294]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="UIParent/ContestantUI/Control/VBoxContainer/Items/Control4/PanelContainer3/Control" unique_id=870238316]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 123.0
+offset_right = 128.0
+offset_bottom = 146.0
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("20_rv6c1")
 text = "BIN"
@@ -552,19 +585,26 @@ autowrap_mode = 1
 
 [node name="Buttons" type="HBoxContainer" parent="UIParent/ContestantUI/Control/VBoxContainer" unique_id=1258459046]
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.24
 offset_transform_enabled = true
 theme_override_constants/separation = 14
 
 [node name="Button" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1691541058]
+custom_minimum_size = Vector2(61, 57)
 layout_mode = 2
-theme_override_icons/icon = ExtResource("3_q68mp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jkhus")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nd2ry")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_xot12")
 
-[node name="Button2" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1209743159]
+[node name="Mute" type="Button" parent="UIParent/ContestantUI/Control/VBoxContainer/Buttons" unique_id=1209743159]
+custom_minimum_size = Vector2(61, 57)
 layout_mode = 2
-icon = ExtResource("4_f140w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_usjqs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8um71")
+theme_override_styles/hover = SubResource("StyleBoxTexture_20cv7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_hkvke")
+toggle_mode = true
 
 [node name="CenterPlayArea" type="Control" parent="UIParent" unique_id=882134817]
 anchors_preset = 0
@@ -591,9 +631,10 @@ mouse_filter = 2
 
 [node name="BackgroundImage" type="TextureRect" parent="UIParent/CenterPlayArea/Control" unique_id=1953118297]
 layout_mode = 0
-offset_left = -336.0
-offset_right = 1584.0
-offset_bottom = 1080.0
+offset_left = -337.0
+offset_top = 35.0
+offset_right = 1583.0
+offset_bottom = 1115.0
 mouse_filter = 2
 texture = ExtResource("2_qxria")
 
@@ -1235,16 +1276,16 @@ z_as_relative = true
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="CombatManager" method="_on_heal_skip_pressed"]
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="LootSystem" method="_on_skip_loot_pressed"]
 [connection signal="pressed" from="GenerateLoot" to="LootSystem" method="spawn_options"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@60009/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60009/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@60009/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60009/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@60010/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60010/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@60010/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60010/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@60011/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60011/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@60011/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60011/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@60012/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60012/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@60012/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60012/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@60013/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60013/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@60013/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@60013/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@746045/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@746045/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@746045/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@746045/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@746046/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@746046/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@746046/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@746046/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@746047/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@746047/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@746047/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@746047/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@746048/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@746048/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@746048/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@746048/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@746049/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@746049/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@746049/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@746049/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="EnemyWheelBundle"]
 [editable path="PlayerWheels/PlayerWheel1"]

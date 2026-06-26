@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Fader="*uid://2qsvx20rkv2g"
 GlobalChar="*uid://ccui6rhoogkk7"
+AudioBrain="*uid://cn6hpyuune20i"
 
 [display]
 
