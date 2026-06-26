@@ -13,6 +13,7 @@ enum Starters{
 }
 var chararacter:Starters
 var starting_item:WheelItem
+var playerscore:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -168,6 +168,9 @@ func UpdateCurrentEnemyCollection():
 			ActiveEnemyCollection = collectionindex
 			break
 		collectionindex+=1
+	if collectionindex >= len(EnemyCollectionBounds):
+		print("no valid collection found, we must be at the end!")
+		GameOverProcedure()
 	
 func GameProgressProcedure():
 	print("loading next encounter")
@@ -190,6 +193,8 @@ func GameStartProcedure():
 	BeginCombat()
 
 func GameOverProcedure():
+	GlobalChar.playerscore = PlayerScore
+	print("concluding with score of "+str(PlayerScore))
 	Fader.FadeUp("")
 	await Fader.fade_finished
 	get_tree().change_scene_to_file("res://Scenes/start_menu.tscn") 
