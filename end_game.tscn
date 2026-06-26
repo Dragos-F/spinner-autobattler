@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2n64pbptlcpn" path="res://Scripts/end_game.gd" id="1_sjse8"]
 [ext_resource type="FontFile" uid="uid://pjw6d5hyiwtb" path="res://VisualAssets/Fonts/Super Tasty.ttf" id="2_weimh"]
+[ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="3_5q2h6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q2h6"]
 bg_color = Color(0, 0, 0, 0.8352941)
@@ -9,6 +10,16 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8aegd"]
+shader = ExtResource("3_5q2h6")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.400000019
+shader_parameter/warp_amount = 0.070000003325
+shader_parameter/vignette_amount = 0.5
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.10000000475
+shader_parameter/brightness_boost = 1.2
 
 [node name="EndGame" type="Control" unique_id=1978817093 node_paths=PackedStringArray("score")]
 layout_mode = 3
@@ -71,5 +82,16 @@ offset_bottom = 855.0
 theme_override_fonts/font = ExtResource("2_weimh")
 theme_override_font_sizes/font_size = 64
 text = "Return to Menu"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=785800944]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1751146738]
+material = SubResource("ShaderMaterial_8aegd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="PanelContainer/Control/Button" to="." method="_on_button_pressed"]
