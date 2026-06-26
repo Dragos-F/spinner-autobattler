@@ -28,6 +28,7 @@ var StageNumber:int=-1
 var PlayerScore:int=0
 var PreparedToStart = true
 
+signal combat_started()
 signal combat_ended()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -105,8 +106,10 @@ var PreparedToContinue=false
 func EnterLootPhase():
 	print("Loot phase")
 	lootSystem.spawn_options()
-
+var CombatActive = false
 func BeginCombat():
+	CombatActive = true
+	combat_started.emit()
 	progressButton.visible = false
 	if PreparedToStart:
 		PreparedToStart = false
@@ -140,6 +143,7 @@ func _listener_entityDied(he:HealthEntity):
 		PrimaryEnemySpinner.InterruptSpin()
 		EnemyDisplay.modulate = Color.from_hsv(0,0,0.2)
 		combat_ended.emit()
+		CombatActive = false
 		GameProgressProcedure()
 	elif he == combatManager.PlayerEntity:
 		print("player has been killed")
