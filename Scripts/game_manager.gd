@@ -4,7 +4,7 @@ extends Node
 @export var EnemyTitleText:Label
 @export var EnemyDescriptionText:Label
 @export var EnemyHPSystem:HealthEntity
-@export var AnimatedEnemyDisplay:AnimatedSprite2D
+@export var BackgroundImage:TextureRect
 
 @export var EnemyCollections:Array[EnemyCollection]
 @export var EnemyCollectionBounds:Array[Vector2]
@@ -73,6 +73,10 @@ func LoadEnemy(enemy:Enemy):
 	EnemyTitleText.text = enemy.Name
 	EnemyDescriptionText.text = enemy.Description
 	EnemyDisplay.texture = enemy.Graphic
+	
+	if EnemyCollections[ActiveEnemyCollection].Background != null:
+		print("loading new background from collection "+str(ActiveEnemyCollection))
+		BackgroundImage.texture = EnemyCollections[ActiveEnemyCollection].Background
 	ActiveEnemyHP = enemy.BaseHealth
 	EnemyHPSystem.isAlive = true
 	#EnemyHPSystem.currenthealth = enemy.BaseHealth
@@ -113,6 +117,7 @@ func BeginCombat():
 	if PrimaryEnemySpinner.isSpinning:
 		print("enemy spinner is mid-reset")
 		await PrimaryEnemySpinner.spinInterruptComplete
+		print("...enemy spinner interrupt is complete")
 	PrimaryEnemySpinner.canBeStarted = true
 	PrimaryEnemySpinner.random_spin()
 	for spinnr in combatManager.PlayerSpinners:

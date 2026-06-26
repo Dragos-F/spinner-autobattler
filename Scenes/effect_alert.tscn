@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://fxm7rg3rxl4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bljyu"]
+
+[sub_resource type="Animation" id="Animation_w357c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-83, -39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bljyu"]
+resource_name = "float_down"
+length = 0.8333367101285607
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8279307),
+"transitions": PackedFloat32Array(1, 0.35355362),
+"update": 0,
+"values": [Vector2(-83, -39), Vector2(-83, 52.565)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.28, 0.8333334),
+"transitions": PackedFloat32Array(1, 1, 4.7568293),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7jkfo"]
+resource_name = "float_up"
+length = 0.8333367101285607
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8333334),
+"transitions": PackedFloat32Array(1, 0.35355362),
+"update": 0,
+"values": [Vector2(-83, -39), Vector2(-83, -71)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.28, 0.8333334),
+"transitions": PackedFloat32Array(1, 1, 4.7568293),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bljyu"]
+_data = {
+&"RESET": SubResource("Animation_w357c"),
+&"float_down": SubResource("Animation_bljyu"),
+&"float_up": SubResource("Animation_7jkfo")
+}
+
+[node name="EffectAlert" type="Control" unique_id=117734496]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -540.0
+offset_bottom = -540.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="." unique_id=1781231555]
+z_index = 2
+layout_mode = 0
+offset_left = -83.0
+offset_top = -39.0
+offset_right = 85.0
+offset_bottom = 36.000046
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bljyu")
+text = "STUMBLE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=365609177]
+libraries/ = SubResource("AnimationLibrary_bljyu")

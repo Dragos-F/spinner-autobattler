@@ -3,7 +3,7 @@ class_name CombatManager
 
 @export var PlayerEntity:HealthEntity
 @export var PlayerSpinners:Array[Spinner]
-
+@export var EffectAlertLabel:PackedScene
 
 @export var EnemyEntity:HealthEntity
 @export var EnemySpinners:Array[Spinner]
@@ -27,22 +27,45 @@ func ProcessResult(name,slice,sourceEntity,targetEntity,sourceWheels,targetWheel
 	match name:
 		"Hit":
 			targetEntity.damage(slice.slice_type.value)
+			spawn_effect_label("HIT!",slice)
 		"Jackpot":
 			targetEntity.damage(slice.slice_type.value)
+			spawn_effect_label("JACKPOT!!",slice)
 		"Backfire":
 			sourceEntity.damage(abs(slice.slice_type.value))
+			spawn_effect_label("BACKFIRE!",slice,"float_down")
 		"Fix":
 			sourceEntity.heal(slice.slice_type.value)
+			spawn_effect_label("HEAL!",slice,"float_down")
 		"Stumble":
 			DelayFromSet(sourceWheels,slice.slice_type.modifier)
+			spawn_effect_label("STUMBLE!",slice,"float_down")
 		"Stall":
 			DelayFromSet(sourceWheels,slice.slice_type.modifier)
+			spawn_effect_label("STALL!",slice)
 		"Rush":
 			AccelerateFromSet(sourceWheels,slice.slice_type.modifier)
+			spawn_effect_label("RUSH!",slice,"float_down")
 		"Stun":
 			StunAllWheelsInSet(targetWheels,slice.slice_type.power)
+			spawn_effect_label("STUN!",slice)
 			#StunWheelInSet(targetWheels,slice.slice_type.power)
 	pass
+
+func spawn_effect_label(text,sliceobj,atag="float_up",colour:Color = Color.TRANSPARENT):
+		var instance = EffectAlertLabel.instantiate()
+		get_tree().root.add_child(instance)
+		instance.get_child(0).text = text
+		if colour == Color.TRANSPARENT:
+			instance.modulate = sliceobj.slice_type.colour
+		else:
+			instance.modulate = colour
+		instance.position = sliceobj.own_collision.position
+		var animr:AnimationPlayer = instance.get_child(0).get_child(0)
+		animr.play(atag)
+		await animr.animation_finished
+		instance.queue_free()
+	
 
 func listen_player_spinresult(slice:PresetSlice,source:String):
 	var name: String = slice.slice_type.resource_path

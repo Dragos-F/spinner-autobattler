@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://jpfekj7awrk1" path="res://Resources/EnemyCollections/stage5_standard.tres" id="12_rmfi2"]
 [ext_resource type="Script" uid="uid://crtclueovnj4u" path="res://enemy_collection.gd" id="12_xb4mg"]
 [ext_resource type="Resource" uid="uid://xa7mls6hy47t" path="res://Resources/EnemyCollections/stage5_boss.tres" id="13_sl126"]
+[ext_resource type="PackedScene" uid="uid://fxm7rg3rxl4r" path="res://Scenes/effect_alert.tscn" id="15_goiu7"]
 [ext_resource type="PackedScene" uid="uid://b3gjfmq7e55vk" path="res://Scenes/full_wheel_bundle.tscn" id="15_xc4hf"]
 [ext_resource type="PackedScene" uid="uid://dvm8eqmaaxrye" path="res://Scenes/draggable_item.tscn" id="16_6rnll"]
 [ext_resource type="Texture2D" uid="uid://2fn7tcw13kmc" path="res://VisualAssets/ContestantImages/Businessman front.png" id="17_hkvke"]
@@ -209,12 +210,13 @@ slots = [NodePath("../UIParent/ContestantUI/Control/VBoxContainer/Items/Control1
 wheels = [NodePath("../PlayerWheels/PlayerWheel1/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel2/SpinControl/Wheel"), NodePath("../PlayerWheels/PlayerWheel3/SpinControl/Wheel")]
 loot_sys = NodePath("../LootSystem")
 
-[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "PrimaryEnemyWheel", "PrimaryEnemySpinner", "combatManager", "inventoryManager", "progressButton", "CharFront", "CharBack", "CharName", "StartingItem")]
+[node name="GameManager" type="Node" parent="." unique_id=1200465407 node_paths=PackedStringArray("EnemyDisplay", "EnemyTitleText", "EnemyDescriptionText", "EnemyHPSystem", "BackgroundImage", "PrimaryEnemyWheel", "PrimaryEnemySpinner", "combatManager", "inventoryManager", "progressButton", "CharFront", "CharBack", "CharName", "StartingItem")]
 script = ExtResource("10_4b75m")
 EnemyDisplay = NodePath("../UIParent/CenterPlayArea/EnemyImage")
 EnemyTitleText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control/Label")
 EnemyDescriptionText = NodePath("../UIParent/EnemyDescription/VBoxContainer/Control2/EnemyDescriptionText")
 EnemyHPSystem = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
+BackgroundImage = NodePath("../UIParent/CenterPlayArea/BackgroundImage")
 EnemyCollections = Array[ExtResource("12_xb4mg")]([ExtResource("4_i0j58"), ExtResource("5_p5ymy"), ExtResource("8_dtg5n"), ExtResource("7_wmecs"), ExtResource("6_3va76"), ExtResource("9_d0jji"), ExtResource("10_cotnl"), ExtResource("11_ypccg"), ExtResource("12_rmfi2"), ExtResource("13_sl126")])
 EnemyCollectionBounds = Array[Vector2]([Vector2(0, 2), Vector2(3, 3), Vector2(4, 6), Vector2(7, 7), Vector2(8, 10), Vector2(11, 11), Vector2(12, 14), Vector2(15, 15), Vector2(16, 18), Vector2(19, 19)])
 PrimaryEnemyWheel = NodePath("../EnemyWheelBundle/SpinControl/Wheel")
@@ -231,6 +233,7 @@ StartingItem = NodePath("../StartingItem")
 script = ExtResource("5_enc0b")
 PlayerEntity = NodePath("../PlayerWheels/PlayerHealthDisplay")
 PlayerSpinners = [NodePath("../PlayerWheels/PlayerWheel1/SpinControl"), NodePath("../PlayerWheels/PlayerWheel2/SpinControl"), NodePath("../PlayerWheels/PlayerWheel3/SpinControl")]
+EffectAlertLabel = ExtResource("15_goiu7")
 EnemyEntity = NodePath("../EnemyWheelBundle/EnemyHealthDisplay")
 EnemySpinners = [NodePath("../EnemyWheelBundle/SpinControl")]
 InventorySys = NodePath("../InventoryManager")
@@ -561,12 +564,20 @@ offset_bottom = 1080.0
 mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="UIParent/CenterPlayArea" unique_id=369921564]
+visible = false
 layout_mode = 0
 offset_top = 10.0
 offset_right = 1248.0
 offset_bottom = 1068.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ntio1")
+
+[node name="BackgroundImage" type="TextureRect" parent="UIParent/CenterPlayArea" unique_id=1953118297]
+layout_mode = 0
+offset_left = -336.0
+offset_right = 1584.0
+offset_bottom = 1080.0
+texture = ExtResource("2_qxria")
 
 [node name="EnemyImage" type="TextureRect" parent="UIParent/CenterPlayArea" unique_id=923369979]
 layout_mode = 0

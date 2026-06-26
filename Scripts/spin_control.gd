@@ -62,7 +62,7 @@ func reset_spin():
 	test_clicker.reset_text()
 	var colourtweentime = 0.1*TimeCoefficient
 	resettween = get_tree().create_tween()
-	resettween.tween_property(self, "modulate", Color.from_hsv(0,0,0.3), colourtweentime).set_delay(WaitTime*TimeCoefficient-colourtweentime*2)
+	resettween.tween_property(self, "modulate", Color.from_hsv(0,0,0.3), colourtweentime).set_delay(WaitTime*TimeCoefficient-colourtweentime*2*TimeCoefficient)
 	resettween.tween_property(self, "rotation", 0, (ResetTime-SubtractedWaitTime+ExtraWaitTime)*TimeCoefficient).set_trans(Tween.TRANS_SINE)
 	#resettween.
 	resetspinComplete.emit()
@@ -90,12 +90,14 @@ func InterruptSpin(): # Kill any spin that is underway, and maybe leave it alone
 	if isResetting:
 		print("interrupting during reset")
 		await resetspinComplete
+		isResetting = false
 		spinInterruptComplete.emit()
 	elif isSpinning:
 		print("spinning, but not resetting")
 		spintween.kill()
 		reset_spin()
 		await resettween.finished
+		isResetting = false
 		spinInterruptComplete.emit()
 		
 	isSpinning = false
