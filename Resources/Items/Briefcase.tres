@@ -13,5 +13,5 @@ cooldown = 5.5
 icon = ExtResource("1_hohej")
 name = "Briefcase"
 Desc = "Contains tax, salary and legal documents that no one will ever read"
-stats = Array[ExtResource("2_fpb2p")]([ExtResource("3_ijmjs"), ExtResource("4_hohej"), ExtResource("3_ijmjs"), ExtResource("5_i11ed"), ExtResource("3_ijmjs"), null])
+stats = Array[ExtResource("2_fpb2p")]([ExtResource("3_ijmjs"), ExtResource("4_hohej"), ExtResource("3_ijmjs"), ExtResource("5_i11ed"), ExtResource("3_ijmjs")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

@@ -39,10 +39,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -483.0
-offset_top = -320.0
-offset_right = 597.0
-offset_bottom = 400.0
+offset_left = -518.0
+offset_top = -356.0
+offset_right = 582.0
+offset_bottom = 364.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -163,7 +163,7 @@ text = "Speed: 10"
 [node name="StatWheel" type="Node2D" parent="." unique_id=2047788086]
 z_index = 5
 z_as_relative = false
-position = Vector2(315, 228)
+position = Vector2(287, 195)
 
 [node name="Wheel" type="Node2D" parent="StatWheel" unique_id=808226493 node_paths=PackedStringArray("slice_template")]
 script = ExtResource("3_1g7yp")
@@ -181,23 +181,21 @@ z_index = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StatWheel/Wheel/TemplatePolygon2D/Area2D" unique_id=1716261157]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1474121632]
-
 [connection signal="mouse_entered" from="StatWheel/Wheel/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="StatWheel/Wheel/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@1008672/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008672/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@1008672/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008672/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@1008673/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008673/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@1008673/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008673/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@1008674/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008674/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@1008674/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008674/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@1008675/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008675/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@1008675/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008675/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@1008676/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008676/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@1008676/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008676/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@1008677/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008677/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@1008677/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008677/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@1008678/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008678/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@1008678/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008678/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@1008679/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008679/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@1008679/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@1008679/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@19816/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19816/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@19816/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19816/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@19817/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19817/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@19817/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19817/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@19818/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19818/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@19818/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19818/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@19819/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19819/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@19819/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19819/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@19820/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19820/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@19820/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19820/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@19821/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19821/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@19821/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19821/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@19822/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19822/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@19822/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19822/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="StatWheel/Wheel/@Node2D@19823/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19823/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StatWheel/Wheel/@Node2D@19823/TemplatePolygon2D/Area2D" to="StatWheel/Wheel/@Node2D@19823/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]

@@ -29,12 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://bsm7gkopj0mk0" path="res://VisualAssets/ContestantImages/Nerd_front.png" id="15_w1b7k"]
 [ext_resource type="Texture2D" uid="uid://cxu8gyqso2h8o" path="res://VisualAssets/Items/Briefcase png.png" id="16_4qs42"]
 [ext_resource type="Resource" uid="uid://wejnjdkegmbt" path="res://Resources/Items/TShirtCannon.tres" id="16_7b7lq"]
-[ext_resource type="Script" uid="uid://co8ysbawm4o60" path="res://Scripts/wheel_brain.gd" id="16_v54mg"]
 [ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="17_ryx1e"]
 [ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="17_w2oxx"]
 [ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="18_2nxch"]
 [ext_resource type="Texture2D" uid="uid://4fxgvs4b54gj" path="res://VisualAssets/ContestantImages/Clown front.png" id="18_m1cwc"]
-[ext_resource type="Script" uid="uid://b4s8obyrwa5gj" path="res://Scripts/template_slice.gd" id="18_r351o"]
 [ext_resource type="Texture2D" uid="uid://vq35jg1jgnx2" path="res://VisualAssets/ContestantImages/Clown back.png" id="19_vx826"]
 [ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="19_xx6s5"]
 [ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="20_t50vj"]
@@ -46,11 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://chra0c2ihnd5p" path="res://VisualAssets/ContestantImages/EagleMascot_back.png" id="25_4qs42"]
 [ext_resource type="Texture2D" uid="uid://bh8g1xuv81mfl" path="res://VisualAssets/GO_button_png.png" id="26_ticr3"]
 [ext_resource type="Script" uid="uid://dquuvug3b1rd5" path="res://Scripts/go_triangle_button.gd" id="29_m1cwc"]
-[ext_resource type="PackedScene" uid="uid://c2q8wvvn4hjw8" path="res://Scenes/tooltip.tscn" id="32_cp58y"]
-[ext_resource type="Script" uid="uid://btiq6slfj2f3u" path="res://Scripts/item_tooltip.gd" id="43_03pvy"]
-[ext_resource type="Texture2D" uid="uid://ydsh37r3x6l8" path="res://VisualAssets/ItemOverlay.png" id="44_wpjqi"]
-[ext_resource type="Texture2D" uid="uid://brqxyclrmgs66" path="res://VisualAssets/Items/RubberChicken png.png" id="45_nrvwe"]
-[ext_resource type="FontFile" uid="uid://bygmfxwejtu7l" path="res://VisualAssets/Fonts/Wowsers.ttf" id="46_7k1nr"]
+[ext_resource type="PackedScene" uid="uid://w2ypqxyaota3" path="res://Scenes/item_tooltip.tscn" id="48_7nm4y"]
 [ext_resource type="Texture2D" uid="uid://dgh8huy6jx0q8" path="res://VisualAssets/TutorialScreenshots/Screenshot 2026-06-27 021039.png" id="52_nrvwe"]
 [ext_resource type="Texture2D" uid="uid://bqo0ogdccbhuj" path="res://VisualAssets/TutorialScreenshots/Screenshot 2026-06-26 214243.png" id="53_7k1nr"]
 [ext_resource type="Texture2D" uid="uid://c8meeraj1bdgq" path="res://VisualAssets/TutorialScreenshots/Screenshot 2026-06-26 213640.png" id="53_nrvwe"]
@@ -80,16 +74,13 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_nrvwe"]
+[sub_resource type="Resource" id="Resource_7nm4y"]
 resource_local_to_scene = true
 script = ExtResource("17_ryx1e")
 cooldown = 5.5
 icon = ExtResource("16_4qs42")
 stats = Array[ExtResource("18_2nxch")]([ExtResource("19_xx6s5"), ExtResource("19_xx6s5"), ExtResource("19_xx6s5"), ExtResource("20_t50vj"), ExtResource("21_oxb2a")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1g7yp"]
-texture = ExtResource("44_wpjqi")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0iob3"]
 shader = ExtResource("11_a1635")
@@ -481,7 +472,7 @@ DisplayName = "Rory Schmew"
 Description = "Mattress retailer association - Salesman of the Year. Rory carries his briefcase everywhere, ready to close a deal at any time."
 CharFront = ExtResource("14_w2oxx")
 CharBack = ExtResource("15_r351o")
-StartingItem = SubResource("Resource_nrvwe")
+StartingItem = SubResource("Resource_7nm4y")
 preview = NodePath("../../../../../Draggable")
 bitmapImage = ExtResource("9_r351o")
 
@@ -631,167 +622,6 @@ visible = false
 texture_filter = 1
 texture = ExtResource("10_488j2")
 
-[node name="ItemTooltip" type="Control" parent="." unique_id=1911907552 node_paths=PackedStringArray("item_icon", "item_name", "item_desc", "item_stats")]
-unique_name_in_owner = true
-visible = false
-z_index = 2
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1430.0
-offset_top = -766.0
-offset_right = -1430.0
-offset_bottom = -766.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-script = ExtResource("43_03pvy")
-item_icon = NodePath("PanelContainer/HBoxContainer/Control2/TextureRect")
-item_name = NodePath("PanelContainer/HBoxContainer/Control/CenterContainer/Control/Item Name")
-item_desc = NodePath("PanelContainer/HBoxContainer/Control/CenterContainer2/Control/Description")
-item_stats = NodePath("StatWheel/Wheel")
-
-[node name="PanelContainer" type="PanelContainer" parent="ItemTooltip" unique_id=1664424955]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -483.0
-offset_top = -320.0
-offset_right = 597.0
-offset_bottom = 400.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_1g7yp")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ItemTooltip/PanelContainer" unique_id=957658986]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Control2" type="Control" parent="ItemTooltip/PanelContainer/HBoxContainer" unique_id=454962721]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="ItemTooltip/PanelContainer/HBoxContainer/Control2" unique_id=1324814584]
-layout_mode = 0
-offset_left = 59.0
-offset_top = 76.0
-offset_right = 597.0
-offset_bottom = 796.0
-size_flags_horizontal = 3
-texture = ExtResource("45_nrvwe")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="Control" type="VBoxContainer" parent="ItemTooltip/PanelContainer/HBoxContainer" unique_id=1057059945]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="Control2" type="Control" parent="ItemTooltip/PanelContainer/HBoxContainer/Control" unique_id=1470996326]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.52
-
-[node name="CenterContainer" type="CenterContainer" parent="ItemTooltip/PanelContainer/HBoxContainer/Control" unique_id=386185724]
-clip_contents = true
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.64
-
-[node name="Control" type="Control" parent="ItemTooltip/PanelContainer/HBoxContainer/Control/CenterContainer" unique_id=606062883]
-layout_mode = 2
-
-[node name="Item Name" type="Label" parent="ItemTooltip/PanelContainer/HBoxContainer/Control/CenterContainer/Control" unique_id=1691644568]
-modulate = Color(0.8117647, 1, 0.4392157, 1)
-custom_maximum_size = Vector2(419, 124)
-layout_mode = 0
-offset_left = -241.0
-offset_top = -41.0
-offset_right = 41.0
-offset_bottom = 2.0
-theme_override_fonts/font = ExtResource("5_v54mg")
-theme_override_font_sizes/font_size = 42
-text = "Item Name "
-autowrap_mode = 2
-
-[node name="CenterContainer2" type="CenterContainer" parent="ItemTooltip/PanelContainer/HBoxContainer/Control" unique_id=1487279377]
-clip_contents = true
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.54
-
-[node name="Control" type="Control" parent="ItemTooltip/PanelContainer/HBoxContainer/Control/CenterContainer2" unique_id=853178655]
-layout_mode = 2
-
-[node name="Description" type="Label" parent="ItemTooltip/PanelContainer/HBoxContainer/Control/CenterContainer2/Control" unique_id=1075353288]
-custom_maximum_size = Vector2(428, 146)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -241.0
-offset_top = -78.0
-offset_right = 187.0
-offset_bottom = 45.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("46_7k1nr")
-theme_override_font_sizes/font_size = 18
-text = "Item Description"
-autowrap_mode = 2
-
-[node name="Control" type="Control" parent="ItemTooltip/PanelContainer/HBoxContainer/Control" unique_id=1631568899]
-clip_contents = true
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.88
-mouse_filter = 2
-
-[node name="Statistics" type="Label" parent="ItemTooltip/PanelContainer/HBoxContainer/Control/Control" unique_id=1399322071]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -241.0
-offset_top = -4.0
-offset_right = -79.0
-offset_bottom = 45.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("46_7k1nr")
-theme_override_font_sizes/font_size = 18
-text = "Wheel:"
-
-[node name="StatWheel" type="Node2D" parent="ItemTooltip" unique_id=2047788086]
-z_index = 2
-position = Vector2(315, 228)
-
-[node name="Wheel" type="Node2D" parent="ItemTooltip/StatWheel" unique_id=808226493 node_paths=PackedStringArray("slice_template")]
-script = ExtResource("16_v54mg")
-item = ExtResource("17_w2oxx")
-slice_template = NodePath("TemplatePolygon2D")
-
-[node name="TemplatePolygon2D" type="Polygon2D" parent="ItemTooltip/StatWheel/Wheel" unique_id=621566602 node_paths=PackedStringArray("own_collision")]
-script = ExtResource("18_r351o")
-own_collision = NodePath("Area2D/CollisionPolygon2D")
-collision_color = PackedColorArray(1, 0, 0, 1, 0.72655874, 0.7192172, 1, 1)
-tooltipObject = ExtResource("32_cp58y")
-
-[node name="Area2D" type="Area2D" parent="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D" unique_id=554612154]
-z_index = 1
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D/Area2D" unique_id=1716261157]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020282609]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1127870218]
@@ -804,6 +634,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Draggable" parent="." unique_id=1814434899 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("7_qsv4i")]
+visible = false
 anchor_left = -0.14887418
 anchor_top = -1.3605839
 anchor_right = -0.09824922
@@ -919,6 +750,13 @@ texture = ExtResource("53_7k1nr")
 position = Vector2(277, 563)
 texture = ExtResource("53_nrvwe")
 
+[node name="ItemTooltip" parent="." unique_id=1911907552 instance=ExtResource("48_7nm4y")]
+visible = false
+offset_left = -1410.0
+offset_top = -730.0
+offset_right = -1410.0
+offset_bottom = -730.0
+
 [connection signal="pressed" from="UIParent/CharacterSelectPanel/Panel/Control/Tutorial/CharacterTriangle_inner" to="UIParent/CharacterSelectPanel/Panel/Control/Tutorial" method="_on_character_triangle_inner_pressed"]
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Pete The Fury" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Rory Schmew" to="CharSelectBrain" method="show_selected_starter"]
@@ -927,19 +765,23 @@ texture = ExtResource("53_nrvwe")
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Dane Blanche" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Hornacia" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="pressed" from="UIParent/CharacterSelectPanel/Panel/Control/Blank2/CharacterTriangle_inner" to="CharSelectBrain" method="_on_GO_pressed"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@1006611/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1006611/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@1006611/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1006611/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@1006612/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1006612/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@1006612/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1006612/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@1006613/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1006613/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@1006613/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1006613/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@1006614/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1006614/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@1006614/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1006614/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@1006615/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1006615/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@1006615/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@1006615/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 [connection signal="pressed" from="TutorialWindow/Control/Button" to="UIParent/CharacterSelectPanel/Panel/Control/Tutorial" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27605/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27605/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27605/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27605/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27606/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27606/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27606/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27606/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27607/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27607/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27607/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27607/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27608/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27608/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27608/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27608/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27609/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27609/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27609/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27609/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27610/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27610/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27610/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27610/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27611/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27611/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27611/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27611/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27612/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27612/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27612/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27612/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="UIParent/CharacterSelectPanel/Panel/Control/Tutorial"]
 [editable path="UIParent/CharacterSelectPanel/Panel/Control/Tutorial/CharacterTriangle_inner"]
@@ -957,3 +799,4 @@ texture = ExtResource("53_nrvwe")
 [editable path="UIParent/CharacterSelectPanel/Panel/Control/Hornacia/CharacterTriangle_inner"]
 [editable path="UIParent/CharacterSelectPanel/Panel/Control/Blank2"]
 [editable path="UIParent/CharacterSelectPanel/Panel/Control/Blank2/CharacterTriangle_inner"]
+[editable path="ItemTooltip"]

@@ -29,6 +29,8 @@ func show_selected_starter(starter:int, display_name:String, Description:String,
 	#DemoWheel.item = item
 	item_drag.item = item
 	item_drag.icon = item.icon
+	if item_drag.visible == false:
+		item_drag.visible = true
 	#DemoWheel.UpdateWheel(item)
 
 
