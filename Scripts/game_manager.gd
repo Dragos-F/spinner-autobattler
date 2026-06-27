@@ -201,7 +201,7 @@ func GameOverProcedure():
 	print("concluding with score of "+str(PlayerScore))
 	Fader.FadeUp("")
 	await Fader.fade_finished
-	get_tree().change_scene_to_file("res://Scenes/start_menu.tscn") 
+	get_tree().change_scene_to_file("res://Scenes/end_game.tscn") 
 	Fader.FadeDown("")
 	pass
 
