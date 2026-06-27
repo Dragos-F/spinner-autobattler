@@ -30,6 +30,8 @@ var PreparedToStart = true
 
 @export var ScoreLabel:Label
 
+@export var mainTrack:AudioStream
+
 signal combat_started()
 signal combat_ended()
 # Called when the node enters the scene tree for the first time.
@@ -43,6 +45,8 @@ func _ready() -> void:
 	StartingItem.manager = inventoryManager
 	inventoryManager.wheels[0].UpdateWheel(StartingItem.item)
 	inventoryManager.slots[0].equipped_item = StartingItem 
+	AudioBrain.music.stream = mainTrack
+	AudioBrain.music.play()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

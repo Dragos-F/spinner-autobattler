@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0t75uke65ebe" path="res://VisualAssets/StartMenu/TVStarryBackground.png" id="1_m6uer"]
 [ext_resource type="Script" uid="uid://cylr4e4v61n5i" path="res://Scripts/start_menu.gd" id="1_slhe1"]
 [ext_resource type="Texture2D" uid="uid://bnrqow4uwle8x" path="res://VisualAssets/StartMenu/TVBackground.png" id="2_a43kq"]
+[ext_resource type="AudioStream" uid="uid://bt6t7g6r0sklh" path="res://Sound/music/music_quiz_show_tension_bed_build_to_end_long_by_zapsplat.mp3" id="2_qnxl2"]
 [ext_resource type="Texture2D" uid="uid://bbqhd6y0xedvd" path="res://VisualAssets/StartMenu/TvBorder.png" id="3_626he"]
 [ext_resource type="Texture2D" uid="uid://ciu6ywqxuwau8" path="res://VisualAssets/StartMenu/TVCRTEffect.png" id="3_i2i62"]
 [ext_resource type="Texture2D" uid="uid://bl83b0r74vm5b" path="res://VisualAssets/StartMenu/LogoEnglish1.png" id="5_lfskg"]
@@ -89,6 +90,7 @@ modulate_color = Color(0.42985052, 0.42985052, 0.42985052, 1)
 [node name="StartMenu" type="Node" unique_id=830357134 node_paths=PackedStringArray("crt_bars")]
 script = ExtResource("1_slhe1")
 crt_bars = NodePath("TvcrtEffect")
+track = ExtResource("2_qnxl2")
 
 [node name="TvStarryBackground" type="Sprite2D" parent="." unique_id=185274393]
 texture = ExtResource("1_m6uer")
