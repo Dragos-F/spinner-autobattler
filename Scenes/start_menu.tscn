@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bnrqow4uwle8x" path="res://VisualAssets/StartMenu/TVBackground.png" id="2_a43kq"]
 [ext_resource type="AudioStream" uid="uid://bt6t7g6r0sklh" path="res://Sound/music/music_quiz_show_tension_bed_build_to_end_long_by_zapsplat.mp3" id="2_qnxl2"]
 [ext_resource type="Texture2D" uid="uid://bbqhd6y0xedvd" path="res://VisualAssets/StartMenu/TvBorder.png" id="3_626he"]
+[ext_resource type="Script" uid="uid://6w5fgvi46c0c" path="res://Scripts/workaround.gd" id="3_asy55"]
 [ext_resource type="Texture2D" uid="uid://ciu6ywqxuwau8" path="res://VisualAssets/StartMenu/TVCRTEffect.png" id="3_i2i62"]
 [ext_resource type="Texture2D" uid="uid://bl83b0r74vm5b" path="res://VisualAssets/StartMenu/LogoEnglish1.png" id="5_lfskg"]
 [ext_resource type="Texture2D" uid="uid://clpdbpaewwqmc" path="res://VisualAssets/StartMenu/LogoEnglish2.png" id="6_ru7em"]
@@ -40,10 +41,11 @@
 [ext_resource type="Texture2D" uid="uid://cuyha3v0yoafa" path="res://VisualAssets/StartMenu/CRTtoggle3.png" id="31_sjrra"]
 [ext_resource type="Texture2D" uid="uid://ctk2enapdtga7" path="res://VisualAssets/StartMenu/CRTtoggle2.png" id="32_58rry"]
 [ext_resource type="Texture2D" uid="uid://t1tqktcbbj1i" path="res://VisualAssets/Backgrounds/CoverFullBack.png" id="40_sjrra"]
-[ext_resource type="Script" uid="uid://c8geb3ln1mom4" path="res://Scripts/draggable_item_button.gd" id="41_rv1yw"]
 [ext_resource type="Script" uid="uid://df1pnvhe64lch" path="res://Scripts/item_slot.gd" id="41_y55ju"]
 [ext_resource type="Texture2D" uid="uid://vh2wgiocoigr" path="res://VisualAssets/ItemFrame.png" id="42_e17tg"]
-[ext_resource type="Resource" uid="uid://cs26v12em43iy" path="res://Resources/Items/Briefcase.tres" id="42_n4o6d"]
+[ext_resource type="PackedScene" uid="uid://dvm8eqmaaxrye" path="res://Scenes/draggable_item.tscn" id="44_e17tg"]
+[ext_resource type="Script" uid="uid://b4k33yenv5yb6" path="res://Scripts/inventory_manager.gd" id="45_e17tg"]
+[ext_resource type="PackedScene" uid="uid://w2ypqxyaota3" path="res://Scenes/item_tooltip.tscn" id="46_asy55"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hk511"]
 animations = [{
@@ -184,12 +186,28 @@ texture = ExtResource("40_sjrra")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asy55"]
 texture = ExtResource("42_e17tg")
 
-[node name="StartMenu" type="Node" unique_id=830357134 node_paths=PackedStringArray("crt_bars", "bonusfeatureswindow", "optionsmenuwindow")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4nkx"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="StartMenu" type="Node" unique_id=830357134 node_paths=PackedStringArray("crt_bars", "bonusfeatureswindow", "optionsmenuwindow", "credits", "items")]
 script = ExtResource("1_slhe1")
 crt_bars = NodePath("TvcrtEffect")
 track = ExtResource("2_qnxl2")
 bonusfeatureswindow = NodePath("BonusFeaturesScreen")
 optionsmenuwindow = NodePath("OptionsScreen")
+credits = NodePath("BonusFeaturesScreen/Credits")
+items = NodePath("BonusFeaturesScreen/Items")
+
+[node name="Workaround" type="Node" parent="." unique_id=1120659171 node_paths=PackedStringArray("button_parent", "item_manager")]
+script = ExtResource("3_asy55")
+button_parent = NodePath("../BonusFeaturesScreen/Items/Node")
+item_manager = NodePath("../InventoryManager")
+
+[node name="InventoryManager" type="Node" parent="." unique_id=813683861 node_paths=PackedStringArray("slots", "wheels")]
+unique_name_in_owner = true
+script = ExtResource("45_e17tg")
+slots = [null, null, null]
+wheels = [null, null, null]
 
 [node name="TvStarryBackground" type="Sprite2D" parent="." unique_id=185274393]
 texture = ExtResource("1_m6uer")
@@ -266,13 +284,21 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_c28fn")
 [node name="Control" type="Control" parent="OptionsScreen/PanelContainer" unique_id=1473208104]
 layout_mode = 2
 
-[node name="ButtonBackToMenu" type="Button" parent="OptionsScreen/PanelContainer/Control" unique_id=1814448301]
+[node name="Control2" type="Control" parent="OptionsScreen/PanelContainer/Control" unique_id=668955298]
+clip_contents = true
+anchors_preset = 0
+offset_left = 721.0
+offset_top = 80.0
+offset_right = 1070.0
+offset_bottom = 281.0
+
+[node name="ButtonBackToMenu" type="Button" parent="OptionsScreen/PanelContainer/Control/Control2" unique_id=1814448301]
 z_index = 3
 layout_mode = 0
-offset_left = 645.00006
-offset_top = -109.0
-offset_right = 1404.0
-offset_bottom = 539.0
+offset_left = -115.00001
+offset_top = -182.0
+offset_right = 643.99994
+offset_bottom = 466.0
 rotation = 0.08726646
 scale = Vector2(0.8, 0.8)
 theme_override_styles/normal = SubResource("StyleBoxTexture_cln4f")
@@ -327,6 +353,7 @@ offset_top = 634.00006
 offset_right = 963.0
 offset_bottom = 734.00006
 rotation = -1.4835298
+mouse_filter = 2
 texture = ExtResource("25_ptes2")
 
 [node name="Label2" type="Label" parent="OptionsScreen/PanelContainer/Control/SoundFX" unique_id=1385500850]
@@ -376,6 +403,7 @@ offset_top = 634.00006
 offset_right = 963.0
 offset_bottom = 734.00006
 rotation = -1.4835298
+mouse_filter = 2
 texture = ExtResource("25_ptes2")
 
 [node name="Label" type="Label" parent="OptionsScreen/PanelContainer/Control/Music" unique_id=945829131]
@@ -463,13 +491,22 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_u1ruc")
 
 [node name="Control" type="Control" parent="BonusFeaturesScreen/Bonus Features Base" unique_id=720245635]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="ButtonBackToMenu" type="Button" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=1217092859]
+[node name="Control" type="Control" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=1461171780]
+clip_contents = true
+anchors_preset = 0
+offset_left = 764.0
+offset_top = 442.0
+offset_right = 1116.0
+offset_bottom = 639.0
+
+[node name="ButtonBackToMenu" type="Button" parent="BonusFeaturesScreen/Bonus Features Base/Control/Control" unique_id=1217092859]
 layout_mode = 0
-offset_left = 656.0
-offset_top = 328.0
-offset_right = 1415.0
-offset_bottom = 976.0
+offset_left = -137.0
+offset_top = -155.99998
+offset_right = 622.0
+offset_bottom = 492.0
 rotation = -0.02443461
 scale = Vector2(0.8, 0.8)
 theme_override_styles/normal = SubResource("StyleBoxTexture_7c4jf")
@@ -531,6 +568,7 @@ offset_top = 315.00003
 offset_right = 235.0
 offset_bottom = 355.00003
 scale = Vector2(0.9, 0.9)
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="BonusFeaturesScreen/Bonus Features Base/Control/Items3" unique_id=471867253]
 layout_mode = 0
@@ -600,11 +638,13 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="BonusFeaturesScreen/Bonus Features Base" unique_id=248510084]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TvBorder2" type="Sprite2D" parent="BonusFeaturesScreen" unique_id=1420466326]
 texture = ExtResource("3_626he")
 
 [node name="Items" type="PanelContainer" parent="BonusFeaturesScreen" unique_id=1448453376]
+visible = false
 layout_mode = 0
 offset_left = -960.0
 offset_top = -540.0
@@ -615,41 +655,45 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_wlef6")
 [node name="Control" type="Control" parent="BonusFeaturesScreen/Items" unique_id=681425173]
 layout_mode = 2
 
-[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=2117065490]
+[node name="ItemPreview" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1598691545]
+anchors_preset = 0
+offset_left = 407.0
+offset_top = -34.0
+offset_right = 447.0
+offset_bottom = 6.0
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview" unique_id=2117065490]
 z_index = 5
 layout_mode = 1
-anchor_left = 2.4965754
-anchor_top = 1.018868
-anchor_right = 2.4965754
-anchor_bottom = 1.018868
-offset_left = -728.0
-offset_top = -289.0
-offset_right = -603.0
-offset_bottom = -175.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
 offset_transform_enabled = true
 script = ExtResource("41_y55ju")
 type = 1
 slot_number = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/Control1" unique_id=1451578601]
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview/Control1" unique_id=1451578601]
 z_index = -5
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 17.8
-anchor_top = 6.775
-anchor_right = 18.768
-anchor_bottom = 7.7574563
-offset_left = -5302.425
-offset_top = -1193.7275
-offset_right = -5296.425
-offset_bottom = -1188.7275
-grow_horizontal = 2
-grow_vertical = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
 
-[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/Control1/PanelContainer3" unique_id=759608123]
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview/Control1/PanelContainer3" unique_id=759608123]
 layout_mode = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("19_owajr")
@@ -657,26 +701,362 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Draggable" type="Button" parent="BonusFeaturesScreen/Items/Control" unique_id=1123117358 node_paths=PackedStringArray("anchor_pos")]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 384.0
-offset_right = 1116.0
-offset_bottom = 514.0
-script = ExtResource("41_rv1yw")
-item = ExtResource("42_n4o6d")
-anchor_pos = NodePath("../Control1")
-metadata/_custom_type_script = "uid://c8geb3ln1mom4"
-
-[node name="Control" type="Control" parent="BonusFeaturesScreen/Items/Control/Draggable" unique_id=1076319972]
+[node name="ItemPreview2" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1828821473]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -385.0
+offset_top = -171.0
+offset_right = -345.0
+offset_bottom = -131.0
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview2" unique_id=860361745]
+z_index = 5
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1" unique_id=921355288]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1/PanelContainer3" unique_id=1456656114]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="BonusFeaturesScreen/Items/Control" unique_id=1087003631]
+layout_mode = 0
+offset_left = 1254.0
+offset_top = 835.0
+offset_right = 1869.0
+offset_bottom = 1041.0
+theme_override_font_sizes/font_size = 145
+text = "RETURN"
+
+[node name="ItemTooltip" parent="BonusFeaturesScreen/Items" unique_id=1911907552 instance=ExtResource("46_asy55")]
+visible = false
+z_index = 6
+layout_mode = 2
+
+[node name="StatWheel" parent="BonusFeaturesScreen/Items/ItemTooltip" index="1" unique_id=2047788086]
+z_index = 10
+
+[node name="Node" type="Node2D" parent="BonusFeaturesScreen/Items" unique_id=1506460399]
+position = Vector2(960, 540)
+
+[node name="StartingItem" parent="BonusFeaturesScreen/Items/Node" unique_id=1814434899 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+anchor_pos = NodePath("../../Control/ItemPreview/Control1")
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem2" parent="BonusFeaturesScreen/Items/Node" unique_id=899159871 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1614.0
+offset_top = -191.0
+offset_right = -966.0
+offset_bottom = 457.0
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem3" parent="BonusFeaturesScreen/Items/Node" unique_id=441298134 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem4" parent="BonusFeaturesScreen/Items/Node" unique_id=1256549527 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem5" parent="BonusFeaturesScreen/Items/Node" unique_id=2138145852 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem6" parent="BonusFeaturesScreen/Items/Node" unique_id=684842920 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem7" parent="BonusFeaturesScreen/Items/Node" unique_id=1696628852 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem8" parent="BonusFeaturesScreen/Items/Node" unique_id=692102895 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem9" parent="BonusFeaturesScreen/Items/Node" unique_id=329543039 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem10" parent="BonusFeaturesScreen/Items/Node" unique_id=40835001 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem11" parent="BonusFeaturesScreen/Items/Node" unique_id=44902210 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem12" parent="BonusFeaturesScreen/Items/Node" unique_id=1307469119 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem13" parent="BonusFeaturesScreen/Items/Node" unique_id=1744563845 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem14" parent="BonusFeaturesScreen/Items/Node" unique_id=492230483 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem15" parent="BonusFeaturesScreen/Items/Node" unique_id=1656080096 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem16" parent="BonusFeaturesScreen/Items/Node" unique_id=1525374215 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem17" parent="BonusFeaturesScreen/Items/Node" unique_id=1106620175 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem18" parent="BonusFeaturesScreen/Items/Node" unique_id=423634683 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem19" parent="BonusFeaturesScreen/Items/Node" unique_id=741033626 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="StartingItem20" parent="BonusFeaturesScreen/Items/Node" unique_id=1359053375 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -1957.0
+offset_top = -41.00004
+offset_right = -1309.0
+offset_bottom = 606.99994
+pivot_offset = Vector2(15, 9)
+demo_item = true
+tooltipObject = NodePath("../../ItemTooltip")
+
+[node name="Credits" type="PanelContainer" parent="BonusFeaturesScreen" unique_id=1142267626]
+visible = false
+layout_mode = 0
+offset_left = -960.0
+offset_top = -534.0
+offset_right = 960.0
+offset_bottom = 540.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l4nkx")
+
+[node name="Control" type="Control" parent="BonusFeaturesScreen/Credits" unique_id=936025575]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="BonusFeaturesScreen/Credits/Control" unique_id=1282041051]
+layout_mode = 0
+offset_left = 1130.0
+offset_top = 743.0
+offset_right = 1743.0
+offset_bottom = 962.0
+theme_override_font_sizes/font_size = 154
+text = "RETURN"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="BonusFeature" to="." method="_on_bonusbutton_pressed"]
-[connection signal="pressed" from="OptionsScreen/PanelContainer/Control/ButtonBackToMenu" to="." method="_on_backtomenu_pressed"]
-[connection signal="pressed" from="BonusFeaturesScreen/Bonus Features Base/Control/ButtonBackToMenu" to="." method="_on_backtomenu_pressed"]
-[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/Control1" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/Control1" method="_on_mouse_exited"]
+[connection signal="pressed" from="OptionsScreen/PanelContainer/Control/Control2/ButtonBackToMenu" to="." method="_on_backtomenu_pressed"]
+[connection signal="pressed" from="BonusFeaturesScreen/Bonus Features Base/Control/Control/ButtonBackToMenu" to="." method="_on_backtomenu_pressed"]
+[connection signal="pressed" from="BonusFeaturesScreen/Bonus Features Base/Control/Items/TextureButton" to="." method="_on_item_button_pressed"]
+[connection signal="pressed" from="BonusFeaturesScreen/Bonus Features Base/Control/Items3/TextureButton" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1" method="_on_mouse_exited"]
+[connection signal="pressed" from="BonusFeaturesScreen/Items/Control/Button" to="." method="_on_close_items_pressed"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108070/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108070/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108070/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108070/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108071/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108071/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108071/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108071/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108072/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108072/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108072/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108072/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108073/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108073/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108073/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108073/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108074/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108074/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108074/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108074/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108075/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108075/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108075/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108075/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108076/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108076/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108076/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108076/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108077/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108077/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108077/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108077/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="BonusFeaturesScreen/Credits/Control/Button" to="." method="_on_close_credits_pressed"]
+
+[editable path="BonusFeaturesScreen/Items/ItemTooltip"]

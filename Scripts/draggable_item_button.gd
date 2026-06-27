@@ -42,9 +42,12 @@ func _process(delta: float) -> void:
 		var target = get_global_mouse_position()
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position",target,0.1)
+	elif anchor_pos == null:
+		return
 	elif (self.global_position - anchor_pos.global_position).length() >= Vector2(1,1).length():
 		#print(anchor_pos.position)
 		reset_location()
+	
 
 
 func _gui_input(event: InputEvent) -> void:
