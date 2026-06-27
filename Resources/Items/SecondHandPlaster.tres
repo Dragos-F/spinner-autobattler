@@ -14,5 +14,5 @@ cooldown = 5.2
 icon = ExtResource("1_tokg0")
 name = "Second Hand Plaster"
 Desc = "Comes pre-scabbed."
-stats = Array[ExtResource("2_d603u")]([ExtResource("4_j8nfo"), ExtResource("5_3bmld"), ExtResource("4_j8nfo"), ExtResource("6_h0xe8"), ExtResource("4_j8nfo"), ExtResource("7_o3ef3"), ExtResource("4_j8nfo"), ExtResource("7_o3ef3"), ExtResource("4_j8nfo")])
+stats = Array[ExtResource("2_d603u")]([ExtResource("4_j8nfo"), ExtResource("5_3bmld"), ExtResource("4_j8nfo"), ExtResource("6_h0xe8"), ExtResource("4_j8nfo"), ExtResource("7_o3ef3"), ExtResource("4_j8nfo"), ExtResource("7_o3ef3")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

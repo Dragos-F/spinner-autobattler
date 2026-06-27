@@ -10,6 +10,7 @@
 
 [resource]
 script = ExtResource("1_mlhn5")
+cooldown = 5.6
 icon = ExtResource("1_tai43")
 name = "Experimental Weight Loss Drugug"
 Desc = "R&D moves faster than regulations."
