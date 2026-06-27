@@ -27,17 +27,12 @@
 [ext_resource type="Texture2D" uid="uid://bcd0oym0d8xb2" path="res://VisualAssets/ContestantImages/Nerd_back.png" id="15_njwpm"]
 [ext_resource type="Texture2D" uid="uid://cw7avndt7j13x" path="res://VisualAssets/ContestantImages/Businessman_back.png" id="15_r351o"]
 [ext_resource type="Texture2D" uid="uid://bsm7gkopj0mk0" path="res://VisualAssets/ContestantImages/Nerd_front.png" id="15_w1b7k"]
-[ext_resource type="Texture2D" uid="uid://cxu8gyqso2h8o" path="res://VisualAssets/Items/Briefcase png.png" id="16_4qs42"]
 [ext_resource type="Resource" uid="uid://wejnjdkegmbt" path="res://Resources/Items/TShirtCannon.tres" id="16_7b7lq"]
-[ext_resource type="Script" uid="uid://bgfl1jrent3ce" path="res://Scripts/item_brain.gd" id="17_ryx1e"]
 [ext_resource type="Resource" uid="uid://3up33ktrl02l" path="res://Resources/Items/Mop.tres" id="17_w2oxx"]
-[ext_resource type="Script" uid="uid://cy01mun5xvl48" path="res://Scripts/generic_slice.gd" id="18_2nxch"]
 [ext_resource type="Texture2D" uid="uid://4fxgvs4b54gj" path="res://VisualAssets/ContestantImages/Clown front.png" id="18_m1cwc"]
 [ext_resource type="Texture2D" uid="uid://vq35jg1jgnx2" path="res://VisualAssets/ContestantImages/Clown back.png" id="19_vx826"]
-[ext_resource type="Resource" uid="uid://brede0qqo48qf" path="res://Resources/Slices/Hit.tres" id="19_xx6s5"]
-[ext_resource type="Resource" uid="uid://bwfmjjdlijcyo" path="res://Resources/Slices/Stun.tres" id="20_t50vj"]
+[ext_resource type="Resource" uid="uid://cs26v12em43iy" path="res://Resources/Items/Briefcase.tres" id="20_ryx1e"]
 [ext_resource type="Script" uid="uid://dyn1p6f5iuvge" path="res://Scripts/char_select_brain.gd" id="20_v5fbu"]
-[ext_resource type="Resource" uid="uid://bgxmuxq8peoyk" path="res://Resources/Slices/Rush.tres" id="21_oxb2a"]
 [ext_resource type="Texture2D" uid="uid://dn7o083mkmosg" path="res://VisualAssets/ContestantImages/Janitor front.png" id="21_v1eva"]
 [ext_resource type="Texture2D" uid="uid://dtv7xsyqgjxgk" path="res://VisualAssets/ContestantImages/Janitor back.png" id="22_t7sqb"]
 [ext_resource type="Texture2D" uid="uid://duw4ge81omw25" path="res://VisualAssets/ContestantImages/EagleMascot_front.png" id="24_d3t4u"]
@@ -73,14 +68,6 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
-
-[sub_resource type="Resource" id="Resource_7nm4y"]
-resource_local_to_scene = true
-script = ExtResource("17_ryx1e")
-cooldown = 5.5
-icon = ExtResource("16_4qs42")
-stats = Array[ExtResource("18_2nxch")]([ExtResource("19_xx6s5"), ExtResource("19_xx6s5"), ExtResource("19_xx6s5"), ExtResource("20_t50vj"), ExtResource("21_oxb2a")])
-metadata/_custom_type_script = "uid://bgfl1jrent3ce"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0iob3"]
 shader = ExtResource("11_a1635")
@@ -472,7 +459,7 @@ DisplayName = "Rory Schmew"
 Description = "Mattress retailer association - Salesman of the Year. Rory carries his briefcase everywhere, ready to close a deal at any time."
 CharFront = ExtResource("14_w2oxx")
 CharBack = ExtResource("15_r351o")
-StartingItem = SubResource("Resource_7nm4y")
+StartingItem = ExtResource("20_ryx1e")
 preview = NodePath("../../../../../Draggable")
 bitmapImage = ExtResource("9_r351o")
 
@@ -766,22 +753,22 @@ offset_bottom = -730.0
 [connection signal="selected" from="UIParent/CharacterSelectPanel/Panel/Control/Hornacia" to="CharSelectBrain" method="show_selected_starter"]
 [connection signal="pressed" from="UIParent/CharacterSelectPanel/Panel/Control/Blank2/CharacterTriangle_inner" to="CharSelectBrain" method="_on_GO_pressed"]
 [connection signal="pressed" from="TutorialWindow/Control/Button" to="UIParent/CharacterSelectPanel/Panel/Control/Tutorial" method="_on_button_pressed"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27605/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27605/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27605/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27605/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27606/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27606/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27606/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27606/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27607/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27607/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27607/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27607/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27608/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27608/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27608/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27608/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27609/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27609/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27609/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27609/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27610/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27610/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27610/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27610/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27611/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27611/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27611/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27611/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@27612/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27612/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@27612/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@27612/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@19816/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19816/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@19816/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19816/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@19817/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19817/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@19817/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19817/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@19818/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19818/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@19818/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19818/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@19819/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19819/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@19819/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19819/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@19820/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19820/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@19820/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19820/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@19821/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19821/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@19821/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19821/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@19822/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19822/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@19822/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19822/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@19823/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19823/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@19823/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@19823/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="UIParent/CharacterSelectPanel/Panel/Control/Tutorial"]
 [editable path="UIParent/CharacterSelectPanel/Panel/Control/Tutorial/CharacterTriangle_inner"]
