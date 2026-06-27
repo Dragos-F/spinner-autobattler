@@ -42,10 +42,33 @@
 [ext_resource type="Texture2D" uid="uid://ctk2enapdtga7" path="res://VisualAssets/StartMenu/CRTtoggle2.png" id="32_58rry"]
 [ext_resource type="Texture2D" uid="uid://t1tqktcbbj1i" path="res://VisualAssets/Backgrounds/CoverFullBack.png" id="40_sjrra"]
 [ext_resource type="Script" uid="uid://df1pnvhe64lch" path="res://Scripts/item_slot.gd" id="41_y55ju"]
-[ext_resource type="Texture2D" uid="uid://vh2wgiocoigr" path="res://VisualAssets/ItemFrame.png" id="42_e17tg"]
+[ext_resource type="Texture2D" uid="uid://07qxjbyfyasa" path="res://VisualAssets/ItemFrameSplodge.png" id="44_7be8n"]
 [ext_resource type="PackedScene" uid="uid://dvm8eqmaaxrye" path="res://Scenes/draggable_item.tscn" id="44_e17tg"]
+[ext_resource type="Texture2D" uid="uid://bmwlhaevh43xf" path="res://VisualAssets/ReturnButton1.png" id="45_25aeu"]
 [ext_resource type="Script" uid="uid://b4k33yenv5yb6" path="res://Scripts/inventory_manager.gd" id="45_e17tg"]
 [ext_resource type="PackedScene" uid="uid://w2ypqxyaota3" path="res://Scenes/item_tooltip.tscn" id="46_asy55"]
+[ext_resource type="Texture2D" uid="uid://i8mg0hn4u744" path="res://VisualAssets/ReturnButton2.png" id="46_cwkaf"]
+[ext_resource type="Resource" uid="uid://cs26v12em43iy" path="res://Resources/Items/Briefcase.tres" id="47_1gtcp"]
+[ext_resource type="Resource" uid="uid://cexw5rnfgnfa1" path="res://Resources/Items/ColaClassic.tres" id="48_f7xwn"]
+[ext_resource type="Resource" uid="uid://c482igaqx17n6" path="res://Resources/Items/DartsSet.tres" id="49_7be8n"]
+[ext_resource type="Resource" uid="uid://gaqbe0l841ds" path="res://Resources/Items/DramaticSkullProp.tres" id="50_25aeu"]
+[ext_resource type="Resource" uid="uid://be6qda6dloxb7" path="res://Resources/Items/Furby.tres" id="51_cwkaf"]
+[ext_resource type="Resource" uid="uid://brtnqwbw88g5i" path="res://Resources/Items/HalfJugMilk.tres" id="52_a742b"]
+[ext_resource type="Resource" uid="uid://btd2vlds2v2ul" path="res://Resources/Items/JanitorialGradeSoap.tres" id="53_w1yqh"]
+[ext_resource type="Resource" uid="uid://cocyuwsotial0" path="res://Resources/Items/JuryDutyCall.tres" id="54_2eng3"]
+[ext_resource type="Resource" uid="uid://bqq1y08oeudxb" path="res://Resources/Items/Magic8Ball.tres" id="55_m434w"]
+[ext_resource type="Resource" uid="uid://d0kc0itl01jye" path="res://Resources/Items/OldRotaryPhone.tres" id="56_of78n"]
+[ext_resource type="Resource" uid="uid://dgt8cegtggtq1" path="res://Resources/Items/PDA.tres" id="57_d81a6"]
+[ext_resource type="Resource" uid="uid://buptiir3skk3d" path="res://Resources/Items/RubberChicken.tres" id="58_xg50r"]
+[ext_resource type="Resource" uid="uid://di66g7qdis80l" path="res://Resources/Items/SecondHandPlaster.tres" id="59_yx8eu"]
+[ext_resource type="Resource" uid="uid://dpvybxhkaftti" path="res://Resources/Items/ShinyCard.tres" id="60_yvo0e"]
+[ext_resource type="Resource" uid="uid://dgoojvdmkm4kl" path="res://Resources/Items/TornPage.tres" id="61_7klc5"]
+[ext_resource type="Resource" uid="uid://d3a8hkq4k62k7" path="res://Resources/Items/TroglodyteDoll.tres" id="62_qy6g1"]
+[ext_resource type="Resource" uid="uid://wejnjdkegmbt" path="res://Resources/Items/TShirtCannon.tres" id="63_1xv8q"]
+[ext_resource type="Resource" uid="uid://rsk8stf7d6lf" path="res://Resources/Items/TwoHeadedCoin.tres" id="64_gtph2"]
+[ext_resource type="Resource" uid="uid://babhyisutaukc" path="res://Resources/Items/WeightLossDrug.tres" id="65_db7h2"]
+[ext_resource type="Texture2D" uid="uid://c3bcwytw2jd8v" path="res://VisualAssets/StartMenu/Houseonthebailey Logo.png" id="68_cwkaf"]
+[ext_resource type="Texture2D" uid="uid://ccwh2ofymswf7" path="res://VisualAssets/StartMenu/JQHY Logo.png" id="69_a742b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hk511"]
 animations = [{
@@ -183,11 +206,58 @@ texture = ExtResource("17_l146v")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wlef6"]
 texture = ExtResource("40_sjrra")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7be8n"]
+load_path = "res://.godot/imported/ItemFrameSplodge.png-136cb380e31458804d1aebb37535aeee.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_25aeu"]
+texture = SubResource("CompressedTexture2D_7be8n")
+modulate_color = Color(0.3019608, 0.6509804, 1, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_25aeu"]
+load_path = "res://.godot/imported/ItemFrameSplodge.png-136cb380e31458804d1aebb37535aeee.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwkaf"]
+texture = SubResource("CompressedTexture2D_25aeu")
+modulate_color = Color(0.3019608, 0.6509804, 1, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a742b"]
+load_path = "res://.godot/imported/ItemFrameSplodge.png-136cb380e31458804d1aebb37535aeee.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1yqh"]
+texture = SubResource("CompressedTexture2D_a742b")
+modulate_color = Color(0.23529412, 0.6392157, 0.4392157, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2eng3"]
+load_path = "res://.godot/imported/ItemFrameSplodge.png-136cb380e31458804d1aebb37535aeee.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m434w"]
+texture = SubResource("CompressedTexture2D_2eng3")
+modulate_color = Color(0.23529412, 0.6392157, 0.4392157, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asy55"]
-texture = ExtResource("42_e17tg")
+texture = ExtResource("44_7be8n")
+modulate_color = Color(1, 0.89411765, 0.47058824, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bsrve"]
+texture = ExtResource("45_25aeu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ny64"]
+texture = ExtResource("45_25aeu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yhhbj"]
+texture = ExtResource("46_cwkaf")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4nkx"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_574ho"]
+texture = ExtResource("16_rl2bw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6766c"]
+texture = ExtResource("16_rl2bw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e20g3"]
+texture = ExtResource("17_l146v")
 
 [node name="StartMenu" type="Node" unique_id=830357134 node_paths=PackedStringArray("crt_bars", "bonusfeatureswindow", "optionsmenuwindow", "credits", "items")]
 script = ExtResource("1_slhe1")
@@ -529,10 +599,11 @@ text = "Bonus Features"
 
 [node name="Items" type="Control" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=1305093147]
 anchors_preset = 0
-offset_left = -5.0
-offset_top = 5.0
-offset_right = 35.0
-offset_bottom = 45.0
+offset_left = 61.0
+offset_top = 299.0
+offset_right = 101.0
+offset_bottom = 339.0
+rotation = 0.05235988
 scale = Vector2(0.9, 0.9)
 
 [node name="Label" type="Label" parent="BonusFeaturesScreen/Bonus Features Base/Control/Items" unique_id=1467312948]
@@ -563,10 +634,11 @@ texture_hover = ExtResource("24_ptes2")
 
 [node name="Items3" type="Control" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=980656178]
 anchors_preset = 0
-offset_left = 195.0
-offset_top = 315.00003
-offset_right = 235.0
-offset_bottom = 355.00003
+offset_left = 351.0
+offset_top = -17.0
+offset_right = 391.0
+offset_bottom = 23.0
+rotation = 0.05235988
 scale = Vector2(0.9, 0.9)
 mouse_filter = 2
 
@@ -597,6 +669,7 @@ texture_pressed = ExtResource("25_ppo5q")
 texture_hover = ExtResource("26_0yyjb")
 
 [node name="Items2" type="Control" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=818728790]
+visible = false
 anchors_preset = 0
 offset_left = 242.0
 offset_top = 26.0
@@ -657,14 +730,16 @@ layout_mode = 2
 
 [node name="ItemPreview" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1598691545]
 anchors_preset = 0
-offset_left = 407.0
-offset_top = -34.0
-offset_right = 447.0
-offset_bottom = 6.0
+offset_left = 391.0
+offset_top = -224.0
+offset_right = 431.0
+offset_bottom = -184.0
+scale = Vector2(1.2, 1.2)
 
 [node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview" unique_id=2117065490]
 z_index = 5
 layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -673,6 +748,7 @@ offset_left = 524.0
 offset_top = 264.0
 offset_right = 657.0
 offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
 offset_transform_enabled = true
 script = ExtResource("41_y55ju")
 type = 1
@@ -690,27 +766,29 @@ offset_left = -65.5
 offset_top = -54.0
 offset_right = 59.5
 offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+theme_override_styles/panel = SubResource("StyleBoxTexture_25aeu")
 
 [node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview/Control1/PanelContainer3" unique_id=759608123]
 layout_mode = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("19_owajr")
-text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ItemPreview2" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1828821473]
 anchors_preset = 0
-offset_left = -385.0
-offset_top = -171.0
-offset_right = -345.0
-offset_bottom = -131.0
+offset_left = -92.0
+offset_top = -226.0
+offset_right = -52.0
+offset_bottom = -186.0
+scale = Vector2(1.2, 1.2)
 
 [node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview2" unique_id=860361745]
 z_index = 5
 layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -719,6 +797,7 @@ offset_left = 524.0
 offset_top = 264.0
 offset_right = 657.0
 offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
 offset_transform_enabled = true
 script = ExtResource("41_y55ju")
 type = 1
@@ -736,25 +815,910 @@ offset_left = -65.5
 offset_top = -54.0
 offset_right = 59.5
 offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+theme_override_styles/panel = SubResource("StyleBoxTexture_cwkaf")
 
 [node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1/PanelContainer3" unique_id=1456656114]
 layout_mode = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("19_owajr")
-text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview3" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1922681084]
+anchors_preset = 0
+offset_left = 149.0
+offset_top = -229.0
+offset_right = 189.0
+offset_bottom = -189.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview3" unique_id=1279237996]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview3/Control1" unique_id=1876063597]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_w1yqh")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview3/Control1/PanelContainer3" unique_id=175630034]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview4" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=583925806]
+anchors_preset = 0
+offset_left = 628.0
+offset_top = -226.0
+offset_right = 668.0
+offset_bottom = -186.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview4" unique_id=1762497226]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview4/Control1" unique_id=308987531]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_m434w")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview4/Control1/PanelContainer3" unique_id=1145283941]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview5" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=475862595]
+anchors_preset = 0
+offset_left = 871.0
+offset_top = -224.0
+offset_right = 911.0
+offset_bottom = -184.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview5" unique_id=1349557407]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview5/Control1" unique_id=1607653121]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview5/Control1/PanelContainer3" unique_id=914239459]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview6" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1667714282]
+anchors_preset = 0
+offset_left = -329.0
+offset_top = -227.0
+offset_right = -289.0
+offset_bottom = -187.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview6" unique_id=1463300251]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview6/Control1" unique_id=1410758610]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview6/Control1/PanelContainer3" unique_id=1188256496]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview7" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1506813075]
+anchors_preset = 0
+offset_left = -481.0
+offset_top = 97.0
+offset_right = -441.0
+offset_bottom = 137.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview7" unique_id=1449191172]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview7/Control1" unique_id=1831234872]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview7/Control1/PanelContainer3" unique_id=1503340059]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview8" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=562551]
+anchors_preset = 0
+offset_left = -116.0
+offset_top = 104.0
+offset_right = -76.0
+offset_bottom = 144.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview8" unique_id=642042671]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview8/Control1" unique_id=2000586887]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview8/Control1/PanelContainer3" unique_id=1352947168]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview9" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=2048647621]
+anchors_preset = 0
+offset_left = 242.0
+offset_top = 111.0
+offset_right = 282.0
+offset_bottom = 151.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview9" unique_id=2023517250]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview9/Control1" unique_id=642256060]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview9/Control1/PanelContainer3" unique_id=2065891689]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview10" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1344102949]
+anchors_preset = 0
+offset_left = 563.0
+offset_top = 109.0
+offset_right = 603.0
+offset_bottom = 149.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview10" unique_id=178792383]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview10/Control1" unique_id=317540949]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview10/Control1/PanelContainer3" unique_id=1295478712]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview11" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1108394456]
+anchors_preset = 0
+offset_left = 870.0
+offset_top = 109.0
+offset_right = 910.0
+offset_bottom = 149.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview11" unique_id=25851534]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview11/Control1" unique_id=1920956682]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview11/Control1/PanelContainer3" unique_id=1247066110]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview12" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1256830933]
+anchors_preset = 0
+offset_left = 711.0
+offset_top = 283.0
+offset_right = 751.0
+offset_bottom = 323.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview12" unique_id=1043484775]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview12/Control1" unique_id=1665964017]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview12/Control1/PanelContainer3" unique_id=878333909]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview13" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1500227570]
+anchors_preset = 0
+offset_left = 401.0
+offset_top = 293.0
+offset_right = 441.0
+offset_bottom = 333.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview13" unique_id=2045826258]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview13/Control1" unique_id=102665934]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview13/Control1/PanelContainer3" unique_id=721693702]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview14" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=480564427]
+anchors_preset = 0
+offset_left = 43.0
+offset_top = 296.0
+offset_right = 83.0
+offset_bottom = 336.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview14" unique_id=753956370]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview14/Control1" unique_id=1368814313]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview14/Control1/PanelContainer3" unique_id=905408484]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview15" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=526156874]
+anchors_preset = 0
+offset_left = -302.0
+offset_top = 301.0
+offset_right = -262.0
+offset_bottom = 341.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview15" unique_id=310538521]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview15/Control1" unique_id=1174194990]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview15/Control1/PanelContainer3" unique_id=1230927276]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview16" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=978563826]
+anchors_preset = 0
+offset_left = -88.0
+offset_top = 471.0
+offset_right = -48.0
+offset_bottom = 511.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview16" unique_id=923056318]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview16/Control1" unique_id=13855613]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview16/Control1/PanelContainer3" unique_id=1124450892]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview17" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=1227163106]
+anchors_preset = 0
+offset_left = 255.0
+offset_top = 468.0
+offset_right = 295.0
+offset_bottom = 508.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview17" unique_id=385171050]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview17/Control1" unique_id=277577365]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview17/Control1/PanelContainer3" unique_id=1915864696]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview18" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=420857703]
+anchors_preset = 0
+offset_left = 605.0
+offset_top = 453.0
+offset_right = 645.0
+offset_bottom = 493.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview18" unique_id=364949328]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview18/Control1" unique_id=1174639876]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview18/Control1/PanelContainer3" unique_id=456135241]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview19" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=625781418]
+anchors_preset = 0
+offset_left = -472.0
+offset_top = 470.0
+offset_right = -432.0
+offset_bottom = 510.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview19" unique_id=927203760]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview19/Control1" unique_id=2077916052]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview19/Control1/PanelContainer3" unique_id=1541537208]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPreview20" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=811268122]
+anchors_preset = 0
+offset_left = 951.0
+offset_top = 473.0
+offset_right = 991.0
+offset_bottom = 513.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control/ItemPreview20" unique_id=151031012]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 264.0
+offset_right = 657.0
+offset_bottom = 383.0
+scale = Vector2(1.2, 1.2)
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/ItemPreview20/Control1" unique_id=239901557]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -54.0
+offset_right = 59.5
+offset_bottom = 60.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/ItemPreview20/Control1/PanelContainer3" unique_id=2032916838]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="BonusFeaturesScreen/Items/Control" unique_id=1087003631]
+texture_filter = 1
 layout_mode = 0
-offset_left = 1254.0
-offset_top = 835.0
-offset_right = 1869.0
-offset_bottom = 1041.0
+offset_left = 57.0
+offset_top = 56.0
+offset_right = 179.0
+offset_bottom = 211.0
 theme_override_font_sizes/font_size = 145
-text = "RETURN"
+theme_override_styles/normal = SubResource("StyleBoxTexture_bsrve")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ny64")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yhhbj")
 
 [node name="ItemTooltip" parent="BonusFeaturesScreen/Items" unique_id=1911907552 instance=ExtResource("46_asy55")]
 visible = false
@@ -775,12 +1739,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("47_1gtcp")
 anchor_pos = NodePath("../../Control/ItemPreview/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem2" parent="BonusFeaturesScreen/Items/Node" unique_id=899159871 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem2" parent="BonusFeaturesScreen/Items/Node" unique_id=899159871 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -788,11 +1754,14 @@ offset_left = -1614.0
 offset_top = -191.0
 offset_right = -966.0
 offset_bottom = 457.0
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("48_f7xwn")
+anchor_pos = NodePath("../../Control/ItemPreview2/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem3" parent="BonusFeaturesScreen/Items/Node" unique_id=441298134 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem3" parent="BonusFeaturesScreen/Items/Node" unique_id=441298134 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -800,11 +1769,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("49_7be8n")
+anchor_pos = NodePath("../../Control/ItemPreview3/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem4" parent="BonusFeaturesScreen/Items/Node" unique_id=1256549527 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem4" parent="BonusFeaturesScreen/Items/Node" unique_id=1256549527 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -812,11 +1784,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("50_25aeu")
+anchor_pos = NodePath("../../Control/ItemPreview4/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem5" parent="BonusFeaturesScreen/Items/Node" unique_id=2138145852 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem5" parent="BonusFeaturesScreen/Items/Node" unique_id=2138145852 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -824,11 +1799,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("51_cwkaf")
+anchor_pos = NodePath("../../Control/ItemPreview5/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem6" parent="BonusFeaturesScreen/Items/Node" unique_id=684842920 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem6" parent="BonusFeaturesScreen/Items/Node" unique_id=684842920 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -836,11 +1814,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("52_a742b")
+anchor_pos = NodePath("../../Control/ItemPreview6/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem7" parent="BonusFeaturesScreen/Items/Node" unique_id=1696628852 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem7" parent="BonusFeaturesScreen/Items/Node" unique_id=1696628852 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -848,11 +1829,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("53_w1yqh")
+anchor_pos = NodePath("../../Control/ItemPreview7/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem8" parent="BonusFeaturesScreen/Items/Node" unique_id=692102895 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem8" parent="BonusFeaturesScreen/Items/Node" unique_id=692102895 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -860,11 +1844,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("54_2eng3")
+anchor_pos = NodePath("../../Control/ItemPreview8/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem9" parent="BonusFeaturesScreen/Items/Node" unique_id=329543039 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem9" parent="BonusFeaturesScreen/Items/Node" unique_id=329543039 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -872,11 +1859,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("55_m434w")
+anchor_pos = NodePath("../../Control/ItemPreview9/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem10" parent="BonusFeaturesScreen/Items/Node" unique_id=40835001 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem10" parent="BonusFeaturesScreen/Items/Node" unique_id=40835001 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -884,11 +1874,13 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+anchor_pos = NodePath("../../Control/ItemPreview10/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem11" parent="BonusFeaturesScreen/Items/Node" unique_id=44902210 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem11" parent="BonusFeaturesScreen/Items/Node" unique_id=44902210 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -896,11 +1888,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("56_of78n")
+anchor_pos = NodePath("../../Control/ItemPreview11/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem12" parent="BonusFeaturesScreen/Items/Node" unique_id=1307469119 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem12" parent="BonusFeaturesScreen/Items/Node" unique_id=1307469119 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -908,11 +1903,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("57_d81a6")
+anchor_pos = NodePath("../../Control/ItemPreview12/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem13" parent="BonusFeaturesScreen/Items/Node" unique_id=1744563845 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem13" parent="BonusFeaturesScreen/Items/Node" unique_id=1744563845 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -920,11 +1918,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("58_xg50r")
+anchor_pos = NodePath("../../Control/ItemPreview13/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem14" parent="BonusFeaturesScreen/Items/Node" unique_id=492230483 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem14" parent="BonusFeaturesScreen/Items/Node" unique_id=492230483 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -932,11 +1933,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("59_yx8eu")
+anchor_pos = NodePath("../../Control/ItemPreview14/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem15" parent="BonusFeaturesScreen/Items/Node" unique_id=1656080096 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem15" parent="BonusFeaturesScreen/Items/Node" unique_id=1656080096 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -944,11 +1948,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("60_yvo0e")
+anchor_pos = NodePath("../../Control/ItemPreview15/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem16" parent="BonusFeaturesScreen/Items/Node" unique_id=1525374215 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem16" parent="BonusFeaturesScreen/Items/Node" unique_id=1525374215 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -956,11 +1963,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("61_7klc5")
+anchor_pos = NodePath("../../Control/ItemPreview16/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem17" parent="BonusFeaturesScreen/Items/Node" unique_id=1106620175 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem17" parent="BonusFeaturesScreen/Items/Node" unique_id=1106620175 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -968,11 +1978,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("62_qy6g1")
+anchor_pos = NodePath("../../Control/ItemPreview17/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem18" parent="BonusFeaturesScreen/Items/Node" unique_id=423634683 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem18" parent="BonusFeaturesScreen/Items/Node" unique_id=423634683 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -980,11 +1993,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("63_1xv8q")
+anchor_pos = NodePath("../../Control/ItemPreview18/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem19" parent="BonusFeaturesScreen/Items/Node" unique_id=741033626 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem19" parent="BonusFeaturesScreen/Items/Node" unique_id=741033626 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -992,11 +2008,14 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("64_gtph2")
+anchor_pos = NodePath("../../Control/ItemPreview19/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
-[node name="StartingItem20" parent="BonusFeaturesScreen/Items/Node" unique_id=1359053375 node_paths=PackedStringArray("tooltipObject") instance=ExtResource("44_e17tg")]
+[node name="StartingItem20" parent="BonusFeaturesScreen/Items/Node" unique_id=1359053375 node_paths=PackedStringArray("anchor_pos", "tooltipObject") instance=ExtResource("44_e17tg")]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.0
@@ -1004,7 +2023,10 @@ offset_left = -1957.0
 offset_top = -41.00004
 offset_right = -1309.0
 offset_bottom = 606.99994
+scale = Vector2(0.2, 0.2)
 pivot_offset = Vector2(15, 9)
+item = ExtResource("65_db7h2")
+anchor_pos = NodePath("../../Control/ItemPreview20/Control1")
 demo_item = true
 tooltipObject = NodePath("../../ItemTooltip")
 
@@ -1012,22 +2034,71 @@ tooltipObject = NodePath("../../ItemTooltip")
 visible = false
 layout_mode = 0
 offset_left = -960.0
-offset_top = -534.0
+offset_top = -540.0
 offset_right = 960.0
-offset_bottom = 540.0
+offset_bottom = 541.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_l4nkx")
 
 [node name="Control" type="Control" parent="BonusFeaturesScreen/Credits" unique_id=936025575]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="BonusFeaturesScreen/Credits/Control" unique_id=1282041051]
+[node name="Control" type="Control" parent="BonusFeaturesScreen/Credits/Control" unique_id=1038294214]
+clip_contents = true
+anchors_preset = 0
+offset_left = 1347.0
+offset_top = 725.0
+offset_right = 1722.0
+offset_bottom = 949.0
+
+[node name="Button" type="Button" parent="BonusFeaturesScreen/Credits/Control/Control" unique_id=1282041051]
 layout_mode = 0
-offset_left = 1130.0
-offset_top = 743.0
-offset_right = 1743.0
-offset_bottom = 962.0
+offset_left = -133.0
+offset_top = -204.0
+offset_right = 507.0
+offset_bottom = 436.0
 theme_override_font_sizes/font_size = 154
-text = "RETURN"
+theme_override_styles/normal = SubResource("StyleBoxTexture_574ho")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6766c")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e20g3")
+expand_icon = true
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Credits/Control" unique_id=144940108]
+texture_filter = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 213.0
+offset_right = 1847.0
+offset_bottom = 590.0
+theme_override_fonts/font = ExtResource("16_1u5ka")
+theme_override_font_sizes/font_size = 28
+text = "Made in 7 days as part of a Game Jam. Absolutely no AI was used in any part of the development process. Aaaand without further ado, your real hosts tonight:
+
+Adam James - Visual Design
+Dragos Farcas - Programming
+Jonathan Yeap - Programming
+Nick Thorne - Illustrations
+
+To friendship."
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BonusFeaturesScreen/Credits/Control" unique_id=750798520]
+texture_filter = 1
+layout_mode = 0
+offset_left = 100.0
+offset_top = 188.0
+offset_right = 940.0
+offset_bottom = 468.0
+texture = ExtResource("68_cwkaf")
+
+[node name="TextureRect2" type="TextureRect" parent="BonusFeaturesScreen/Credits/Control" unique_id=1301771755]
+texture_filter = 1
+layout_mode = 0
+offset_left = 252.0
+offset_top = 533.0
+offset_right = 712.0
+offset_bottom = 993.0
+texture = ExtResource("69_a742b")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
@@ -1040,23 +2111,59 @@ text = "RETURN"
 [connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview/Control1" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview2/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview3/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview3/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview3/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview3/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview4/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview4/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview4/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview4/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview5/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview5/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview5/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview5/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview6/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview6/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview6/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview6/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview7/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview7/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview7/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview7/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview8/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview8/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview8/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview8/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview9/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview9/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview9/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview9/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview10/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview10/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview10/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview10/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview11/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview11/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview11/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview11/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview12/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview12/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview12/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview12/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview13/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview13/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview13/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview13/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview14/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview14/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview14/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview14/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview15/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview15/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview15/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview15/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview16/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview16/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview16/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview16/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview17/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview17/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview17/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview17/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview18/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview18/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview18/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview18/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview19/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview19/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview19/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview19/Control1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/ItemPreview20/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview20/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/ItemPreview20/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/ItemPreview20/Control1" method="_on_mouse_exited"]
 [connection signal="pressed" from="BonusFeaturesScreen/Items/Control/Button" to="." method="_on_close_items_pressed"]
-[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108070/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108070/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108070/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108070/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108071/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108071/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108071/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108071/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108072/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108072/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108072/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108072/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108073/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108073/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108073/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108073/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108074/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108074/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108074/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108074/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108075/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108075/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108075/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108075/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108076/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108076/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108076/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108076/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108077/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108077/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108077/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@108077/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="pressed" from="BonusFeaturesScreen/Credits/Control/Button" to="." method="_on_close_credits_pressed"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19827/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19827/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19827/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19827/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19828/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19828/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19828/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19828/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19829/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19829/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19829/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19829/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19830/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19830/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19830/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19830/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19831/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19831/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19831/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19831/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19832/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19832/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19832/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19832/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19833/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19833/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19833/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19833/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19834/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19834/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19834/TemplatePolygon2D/Area2D" to="BonusFeaturesScreen/Items/ItemTooltip/StatWheel/Wheel/@Node2D@19834/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="BonusFeaturesScreen/Credits/Control/Control/Button" to="." method="_on_close_credits_pressed"]
 
 [editable path="BonusFeaturesScreen/Items/ItemTooltip"]
