@@ -11,7 +11,7 @@
 [resource]
 script = ExtResource("1_mlhn5")
 icon = ExtResource("1_tai43")
-name = "Experimental Weight Loss Drug"
+name = "Experimental Weight Loss Drugug"
 Desc = "R&D moves faster than regulations."
 stats = Array[ExtResource("2_kqm85")]([ExtResource("4_xv1yc"), ExtResource("5_0ax4a"), ExtResource("4_xv1yc"), ExtResource("5_0ax4a"), ExtResource("4_xv1yc"), ExtResource("6_k2w1y"), ExtResource("5_0ax4a"), ExtResource("6_k2w1y"), ExtResource("7_d8sga")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

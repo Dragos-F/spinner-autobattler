@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource("1_y2ifw")
 icon = ExtResource("1_6fvv2")
-name = "TwoHeadedCoin"
+name = "Two-Headed Coin"
 Desc = "\"If you can't beat 'em... cheat.\""
 stats = Array[ExtResource("2_vwqsw")]([ExtResource("4_hgoca"), ExtResource("6_hgoca"), ExtResource("4_hgoca"), ExtResource("6_hgoca"), ExtResource("5_3v3tx")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"
