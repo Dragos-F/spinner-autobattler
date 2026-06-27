@@ -40,6 +40,10 @@
 [ext_resource type="Texture2D" uid="uid://cuyha3v0yoafa" path="res://VisualAssets/StartMenu/CRTtoggle3.png" id="31_sjrra"]
 [ext_resource type="Texture2D" uid="uid://ctk2enapdtga7" path="res://VisualAssets/StartMenu/CRTtoggle2.png" id="32_58rry"]
 [ext_resource type="Texture2D" uid="uid://t1tqktcbbj1i" path="res://VisualAssets/Backgrounds/CoverFullBack.png" id="40_sjrra"]
+[ext_resource type="Script" uid="uid://c8geb3ln1mom4" path="res://Scripts/draggable_item_button.gd" id="41_rv1yw"]
+[ext_resource type="Script" uid="uid://df1pnvhe64lch" path="res://Scripts/item_slot.gd" id="41_y55ju"]
+[ext_resource type="Texture2D" uid="uid://vh2wgiocoigr" path="res://VisualAssets/ItemFrame.png" id="42_e17tg"]
+[ext_resource type="Resource" uid="uid://cs26v12em43iy" path="res://Resources/Items/Briefcase.tres" id="42_n4o6d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hk511"]
 animations = [{
@@ -176,6 +180,9 @@ texture = ExtResource("17_l146v")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wlef6"]
 texture = ExtResource("40_sjrra")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asy55"]
+texture = ExtResource("42_e17tg")
 
 [node name="StartMenu" type="Node" unique_id=830357134 node_paths=PackedStringArray("crt_bars", "bonusfeatureswindow", "optionsmenuwindow")]
 script = ExtResource("1_slhe1")
@@ -598,7 +605,6 @@ layout_mode = 2
 texture = ExtResource("3_626he")
 
 [node name="Items" type="PanelContainer" parent="BonusFeaturesScreen" unique_id=1448453376]
-visible = false
 layout_mode = 0
 offset_left = -960.0
 offset_top = -540.0
@@ -609,8 +615,68 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_wlef6")
 [node name="Control" type="Control" parent="BonusFeaturesScreen/Items" unique_id=681425173]
 layout_mode = 2
 
+[node name="Control1" type="Control" parent="BonusFeaturesScreen/Items/Control" unique_id=2117065490]
+z_index = 5
+layout_mode = 1
+anchor_left = 2.4965754
+anchor_top = 1.018868
+anchor_right = 2.4965754
+anchor_bottom = 1.018868
+offset_left = -728.0
+offset_top = -289.0
+offset_right = -603.0
+offset_bottom = -175.0
+offset_transform_enabled = true
+script = ExtResource("41_y55ju")
+type = 1
+slot_number = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer3" type="PanelContainer" parent="BonusFeaturesScreen/Items/Control/Control1" unique_id=1451578601]
+z_index = -5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.8
+anchor_top = 6.775
+anchor_right = 18.768
+anchor_bottom = 7.7574563
+offset_left = -5302.425
+offset_top = -1193.7275
+offset_right = -5296.425
+offset_bottom = -1188.7275
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_asy55")
+
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Items/Control/Control1/PanelContainer3" unique_id=759608123]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("19_owajr")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Draggable" type="Button" parent="BonusFeaturesScreen/Items/Control" unique_id=1123117358 node_paths=PackedStringArray("anchor_pos")]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 384.0
+offset_right = 1116.0
+offset_bottom = 514.0
+script = ExtResource("41_rv1yw")
+item = ExtResource("42_n4o6d")
+anchor_pos = NodePath("../Control1")
+metadata/_custom_type_script = "uid://c8geb3ln1mom4"
+
+[node name="Control" type="Control" parent="BonusFeaturesScreen/Items/Control/Draggable" unique_id=1076319972]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="BonusFeature" to="." method="_on_bonusbutton_pressed"]
 [connection signal="pressed" from="OptionsScreen/PanelContainer/Control/ButtonBackToMenu" to="." method="_on_backtomenu_pressed"]
 [connection signal="pressed" from="BonusFeaturesScreen/Bonus Features Base/Control/ButtonBackToMenu" to="." method="_on_backtomenu_pressed"]
+[connection signal="mouse_entered" from="BonusFeaturesScreen/Items/Control/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/Control1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BonusFeaturesScreen/Items/Control/Control1/PanelContainer3" to="BonusFeaturesScreen/Items/Control/Control1" method="_on_mouse_exited"]
