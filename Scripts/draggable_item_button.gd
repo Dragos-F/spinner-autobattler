@@ -100,6 +100,7 @@ func showToolTip():
 		tooltipObject.item_name.text = item.name
 		tooltipObject.item_desc.text = item.Desc
 		tooltipObject.item_stats.UpdateWheel(item)
+		tooltipObject.item_speed.text = ("Reset: "+str(item.cooldown))
 		var camera = get_viewport().get_camera_2d()
 		var pos: Vector2 = camera.global_position
 		#pos = offsetPosition(global_position,pos)

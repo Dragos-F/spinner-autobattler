@@ -27,16 +27,16 @@ func _process(delta: float) -> void:
 
 var isAlive:bool=true
 
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_A:
-			damage(1)
-		elif event.keycode == KEY_D:
-			heal(1)
-		elif event.keycode == KEY_RIGHT:
-			position += Vector2(5,0)
-		elif event.keycode == KEY_LEFT:
-			position += Vector2(-5,0)
+#func _input(event):
+	#if event is InputEventKey and event.pressed:
+		#if event.keycode == KEY_A:
+			#damage(1)
+		#elif event.keycode == KEY_D:
+			#heal(1)
+		#elif event.keycode == KEY_RIGHT:
+			#position += Vector2(5,0)
+		#elif event.keycode == KEY_LEFT:
+			#position += Vector2(-5,0)
 
 func changehealth(amount:float)->float:
 	currenthealth = currenthealth+amount

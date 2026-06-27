@@ -6,6 +6,7 @@ class_name ItemTooltip
 @export var item_name:Label
 @export var item_desc:Label
 @export var item_stats:Wheel
+@export var item_speed:Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
