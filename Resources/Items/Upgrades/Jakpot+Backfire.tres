@@ -10,7 +10,7 @@
 script = ExtResource("1_p7luy")
 icon = ExtResource("1_u27hy")
 name = "Jackpot & Backfire"
-Desc = "Adds one JACKPOT and one BACKFIRE Slice to your chosen wheel!"
+Desc = "Drop on an item to add one JACKPOT and one BACKFIRE Slice to your chosen wheel!"
 stats = Array[ExtResource("2_hosr0")]([ExtResource("3_wvv6w"), ExtResource("4_u27hy")])
 isUpgrade = true
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

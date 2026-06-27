@@ -9,7 +9,7 @@
 script = ExtResource("1_u5cqs")
 icon = ExtResource("1_k6tlm")
 name = "Stun Upgrade"
-Desc = "Adds one STUN Slice to your chosen wheel!"
+Desc = "Drop on an item to add one STUN Slice to your chosen wheel!"
 stats = Array[ExtResource("2_lfeis")]([ExtResource("3_lfeis")])
 overlay = Color(0.6509804, 0.52156866, 0.62352943, 1)
 isUpgrade = true

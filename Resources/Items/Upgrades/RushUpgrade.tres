@@ -9,7 +9,7 @@
 script = ExtResource("1_w4f7m")
 icon = ExtResource("1_847cy")
 name = "Rush Upgrade"
-Desc = "Adds one RUSH Slice to your chosen wheel!"
+Desc = "Drop on an item to add one RUSH Slice to your chosen wheel!"
 stats = Array[ExtResource("2_irtkb")]([ExtResource("3_irtkb")])
 overlay = Color(0.5529412, 0.7176471, 1, 1)
 isUpgrade = true

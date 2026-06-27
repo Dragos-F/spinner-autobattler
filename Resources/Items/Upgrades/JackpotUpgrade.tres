@@ -9,7 +9,7 @@
 script = ExtResource("1_rwhnt")
 icon = ExtResource("1_pils5")
 name = "Jackpot Upgrade"
-Desc = "Adds one JACKPOT Slice to your chosen wheel!"
+Desc = "Drop on an item to add one JACKPOT Slice to your chosen wheel!"
 stats = Array[ExtResource("2_pils5")]([ExtResource("3_rwhnt")])
 overlay = Color(0.45882353, 0.09019608, 0.3372549, 1)
 isUpgrade = true

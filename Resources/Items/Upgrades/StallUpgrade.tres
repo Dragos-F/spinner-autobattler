@@ -9,7 +9,7 @@
 script = ExtResource("1_qfre1")
 icon = ExtResource("1_cio8d")
 name = "Stall Upgrade"
-Desc = "Adds one STALL Slice to your chosen wheel!"
+Desc = "Drop on an item to add one STALL Slice to your chosen wheel!"
 stats = Array[ExtResource("2_aphpo")]([ExtResource("3_aphpo")])
 overlay = Color(0.9882353, 0.9372549, 0.5529412, 1)
 isUpgrade = true

@@ -11,6 +11,6 @@ script = ExtResource("1_pt0st")
 cooldown = 6.0
 icon = ExtResource("1_bqetg")
 name = "Collectors Edition Shiny Card"
-Desc = "The only investment less stable than crypto"
+Desc = "It's a real shame what happened to this guy."
 stats = Array[ExtResource("2_pp00e")]([ExtResource("4_o51sd"), ExtResource("5_1435n"), ExtResource("4_o51sd"), ExtResource("5_1435n"), ExtResource("4_o51sd"), ExtResource("5_1435n"), ExtResource("4_o51sd"), ExtResource("5_1435n"), ExtResource("4_o51sd"), ExtResource("5_1435n")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

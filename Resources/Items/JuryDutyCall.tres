@@ -12,6 +12,6 @@ script = ExtResource("1_v2d8n")
 cooldown = 8.0
 icon = ExtResource("1_2os21")
 name = "Legal Call for Jury Duty"
-Desc = "Tragically you plan on being very ill in the near future..."
+Desc = "Tragically, you plan on being very ill in the near future..."
 stats = Array[ExtResource("2_brxo0")]([ExtResource("4_ysp0f"), ExtResource("5_muodw"), ExtResource("4_ysp0f"), ExtResource("6_d2ajk"), ExtResource("4_ysp0f"), ExtResource("6_d2ajk"), ExtResource("5_muodw"), ExtResource("6_d2ajk")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

@@ -13,6 +13,6 @@ script = ExtResource("1_kexjs")
 cooldown = 5.6
 icon = ExtResource("1_nt707")
 name = "Unlicensed Troglodyte Doll"
-Desc = "Proudly made in the people's republic of Birmingham"
+Desc = "Proudly made in the people's republic of Birmingham."
 stats = Array[ExtResource("2_tfnuw")]([ExtResource("4_cvoej"), ExtResource("5_1aqto"), ExtResource("4_cvoej"), ExtResource("5_1aqto"), ExtResource("4_cvoej"), ExtResource("6_xsq3c"), ExtResource("7_f37mx")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

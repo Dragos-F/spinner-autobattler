@@ -12,6 +12,6 @@ script = ExtResource("1_1xoly")
 cooldown = 6.5
 icon = ExtResource("1_l3vy1")
 name = "Half a jug of Milk"
-Desc = "Don't cry"
+Desc = "Don't cry."
 stats = Array[ExtResource("2_4njgj")]([ExtResource("4_33cjc"), ExtResource("6_yrnk8"), ExtResource("4_33cjc"), ExtResource("6_yrnk8"), ExtResource("4_33cjc"), ExtResource("5_cq3m8"), ExtResource("4_33cjc"), ExtResource("5_cq3m8")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

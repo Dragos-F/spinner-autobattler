@@ -14,6 +14,6 @@ script = ExtResource("1_12oov")
 cooldown = 4.0
 icon = ExtResource("1_p1y58")
 name = "Rubber Chicken"
-Desc = "God's chosen musical instrument"
+Desc = "God's chosen musical instrument."
 stats = Array[ExtResource("2_jkm5q")]([ExtResource("3_go2we"), ExtResource("4_p1y58"), ExtResource("5_xf236"), ExtResource("6_meypo"), ExtResource("7_7epwh")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

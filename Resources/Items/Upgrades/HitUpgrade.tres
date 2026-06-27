@@ -9,7 +9,7 @@
 script = ExtResource("1_5kbfu")
 icon = ExtResource("1_tam81")
 name = "Hit Upgrade"
-Desc = "Adds one HIT Slice to your chosen wheel!"
+Desc = "Drop on an item to add one HIT Slice to your chosen wheel!"
 stats = Array[ExtResource("2_lqvnh")]([ExtResource("3_ikhqr")])
 overlay = Color(0.91764706, 0.38431373, 0.38431373, 1)
 isUpgrade = true

@@ -13,6 +13,6 @@ script = ExtResource("1_ra8ja")
 cooldown = 4.5
 icon = ExtResource("1_8wlsc")
 name = "Torn Page"
-Desc = "Great, now you only need the other 93 pages! 1/93 found, good work! "
+Desc = "1/93 found, good work, keep going! "
 stats = Array[ExtResource("2_83u3q")]([ExtResource("4_g20tk"), ExtResource("5_hdukj"), ExtResource("4_g20tk"), ExtResource("6_st417"), ExtResource("7_inb37")])
 metadata/_custom_type_script = "uid://bgfl1jrent3ce"

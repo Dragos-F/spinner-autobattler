@@ -9,7 +9,7 @@
 script = ExtResource("1_s1dbf")
 icon = ExtResource("1_fhadh")
 name = "Fix Upgrade"
-Desc = "Adds one FIX Slice to your chosen wheel!"
+Desc = "Drop on an item to add one FIX Slice to your chosen wheel!"
 stats = Array[ExtResource("2_ro11f")]([ExtResource("3_ro11f")])
 overlay = Color(0.41960785, 0.7882353, 0.42352942, 1)
 isUpgrade = true
