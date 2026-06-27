@@ -10,7 +10,7 @@
 
 [resource]
 script = ExtResource("1_crte3")
-cooldown = 3.7
+cooldown = 2.0
 icon = ExtResource("1_227n0")
 name = "Janitor's Mop"
 Desc = "Sturdy, reliable, and still covered in spilt milk."
