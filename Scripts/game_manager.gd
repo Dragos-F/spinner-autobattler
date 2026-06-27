@@ -94,7 +94,7 @@ func LoadEnemy(enemy:Enemy):
 	PrimaryEnemySpinner.modulate = Color.from_hsv(0,0,1)
 	EnemyDisplay.modulate = Color.from_hsv(0,0,1)
 	
-var allowDebug = true
+var allowDebug = false
 func _input(event: InputEvent) -> void:
 	if allowDebug:
 		if event is InputEventKey and event.pressed and !event.is_echo():

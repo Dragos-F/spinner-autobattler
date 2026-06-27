@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://vh2wgiocoigr" path="res://VisualAssets/ItemFrame.png" id="19_t8ijv"]
 [ext_resource type="FontFile" uid="uid://bygmfxwejtu7l" path="res://VisualAssets/Fonts/Wowsers.ttf" id="20_rv6c1"]
 [ext_resource type="Texture2D" uid="uid://bmwlhaevh43xf" path="res://VisualAssets/ReturnButton1.png" id="23_jkhus"]
-[ext_resource type="Texture2D" uid="uid://tygf6wjfygox" path="res://VisualAssets/StartMenu/ItemBinNew.png" id="23_usjqs"]
+[ext_resource type="Texture2D" uid="uid://u2kkpn7emvrs" path="res://VisualAssets/StartMenu/ItemBinNew2.png" id="24_20cv7"]
 [ext_resource type="Texture2D" uid="uid://i8mg0hn4u744" path="res://VisualAssets/ReturnButton2.png" id="24_nd2ry"]
 [ext_resource type="Script" uid="uid://dlvc8egwsqo7e" path="res://Scripts/buttons.gd" id="25_20cv7"]
 [ext_resource type="Texture2D" uid="uid://doaelyqufhkyx" path="res://VisualAssets/StartMenu/SoundUnmuted1.png" id="25_xot12"]
@@ -64,7 +64,7 @@ texture = ExtResource("19_t8ijv")
 texture = ExtResource("19_t8ijv")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uuu6x"]
-texture = ExtResource("23_usjqs")
+texture = ExtResource("24_20cv7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jkhus"]
 texture = ExtResource("23_jkhus")
@@ -1287,16 +1287,22 @@ z_as_relative = true
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="CombatManager" method="_on_heal_skip_pressed"]
 [connection signal="pressed" from="LootSystem/HBoxContainer/VBoxContainer/V Box Container/Heal&Skip/Button" to="LootSystem" method="_on_skip_loot_pressed"]
 [connection signal="pressed" from="GenerateLoot" to="LootSystem" method="spawn_options"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@856463/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@856463/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@856463/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@856463/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@856464/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@856464/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@856464/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@856464/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@856465/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@856465/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@856465/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@856465/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@856466/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@856466/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@856466/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@856466/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@856467/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@856467/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@856467/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@856467/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@979443/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979443/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@979443/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979443/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@979444/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979444/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@979444/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979444/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@979445/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979445/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@979445/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979445/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@979446/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979446/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@979446/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979446/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@979447/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979447/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@979447/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979447/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@979448/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979448/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@979448/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979448/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@979449/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979449/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@979449/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979449/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="ItemTooltip/StatWheel/Wheel/@Node2D@979450/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979450/TemplatePolygon2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ItemTooltip/StatWheel/Wheel/@Node2D@979450/TemplatePolygon2D/Area2D" to="ItemTooltip/StatWheel/Wheel/@Node2D@979450/TemplatePolygon2D" method="_on_area_2d_mouse_exited"]
 
 [editable path="EnemyWheelBundle"]
 [editable path="PlayerWheels/PlayerWheel1"]
