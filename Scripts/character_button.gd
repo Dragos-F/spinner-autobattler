@@ -26,6 +26,7 @@ item:WheelItem,)
 var once:bool = true
 @export var own_button:TextureButton
 @export var bitmapImage:BitMap
+@export var autopick:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,6 +34,8 @@ func _ready() -> void:
 	#CharFront = get_child(0).get_child(0).texture
 	#CharBack = get_child(0).get_child(0).texture
 	own_button.set_click_mask(bitmapImage)
+	if autopick == true:
+		_on_pressed()
 	
 
 
