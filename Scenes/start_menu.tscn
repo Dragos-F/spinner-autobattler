@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://dnpodbg4ndw7j" path="res://VisualAssets/StartMenu/CRTtoggle1.png" id="30_uge4m"]
 [ext_resource type="Texture2D" uid="uid://cuyha3v0yoafa" path="res://VisualAssets/StartMenu/CRTtoggle3.png" id="31_sjrra"]
 [ext_resource type="Texture2D" uid="uid://ctk2enapdtga7" path="res://VisualAssets/StartMenu/CRTtoggle2.png" id="32_58rry"]
+[ext_resource type="Texture2D" uid="uid://t1tqktcbbj1i" path="res://VisualAssets/Backgrounds/CoverFullBack.png" id="40_sjrra"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hk511"]
 animations = [{
@@ -173,6 +174,9 @@ texture = ExtResource("16_rl2bw")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7l3x2"]
 texture = ExtResource("17_l146v")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wlef6"]
+texture = ExtResource("40_sjrra")
+
 [node name="StartMenu" type="Node" unique_id=830357134 node_paths=PackedStringArray("crt_bars", "bonusfeatureswindow", "optionsmenuwindow")]
 script = ExtResource("1_slhe1")
 crt_bars = NodePath("TvcrtEffect")
@@ -236,6 +240,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_jfkjl")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_rl2bw")
 
 [node name="OptionsScreen" type="Control" parent="." unique_id=440950212]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -434,14 +439,13 @@ horizontal_alignment = 1
 texture = ExtResource("3_626he")
 
 [node name="BonusFeaturesScreen" type="Control" parent="." unique_id=1153684609]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="BonusFeaturesScreen" unique_id=1272443348]
+[node name="Bonus Features Base" type="PanelContainer" parent="BonusFeaturesScreen" unique_id=1272443348]
 layout_mode = 0
 offset_left = -596.0
 offset_top = -431.0
@@ -450,11 +454,10 @@ offset_bottom = 296.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_u1ruc")
 
-[node name="Control" type="Control" parent="BonusFeaturesScreen/PanelContainer" unique_id=720245635]
+[node name="Control" type="Control" parent="BonusFeaturesScreen/Bonus Features Base" unique_id=720245635]
 layout_mode = 2
 
-[node name="ButtonBackToMenu" type="Button" parent="BonusFeaturesScreen/PanelContainer/Control" unique_id=1217092859]
-z_index = 3
+[node name="ButtonBackToMenu" type="Button" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=1217092859]
 layout_mode = 0
 offset_left = 656.0
 offset_top = 328.0
@@ -466,7 +469,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_7c4jf")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bbfqj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_7l3x2")
 
-[node name="Label" type="Label" parent="BonusFeaturesScreen/PanelContainer/Control" unique_id=1245726448]
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=1245726448]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 708.0
@@ -480,7 +483,7 @@ theme_override_fonts/font = ExtResource("19_owajr")
 theme_override_font_sizes/font_size = 60
 text = "Bonus Features"
 
-[node name="Items" type="Control" parent="BonusFeaturesScreen/PanelContainer/Control" unique_id=1305093147]
+[node name="Items" type="Control" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=1305093147]
 anchors_preset = 0
 offset_left = -5.0
 offset_top = 5.0
@@ -488,8 +491,7 @@ offset_right = 35.0
 offset_bottom = 45.0
 scale = Vector2(0.9, 0.9)
 
-[node name="Label" type="Label" parent="BonusFeaturesScreen/PanelContainer/Control/Items" unique_id=1467312948]
-z_index = 1
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Bonus Features Base/Control/Items" unique_id=1467312948]
 layout_mode = 0
 offset_left = 353.3333
 offset_top = 338.88892
@@ -503,7 +505,7 @@ theme_override_fonts/font = ExtResource("16_1u5ka")
 theme_override_font_sizes/font_size = 46
 text = "Items"
 
-[node name="TextureButton" type="TextureButton" parent="BonusFeaturesScreen/PanelContainer/Control/Items" unique_id=319920182]
+[node name="TextureButton" type="TextureButton" parent="BonusFeaturesScreen/Bonus Features Base/Control/Items" unique_id=319920182]
 layout_mode = 0
 offset_left = 313.0
 offset_top = 72.0
@@ -515,7 +517,7 @@ texture_normal = ExtResource("23_116fv")
 texture_pressed = ExtResource("23_116fv")
 texture_hover = ExtResource("24_ptes2")
 
-[node name="Items3" type="Control" parent="BonusFeaturesScreen/PanelContainer/Control" unique_id=980656178]
+[node name="Items3" type="Control" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=980656178]
 anchors_preset = 0
 offset_left = 195.0
 offset_top = 315.00003
@@ -523,7 +525,7 @@ offset_right = 235.0
 offset_bottom = 355.00003
 scale = Vector2(0.9, 0.9)
 
-[node name="Label" type="Label" parent="BonusFeaturesScreen/PanelContainer/Control/Items3" unique_id=471867253]
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Bonus Features Base/Control/Items3" unique_id=471867253]
 layout_mode = 0
 offset_left = 315.55557
 offset_top = 353.33337
@@ -537,7 +539,7 @@ theme_override_fonts/font = ExtResource("16_1u5ka")
 theme_override_font_sizes/font_size = 46
 text = "Credits"
 
-[node name="TextureButton" type="TextureButton" parent="BonusFeaturesScreen/PanelContainer/Control/Items3" unique_id=1825586214]
+[node name="TextureButton" type="TextureButton" parent="BonusFeaturesScreen/Bonus Features Base/Control/Items3" unique_id=1825586214]
 layout_mode = 0
 offset_left = 308.8889
 offset_top = 78.888885
@@ -549,7 +551,7 @@ texture_normal = ExtResource("25_ppo5q")
 texture_pressed = ExtResource("25_ppo5q")
 texture_hover = ExtResource("26_0yyjb")
 
-[node name="Items2" type="Control" parent="BonusFeaturesScreen/PanelContainer/Control" unique_id=818728790]
+[node name="Items2" type="Control" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=818728790]
 anchors_preset = 0
 offset_left = 242.0
 offset_top = 26.0
@@ -557,7 +559,7 @@ offset_right = 282.0
 offset_bottom = 66.0
 scale = Vector2(0.9, 0.9)
 
-[node name="Label" type="Label" parent="BonusFeaturesScreen/PanelContainer/Control/Items2" unique_id=1139779797]
+[node name="Label" type="Label" parent="BonusFeaturesScreen/Bonus Features Base/Control/Items2" unique_id=1139779797]
 layout_mode = 0
 offset_left = 466.99997
 offset_top = 325.0
@@ -572,7 +574,7 @@ theme_override_fonts/font = ExtResource("16_1u5ka")
 theme_override_font_sizes/font_size = 46
 text = "Studio Tour"
 
-[node name="TextureButton" type="TextureButton" parent="BonusFeaturesScreen/PanelContainer/Control/Items2" unique_id=44443232]
+[node name="TextureButton" type="TextureButton" parent="BonusFeaturesScreen/Bonus Features Base/Control/Items2" unique_id=44443232]
 layout_mode = 0
 offset_left = 498.0
 offset_top = 82.0
@@ -584,19 +586,31 @@ texture_normal = ExtResource("27_4ixqo")
 texture_pressed = ExtResource("27_4ixqo")
 texture_hover = ExtResource("28_g8pjx")
 
-[node name="TextureRect" type="TextureRect" parent="BonusFeaturesScreen/PanelContainer/Control" unique_id=2030835047]
+[node name="TextureRect" type="TextureRect" parent="BonusFeaturesScreen/Bonus Features Base/Control" unique_id=2030835047]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="BonusFeaturesScreen/PanelContainer" unique_id=248510084]
+[node name="TextureRect" type="TextureRect" parent="BonusFeaturesScreen/Bonus Features Base" unique_id=248510084]
 layout_mode = 2
 
 [node name="TvBorder2" type="Sprite2D" parent="BonusFeaturesScreen" unique_id=1420466326]
 texture = ExtResource("3_626he")
 
+[node name="Items" type="PanelContainer" parent="BonusFeaturesScreen" unique_id=1448453376]
+visible = false
+layout_mode = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_wlef6")
+
+[node name="Control" type="Control" parent="BonusFeaturesScreen/Items" unique_id=681425173]
+layout_mode = 2
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="BonusFeature" to="." method="_on_bonusbutton_pressed"]
 [connection signal="pressed" from="OptionsScreen/PanelContainer/Control/ButtonBackToMenu" to="." method="_on_backtomenu_pressed"]
-[connection signal="pressed" from="BonusFeaturesScreen/PanelContainer/Control/ButtonBackToMenu" to="." method="_on_backtomenu_pressed"]
+[connection signal="pressed" from="BonusFeaturesScreen/Bonus Features Base/Control/ButtonBackToMenu" to="." method="_on_backtomenu_pressed"]
