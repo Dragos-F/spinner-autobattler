@@ -16,11 +16,8 @@ signal sliceselected(slice:Slice,source:String)
 signal spinInterruptComplete()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	wheel = get_child(0)
-	if wheel.item == null:
-		return
-	ResetTime = wheel.item.cooldown # currently set by the equipped item
+	 # currently set by the equipped item
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -40,6 +37,8 @@ func random_spin():
 	#if !isSpinning:
 	#var colourtween = get_tree().create_tween()
 	#colourtween.tween_property(self, "modulate", Color.WHITE, .5)
+	if ResetTime != wheel.item.cooldown:
+		ResetTime = wheel.item.cooldown
 	isSpinning = true
 	var testRand = randf()
 	print("RANDOM SPIN!!!!")

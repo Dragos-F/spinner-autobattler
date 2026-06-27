@@ -270,7 +270,7 @@ offset_bottom = 152.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_20b7b")
 theme_override_font_sizes/font_size = 48
-text = "Renowned Olympic upside down Darts champion. Pete joins this competition already armed with his trusted darts."
+text = "Pick a Contestant!"
 autowrap_mode = 2
 
 [node name="ContestantFront" type="TextureRect" parent="UIParent/ContestantStatDisplay" unique_id=923369979]
