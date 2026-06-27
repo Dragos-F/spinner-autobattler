@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://o5fiwkdnp8f4"]
 
 [ext_resource type="Script" uid="uid://c2n64pbptlcpn" path="res://Scripts/end_game.gd" id="1_sjse8"]
+[ext_resource type="AudioStream" uid="uid://d0gamb2jy0jvj" path="res://Sound/The_60s_Gogo_Show_source_815319/The 60s Gogo Show.wav" id="2_8aegd"]
 [ext_resource type="FontFile" uid="uid://pjw6d5hyiwtb" path="res://VisualAssets/Fonts/Super Tasty.ttf" id="2_weimh"]
 [ext_resource type="Shader" uid="uid://clnufak16mqyj" path="res://VisualAssets/CRTTest3.gdshader" id="3_5q2h6"]
 
@@ -30,6 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sjse8")
 score = NodePath("PanelContainer/Control/How2Play3")
+end_track = ExtResource("2_8aegd")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=122278706]
 layout_mode = 1

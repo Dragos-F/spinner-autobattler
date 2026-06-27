@@ -45,6 +45,11 @@ func _on_mouse_entered() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("MouseLeft") and !event.is_echo():
+		if type == Type.Bin:
+			old_anchor = null
+			equipped_item = null
+			once = true
+			
 		if hovering:
 			if manager.held_object!=null:
 				if manager.held_object.item.isUpgrade && equipped_item != null && type == Type.Inv:
@@ -54,10 +59,12 @@ func _input(event: InputEvent) -> void:
 					manager.held_object.anchor_pos.equipped_item = null
 					manager.loot_sys.check_loot_taken()
 				if type == Type.Bin && hovering:
-					#manager.holding = false
+					manager.holding = false
 					print(hovering)
 					print ("deleting item")
 					manager.held_object.queue_free()
+					manager.held_object.anchor_pos.equipped_item = null
+					manager.loot_sys.check_loot_taken()
 					equipped_item = null
 			reset_size_preview(self)
 			manager.update_wheels()

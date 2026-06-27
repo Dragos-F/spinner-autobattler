@@ -29,6 +29,10 @@ func mute():
 	fx.volume_db = -99
 	
 func unmute():
-	music.volume_db = 0
+	music.volume_db = -20
 	clacks.volume_db = -15
 	fx.volume_db = 0
+
+
+func _on_music_finished() -> void:
+	music.play()

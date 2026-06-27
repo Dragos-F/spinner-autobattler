@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ff1k13c1i740" path="res://Scripts/audio_brain.gd" id="1_ugx2v"]
 [ext_resource type="AudioStream" uid="uid://c6te20moe7fh8" path="res://Sound/SingularRouletteClack2.wav" id="2_vo8dr"]
-[ext_resource type="AudioStream" uid="uid://bt6t7g6r0sklh" path="res://Sound/music/music_quiz_show_tension_bed_build_to_end_long_by_zapsplat.mp3" id="2_ytej5"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fwb1g"]
 random_pitch = 1.122462
@@ -17,7 +16,7 @@ clacks = NodePath("Clacks")
 fx = NodePath("FX")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=74993765]
-stream = ExtResource("2_ytej5")
+volume_db = -20.0
 
 [node name="Clacks" type="AudioStreamPlayer2D" parent="." unique_id=939937341]
 stream = SubResource("AudioStreamRandomizer_fwb1g")
@@ -25,3 +24,5 @@ volume_db = -15.0
 max_polyphony = 12
 
 [node name="FX" type="AudioStreamPlayer2D" parent="." unique_id=1904028481]
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

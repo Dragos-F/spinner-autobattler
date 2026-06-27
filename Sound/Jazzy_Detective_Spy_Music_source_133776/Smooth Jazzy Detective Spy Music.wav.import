@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c3wafbcy8fkm4"
+path="res://.godot/imported/Smooth Jazzy Detective Spy Music.wav-1dbc87662c6305dfc8710f6bdb6d9f10.sample"
+
+[deps]
+
+source_file="res://Sound/Jazzy_Detective_Spy_Music_source_133776/Smooth Jazzy Detective Spy Music.wav"
+dest_files=["res://.godot/imported/Smooth Jazzy Detective Spy Music.wav-1dbc87662c6305dfc8710f6bdb6d9f10.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
